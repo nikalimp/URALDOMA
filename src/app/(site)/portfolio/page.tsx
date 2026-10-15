@@ -28,18 +28,18 @@ export default function Portfolio() {
   return (
     <>
       <JsonLd data={graph(itemList("Портфолио URALDOMA", cases.map((c) => ({ name: c.title, path: `/portfolio/${c.slug}/` }))), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Портфолио", path: "/portfolio/" }]))} />
-      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Портфолио" }]} h1="Портфолио: ремонты квартир и домов" answer={answer} />
+      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Портфолио" }]} h1={<>Портфолио: ремонты <em>квартир и домов</em></>} answer={answer} photo="obraztsovo/13" />
       {groups.map((g, i) => {
         const list = cases.filter((c) => c.kind === g.kind);
         if (!list.length) return null;
         return (
-          <Section key={g.kind} className={i === 0 ? "pt-0 md:pt-0" : "border-t border-border"}>
+          <Section key={g.kind} className={i === 0 ? "pt-0 md:pt-0" : ""}>
             <Container>
-              <SectionHead n={String(i + 1).padStart(2, "0")} label={g.label} title={g.label} />
-              <div className="grid grid-cols-1 gap-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-                {list.map((c) => (
-                  <div key={c.slug}>
-                    <CaseCard c={c} />
+              <SectionHead n={String(i + 1).padStart(2, "0")} label={g.label} title={g.label} count={list.length} />
+              <div className="grid grid-cols-1 gap-x-5 gap-y-14 sm:grid-cols-2 md:grid-cols-3">
+                {list.map((c, j) => (
+                  <div key={c.slug} className={`reveal ${j % 3 === 1 ? "md:mt-24" : ""}`}>
+                    <CaseCard c={c} index={`(${String(j + 1).padStart(2, "0")})`} />
                     <p className="mt-3 text-[15px] text-earth">{c.summary}</p>
                   </div>
                 ))}
@@ -50,7 +50,7 @@ export default function Portfolio() {
       })}
       <Section className="bg-secondary">
         <Container>
-          <SectionHead n="04" label="ЖК и посёлки" title="Ремонт в домах, которые мы знаем" />
+          <SectionHead n="04" label="ЖК и посёлки" title={<>Ремонт в домах, <em>которые мы знаем</em></>} />
           <ul className="border-t border-foreground">
             {complexes.map((c) => (
               <li key={c.slug}><Link href={`/complexes/${c.slug}/`} className="flex justify-between border-b border-foreground/15 py-5 text-[20px] hover:text-brand">{c.h1}<span aria-hidden="true" className="text-brand">→</span></Link></li>

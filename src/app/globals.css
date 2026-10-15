@@ -1,60 +1,59 @@
 @import "tailwindcss";
 
-/* Токены бренда URALDOMA — specs/03-design.md §3 и §3.1 (швейцарская типографика).
-   Направление A «Тёплый дом»: кремовый фон, тёмный текст, коричневый бренд, один акцент — терракота. Радиус 0. */
+/* URALDOMA v5 «Журнал» — specs/03-design.md §7.
+   Светлая и тёмная темы на одних токенах: класс .dark на <html> ставит скрипт в layout.tsx (по умолчанию — как в системе).
+   Панели (футер, заявка, чертёж, итог калькулятора) — токены --panel-*: светлые в светлой теме, тёмные в тёмной.
+   Цвет даёт фотография; интерфейс — монохром, волосяные линии, один тёплый акцент (бронза). */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Токены URALDOMA v3 — светлая классика по референсам PAMM / Solid Stone / Broadway Malyan (03-design §5):
-   монохром, нейтральный гротеск, волосяные линии, фотография даёт цвет. Тёмная тема — класс .dark на <html>,
-   по умолчанию — как в системе (скрипт в layout.tsx). Один тёплый акцент — бронза, только для номеров и стрелок. */
 :root {
   --radius: 0rem;
-  --background: #f6f6f3;
-  --foreground: #121212;
+  --background: #f5f4f0;
+  --foreground: #111110;
   --card: #ffffff;
-  --primary: #121212;
+  --primary: #111110;
   --primary-foreground: #ffffff;
-  --secondary: #ecece8; /* светло-серые панели */
-  --secondary-foreground: #121212;
-  --muted: #ecece8;
-  --muted-foreground: #6b6b68; /* 5.1:1 на фоне */
-  --earth: #3a3a38; /* вторичный текст */
-  --border: rgb(18 18 18 / 12%);
-  --ring: #121212;
-  --brand: #8a5a3c; /* бронза: номера, стрелки — 5.4:1 */
-  /* Инверсные блоки (футер, чертёж, CTA): тёмные в обеих темах */
-  --inverse: #121212;
-  --inverse-foreground: #f4f4f1;
-  --inverse-muted: #a7a7a2;
-  --inverse-line: rgb(255 255 255 / 16%);
-  --guide: rgb(18 18 18 / 6%); /* направляющие сетки */
+  --secondary: #ebeae5;
+  --secondary-foreground: #111110;
+  --muted: #ebeae5;
+  --muted-foreground: #66665f; /* 5.3:1 на фоне */
+  --earth: #3a3a37;
+  --border: rgb(17 17 16 / 12%);
+  --ring: #111110;
+  --brand: #8a5a3c; /* бронза: номера, стрелки, акценты — 5.4:1 */
+  --panel: #e8e7e1;
+  --panel-foreground: #111110;
+  --panel-muted: #5c5c56;
+  --panel-line: rgb(17 17 16 / 14%);
+  --guide: rgb(17 17 16 / 6%);
   color-scheme: light;
 }
 
 .dark {
-  --background: #0f0f0e;
-  --foreground: #efefeb;
-  --card: #171716;
-  --primary: #efefeb;
-  --primary-foreground: #0f0f0e;
+  --background: #0e0e0d;
+  --foreground: #f0efeb;
+  --card: #161615;
+  --primary: #f0efeb;
+  --primary-foreground: #0e0e0d;
   --secondary: #1a1a19;
-  --secondary-foreground: #efefeb;
+  --secondary-foreground: #f0efeb;
   --muted: #1a1a19;
-  --muted-foreground: #9b9b96;
-  --earth: #c9c9c4;
-  --border: rgb(255 255 255 / 12%);
-  --ring: #efefeb;
-  --brand: #d49e7a;
-  --inverse: #1c1c1b;
-  --inverse-foreground: #f4f4f1;
-  --inverse-muted: #a7a7a2;
-  --inverse-line: rgb(255 255 255 / 14%);
+  --muted-foreground: #9d9d97;
+  --earth: #cfcfc9;
+  --border: rgb(255 255 255 / 11%);
+  --ring: #f0efeb;
+  --brand: #d6a07c;
+  --panel: #181817;
+  --panel-foreground: #f0efeb;
+  --panel-muted: #a3a39d;
+  --panel-line: rgb(255 255 255 / 12%);
   --guide: rgb(255 255 255 / 6%);
   color-scheme: dark;
 }
 
 @theme inline {
   --font-sans: "Onest Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display Variable", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius-sm: var(--radius);
   --radius-md: var(--radius);
@@ -73,34 +72,88 @@
   --color-ring: var(--ring);
   --color-brand: var(--brand);
   --color-earth: var(--earth);
-  --color-inverse: var(--inverse);
-  --color-inverse-foreground: var(--inverse-foreground);
-  --color-inverse-muted: var(--inverse-muted);
-  --color-inverse-line: var(--inverse-line);
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-panel-muted: var(--panel-muted);
+  --color-panel-line: var(--panel-line);
 }
 
 @layer base {
   * { @apply border-border outline-ring/60; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; transition: background-color .2s, color .2s; }
+  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
   h1, h2, h3 { font-weight: 400; }
+  em { font-style: italic; }
   ::selection { background: color-mix(in oklch, var(--brand) 25%, transparent); }
   :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  img { color: transparent; } /* без «битой» иконки, пока фото грузится */
 }
 
-/* Подпись-метка в моно: «01 — Услуги», подписи к фото, значения в таблицах */
-/* Микроподпись: мелкий гротеск, без капса (как метаданные в референсах). Имя класса оставлено для совместимости */
-.label-mono { font-size: 13px; line-height: 1.35; letter-spacing: 0.005em; }
-/* Технические подписи на чертеже — моно */
-/* Дисплейный заголовок капсом во всю ширину (Modernism / Architecture) */
+/* Плавная смена темы без скачка: класс ставит переключатель на 400 мс */
+html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, fill .35s ease, stroke .35s ease !important;
+}
+/* Смена темы «кругом» от кнопки (View Transitions API, где поддерживается) */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: theme-reveal .6s cubic-bezier(.4, 0, .2, 1); }
+@keyframes theme-reveal { from { clip-path: circle(0 at var(--tx, 100%) var(--ty, 0)); } to { clip-path: circle(150vmax at var(--tx, 100%) var(--ty, 0)); } }
+
+/* —— Типографика —— */
+/* Курсив с засечками — акцент в заголовках, как в глянцевых журналах */
+.serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; }
 .caps-display { text-transform: uppercase; font-weight: 400; }
+.caps-display em { text-transform: none; }
 /* Капс-подпись: [ Метка ], (01), метаданные в углах экрана */
 .caps { font-size: 12px; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; }
-.label-tech { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
-/* Счётчик-индекс у заголовка: «Портфолио¹⁰» */
-.sup-count { font-size: 0.32em; vertical-align: super; margin-left: 0.15em; letter-spacing: 0; color: var(--muted-foreground); font-weight: 400; }
+/* Микроподпись: мелкий гротеск без капса */
+.label-mono { font-size: 13px; line-height: 1.35; letter-spacing: 0.005em; }
+/* Технические подписи — моно: чертёж, подписи к фото, индексы */
+.label-tech { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; }
+/* Счётчик у заголовка: «Портфолио¹⁰» */
+.sup-count { font-family: var(--font-mono); font-size: 0.22em; vertical-align: super; margin-left: 0.3em; letter-spacing: 0; color: var(--muted-foreground); font-weight: 400; font-style: normal; }
 /* Пилюля-метка */
 .tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+/* Заглавная буквица для вводного абзаца */
+.dropcap::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: 3.2em; line-height: 0.82; padding: 0.06em 0.12em 0 0; color: var(--brand); }
+
+/* —— Элементы в духе 21st.dev —— */
+/* Бегущая строка (Marquee): вторая копия — aria-hidden; при reduced motion — статичная строка */
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee var(--marquee-speed, 40s) linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Бегущий луч по рамке (Border Beam) */
+@property --beam { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.beam { position: relative; isolation: isolate; }
+.beam::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; padding: 1px; border-radius: inherit; pointer-events: none;
+  background: conic-gradient(from var(--beam), transparent 0 70%, color-mix(in oklch, var(--brand) 60%, transparent) 82%, var(--brand) 90%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: beam 7s linear infinite;
+}
+@keyframes beam { to { --beam: 360deg; } }
+
+/* Подсветка под курсором (Spotlight card): координаты --mx/--my ставит <Spotlight> */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklch, var(--brand) 14%, transparent), transparent 60%);
+}
+.spotlight:hover::after { opacity: 1; }
+
+/* Точечная сетка (Dot pattern) */
+.dots { background-image: radial-gradient(color-mix(in oklch, currentColor 22%, transparent) 1px, transparent 1.2px); background-size: 20px 20px; }
+
+/* Горизонтальная лента с прокруткой по кадрам (scroll-snap gallery) */
+.rail { display: grid; grid-auto-flow: column; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: 20px; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; }
+@media (min-width: 768px) { .rail { scroll-padding-inline: 40px; } }
+
+/* Блик по стеклянной карточке */
+.glass { background: color-mix(in oklch, var(--background) 78%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); }
 
 /* Типографика статей */
 .prose-site { font-size: 18px; line-height: 1.7; max-width: 44rem; }
@@ -116,9 +169,25 @@
 .prose-site th, .prose-site td { border-bottom: 1px solid var(--border); padding: 0.6em 0.8em 0.6em 0; text-align: left; vertical-align: top; }
 .prose-site th { font-weight: 600; }
 .prose-site blockquote { border-left: 2px solid var(--brand); padding-left: 1em; color: var(--muted-foreground); }
+.prose-site > p:first-of-type::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: 3.4em; line-height: 0.8; padding: 0.08em 0.12em 0 0; color: var(--brand); }
 
+/* —— Движение: только если пользователь не просил его убрать —— */
 @media (prefers-reduced-motion: no-preference) {
   details[open] > :not(summary) { animation: fade-in .25s ease-out; }
-  .reveal { animation: fade-in .6s ease-out both; }
+  .kenburns { animation: kenburns 14s cubic-bezier(.2, .6, .2, 1) both; }
+  /* Появление при прокрутке и параллакс фото — на scroll-driven animations; без поддержки всё просто видно */
+  @supports (animation-timeline: view()) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+    .parallax { animation: parallax linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .marquee-track > [aria-hidden="true"] { display: none; }
+  .beam::before { animation: none; }
+  ::view-transition-new(root) { animation: none; }
 }
 @keyframes fade-in { from { opacity: 0; translate: 0 -4px; } to { opacity: 1; translate: none; } }
+@keyframes reveal { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: none; } }
+@keyframes parallax { from { transform: translateY(-5%) scale(1.1); } to { transform: translateY(5%) scale(1.1); } }
+@keyframes kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }

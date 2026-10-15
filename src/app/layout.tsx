@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/onest";
 import "@fontsource-variable/jetbrains-mono";
+import "@fontsource-variable/playfair-display/wght-italic.css";
 import "./globals.css";
 import { site } from "@/content/site";
 import { Footer } from "@/components/footer";
@@ -21,15 +22,12 @@ export const metadata: Metadata = {
   robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f6f3" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0f0e" },
-  ],
-};
+// theme-color — один тег: его обновляют скрипт темы и переключатель, чтобы панель браузера меняла цвет вместе с сайтом
+export const viewport: Viewport = { colorScheme: "light dark" };
+const themeColors = { light: "#f5f4f0", dark: "#0e0e0d" };
 
 // Тема до первой отрисовки: сохранённый выбор или системная; при «как в системе» следим за сменой темы ОС
-const themeScript = `(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function s(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}d.classList.toggle('dark',t?t==='dark':m.matches)}s();m.addEventListener&&m.addEventListener('change',s)})()`;
+const themeScript = `(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function s(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}var k=t?t==='dark':m.matches;d.classList.toggle('dark',k);var c=document.querySelector('meta[name="theme-color"]');if(c)c.setAttribute('content',k?'${themeColors.dark}':'${themeColors.light}')}s();m.addEventListener&&m.addEventListener('change',s)})()`;
 
 const metrikaScript = (id: number) =>
   `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=${id}','ym');ym(${id},'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});`;
@@ -42,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={site.lang} suppressHydrationWarning>
       <head>
+        <meta name="theme-color" content={themeColors.light} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {metrika && <script dangerouslySetInnerHTML={{ __html: metrikaScript(site.metrikaId) + goalsScript }} />}
         <JsonLd data={graph(websiteSchema, orgSchema, personSchema)} />

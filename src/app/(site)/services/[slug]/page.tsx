@@ -12,6 +12,7 @@ import { JsonLd } from "@/components/json-ld";
 import { breadcrumbs, faqSchema, graph, serviceSchema } from "@/lib/schema";
 import { getPosts } from "@/lib/posts";
 import { pageMeta } from "@/lib/meta";
+import { pic } from "@/content/photos";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -21,7 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const s = serviceBySlug((await params).slug);
   if (!s) return {};
-  return pageMeta({ title: s.metaTitle, description: s.metaDescription, path: `/services/${s.slug}/`, image: s.cover });
+  return pageMeta({ title: s.metaTitle, description: s.metaDescription, path: `/services/${s.slug}/`, image: `${pic(s.cover).base}.webp` });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -37,21 +38,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <JsonLd data={graph(serviceSchema(s), faqSchema(s.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }, { name: s.title, path }]))} />
-      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }, { name: s.title }]} h1={s.h1} answer={s.answer} eyebrow={s.priceFrom}>
+      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }, { name: s.title }]} h1={s.h1} answer={s.answer} eyebrow={s.priceFrom} photo={s.cover}>
         <a href="#lead" className={`${linkArrow} mt-6`}>Бесплатный замер <span aria-hidden="true">→</span></a>
       </PageHead>
 
-      <Container>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={s.cover} alt={s.title} className="aspect-[16/9] w-full object-cover md:aspect-[21/9]" />
-      </Container>
-
-      <Section>
+      <Section className="pt-0 md:pt-0">
         <Container>
           <Grid>
             <div className="md:col-span-4">
               <Label n={num()}>Кому подходит</Label>
-              <H2>Когда это ваш вариант</H2>
+              <H2>Когда это <em>ваш вариант</em></H2>
             </div>
             <ul className="border-t border-foreground md:col-span-7 md:col-start-6">
               {s.forWhom.map((f) => <li key={f} className="border-b border-border py-5 text-[19px]">{f}</li>)}
@@ -62,13 +58,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section className="bg-secondary">
         <Container>
-          <SectionHead n={num()} label="Что входит" title="Что входит в работу" />
-          <div className="grid grid-cols-1 border-t border-l border-foreground/15 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHead n={num()} label="Что входит" title={<>Что входит <em>в работу</em></>} />
+          <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-12">
             {s.includes.map((it, i) => (
-              <div key={it.title} className="border-r border-b border-foreground/15 p-6 md:p-8">
-                <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[22px]">{it.title}</h3>
-                <p className="mt-3 text-[16px] text-earth">{it.text}</p>
+              <div key={it.title} className="reveal border-t border-foreground pt-5 pb-12 md:col-span-4">
+                <span className="font-serif text-[44px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-5 text-[24px] tracking-[-0.015em]">{it.title}</h3>
+                <p className="mt-3 max-w-[40ch] text-[16px] text-earth">{it.text}</p>
               </div>
             ))}
           </div>
@@ -77,7 +73,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section>
         <Container>
-          <SectionHead n={num()} label="Стоимость" title="Сколько стоит" aside={`Срок: ${s.timeline}. Цена работ фиксируется в договоре после бесплатного замера.`} />
+          <SectionHead n={num()} label="Стоимость" title={<>Сколько <em>стоит</em></>} aside={`Срок: ${s.timeline}. Цена работ фиксируется в договоре после бесплатного замера.`} />
           {s.showTariffs ? (
             <TariffTable />
           ) : (
@@ -100,10 +96,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section className="border-t border-border">
         <Container>
-          <SectionHead n={num()} label="Как работаем" title="Как проходит работа" />
-          <ol className="grid grid-cols-1 border-t border-foreground md:grid-cols-4">
+          <SectionHead n={num()} label="Как работаем" title={<>Как проходит <em>работа</em></>} />
+          <ol className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {s.process.map((p, i) => (
-              <li key={p.title} className="border-b border-border py-6 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
+              <li key={p.title} className="border-t border-foreground pt-5 pb-10">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-3 text-[20px]">{p.title}</h3>
                 <p className="mt-2 text-[15px] text-earth">{p.text}</p>
@@ -115,9 +111,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section className="bg-card">
         <Container>
-          <SectionHead n={num()} label="Портфолио" title="Наши объекты" aside={<Link href="/portfolio/" className={linkArrow}>Все объекты <span aria-hidden="true">→</span></Link>} />
-          <div className="grid grid-cols-1 gap-6 gap-y-10 md:grid-cols-3">
-            {examples.map((c) => <CaseCard key={c.slug} c={c} />)}
+          <SectionHead n={num()} label="Портфолио" title={<>Наши <em>объекты</em></>} aside={<Link href="/portfolio/" className={linkArrow}>Все объекты <span aria-hidden="true">→</span></Link>} />
+          <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
+            {examples.map((c, i) => <CaseCard key={c.slug} c={c} index={`(0${i + 1})`} className={i === 1 ? "md:mt-16" : ""} />)}
           </div>
         </Container>
       </Section>
@@ -128,7 +124,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Grid>
               <div className="md:col-span-4">
                 <Label n={num()}>Вопросы</Label>
-                <H2>Частые вопросы</H2>
+                <H2>Частые <em>вопросы</em></H2>
               </div>
               <FaqList items={s.faq} className="md:col-span-7 md:col-start-6" />
             </Grid>

@@ -39,7 +39,7 @@ function MobileMenu() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
+    <header className="glass sticky top-0 z-40 border-b border-border">
       <div className="grid h-[64px] grid-cols-[auto_1fr_auto] items-center gap-x-5 px-5 md:h-[72px] md:grid-cols-12 md:px-10">
         <Link href="/" aria-label="URALDOMA — на главную" className="shrink-0"><Logo /></Link>
         <nav aria-label="Основное меню" className="hidden gap-6 text-[14px] lg:col-span-5 lg:col-start-4 lg:flex">

@@ -60,7 +60,8 @@ export const site = {
   },
 
   // Фоновое видео первого экрана: файл с текущего сайта (02-spec §7). Пока файла нет — показывается постер.
-  heroVideo: { src: "/video/hero.mp4", poster: "/images/hero-poster.jpg" },
+  // Видео с объекта для первого экрана ждём от клиента: пока src пустой, на первом экране — фото (hero.photo)
+  heroVideo: { src: "", poster: "/images/objects/garinsky/02-wide.webp" },
 
   metrikaId: 62022598,
   darkTheme: true, // переключатель в шапке и футере, по умолчанию — системная тема
