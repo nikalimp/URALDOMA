@@ -22,24 +22,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: s.metaTitle,
     description: s.metaDescription,
-    alternates: { canonical: `/uslugi/${s.slug}/` },
-    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `${site.url}/uslugi/${s.slug}/`, images: ["/og.png"] },
+    alternates: { canonical: `/services/${s.slug}/` },
+    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `${site.url}/services/${s.slug}/`, images: ["/og.png"] },
   };
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const s = serviceBySlug((await params).slug);
   if (!s) notFound();
-  const path = `/uslugi/${s.slug}/`;
+  const path = `/services/${s.slug}/`;
   const related = s.related.map(serviceBySlug).filter((x): x is NonNullable<typeof x> => Boolean(x));
 
   return (
     <>
-      <JsonLd data={graph(serviceSchema(s), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Услуги", path: "/uslugi/" }, { name: s.title, path }]), s.faq.length > 0 && faqSchema(s.faq))} />
+      <JsonLd data={graph(serviceSchema(s), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }, { name: s.title, path }]), s.faq.length > 0 && faqSchema(s.faq))} />
 
       <Section className="pt-12">
         <Container className="max-w-3xl">
-          <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Услуги", path: "/uslugi/" }, { name: s.title }]} />
+          <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }, { name: s.title }]} />
           <h1 className="text-3xl font-semibold leading-tight tracking-tight text-balance sm:text-4xl">{s.h1}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{s.answer}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">

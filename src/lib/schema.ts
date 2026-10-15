@@ -37,7 +37,7 @@ export const personSchema: Record<string, unknown> | null = site.person && {
   jobTitle: site.person.jobTitle,
   description: site.person.description,
   worksFor: { "@id": orgId },
-  url: `${site.url}/o-kompanii/`,
+  url: `${site.url}/about/`,
   ...(site.person.sameAs.length && { sameAs: site.person.sameAs }),
 };
 
@@ -63,7 +63,7 @@ export function serviceSchema(s: Service) {
     name: s.title,
     serviceType: s.h1,
     description: s.answer,
-    url: `${site.url}/uslugi/${s.slug}/`,
+    url: `${site.url}/services/${s.slug}/`,
     provider: { "@id": orgId },
     areaServed: site.areaServed,
     offers: s.prices.map((p) => ({
@@ -81,13 +81,13 @@ export function articleSchema(p: { slug: string; title: string; description: str
     "@type": "BlogPosting",
     headline: p.title,
     description: p.description,
-    url: `${site.url}/blog/${p.slug}/`,
+    url: `${site.url}/articles/${p.slug}/`,
     datePublished: p.date,
     dateModified: p.updated ?? p.date,
     inLanguage: "ru-RU",
     author: site.person ? { "@id": personId } : { "@id": orgId },
     publisher: { "@id": orgId },
-    mainEntityOfPage: `${site.url}/blog/${p.slug}/`,
+    mainEntityOfPage: `${site.url}/articles/${p.slug}/`,
   };
 }
 

@@ -13,10 +13,10 @@ export function Footer() {
           <p className="mt-2 text-muted-foreground">{site.tagline}</p>
         </div>
         <div>
-          <p className="mb-2 font-medium"><Link href="/uslugi/" className="hover:underline">Услуги</Link></p>
+          <p className="mb-2 font-medium"><Link href="/services/" className="hover:underline">Услуги</Link></p>
           <ul className="space-y-1.5 text-muted-foreground">
             {services.map((s) => (
-              <li key={s.slug}><Link href={`/uslugi/${s.slug}/`} className="hover:text-foreground">{s.title}</Link></li>
+              <li key={s.slug}><Link href={`/services/${s.slug}/`} className="hover:text-foreground">{s.title}</Link></li>
             ))}
           </ul>
         </div>
@@ -44,7 +44,7 @@ export function Footer() {
       </Container>
       <Container className="mt-10 flex flex-col gap-1 text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:justify-between">
         <span>© {new Date().getFullYear()} {site.legalName} · ИНН {site.legal.inn} · ОГРН {site.legal.ogrn}</span>
-        <Link href="/politika-konfidencialnosti/" className="hover:text-foreground">Политика обработки персональных данных</Link>
+        <Link href="/privacy-policy/" className="hover:text-foreground">Политика обработки персональных данных</Link>
         {site.metaNote && <span className="w-full">{site.metaNote}</span>}
       </Container>
     </footer>

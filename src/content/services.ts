@@ -1,4 +1,4 @@
-// Услуги: одна запись — одна страница /uslugi/<slug>/.
+// Услуги: одна запись — одна страница /services/<slug>/.
 // Заполняется по specs/02-spec.md, §4–5. Каждое поле — факт от клиента или TODO(клиент).
 
 export type Price = { name: string; value: string; note?: string; amount?: number }; // amount — число в рублях для Schema Offer
@@ -23,7 +23,7 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "primer-uslugi",
+    slug: "example-service",
     title: "TODO(клиент): Название услуги",
     h1: "TODO(клиент): H1 под главный запрос кластера",
     metaTitle: "TODO(клиент): title услуги",

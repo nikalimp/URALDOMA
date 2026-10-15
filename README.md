@@ -15,7 +15,7 @@
 | Компания, контакты, реквизиты, CTA, Метрика | `src/content/site.ts` |
 | Услуги | `src/content/services.ts` |
 | Главная, «О компании» | `src/content/home.ts` |
-| Статьи | `content/blog/<slug>.md` (образец — `_primer.md`) |
+| Статьи | `content/articles/<slug>.md` (образец — `_primer.md`) |
 | Цвета, радиус | `src/app/globals.css` |
 | Шрифт | `src/app/layout.tsx` (`@fontsource-variable/…`) |
 | OG-картинка | `public/og.png` (1200×630) |

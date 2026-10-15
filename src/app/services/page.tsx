@@ -11,7 +11,7 @@ import { breadcrumbs, graph } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "TODO(клиент): Услуги и цены",
   description: "TODO(клиент): описание списка услуг с ценами и городом, 120⁠–⁠160 символов.",
-  alternates: { canonical: "/uslugi/" },
+  alternates: { canonical: "/services/" },
 };
 
 export default function Services() {
@@ -19,8 +19,8 @@ export default function Services() {
     <>
       <JsonLd
         data={graph(
-          { "@type": "ItemList", name: `Услуги ${site.name}`, itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.title, url: `${site.url}/uslugi/${s.slug}/` })) },
-          breadcrumbs([{ name: "Главная", path: "/" }, { name: "Услуги", path: "/uslugi/" }]),
+          { "@type": "ItemList", name: `Услуги ${site.name}`, itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.title, url: `${site.url}/services/${s.slug}/` })) },
+          breadcrumbs([{ name: "Главная", path: "/" }, { name: "Услуги", path: "/services/" }]),
         )}
       />
       <Section className="pt-12">

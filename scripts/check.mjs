@@ -63,7 +63,7 @@ if (md) {
 
 // 3. Индексация
 const MIN_WORDS = 250; // минимум слов в <main> для каждой страницы из sitemap (стандарт §2 «Индексация»)
-const THIN_OK = ["/kontakty/"]; // служебные страницы, где объём не важен; добавлять сюда только с причиной в specs/02-spec.md, §9
+const THIN_OK = ["/contacts/"]; // служебные страницы, где объём не важен; добавлять сюда только с причиной в specs/02-spec.md, §9
 const sitemapXml = fs.readFileSync(path.join(OUT, "sitemap.xml"), "utf8");
 const entries = [...sitemapXml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(([, u]) => ({
   loc: (u.match(/<loc>([^<]+)<\/loc>/) || [])[1], lastmod: (u.match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1],

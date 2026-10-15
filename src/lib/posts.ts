@@ -2,10 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { typograf } from "./typograf.mjs";
 
-// Статьи: content/blog/<slug>.md с frontmatter title, description, date (YYYY-MM-DD), опционально updated.
+// Статьи: content/articles/<slug>.md с frontmatter title, description, date (YYYY-MM-DD), опционально updated.
 export type Post = { slug: string; title: string; description: string; date: string; updated?: string; body: string };
 
-const dir = path.join(process.cwd(), "content/blog");
+const dir = path.join(process.cwd(), "content/articles");
 
 function parse(file: string): Post {
   const raw = fs.readFileSync(path.join(dir, file), "utf8");

@@ -9,14 +9,14 @@ import { breadcrumbs, graph } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "TODO(клиент): Блог — статьи и ответы на вопросы",
   description: "TODO(клиент): о чём блог и кому он полезен, 120⁠–⁠160 символов.",
-  alternates: { canonical: "/blog/" },
+  alternates: { canonical: "/articles/" },
 };
 
 export default function Blog() {
   const posts = getPosts();
   return (
     <>
-      <JsonLd data={graph(breadcrumbs([{ name: "Главная", path: "/" }, { name: "Блог", path: "/blog/" }]))} />
+      <JsonLd data={graph(breadcrumbs([{ name: "Главная", path: "/" }, { name: "Блог", path: "/articles/" }]))} />
       <Section className="pt-12">
         <Container className="max-w-3xl">
           <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Блог" }]} />
@@ -24,7 +24,7 @@ export default function Blog() {
           <div className="mt-10 divide-y border-y">
             {posts.length === 0 && <p className="py-6 text-muted-foreground">Статьи скоро появятся.</p>}
             {posts.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}/`} className="block py-6 hover:opacity-80">
+              <Link key={p.slug} href={`/articles/${p.slug}/`} className="block py-6 hover:opacity-80">
                 <p className="text-sm text-muted-foreground"><time dateTime={p.date}>{formatDate(p.date)}</time></p>
                 <h2 className="mt-1 text-xl font-semibold">{p.title}</h2>
                 <p className="mt-2 text-muted-foreground">{p.description}</p>

@@ -9,7 +9,7 @@ import { breadcrumbs, graph, orgId } from "@/lib/schema";
 export const metadata: Metadata = {
   title: `Контакты — ${site.name}`,
   description: `Как связаться с ${site.name}: телефон, мессенджеры, адрес и часы работы.`,
-  alternates: { canonical: "/kontakty/" },
+  alternates: { canonical: "/contacts/" },
 };
 
 export default function Contacts() {
@@ -25,7 +25,7 @@ export default function Contacts() {
 
   return (
     <>
-      <JsonLd data={graph({ "@type": "ContactPage", about: { "@id": orgId } }, breadcrumbs([{ name: "Главная", path: "/" }, { name: "Контакты", path: "/kontakty/" }]))} />
+      <JsonLd data={graph({ "@type": "ContactPage", about: { "@id": orgId } }, breadcrumbs([{ name: "Главная", path: "/" }, { name: "Контакты", path: "/contacts/" }]))} />
       <Section className="pt-12">
         <Container className="max-w-3xl">
           <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Контакты" }]} />

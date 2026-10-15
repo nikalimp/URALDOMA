@@ -11,13 +11,13 @@ import { breadcrumbs, graph, orgId } from "@/lib/schema";
 export const metadata: Metadata = {
   title: about.metaTitle,
   description: about.metaDescription,
-  alternates: { canonical: "/o-kompanii/" },
+  alternates: { canonical: "/about/" },
 };
 
 export default function About() {
   return (
     <>
-      <JsonLd data={graph({ "@type": "AboutPage", mainEntity: { "@id": orgId } }, breadcrumbs([{ name: "Главная", path: "/" }, { name: "О компании", path: "/o-kompanii/" }]))} />
+      <JsonLd data={graph({ "@type": "AboutPage", mainEntity: { "@id": orgId } }, breadcrumbs([{ name: "Главная", path: "/" }, { name: "О компании", path: "/about/" }]))} />
       <Section className="pt-12">
         <Container className="max-w-3xl">
           <Crumbs items={[{ name: "Главная", path: "/" }, { name: "О компании" }]} />

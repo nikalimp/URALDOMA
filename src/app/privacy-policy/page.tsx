@@ -6,7 +6,7 @@ import { Crumbs } from "@/components/crumbs";
 export const metadata: Metadata = {
   title: "Политика обработки персональных данных",
   description: `Как ${site.name} обрабатывает и защищает персональные данные посетителей сайта.`,
-  alternates: { canonical: "/politika-konfidencialnosti/" },
+  alternates: { canonical: "/privacy-policy/" },
 };
 
 // Типовая политика по 152-ФЗ, собирается из реквизитов в src/content/site.ts.

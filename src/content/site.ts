@@ -71,8 +71,8 @@ export const site = {
 };
 
 export const nav = [
-  { href: "/uslugi/", label: "Услуги" },
-  { href: "/blog/", label: "Блог" },
-  { href: "/o-kompanii/", label: "О компании" },
-  { href: "/kontakty/", label: "Контакты" },
+  { href: "/services/", label: "Услуги" },
+  { href: "/articles/", label: "Блог" },
+  { href: "/about/", label: "О компании" },
+  { href: "/contacts/", label: "Контакты" },
 ];

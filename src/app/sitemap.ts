@@ -13,11 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getPosts();
   return [
     { url: `${site.url}/`, priority: 1 },
-    { url: `${site.url}/uslugi/`, priority: 0.9 },
-    ...services.map((s) => ({ url: `${site.url}/uslugi/${s.slug}/`, priority: 0.8 })),
-    { url: `${site.url}/o-kompanii/`, priority: 0.6 },
-    { url: `${site.url}/kontakty/`, priority: 0.6 },
-    ...(posts.length ? [{ url: `${site.url}/blog/`, lastModified: posts.map((p) => p.updated ?? p.date).sort().at(-1), priority: 0.7 }] : []),
-    ...posts.map((p) => ({ url: `${site.url}/blog/${p.slug}/`, lastModified: p.updated ?? p.date, priority: 0.7 })),
+    { url: `${site.url}/services/`, priority: 0.9 },
+    ...services.map((s) => ({ url: `${site.url}/services/${s.slug}/`, priority: 0.8 })),
+    { url: `${site.url}/about/`, priority: 0.6 },
+    { url: `${site.url}/contacts/`, priority: 0.6 },
+    ...(posts.length ? [{ url: `${site.url}/articles/`, lastModified: posts.map((p) => p.updated ?? p.date).sort().at(-1), priority: 0.7 }] : []),
+    ...posts.map((p) => ({ url: `${site.url}/articles/${p.slug}/`, lastModified: p.updated ?? p.date, priority: 0.7 })),
   ];
 }

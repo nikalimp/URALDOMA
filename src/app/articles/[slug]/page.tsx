@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: p.title,
     description: p.description,
-    alternates: { canonical: `/blog/${p.slug}/` },
-    openGraph: { type: "article", title: p.title, description: p.description, url: `${site.url}/blog/${p.slug}/`, publishedTime: p.date, modifiedTime: p.updated ?? p.date, images: ["/og.png"] },
+    alternates: { canonical: `/articles/${p.slug}/` },
+    openGraph: { type: "article", title: p.title, description: p.description, url: `${site.url}/articles/${p.slug}/`, publishedTime: p.date, modifiedTime: p.updated ?? p.date, images: ["/og.png"] },
   };
 }
 
@@ -34,10 +34,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   if (!p) notFound();
   return (
     <>
-      <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Блог", path: "/blog/" }, { name: p.title, path: `/blog/${p.slug}/` }]))} />
+      <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Блог", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
       <Section className="pt-12">
         <Container className="max-w-3xl">
-          <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Блог", path: "/blog/" }, { name: p.title }]} />
+          <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Блог", path: "/articles/" }, { name: p.title }]} />
           <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{p.title}</h1>
           <p className="mt-4 text-sm text-muted-foreground">
             {site.person ? site.person.name : site.name} · <time dateTime={p.date}>{formatDate(p.date)}</time>
