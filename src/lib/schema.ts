@@ -94,3 +94,37 @@ export function articleSchema(p: { slug: string; title: string; description: str
 export function graph(...nodes: (Record<string, unknown> | null | false | undefined)[]) {
   return { "@context": "https://schema.org", "@graph": nodes.filter(Boolean) };
 }
+
+// Объект портфолио: CreativeWork с местом и фото (только то, что есть на странице)
+export function caseSchema(c: { slug: string; title: string; summary: string; place: string; photos: string[] }) {
+  return {
+    "@type": "CreativeWork",
+    name: c.title,
+    description: c.summary,
+    url: `${site.url}/portfolio/${c.slug}/`,
+    creator: { "@id": orgId },
+    locationCreated: { "@type": "Place", name: c.place, address: { "@type": "PostalAddress", addressLocality: "Екатеринбург", addressCountry: "RU" } },
+    image: c.photos.map((p) => `${site.url}${p}`),
+  };
+}
+
+// Страница ЖК: услуга ремонта с привязкой к дому
+export function complexServiceSchema(c: { slug: string; h1: string; answer: string; name: string; address?: string }) {
+  return {
+    "@type": "Service",
+    name: c.h1,
+    serviceType: "Ремонт квартиры",
+    description: c.answer,
+    url: `${site.url}/complexes/${c.slug}/`,
+    provider: { "@id": orgId },
+    areaServed: { "@type": "Place", name: c.name, ...(c.address && { address: { "@type": "PostalAddress", streetAddress: c.address, addressLocality: "Екатеринбург", addressCountry: "RU" } }) },
+  };
+}
+
+export function itemList(name: string, items: { name: string; path: string }[]) {
+  return {
+    "@type": "ItemList",
+    name,
+    itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: `${site.url}${it.path}` })),
+  };
+}

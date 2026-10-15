@@ -1,0 +1,69 @@
+# Тестовая выкладка на dev.uraldoma.ru при каждом push в main — смотреть изменения до прода.
+# Сборка без npm run check (TODO разрешены) и с NEXT_PUBLIC_NOINDEX=1: robots.txt закрывает всё, у страниц noindex, Метрики нет.
+# Секреты — как у deploy.yml, плюс STAGING_DIR (например, www/dev.uraldoma.ru/) и STAGING_URL (https://dev.uraldoma.ru).
+name: Deploy staging
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["specs/**", "*.md"]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_NOINDEX: "1"
+
+      - name: SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          [ -z "$SSH_KEY" ] && { echo "::error::Нет секрета SSH_KEY"; exit 1; }
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Настройки заявок
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SITE_DIR: ${{ secrets.STAGING_DIR }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHATS: ${{ secrets.TG_CHATS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          STAGING: "1"
+        run: node scripts/lead-config.mjs | ssh -i ~/.ssh/deploy_key "$SSH_USER@$SSH_HOST" "cat > \"\$(dirname \"$SITE_DIR\")/lead-config.php\" && chmod 600 \"\$(dirname \"$SITE_DIR\")/lead-config.php\""
+
+      - name: Заливка (rsync по SSH)
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SITE_DIR: ${{ secrets.STAGING_DIR }}
+        run: |
+          [ -z "$SITE_DIR" ] && { echo "::error::Нет секрета STAGING_DIR"; exit 1; }
+          rsync -az --delete --stats --exclude '.well-known/' --exclude 'cgi-bin/' \
+            -e "ssh -i ~/.ssh/deploy_key -o ConnectTimeout=20" out/ "$SSH_USER@$SSH_HOST:$SITE_DIR"
+
+      - name: Сайт отвечает
+        env:
+          SITE_URL: ${{ secrets.STAGING_URL }}
+        run: |
+          [ -z "$SITE_URL" ] && exit 0
+          code=$(curl -sk -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/" || true)
+          echo "$SITE_URL: $code"
+          [ "$code" = "200" ] || { echo "::error::Сайт ответил $code"; exit 1; }

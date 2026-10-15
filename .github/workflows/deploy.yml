@@ -1,25 +1,26 @@
-# Сборка и выкладка сайта на хостинг по SSH (rsync) при каждом push в main.
+# Боевая выкладка на uraldoma.ru — только вручную: Actions → «Deploy production» → Run workflow.
+# Перед выкладкой npm run check: сайт с TODO, без фактов клиента или с geo-check < 8 на прод не попадёт.
+#
 # Секреты репозитория (Settings → Secrets and variables → Actions):
-#   SSH_KEY  — приватный ключ деплоя (публичный — в ~/.ssh/authorized_keys на хостинге)
-#   SSH_HOST — адрес сервера, SSH_USER — пользователь, SITE_DIR — папка сайта со слешем на конце
-#   SITE_URL — боевой адрес для проверки после выкладки (https://…)
-# Хостинг без SSH — замени шаг заливки на SamKirkland/FTP-Deploy-Action.
-name: Deploy
+#   SSH_KEY       — приватный ключ деплоя (публичный — в ~/.ssh/authorized_keys на хостинге REG.RU)
+#   SSH_HOST      — сервер хостинга (например, server123.hosting.reg.ru), SSH_USER — логин хостинга (u1234567)
+#   SITE_DIR      — папка сайта со слешем на конце (например, www/uraldoma.ru/)
+#   SITE_URL      — https://uraldoma.ru
+#   TG_TOKEN, TG_CHATS (id через запятую), MAIL_TO (адреса через запятую) — для заявок, см. public/api/lead.php
+name: Deploy production
 
 on:
-  push:
-    branches: [main]
-    paths-ignore: ["specs/**", "*.md"]
   workflow_dispatch: {}
 
 concurrency:
-  group: deploy
+  group: deploy-production
   cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment: production
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -27,24 +28,36 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # check = сборка + проверка TODO и geo-check: сайт с заглушками на хостинг не попадёт
       - run: npm run check
-      # Какие страницы изменились с прошлой выкладки — для IndexNow (ключ: npm run indexnow:key)
       - run: node scripts/indexnow.mjs prepare
 
-      - name: Заливка (rsync по SSH)
+      - name: SSH
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SITE_DIR: ${{ secrets.SITE_DIR }}
         run: |
           [ -z "$SSH_KEY" ] && { echo "::error::Нет секрета SSH_KEY"; exit 1; }
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
-          # Не трогаем .well-known (SSL), cgi-bin и служебные файлы панели.
-          # Файлы, которые должны жить на сайте всегда (подтверждения Вебмастера, ключ IndexNow), — в public/.
+
+      - name: Настройки заявок (lead-config.php рядом с папкой сайта)
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SITE_DIR: ${{ secrets.SITE_DIR }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHATS: ${{ secrets.TG_CHATS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: node scripts/lead-config.mjs | ssh -i ~/.ssh/deploy_key "$SSH_USER@$SSH_HOST" "cat > \"\$(dirname \"$SITE_DIR\")/lead-config.php\" && chmod 600 \"\$(dirname \"$SITE_DIR\")/lead-config.php\""
+
+      - name: Заливка (rsync по SSH)
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SITE_DIR: ${{ secrets.SITE_DIR }}
+        run: |
+          # Не трогаем .well-known (SSL), cgi-bin
           rsync -az --delete --stats --exclude '.well-known/' --exclude 'cgi-bin/' \
             -e "ssh -i ~/.ssh/deploy_key -o ConnectTimeout=20" out/ "$SSH_USER@$SSH_HOST:$SITE_DIR"
 
@@ -57,7 +70,6 @@ jobs:
           echo "$SITE_URL: $code"
           [ "$code" = "200" ] || { echo "::error::Сайт ответил $code"; exit 1; }
 
-      # Яндекс и Bing узнают о новых и изменённых страницах сразу, без ожидания обхода
       - name: IndexNow
         continue-on-error: true
         run: node scripts/indexnow.mjs submit

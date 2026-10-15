@@ -1,51 +1,55 @@
 import Link from "next/link";
-import { nav, site } from "@/content/site";
+import { footerNav, site } from "@/content/site";
 import { services } from "@/content/services";
 import { Container } from "./container";
 
 export function Footer() {
   const c = site.contacts;
   return (
-    <footer className="border-t py-12 text-sm">
-      <Container className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <p className="font-semibold">{site.name}</p>
-          <p className="mt-2 text-muted-foreground">{site.tagline}</p>
+    <footer className="bg-foreground text-accent">
+      <Container className="grid grid-cols-1 gap-10 py-16 md:grid-cols-12 md:gap-x-6 md:py-20">
+        <div className="md:col-span-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo-white.png" alt="URALDOMA" width={160} height={16} className="h-4 w-auto" loading="lazy" />
+          <p className="mt-5 max-w-[30ch] text-[15px]">{site.tagline}</p>
         </div>
-        <div>
-          <p className="mb-2 font-medium"><Link href="/services/" className="hover:underline">Услуги</Link></p>
-          <ul className="space-y-1.5 text-muted-foreground">
+        <nav aria-label="Услуги" className="md:col-span-3 md:col-start-5">
+          <p className="label-mono mb-4 text-accent/60">Услуги</p>
+          <ul className="space-y-2 text-[15px]">
             {services.map((s) => (
-              <li key={s.slug}><Link href={`/services/${s.slug}/`} className="hover:text-foreground">{s.title}</Link></li>
+              <li key={s.slug}><Link href={`/services/${s.slug}/`} className="hover:text-card">{s.title}</Link></li>
             ))}
+            <li><Link href="/furniture/" className="hover:text-card">Мебель на заказ</Link></li>
           </ul>
-        </div>
-        <div>
-          <p className="mb-2 font-medium">Разделы</p>
-          <ul className="space-y-1.5 text-muted-foreground">
-            {nav.map((n) => (
-              <li key={n.href}><Link href={n.href} className="hover:text-foreground">{n.label}</Link></li>
+        </nav>
+        <nav aria-label="Компания" className="md:col-span-2">
+          <p className="label-mono mb-4 text-accent/60">Компания</p>
+          <ul className="space-y-2 text-[15px]">
+            {footerNav.map((n) => (
+              <li key={n.href}><Link href={n.href} className="hover:text-card">{n.label}</Link></li>
             ))}
+            <li><Link href="/articles/" className="hover:text-card">Статьи</Link></li>
+          </ul>
+        </nav>
+        <div className="md:col-span-3 md:col-start-10">
+          <p className="label-mono mb-4 text-accent/60">Контакты</p>
+          <ul className="space-y-2 text-[15px]">
+            <li><a href={`tel:${c.phone}`} className="text-[22px] font-medium text-card">{c.phoneDisplay}</a></li>
+            <li><a href={`mailto:${c.email}`} className="hover:text-card">{c.email}</a></li>
             {site.socials.map((s) => (
-              <li key={s.href}><a href={s.href} target="_blank" rel="noopener me" className="hover:text-foreground">{s.label}</a></li>
+              <li key={s.href}><a href={s.href} target="_blank" rel="noopener me" className="hover:text-card">{s.label}</a></li>
             ))}
-          </ul>
-        </div>
-        <div>
-          <p className="mb-2 font-medium">Контакты</p>
-          <ul className="space-y-1.5 text-muted-foreground">
-            {c.phone && <li><a href={`tel:${c.phone}`} className="hover:text-foreground">{c.phoneDisplay || c.phone}</a></li>}
-            {c.email && <li><a href={`mailto:${c.email}`} className="hover:text-foreground">{c.email}</a></li>}
-            {c.telegram && <li><a href={c.telegram} target="_blank" rel="noopener" className="hover:text-foreground">Telegram</a></li>}
-            {c.address.street && <li>{[c.address.city, c.address.street].filter(Boolean).join(", ")}</li>}
+            <li>{[c.address.city, c.address.street].filter(Boolean).join(", ")}</li>
             {c.hours && <li>{c.hours}</li>}
           </ul>
         </div>
       </Container>
-      <Container className="mt-10 flex flex-col gap-1 text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:justify-between">
-        <span>© {new Date().getFullYear()} {site.legalName} · ИНН {site.legal.inn} · ОГРН {site.legal.ogrn}</span>
-        <Link href="/privacy-policy/" className="hover:text-foreground">Политика обработки персональных данных</Link>
-        {site.metaNote && <span className="w-full">{site.metaNote}</span>}
+      <Container className="flex flex-col gap-2 border-t border-accent/20 py-6 font-mono text-[12px] text-accent/70 md:flex-row md:justify-between">
+        <span>© {site.foundingYear}–{new Date().getFullYear()} {site.name} · {site.legalName} · ИНН {site.legal.inn} · ОГРН {site.legal.ogrn}</span>
+        <span className="flex gap-6">
+          <Link href="/privacy-policy/" className="hover:text-card">Политика обработки персональных данных</Link>
+          <a href="https://nikalimp.ru" className="hover:text-card">Разработка сайта</a>
+        </span>
       </Container>
     </footer>
   );

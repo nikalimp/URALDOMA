@@ -13,10 +13,11 @@
     "indexnow:key": "node scripts/indexnow.mjs key"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/onest": "^5.3.1",
+    "@phosphor-icons/react": "^2.1.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.52.0",
     "next": "16.3.8",
     "radix-ui": "^1.6.7",
     "react": "19.2.8",

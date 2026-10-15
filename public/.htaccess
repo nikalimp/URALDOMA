@@ -1,0 +1,82 @@
+# URALDOMA — Apache (REG.RU, хостинг ISPmanager). Карта редиректов — specs/02-spec.md §4.3.
+# На тестовом поддомене workflow заменяет этот файл на версию без редиректов основного домена (см. .github/workflows/staging.yml).
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+RewriteEngine On
+
+# HTTPS и домен без www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L,NE]
+
+# Статьи: транслит → английские slug
+RewriteRule ^articles/skolko-stoit-remont-kvartiry-ekaterinburg-2026/?$ /articles/apartment-renovation-cost-yekaterinburg/ [R=301,L]
+RewriteRule ^articles/poryadok-remonta-kvartiry-s-chego-nachat/?$ /articles/renovation-steps-where-to-start/ [R=301,L]
+RewriteRule ^articles/kak-vybrat-kompaniyu-dlya-remonta-kvartiry/?$ /articles/how-to-choose-renovation-company/ [R=301,L]
+RewriteRule ^articles/remont-novostroyki-ekaterinburg/?$ /articles/new-build-renovation-guide/ [R=301,L]
+RewriteRule ^articles/remont-vannoy-i-sanuzla-pod-klyuch/?$ /articles/bathroom-renovation-guide/ [R=301,L]
+RewriteRule ^articles/chernovoy-remont-kvartiry-chto-vhodit/?$ /articles/rough-finishing-what-is-included/ [R=301,L]
+RewriteRule ^articles/dizayn-proekt-kvartiry-nuzhen-li/?$ /articles/do-you-need-interior-design-project/ [R=301,L]
+RewriteRule ^articles/tipichnye-oshibki-remonta-kvartiry/?$ /articles/common-renovation-mistakes/ [R=301,L]
+RewriteRule ^articles/kosmeticheskiy-remont-vtorichki/?$ /articles/cosmetic-renovation-resale-apartment/ [R=301,L]
+RewriteRule ^articles/soglasovanie-pereplanirovki-ekaterinburg/?$ /articles/redevelopment-approval-yekaterinburg/ [R=301,L]
+RewriteRule ^articles/remont-kvartiry-pod-sdachu-v-arendu/?$ /articles/renovation-for-rental/ [R=301,L]
+RewriteRule ^articles/elektrika-i-santehnika-v-kvartire/?$ /articles/wiring-and-plumbing-renovation/ [R=301,L]
+RewriteRule ^articles/garantiya-na-remont-kvartiry/?$ /articles/renovation-warranty-guide/ [R=301,L]
+RewriteRule ^articles/stoimost-remonta-odnokomnatnoy-kvartiry/?$ /articles/one-room-apartment-renovation-cost/ [R=301,L]
+RewriteRule ^articles/remont-kuhni-pod-klyuch/?$ /articles/kitchen-renovation-guide/ [R=301,L]
+RewriteRule ^articles/skolko-dlitsya-remont-kvartiry/?$ /articles/how-long-renovation-takes/ [R=301,L]
+RewriteRule ^articles/otdelka-sten-v-kvartire/?$ /articles/wall-finishing-options/ [R=301,L]
+RewriteRule ^articles/remont-kvartiry-zhk-triniti/?$ /complexes/trinity/ [R=301,L]
+RewriteRule ^articles/remont-kvartiry-zhk-garinskiy/?$ /complexes/garinsky/ [R=301,L]
+
+# Разделы: старые адреса Tilda → новые
+RewriteRule ^(folio|case|portfolioold)/?$ /portfolio/ [R=301,L]
+RewriteRule ^vacancies/?$ /careers/ [R=301,L]
+RewriteRule ^partnership/?$ /partners/ [R=301,L]
+RewriteRule ^policy/?$ /privacy-policy/ [R=301,L]
+RewriteRule ^mebel/?$ /furniture/ [R=301,L]
+RewriteRule ^blog/?$ /articles/ [R=301,L]
+RewriteRule ^feedback/?$ /about/ [R=301,L]
+RewriteRule ^remont-sanuzla/?$ /services/bathroom-renovation/ [R=301,L]
+RewriteRule ^(calc|sanuzel|kitchen|room|electric)/?$ /prices/ [R=301,L]
+RewriteRule ^(page22933401\.html|land|old|old2)/?$ / [R=301,L]
+# Посты портфолио Tilda: пока все → /portfolio/. TODO(Ник): точечное соответствие пост → /portfolio/<object>/ (05-tasks)
+RewriteRule ^(old/)?tpost/ /portfolio/ [R=301,L]
+
+# Чужой, тестовый и служебный контент Tilda — 410
+RewriteRule ^(z|buggy|buggy2|termos|termos2|forza|forza2|whiteparty|domnatenistoy|akony|alexey|old-59598|klientotsentrychnost|header|footer)/?$ - [G,L]
+RewriteRule ^(page18699462|page9044140|page13133663|page8409051|page68137223|page23338402|page28855508|page246461609)\.html$ - [G,L]
+RewriteRule ^tilda/ - [G,L]
+
+# Безопасность
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Кэш: файлы Next.js с хешем в имени — год, картинки и видео — месяц, HTML — без кэша
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/javascript application/json image/svg+xml
+</IfModule>

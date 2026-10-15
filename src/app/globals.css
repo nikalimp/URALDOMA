@@ -1,53 +1,35 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
-/* Токены бренда — из specs/03-design.md §3. Дефолт: нейтральная тема shadcn + синий акцент.
-   Серая тема без настройки под бренд = недоделка (стандарт §6). */
+/* Токены бренда URALDOMA — specs/03-design.md §3 и §3.1 (швейцарская типографика).
+   Направление A «Тёплый дом»: кремовый фон, тёмный текст, коричневый бренд, один акцент — терракота. Радиус 0. */
 :root {
-  --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.205 0 0);
-  --card: oklch(0.99 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.52 0 0);
-  --accent: oklch(0.965 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --border: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --brand: oklch(0.55 0.15 255);
-  --brand-bg: oklch(0.97 0.02 255);
-}
-
-.dark {
-  --background: oklch(0.17 0 0);
-  --foreground: oklch(0.93 0 0);
-  --card: oklch(0.2 0 0);
-  --primary: oklch(0.93 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.26 0 0);
-  --secondary-foreground: oklch(0.93 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.66 0 0);
-  --accent: oklch(0.255 0 0);
-  --accent-foreground: oklch(0.93 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --ring: oklch(0.556 0 0);
-  --brand: oklch(0.74 0.12 255);
-  --brand-bg: oklch(0.74 0.12 255 / 12%);
+  --radius: 0rem;
+  --background: oklch(0.954 0.013 82.4); /* #F4EFE6 */
+  --foreground: oklch(0.225 0.011 73.3); /* #1F1B16 */
+  --card: oklch(0.979 0.004 91.4); /* #F9F8F5 */
+  --primary: oklch(0.225 0.011 73.3); /* кнопки — тёмные */
+  --primary-foreground: oklch(0.979 0.004 91.4);
+  --secondary: oklch(0.872 0.035 80.3); /* #E1D3BC бежевые секции */
+  --secondary-foreground: oklch(0.225 0.011 73.3);
+  --muted: oklch(0.872 0.035 80.3);
+  --muted-foreground: oklch(0.505 0.021 59.2); /* #6E6259 */
+  --accent: oklch(0.847 0.036 81.3); /* #D9CBB3 */
+  --accent-foreground: oklch(0.225 0.011 73.3);
+  --border: oklch(0.225 0.011 73.3 / 15%);
+  --ring: oklch(0.511 0.1 48.3);
+  --brand: oklch(0.511 0.1 48.3); /* #94532F терракота — CTA, номера, стрелки */
+  --brand-bg: oklch(0.872 0.035 80.3);
+  --earth: oklch(0.379 0.028 49.4); /* #4F3E35 коричневый бренда — тёмные секции */
+  --earth-foreground: oklch(0.872 0.035 80.3);
 }
 
 @theme inline {
-  --font-sans: "Inter Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --font-sans: "Onest Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: var(--radius);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -63,35 +45,38 @@
   --color-ring: var(--ring);
   --color-brand: var(--brand);
   --color-brand-bg: var(--brand-bg);
+  --color-earth: var(--earth);
+  --color-earth-foreground: var(--earth-foreground);
 }
 
 @layer base {
-  * { @apply border-border outline-ring/50; }
+  * { @apply border-border outline-ring/60; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; font-size: 15px; -webkit-font-smoothing: antialiased; }
-  ::selection { background: oklch(0.55 0.15 255 / 20%); }
+  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; font-feature-settings: "ss01"; }
+  ::selection { background: oklch(0.511 0.1 48.3 / 25%); }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 }
 
+/* Подпись-метка в моно: «01 — Услуги», подписи к фото, значения в таблицах */
+.label-mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+
 /* Типографика статей */
-.prose-site { font-size: 16.5px; line-height: 1.7; }
-.prose-site > * + * { margin-top: 0.85em; }
-.prose-site h2 { font-size: 1.45em; font-weight: 600; margin-top: 1.8em; line-height: 1.3; letter-spacing: -0.01em; }
-.prose-site h3 { font-size: 1.15em; font-weight: 600; margin-top: 1.4em; }
-.prose-site a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in oklch, var(--brand) 35%, transparent); }
+.prose-site { font-size: 18px; line-height: 1.7; max-width: 44rem; }
+.prose-site > * + * { margin-top: 0.9em; }
+.prose-site h2 { font-size: 1.6em; font-weight: 500; margin-top: 1.9em; line-height: 1.2; letter-spacing: -0.02em; }
+.prose-site h3 { font-size: 1.2em; font-weight: 500; margin-top: 1.4em; }
+.prose-site a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in oklch, var(--brand) 40%, transparent); }
 .prose-site ul { list-style: disc; padding-left: 1.3em; }
 .prose-site ol { list-style: decimal; padding-left: 1.3em; }
-.prose-site li + li { margin-top: 0.3em; }
+.prose-site li + li { margin-top: 0.35em; }
 .prose-site strong { font-weight: 600; }
-.prose-site code { font-family: var(--font-mono); font-size: 0.88em; background: var(--muted); padding: 0.1em 0.35em; border-radius: 4px; }
-.prose-site pre { background: var(--muted); padding: 1em; border-radius: var(--radius); overflow-x: auto; font-size: 0.85em; line-height: 1.55; }
-.prose-site pre code { background: none; padding: 0; }
-.prose-site table { width: 100%; border-collapse: collapse; font-size: 0.92em; display: block; overflow-x: auto; }
-.prose-site th, .prose-site td { border-bottom: 1px solid var(--border); padding: 0.55em 0.7em 0.55em 0; text-align: left; vertical-align: top; }
+.prose-site table { width: 100%; border-collapse: collapse; font-size: 0.9em; display: block; overflow-x: auto; }
+.prose-site th, .prose-site td { border-bottom: 1px solid var(--border); padding: 0.6em 0.8em 0.6em 0; text-align: left; vertical-align: top; }
 .prose-site th { font-weight: 600; }
 .prose-site blockquote { border-left: 2px solid var(--brand); padding-left: 1em; color: var(--muted-foreground); }
 
-/* Анимации — только CSS и только при prefers-reduced-motion: no-preference (стандарт §1.6) */
 @media (prefers-reduced-motion: no-preference) {
   details[open] > :not(summary) { animation: fade-in .25s ease-out; }
+  .reveal { animation: fade-in .6s ease-out both; }
 }
 @keyframes fade-in { from { opacity: 0; translate: 0 -4px; } to { opacity: 1; translate: none; } }

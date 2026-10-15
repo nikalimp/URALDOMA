@@ -2,6 +2,9 @@
 import { site } from "@/content/site";
 import { services } from "@/content/services";
 import { about, home } from "@/content/home";
+import { tariffs, formatRub, paymentTerms } from "@/content/tariffs";
+import { complexes } from "@/content/complexes";
+import { stages } from "@/content/process";
 import { getPosts } from "./posts";
 
 // Простой текст для нейросетей: неразрывные пробелы типографа заменяем обычными
@@ -31,8 +34,20 @@ export function llmsTxt() {
 ## Услуги
 ${services.map((s) => `- [${s.title}](${site.url}/services/${s.slug}/): ${s.short} ${s.prices[0] ? `${s.prices[0].name} — ${s.prices[0].value}.` : ""}`).join("\n")}
 ${posts.length ? `\n## Статьи\n${posts.map((p) => `- [${p.title}](${site.url}/articles/${p.slug}/): ${p.description}`).join("\n")}\n` : ""}
+## Цены
+${tariffs.map((t) => `- Тариф «${t.name}»: ${formatRub(t.rate)} за м² работ. ${t.short}`).join("\n")}
+- [Цены и калькулятор](${site.url}/prices/)
+- ${paymentTerms}
+
+## Ремонт в ЖК
+${complexes.map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/)`).join("\n")}
+
 ## О компании
 - [О компании](${site.url}/about/): ${site.tagline}
+- [Как мы работаем](${site.url}/how-we-work/)
+- [Гарантия и договор](${site.url}/warranty/)
+- [Портфолио](${site.url}/portfolio/)
+- [Мебель на заказ «Мебель-Урал»](${site.url}/furniture/)
 - [Контакты](${site.url}/contacts/)
 - Подробная версия для LLM: ${site.url}/llms-full.txt
 
@@ -48,6 +63,6 @@ export function llmsFullTxt() {
   );
   const posts = getPosts().map((p) => `## ${p.title}\nURL: ${site.url}/articles/${p.slug}/\nДата: ${p.updated ?? p.date}\n\n${p.body}`);
   return plain(
-    `${llmsTxt()}\n---\n\n# Частые вопросы\n\n${home.faq.map((f) => `- ${f.q} ${f.a}`).join("\n")}\n\n---\n\n# Услуги\n\n${blocks.join("\n\n")}\n\n---\n\n# О компании\n\n${about.body}\n${posts.length ? `\n---\n\n# Статьи\n\n${posts.join("\n\n")}\n` : ""}`,
+    `${llmsTxt()}\n---\n\n# Частые вопросы\n\n${home.faq.map((f) => `- ${f.q} ${f.a}`).join("\n")}\n\n---\n\n# Услуги\n\n${blocks.join("\n\n")}\n\n---\n\n# О компании\n\n${about.answer}\n\n${about.principles.map((p) => `- ${p.title}: ${p.text}`).join("\n")}\n\n# Как проходит ремонт\n\n${stages.map((st, i) => `${i + 1}. ${st.title} (${st.term}). ${st.text}`).join("\n")}\n${posts.length ? `\n---\n\n# Статьи\n\n${posts.join("\n\n")}\n` : ""}`,
   );
 }

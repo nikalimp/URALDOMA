@@ -1,78 +1,86 @@
-// Единый источник правды о компании. Заполняется по specs/00-brief.md и specs/02-spec.md.
-// Всё, что помечено TODO(клиент), должно быть заменено фактами до запуска: `npm run check` не пропустит TODO.
+// Единый источник правды о компании. Факты — из specs/00-brief.md и снятого сайта (specs/source/).
+// TODO(клиент) — заменить фактами до запуска: `npm run check` не пропустит TODO.
 
 export type OrgType =
   | "Organization"
   | "LocalBusiness"
   | "ProfessionalService"
-  | "Dentist"
-  | "MedicalClinic"
-  | "LegalService"
-  | "EducationalOrganization"
   | "HomeAndConstructionBusiness"
   | "Store";
 
 export const site = {
-  url: "https://example.ru", // TODO(клиент): боевой домен без слеша на конце
-  name: "TODO(клиент): Бренд",
-  legalName: "TODO(клиент): ООО «Название»",
-  // Тип организации в Schema.org — самый точный из подходящих: https://schema.org/LocalBusiness#subtypes
-  orgType: "LocalBusiness" as OrgType,
-  title: "TODO(клиент): Бренд — услуга в городе", // title главной, до 60 символов
-  description: "TODO(клиент): описание компании для поиска и нейросетей, 120⁠–⁠160 символов, с фактами: что, где, для кого, цена или срок.",
-  // Одна фраза о компании для llms.txt и футера
-  tagline: "TODO(клиент): что делаем и для кого",
+  url: "https://uraldoma.ru",
+  name: "URALDOMA",
+  legalName: "TODO(клиент): ИП или ООО — юридическое название",
+  orgType: "HomeAndConstructionBusiness" as OrgType,
+  title: "Ремонт квартир под ключ в Екатеринбурге — URALDOMA",
+  description:
+    "Ремонт квартир в Екатеринбурге под ключ с 2016 года: дизайн-проект, ремонт с авторским надзором и мебель. От 20 000 ₽/м², цена в договоре, гарантия 2 года.",
+  tagline: "Ремонт квартир в Екатеринбурге под ключ — от дизайн-проекта до мебели, с 2016 года.",
   lang: "ru",
   locale: "ru_RU",
-  foundingYear: 2015, // TODO(клиент)
-  areaServed: ["RU"],
+  foundingYear: 2016,
+  areaServed: ["Екатеринбург", "Свердловская область"],
 
   contacts: {
-    phone: "", // формат +7XXXXXXXXXX; пусто — блок не показывается
-    phoneDisplay: "",
-    email: "",
-    telegram: "", // https://t.me/…
-    whatsapp: "", // https://wa.me/7XXXXXXXXXX
+    phone: "+79292628376",
+    phoneDisplay: "+7 929 262-83-76",
+    email: "remont.ural96@mail.ru",
+    telegram: "https://t.me/uraldoma",
+    whatsapp: "", // TODO(клиент, бриф в. 19): нужен ли WhatsApp
     address: {
-      street: "",
-      city: "",
-      region: "",
+      street: "", // TODO(клиент, бриф в. 3): актуальный адрес офиса
+      city: "Екатеринбург",
+      region: "Свердловская область",
       postalCode: "",
       country: "RU",
     },
     geo: null as null | { lat: number; lng: number },
-    hours: "", // для людей: «Пн–Пт 9:00–19:00»
-    openingHours: [] as { days: string[]; opens: string; closes: string }[], // для Schema: days — Monday…Sunday
+    hours: "", // TODO(клиент): часы работы
+    openingHours: [] as { days: string[]; opens: string; closes: string }[],
   },
 
-  // Главное целевое действие — на него ведут все CTA
-  cta: {
-    label: "TODO(клиент): Записаться",
-    href: "https://t.me/TODO", // TODO(клиент): ссылка на мессенджер, форму или tel:
-  },
+  cta: { label: "Рассчитать стоимость", href: "/prices/#calculator" },
 
-  // Реквизиты для футера и политики ПДн (152-ФЗ)
   legal: {
     inn: "TODO(клиент)",
     ogrn: "TODO(клиент)",
-    privacyEmail: "", // почта для запросов по персональным данным; пусто — берётся contacts.email
+    privacyEmail: "n.grabovskih@mail.ru",
   },
 
-  // Профили бренда на внешних площадках: одинаковые название, адрес и телефон везде
-  sameAs: [] as string[],
-  socials: [] as { label: string; href: string }[], // Instagram и Facebook — с «*» в label
-  metaNote: "", // «*Meta Platforms Inc. признана экстремистской и запрещена в РФ» — если есть ссылки на Instagram/Facebook
+  sameAs: ["https://t.me/uraldoma"],
+  socials: [{ label: "Telegram-канал", href: "https://t.me/uraldoma" }],
+  metaNote: "",
 
-  // Лицо компании — основатель или эксперт. null, если не нужен
-  person: null as null | { name: string; jobTitle: string; description: string; sameAs: string[] },
+  person: {
+    name: "Николай Грабовских",
+    jobTitle: "Директор URALDOMA",
+    description: "Директор URALDOMA. Более 10 лет делает комплексный ремонт квартир в Екатеринбурге под ключ — от дизайн-проекта до обстановки мебелью.",
+    sameAs: [] as string[],
+  },
 
-  metrikaId: 0, // номер счётчика Яндекс Метрики; 0 — счётчик не подключается
-  darkTheme: true, // переключатель темы в шапке
+  // Фоновое видео первого экрана: файл с текущего сайта (02-spec §7). Пока файла нет — показывается постер.
+  heroVideo: { src: "/video/hero.mp4", poster: "/images/hero-poster.jpg" },
+
+  metrikaId: 62022598,
+  darkTheme: false,
 };
 
 export const nav = [
   { href: "/services/", label: "Услуги" },
-  { href: "/articles/", label: "Блог" },
+  { href: "/prices/", label: "Цены" },
+  { href: "/portfolio/", label: "Портфолио" },
+  { href: "/furniture/", label: "Мебель" },
   { href: "/about/", label: "О компании" },
+  { href: "/articles/", label: "Статьи" },
+];
+
+export const footerNav = [
+  { href: "/about/", label: "О компании" },
+  { href: "/how-we-work/", label: "Как мы работаем" },
+  { href: "/warranty/", label: "Гарантия и договор" },
+  { href: "/complexes/", label: "Ремонт в ЖК" },
+  { href: "/careers/", label: "Вакансии" },
+  { href: "/partners/", label: "Партнёрская программа" },
   { href: "/contacts/", label: "Контакты" },
 ];
