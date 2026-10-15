@@ -2,10 +2,8 @@ import Link from "next/link";
 import { type Case, caseCover } from "@/content/cases";
 import { cn } from "@/lib/utils";
 
-const known = (s: string) => s && !s.startsWith("TODO");
-
 export function caseMeta(c: Case) {
-  return [known(c.area) && `${c.area} м²`, known(c.tariff) && c.tariff, known(c.term) && c.term].filter(Boolean).join(" · ");
+  return [c.area && `${c.area} м²`, c.tariff, c.term].filter(Boolean).join(" · ");
 }
 
 export function CaseCard({ c, ratio = "aspect-[4/3]", className, sizes }: { c: Case; ratio?: string; className?: string; sizes?: string }) {

@@ -45,9 +45,10 @@ export function Footer() {
         </div>
       </Container>
       <Container className="flex flex-col gap-2 border-t border-accent/20 py-6 font-mono text-[12px] text-accent/70 md:flex-row md:justify-between">
-        <span>© {site.foundingYear}–{new Date().getFullYear()} {site.name} · {site.legalName} · ИНН {site.legal.inn} · ОГРН {site.legal.ogrn}</span>
+        <span>© {site.foundingYear}–{new Date().getFullYear()} {site.name} · {site.legalName} · ИНН {site.legal.inn} · ОГРНИП {site.legal.ogrnip}</span>
         <span className="flex gap-6">
           <Link href="/privacy-policy/" className="hover:text-card">Политика обработки персональных данных</Link>
+          <Link href="/consent/" className="hover:text-card">Согласие на обработку</Link>
           <a href="https://nikalimp.ru" className="hover:text-card">Разработка сайта</a>
         </span>
       </Container>

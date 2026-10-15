@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { services } from "@/content/services";
-import { cases } from "@/content/cases";
+import { cases, caseReady } from "@/content/cases";
 import { complexes } from "@/content/complexes";
 import { getPosts } from "@/lib/posts";
 
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     u("/how-we-work/", 0.7),
     u("/warranty/", 0.7),
     u("/portfolio/", 0.8),
-    ...cases.map((c) => u(`/portfolio/${c.slug}/`, 0.6)),
+    ...cases.filter(caseReady).map((c) => u(`/portfolio/${c.slug}/`, 0.6)),
     u("/complexes/", 0.7),
     ...complexes.map((c) => u(`/complexes/${c.slug}/`, 0.7)),
     u("/furniture/", 0.7),

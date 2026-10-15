@@ -1,5 +1,5 @@
 # URALDOMA — Apache (REG.RU, хостинг ISPmanager). Карта редиректов — specs/02-spec.md §4.3.
-# На тестовом поддомене workflow заменяет этот файл на версию без редиректов основного домена (см. .github/workflows/staging.yml).
+
 Options -Indexes
 DirectoryIndex index.html
 AddDefaultCharset utf-8

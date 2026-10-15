@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cases, caseBySlug, casePhoto } from "@/content/cases";
+import { cases, caseBySlug, casePhoto, caseReady } from "@/content/cases";
 import { complexBySlug } from "@/content/complexes";
 import { Container, Grid, Section, Label, linkArrow } from "@/components/container";
 import { Crumbs } from "@/components/crumbs";
@@ -18,8 +18,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const c = caseBySlug((await params).slug);
   if (!c) return {};
-  // TODO(клиент, бриф в. 11): площадь и тариф в title/description, когда будут данные
+  // Пока нет площади, тарифа и срока, кейс закрыт от индексации (стандарт §2: от 250 слов)
   return pageMeta({
+    noindex: !caseReady(c),
     title: `${c.title}: фото ремонта`,
     description: (() => { const base = `${c.title}: ремонт под ключ от URALDOMA в Екатеринбурге. ${c.solutions.slice(0, 2).join(", ")}.`; const d = `${base} Фото объекта и решения.`; return d.length <= 160 ? d : base.length <= 160 ? base : `${c.title}: ремонт под ключ от URALDOMA в Екатеринбурге. Фото объекта, решения и материалы.`; })(),
     path: `/portfolio/${c.slug}/`,
@@ -48,7 +49,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <p className="text-[18px] text-earth md:col-span-4">{c.summary}</p>
         </Grid>
         <dl className="mt-12 grid grid-cols-2 border-t border-foreground md:grid-cols-4">
-          {[["Объект", c.kind], ["Площадь", c.area], ["Тариф", c.tariff], ["Срок", c.term]].map(([k, v]) => (
+          {[["Объект", c.kind], ["Площадь", c.area && `${c.area} м²`], ["Тариф", c.tariff], ["Срок", c.term]].filter(([, v]) => v).map(([k, v]) => (
             <div key={k} className="border-b border-border py-5 pr-4">
               <dt className="label-mono text-muted-foreground">{k}</dt>
               <dd className="mt-2 text-[20px] font-medium">{v}</dd>

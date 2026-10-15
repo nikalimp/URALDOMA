@@ -13,6 +13,7 @@ export const orgSchema: Record<string, unknown> = {
   "@id": orgId,
   name: site.name,
   legalName: site.legalName,
+  taxID: site.legal.inn,
   url: site.url,
   description: site.description,
   foundingDate: String(site.foundingYear),

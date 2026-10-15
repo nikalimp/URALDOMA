@@ -63,7 +63,7 @@ export function LeadForm({ tone = "light", source, extra, withName = false, butt
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
       <label className={cn("flex items-start gap-3 text-[12px] leading-snug", hint)}>
         <input type="checkbox" name="consent" required className="mt-0.5 size-4 shrink-0 accent-[var(--brand)]" />
-        <span>Согласен на обработку персональных данных по <a href="/privacy-policy/" className="underline underline-offset-2">политике</a></span>
+        <span>Даю <a href="/consent/" target="_blank" className="underline underline-offset-2">согласие на обработку персональных данных</a> и принимаю <a href="/privacy-policy/" target="_blank" className="underline underline-offset-2">политику</a></span>
       </label>
       <button type="submit" disabled={state === "sending"} className={cn("flex min-h-[52px] items-center justify-between gap-6 px-6 text-left text-[16px] font-medium disabled:opacity-60", dark ? "bg-card text-foreground hover:bg-brand hover:text-card" : "bg-foreground text-card hover:bg-brand")}>
         {state === "sending" ? "Отправляем…" : button}

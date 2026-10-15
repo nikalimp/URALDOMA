@@ -11,7 +11,7 @@ export type OrgType =
 export const site = {
   url: "https://uraldoma.ru",
   name: "URALDOMA",
-  legalName: "TODO(клиент): ИП или ООО — юридическое название",
+  legalName: "ИП Грабовских Николай Николаевич",
   orgType: "HomeAndConstructionBusiness" as OrgType,
   title: "Ремонт квартир под ключ в Екатеринбурге — URALDOMA",
   description:
@@ -43,8 +43,8 @@ export const site = {
   cta: { label: "Рассчитать стоимость", href: "/prices/#calculator" },
 
   legal: {
-    inn: "TODO(клиент)",
-    ogrn: "TODO(клиент)",
+    inn: "720509214462",
+    ogrnip: "320723200014329", // ЕГРИП, регистрация 02.03.2020
     privacyEmail: "n.grabovskih@mail.ru",
   },
 

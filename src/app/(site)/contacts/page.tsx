@@ -17,7 +17,7 @@ export default function Contacts() {
     ["Telegram", <a key="t" href={c.telegram} target="_blank" rel="noopener" className="hover:text-brand">@uraldoma</a>],
     ["Адрес", [c.address.city, c.address.street].filter(Boolean).join(", ")],
     ...(c.hours ? ([["Часы работы", c.hours]] as [string, string][]) : []),
-    ["Реквизиты", `${site.legalName}, ИНН ${site.legal.inn}, ОГРН ${site.legal.ogrn}`],
+    ["Реквизиты", `${site.legalName}, ИНН ${site.legal.inn}, ОГРНИП ${site.legal.ogrnip}`],
   ];
   return (
     <>

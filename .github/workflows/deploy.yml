@@ -1,5 +1,5 @@
-# Боевая выкладка на uraldoma.ru — только вручную: Actions → «Deploy production» → Run workflow.
-# Перед выкладкой npm run check: сайт с TODO, без фактов клиента или с geo-check < 8 на прод не попадёт.
+# Выкладка на uraldoma.ru при каждом push в main (решение Ника 2026-10-15: без тестового поддомена).
+# Перед выкладкой npm run check: сайт с TODO или с geo-check < 8 на прод не попадёт — деплой остановится.
 #
 # Секреты репозитория (Settings → Secrets and variables → Actions):
 #   SSH_KEY       — приватный ключ деплоя (публичный — в ~/.ssh/authorized_keys на хостинге REG.RU)
@@ -10,6 +10,9 @@
 name: Deploy production
 
 on:
+  push:
+    branches: [main]
+    paths-ignore: ["specs/**", "*.md"]
   workflow_dispatch: {}
 
 concurrency:
@@ -20,7 +23,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment: production
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
