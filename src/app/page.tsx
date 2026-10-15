@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 import { home, about } from "@/content/home";
 import { services, serviceBySlug, primaryServices } from "@/content/services";
 import { tariffs, formatRub, tariffCommon } from "@/content/tariffs";
-import { cases, caseBySlug } from "@/content/cases";
+import { cases, caseBySlug, caseCover } from "@/content/cases";
 import { Header } from "@/components/header";
 import { Container, Grid, Section, SectionHead, Label, H2, linkArrow, btnPrimary, btnOutline } from "@/components/container";
 import { LeadForm } from "@/components/lead-form";
@@ -21,10 +21,9 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 // Заголовок первого экрана в два тона: до тире — чёрным, после — серым (приём из PAMM)
 const [h1a, h1b] = home.h1.split(/\s—\s/);
 const heroMeta: [string, string][] = [
-  ["Ремонт квартир", "Екатеринбург и область"],
-  ["С 2016 года", "110 квартир под ключ"],
-  ["Цена работ", "от 20 000 ₽/м², в договоре"],
-  ["Гарантия", "2 года на все работы"],
+  ["Квартир под ключ", "110"],
+  ["Цена работ", "от 20 000 ₽/м²"],
+  ["Гарантия", "2 года"],
 ];
 
 const featured = ["radishcheva-31", "obraztsovo", "trinity-14", "clover-park", "zapovednik", "garinsky"].map((s) => caseBySlug(s)!).filter(Boolean);
@@ -36,44 +35,43 @@ export default function Home() {
     <>
       <Header />
       <main id="main" className="flex-1">
-        {/* 1. Первый экран: светлый, крупный двухтоновый заголовок, метаданные, видео с объекта в рамке (03-design §5) */}
-        <section aria-label="Первый экран" className="pt-8 md:pt-12">
-          <Container>
-            <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-b border-border pb-6 text-[13px] md:grid-cols-12">
-              {heroMeta.map(([k, v], i) => (
-                <div key={k} className={i === 0 ? "md:col-span-3" : i === 1 ? "md:col-span-3" : i === 2 ? "md:col-span-3" : "md:col-span-3"}>
-                  <dt className="text-muted-foreground">{k}</dt>
-                  <dd>{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <h1 className="mt-10 text-[46px] leading-[0.98] tracking-[-0.05em] text-balance md:mt-16 md:text-[clamp(64px,8.4vw,136px)]">
-              {h1a}
-              {h1b && <span className="block text-muted-foreground">{h1b}</span>}
+        {/* 1. Первый экран на весь экран (03-design §6): H1 во всю ширину, подписи по углам, видео с объекта до низа экрана, форма — карточкой на видео */}
+        <section aria-label="Первый экран" className="flex min-h-[calc(100svh-64px)] flex-col md:min-h-[calc(100svh-72px)]">
+          <Container className="pt-6 md:pt-8">
+            <h1 className="caps-display text-[9.4vw] leading-[0.88] tracking-[-0.055em] md:text-[7.3vw]">
+              <span className="block">{h1a}</span>
+              {h1b?.split(/\s(?=до\s)/).map((part) => <span key={part} className="block text-muted-foreground md:whitespace-nowrap md:pl-[calc((100%+20px)/6)]">{part}</span>)}
             </h1>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {home.cycle.map((c) => <span key={c.title} className="tag">{c.title}</span>)}
-            </div>
-            <Grid className="mt-12 items-end md:mt-16">
-              <div className="relative overflow-hidden bg-secondary md:col-span-8">
-                <video className="aspect-[16/10] w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true">
-                  <source src={site.heroVideo.src} type="video/mp4" />
-                </video>
-                <span className="tag absolute top-4 left-4 border-white/40 bg-black/20 text-white backdrop-blur">Видео · объект URALDOMA</span>
-              </div>
-              <div className="md:col-span-4">
-                <p className="mb-8 text-[20px] leading-snug tracking-[-0.01em]">{home.lead}</p>
-                <LeadForm source="hero" />
-              </div>
+            <Grid className="mt-6 gap-y-4 md:mt-8">
+              <p className="caps text-muted-foreground md:col-span-3">[ с 2016 · Екатеринбург ]</p>
+              <p className="max-w-[46ch] text-[16px] md:col-span-5 md:col-start-4">{home.lead} Дизайн-проект, ремонт с авторским надзором и мебель собственного производства — одна команда.</p>
+              <ul className="caps text-muted-foreground md:col-span-3 md:col-start-10 md:text-right">
+                {heroMeta.map(([k, v]) => <li key={k}>{k}: <span className="text-foreground">{v}</span></li>)}
+              </ul>
             </Grid>
           </Container>
+          <div className="relative mt-6 min-h-[56svh] flex-1 overflow-hidden bg-secondary md:mt-8">
+            <video className="absolute inset-0 size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true">
+              <source src={site.heroVideo.src} type="video/mp4" />
+            </video>
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+            <Container className="relative flex h-full min-h-[56svh] flex-col justify-end pb-5 md:pb-10">
+              <Grid className="items-end">
+                <p className="caps text-white/85 md:col-span-3">[ Видео · объект URALDOMA ]</p>
+                <div className="bg-background p-5 md:col-span-4 md:col-start-9 md:p-6">
+                  <p className="caps mb-4 text-muted-foreground">[ Бесплатный замер и смета ]</p>
+                  <LeadForm source="hero" />
+                </div>
+              </Grid>
+            </Container>
+          </div>
         </section>
 
         {/* 2. Прямой ответ и цифры */}
         <section aria-label="Коротко о компании" className="border-b border-border">
           <Container>
             <Grid className="py-16 md:py-24">
-              <p className="label-mono md:col-span-3">Коротко</p>
+              <p className="caps text-muted-foreground md:col-span-3">[ Коротко ]</p>
               <p className="text-[22px] leading-[1.35] tracking-[-0.01em] md:col-span-8 md:col-start-5 md:text-[28px]">{home.answer}</p>
             </Grid>
             <dl className="grid grid-cols-2 border-t border-border md:grid-cols-4">
@@ -171,38 +169,45 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* 7. Портфолио */}
-        <Section className="bg-card">
+        {/* 7. Портфолио: три объекта на весь экран (Craft Studio), остальные — сеткой по колонкам (Architecture) */}
+        <section aria-label="Портфолио" className="pt-16 md:pt-28">
           <Container>
             <SectionHead n="05" label="Портфолио" title="Ремонты в ЖК и посёлках Екатеринбурга" count={cases.length} aside={<Link href="/portfolio/" className={linkArrow}>Все объекты <span aria-hidden="true">→</span></Link>} />
+          </Container>
+          {featured.slice(0, 3).map((c, i) => (
+            <Link key={c.slug} href={`/portfolio/${c.slug}/`} className="group relative block h-[88svh] min-h-[520px] overflow-hidden md:h-[100svh]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={caseCover(c)} alt={c.alt} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/20" />
+              <Container className="relative flex h-full flex-col justify-between py-5 text-white md:py-10">
+                <div className="caps flex justify-between text-white/85"><span>[ {c.kind} ]</span><span>({String(i + 1).padStart(2, "0")})</span></div>
+                <Grid className="items-end">
+                  <p className="text-[48px] leading-[0.9] tracking-[-0.05em] md:col-span-8 md:text-[clamp(64px,8vw,140px)]">{c.place}</p>
+                  <p className="max-w-[36ch] text-[15px] text-white/90 md:col-span-3 md:col-start-10">{c.summary}</p>
+                </Grid>
+              </Container>
+            </Link>
+          ))}
+          <Container className="py-16 md:py-24">
             <Grid className="gap-y-12">
-              {featured[0] && <CaseCard c={featured[0]} ratio="aspect-[4/5]" className="md:col-span-7" />}
-              <div className="grid gap-y-12 md:col-span-5">
-                {featured.slice(1, 3).map((c) => <CaseCard key={c.slug} c={c} />)}
-              </div>
-              {featured.slice(3, 6).map((c) => <CaseCard key={c.slug} c={c} className="md:col-span-4" />)}
+              {featured.slice(3, 6).map((c, i) => <CaseCard key={c.slug} c={c} className={i === 1 ? "md:col-span-4 md:mt-24" : "md:col-span-4"} />)}
             </Grid>
           </Container>
-        </Section>
+        </section>
 
-        {/* 8. Договор */}
+        {/* 8. Договор: крупные номера по колонкам (Studio — «01 Advantage») */}
         <Section>
           <Container>
-            <Grid>
-              <div className="md:col-span-4">
-                <Label n="06">Договор</Label>
-                <H2>Всё записано до начала работ</H2>
-                <Link href="/warranty/" className={`${linkArrow} mt-8`}>Гарантия и договор <span aria-hidden="true">→</span></Link>
-              </div>
-              <dl className="grid grid-cols-1 border-t border-foreground sm:grid-cols-2 md:col-span-7 md:col-start-6">
-                {home.contract.map((c) => (
-                  <div key={c.title} className="border-b border-border py-8 sm:pr-6 sm:odd:border-r sm:even:pl-6">
-                    <dt className="text-[22px] tracking-[-0.01em]">{c.title}</dt>
-                    <dd className="mt-3 text-[16px] text-earth">{c.text}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Grid>
+            <SectionHead n="06" label="Договор" title="Всё записано до начала работ" aside={<Link href="/warranty/" className={linkArrow}>Гарантия и договор <span aria-hidden="true">→</span></Link>} />
+            <dl className="grid grid-cols-1 gap-x-5 md:grid-cols-4">
+              {home.contract.map((c, i) => (
+                <div key={c.title} className="border-t border-foreground pt-4 pb-10">
+                  <span aria-hidden="true" className="block text-[96px] leading-[0.8] tracking-[-0.06em] md:text-[clamp(96px,9vw,160px)]">{String(i + 1).padStart(2, "0")}</span>
+                  <dt className="mt-6 text-[22px] tracking-[-0.01em]">{c.title}</dt>
+                  <dd className="mt-3 max-w-[34ch] text-[15px] text-earth">{c.text}</dd>
+                </div>
+              ))}
+            </dl>
           </Container>
         </Section>
 

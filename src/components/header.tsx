@@ -22,7 +22,7 @@ function MobileMenu() {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="group-open/m:hidden"><path d="M4 9h16M4 15h16" /></svg>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="hidden group-open/m:block"><path d="M6 6l12 12M18 6L6 18" /></svg>
       </summary>
-      <div className="fixed inset-x-0 top-[72px] z-50 max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-border bg-background px-4 pb-8 pt-2">
+      <div className="fixed inset-x-0 top-[64px] z-50 max-h-[calc(100dvh-64px)] md:top-[72px] overflow-y-auto border-t border-border bg-background px-4 pb-8 pt-2">
         <ul>
           {nav.map((n, i) => (
             <li key={n.href} className="border-b border-border">
@@ -40,14 +40,14 @@ function MobileMenu() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center gap-6 px-4 md:px-12">
+      <div className="grid h-[64px] grid-cols-[auto_1fr_auto] items-center gap-x-5 px-5 md:h-[72px] md:grid-cols-12 md:px-10">
         <Link href="/" aria-label="URALDOMA — на главную" className="shrink-0"><Logo /></Link>
-        <nav aria-label="Основное меню" className="ml-6 hidden gap-7 text-[15px] lg:flex xl:ml-16">
+        <nav aria-label="Основное меню" className="hidden gap-6 text-[14px] lg:col-span-5 lg:col-start-4 lg:flex">
           {nav.map((n) => (
             <Link key={n.href} href={n.href} className="text-muted-foreground transition-colors hover:text-foreground">{n.label}</Link>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-2 md:gap-3">
+        <div className="col-start-3 flex items-center justify-end gap-2 whitespace-nowrap md:col-span-4 md:col-start-9 md:gap-3">
           <a href={`tel:${site.contacts.phone}`} className="hidden text-[15px] xl:block">{site.contacts.phoneDisplay}</a>
           <a href={`tel:${site.contacts.phone}`} aria-label="Позвонить" className="flex size-11 items-center justify-center rounded-full hover:bg-secondary xl:hidden">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M15 14.5c-.8.8-3-.8-4.5-2.3S7.7 8.5 8.5 7.7L10 6.2 7 2.5 4 4.8C4 11.6 12.4 20 19.2 20l2.3-3-3.7-3z" /></svg>

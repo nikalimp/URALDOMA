@@ -27,6 +27,7 @@
   --inverse-foreground: #f4f4f1;
   --inverse-muted: #a7a7a2;
   --inverse-line: rgb(255 255 255 / 16%);
+  --guide: rgb(18 18 18 / 6%); /* направляющие сетки */
   color-scheme: light;
 }
 
@@ -48,6 +49,7 @@
   --inverse-foreground: #f4f4f1;
   --inverse-muted: #a7a7a2;
   --inverse-line: rgb(255 255 255 / 14%);
+  --guide: rgb(255 255 255 / 6%);
   color-scheme: dark;
 }
 
@@ -90,6 +92,10 @@
 /* Микроподпись: мелкий гротеск, без капса (как метаданные в референсах). Имя класса оставлено для совместимости */
 .label-mono { font-size: 13px; line-height: 1.35; letter-spacing: 0.005em; }
 /* Технические подписи на чертеже — моно */
+/* Дисплейный заголовок капсом во всю ширину (Modernism / Architecture) */
+.caps-display { text-transform: uppercase; font-weight: 400; }
+/* Капс-подпись: [ Метка ], (01), метаданные в углах экрана */
+.caps { font-size: 12px; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; }
 .label-tech { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
 /* Счётчик-индекс у заголовка: «Портфолио¹⁰» */
 .sup-count { font-size: 0.32em; vertical-align: super; margin-left: 0.15em; letter-spacing: 0; color: var(--muted-foreground); font-weight: 400; }

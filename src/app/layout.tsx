@@ -5,6 +5,7 @@ import "./globals.css";
 import { site } from "@/content/site";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
+import { GuideLines } from "@/components/guide-lines";
 import { JsonLd } from "@/components/json-ld";
 import { graph, orgSchema, personSchema, websiteSchema } from "@/lib/schema";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
         <CookieBanner />
+        <GuideLines />
       </body>
     </html>
   );
