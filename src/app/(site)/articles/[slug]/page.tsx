@@ -35,7 +35,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
       <Container className="pt-10 md:pt-14">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title }]} />
-        <h1 className="max-w-[22ch] text-[36px] leading-[1.05] font-medium tracking-[-0.03em] md:text-[60px]">{p.title}</h1>
+        <h1 className="max-w-[22ch] text-[36px] leading-[1.05] tracking-[-0.03em] md:text-[60px]">{p.title}</h1>
       </Container>
       <Section className="pt-10 md:pt-14">
         <Container>
@@ -68,7 +68,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               {more.map((m) => (
                 <li key={m.slug} className="border-b border-border md:border-r md:last:border-r-0">
                   <Link href={`/articles/${m.slug}/`} className="group block py-6 md:px-6 md:first:pl-0">
-                    <h3 className="text-[20px] leading-snug font-medium group-hover:text-brand">{m.title}</h3>
+                    <h3 className="text-[20px] leading-snug group-hover:text-brand">{m.title}</h3>
                   </Link>
                 </li>
               ))}

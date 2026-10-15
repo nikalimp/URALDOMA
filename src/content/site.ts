@@ -63,7 +63,7 @@ export const site = {
   heroVideo: { src: "/video/hero.mp4", poster: "/images/hero-poster.jpg" },
 
   metrikaId: 62022598,
-  darkTheme: false,
+  darkTheme: true, // переключатель в шапке и футере, по умолчанию — системная тема
 };
 
 export const nav = [

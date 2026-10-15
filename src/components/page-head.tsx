@@ -8,11 +8,11 @@ export function PageHead({ crumbs, h1, answer, eyebrow, children }: { crumbs: { 
       <Crumbs items={crumbs} />
       <Grid className="items-end">
         <div className="md:col-span-8">
-          {eyebrow && <p className="label-mono mb-6 text-brand">{eyebrow}</p>}
-          <h1 className="text-[40px] leading-[1.02] font-medium tracking-[-0.035em] text-balance md:text-[72px]">{h1}</h1>
+          {eyebrow && <p className="tag mb-6">{eyebrow}</p>}
+          <h1 className="text-[40px] leading-[1.02] tracking-[-0.045em] text-balance md:text-[80px]">{h1}</h1>
         </div>
         <div className="md:col-span-4">
-          <p className="text-[18px] text-earth">{answer}</p>
+          <p className="text-[17px] text-earth">{answer}</p>
           {children}
         </div>
       </Grid>

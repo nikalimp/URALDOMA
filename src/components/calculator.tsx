@@ -28,7 +28,7 @@ export function Calculator() {
           <legend className="label-mono float-left mb-6 w-full text-muted-foreground">01 — Площадь квартиры</legend>
           <div className="clear-both flex items-end gap-6">
             <label className="sr-only" htmlFor="calc-area">Площадь, м²</label>
-            <input id="calc-area" type="number" min={15} max={400} value={area} onChange={(e) => setArea(Math.max(0, Math.min(400, Number(e.target.value) || 0)))} style={{ width: `${String(area).length + 0.5}ch` }} className="border-0 border-b border-foreground bg-transparent text-[64px] leading-none font-medium tracking-[-0.04em] outline-none focus:border-brand md:text-[96px]" />
+            <input id="calc-area" type="number" min={15} max={400} value={area} onChange={(e) => setArea(Math.max(0, Math.min(400, Number(e.target.value) || 0)))} style={{ width: `${String(area).length + 0.5}ch` }} className="border-0 border-b border-foreground bg-transparent text-[64px] leading-none tracking-[-0.05em] outline-none focus:border-brand md:text-[112px]" />
             <span className="pb-3 text-[24px] text-muted-foreground">м²</span>
           </div>
           <input type="range" min={20} max={250} step={1} value={Math.min(250, Math.max(20, area))} onChange={(e) => setArea(Number(e.target.value))} aria-label="Площадь, м²" className="mt-6 w-full accent-[var(--brand)]" />
@@ -38,10 +38,10 @@ export function Calculator() {
           <legend className="label-mono float-left mb-6 w-full text-muted-foreground">02 — Тариф</legend>
           <div className="clear-both grid grid-cols-1 border-l border-border sm:grid-cols-3">
             {tariffs.map((x) => (
-              <label key={x.id} className={cn("flex min-h-[120px] cursor-pointer flex-col justify-between border-r border-b border-t border-border p-5", tariff === x.id ? "bg-foreground text-card" : "hover:bg-card")}>
+              <label key={x.id} className={cn("flex min-h-[120px] cursor-pointer flex-col justify-between border-r border-b border-t border-border p-5", tariff === x.id ? "bg-foreground text-background" : "hover:bg-card")}>
                 <input type="radio" name="tariff" value={x.id} checked={tariff === x.id} onChange={() => setTariff(x.id)} className="sr-only" />
                 <span className="text-[18px] font-medium">{x.name}</span>
-                <span className="text-[24px] font-medium tracking-[-0.02em]">{formatRub(x.rate)}<span className={cn("text-[14px]", tariff === x.id ? "text-card/70" : "text-muted-foreground")}> / м²</span></span>
+                <span className="text-[24px] tracking-[-0.02em]">{formatRub(x.rate)}<span className={cn("text-[14px]", tariff === x.id ? "opacity-70" : "text-muted-foreground")}> / м²</span></span>
               </label>
             ))}
           </div>
@@ -58,16 +58,16 @@ export function Calculator() {
       </div>
 
       <div className="md:col-span-4 md:col-start-9">
-        <div className="bg-foreground p-6 text-card md:sticky md:top-28 md:p-8">
-          <p className="label-mono text-accent/70">Ориентир стоимости работ</p>
-          <p aria-live="polite" className="mt-4 text-[44px] leading-none font-medium tracking-[-0.035em] md:text-[52px]">{formatRub(total)}</p>
-          <dl className="mt-6 space-y-2 border-t border-card/20 pt-4 text-[15px]">
-            <div className="flex justify-between gap-4"><dt className="text-accent/80">Работы, {t.name.toLowerCase()}</dt><dd>{formatRub(works)}</dd></div>
-            {design && <div className="flex justify-between gap-4"><dt className="text-accent/80">Дизайн-проект</dt><dd>{formatRub(dp)}</dd></div>}
+        <div className="bg-inverse p-6 text-inverse-foreground md:sticky md:top-28 md:p-8">
+          <p className="label-mono text-inverse-muted">Ориентир стоимости работ</p>
+          <p aria-live="polite" className="mt-4 text-[44px] leading-none tracking-[-0.04em] md:text-[56px]">{formatRub(total)}</p>
+          <dl className="mt-6 space-y-2 border-t border-inverse-line pt-4 text-[15px]">
+            <div className="flex justify-between gap-4"><dt className="text-inverse-muted">Работы, {t.name.toLowerCase()}</dt><dd>{formatRub(works)}</dd></div>
+            {design && <div className="flex justify-between gap-4"><dt className="text-inverse-muted">Дизайн-проект</dt><dd>{formatRub(dp)}</dd></div>}
           </dl>
-          <p className="mt-4 text-[13px] text-accent/70">Без материалов и мебели. Точную смету фиксируем в договоре после бесплатного замера.</p>
-          <div className="mt-8 border-t border-card/20 pt-6">
-            <p className="mb-4 text-[17px] font-medium">Получить смету по этому расчёту</p>
+          <p className="mt-4 text-[13px] text-inverse-muted">Без материалов и мебели. Точную смету фиксируем в договоре после бесплатного замера.</p>
+          <div className="mt-8 border-t border-inverse-line pt-6">
+            <p className="mb-4 text-[17px]">Получить смету по этому расчёту</p>
             <LeadForm tone="dark" source="calculator" extra={extra} button="Отправить расчёт" />
           </div>
         </div>

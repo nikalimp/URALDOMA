@@ -29,7 +29,7 @@ export default function Articles() {
               <li key={p.slug} className="border-b border-border">
                 <Link href={`/articles/${p.slug}/`} className="group grid grid-cols-1 gap-x-6 gap-y-2 py-8 md:grid-cols-12">
                   <time dateTime={p.date} className="label-mono text-muted-foreground md:col-span-2">{formatDate(p.date)}</time>
-                  <h2 className="text-[24px] leading-snug font-medium tracking-[-0.015em] group-hover:text-brand md:col-span-6 md:text-[28px]">{p.title}</h2>
+                  <h2 className="text-[24px] leading-snug tracking-[-0.015em] group-hover:text-brand md:col-span-6 md:text-[28px]">{p.title}</h2>
                   <p className="text-[16px] text-earth md:col-span-4">{p.description}</p>
                 </Link>
               </li>

@@ -18,7 +18,7 @@ export default function Consent() {
     <Section className="pt-10 md:pt-14">
       <Container>
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Согласие на обработку персональных данных" }]} />
-        <h1 className="max-w-[18ch] text-[40px] leading-[1.02] font-medium tracking-[-0.035em] md:text-[64px]">Согласие на обработку персональных данных</h1>
+        <h1 className="max-w-[18ch] text-[40px] leading-[1.02] tracking-[-0.035em] md:text-[64px]">Согласие на обработку персональных данных</h1>
         <p className="label-mono mt-6 text-muted-foreground">Редакция от {formatDate(legalUpdated)}</p>
         <div className="prose-site mt-12 md:ml-[calc(41.666%+12px)]">
           <p>Отмечая чекбокс и отправляя форму на сайте {site.url}, я свободно, своей волей и в своём интересе даю согласие {site.legalName} (ИНН {site.legal.inn}, ОГРНИП {site.legal.ogrnip}; далее — Оператор) на обработку моих персональных данных на следующих условиях.</p>

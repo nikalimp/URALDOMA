@@ -2,25 +2,53 @@
 
 /* Токены бренда URALDOMA — specs/03-design.md §3 и §3.1 (швейцарская типографика).
    Направление A «Тёплый дом»: кремовый фон, тёмный текст, коричневый бренд, один акцент — терракота. Радиус 0. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Токены URALDOMA v3 — светлая классика по референсам PAMM / Solid Stone / Broadway Malyan (03-design §5):
+   монохром, нейтральный гротеск, волосяные линии, фотография даёт цвет. Тёмная тема — класс .dark на <html>,
+   по умолчанию — как в системе (скрипт в layout.tsx). Один тёплый акцент — бронза, только для номеров и стрелок. */
 :root {
   --radius: 0rem;
-  --background: oklch(0.954 0.013 82.4); /* #F4EFE6 */
-  --foreground: oklch(0.225 0.011 73.3); /* #1F1B16 */
-  --card: oklch(0.979 0.004 91.4); /* #F9F8F5 */
-  --primary: oklch(0.225 0.011 73.3); /* кнопки — тёмные */
-  --primary-foreground: oklch(0.979 0.004 91.4);
-  --secondary: oklch(0.872 0.035 80.3); /* #E1D3BC бежевые секции */
-  --secondary-foreground: oklch(0.225 0.011 73.3);
-  --muted: oklch(0.872 0.035 80.3);
-  --muted-foreground: oklch(0.505 0.021 59.2); /* #6E6259 */
-  --accent: oklch(0.847 0.036 81.3); /* #D9CBB3 */
-  --accent-foreground: oklch(0.225 0.011 73.3);
-  --border: oklch(0.225 0.011 73.3 / 15%);
-  --ring: oklch(0.511 0.1 48.3);
-  --brand: oklch(0.511 0.1 48.3); /* #94532F терракота — CTA, номера, стрелки */
-  --brand-bg: oklch(0.872 0.035 80.3);
-  --earth: oklch(0.379 0.028 49.4); /* #4F3E35 коричневый бренда — тёмные секции */
-  --earth-foreground: oklch(0.872 0.035 80.3);
+  --background: #f6f6f3;
+  --foreground: #121212;
+  --card: #ffffff;
+  --primary: #121212;
+  --primary-foreground: #ffffff;
+  --secondary: #ecece8; /* светло-серые панели */
+  --secondary-foreground: #121212;
+  --muted: #ecece8;
+  --muted-foreground: #6b6b68; /* 5.1:1 на фоне */
+  --earth: #3a3a38; /* вторичный текст */
+  --border: rgb(18 18 18 / 12%);
+  --ring: #121212;
+  --brand: #8a5a3c; /* бронза: номера, стрелки — 5.4:1 */
+  /* Инверсные блоки (футер, чертёж, CTA): тёмные в обеих темах */
+  --inverse: #121212;
+  --inverse-foreground: #f4f4f1;
+  --inverse-muted: #a7a7a2;
+  --inverse-line: rgb(255 255 255 / 16%);
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0f0f0e;
+  --foreground: #efefeb;
+  --card: #171716;
+  --primary: #efefeb;
+  --primary-foreground: #0f0f0e;
+  --secondary: #1a1a19;
+  --secondary-foreground: #efefeb;
+  --muted: #1a1a19;
+  --muted-foreground: #9b9b96;
+  --earth: #c9c9c4;
+  --border: rgb(255 255 255 / 12%);
+  --ring: #efefeb;
+  --brand: #d49e7a;
+  --inverse: #1c1c1b;
+  --inverse-foreground: #f4f4f1;
+  --inverse-muted: #a7a7a2;
+  --inverse-line: rgb(255 255 255 / 14%);
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -39,26 +67,34 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
   --color-brand: var(--brand);
-  --color-brand-bg: var(--brand-bg);
   --color-earth: var(--earth);
-  --color-earth-foreground: var(--earth-foreground);
+  --color-inverse: var(--inverse);
+  --color-inverse-foreground: var(--inverse-foreground);
+  --color-inverse-muted: var(--inverse-muted);
+  --color-inverse-line: var(--inverse-line);
 }
 
 @layer base {
   * { @apply border-border outline-ring/60; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; font-feature-settings: "ss01"; }
-  ::selection { background: oklch(0.511 0.1 48.3 / 25%); }
+  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; transition: background-color .2s, color .2s; }
+  h1, h2, h3 { font-weight: 400; }
+  ::selection { background: color-mix(in oklch, var(--brand) 25%, transparent); }
   :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 }
 
 /* Подпись-метка в моно: «01 — Услуги», подписи к фото, значения в таблицах */
-.label-mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+/* Микроподпись: мелкий гротеск, без капса (как метаданные в референсах). Имя класса оставлено для совместимости */
+.label-mono { font-size: 13px; line-height: 1.35; letter-spacing: 0.005em; }
+/* Технические подписи на чертеже — моно */
+.label-tech { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+/* Счётчик-индекс у заголовка: «Портфолио¹⁰» */
+.sup-count { font-size: 0.32em; vertical-align: super; margin-left: 0.15em; letter-spacing: 0; color: var(--muted-foreground); font-weight: 400; }
+/* Пилюля-метка */
+.tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* Типографика статей */
 .prose-site { font-size: 18px; line-height: 1.7; max-width: 44rem; }

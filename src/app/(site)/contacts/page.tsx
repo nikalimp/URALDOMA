@@ -30,7 +30,7 @@ export default function Contacts() {
               {rows.map(([k, v]) => (
                 <div key={k} className="grid grid-cols-1 gap-1 border-b border-border py-6 sm:grid-cols-[180px_1fr]">
                   <dt className="label-mono pt-1 text-muted-foreground">{k}</dt>
-                  <dd className="text-[22px] font-medium tracking-[-0.01em] md:text-[26px]">{v}</dd>
+                  <dd className="text-[22px] tracking-[-0.01em] md:text-[26px]">{v}</dd>
                 </div>
               ))}
             </dl>

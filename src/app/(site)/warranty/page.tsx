@@ -21,7 +21,7 @@ export default function Warranty() {
             {W.items.map((it, i) => (
               <div key={it.title} className="border-r border-b border-foreground/15 p-6 md:p-8">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-4 text-[26px] font-medium tracking-[-0.015em]">{it.title}</h2>
+                <h2 className="mt-4 text-[26px] tracking-[-0.015em]">{it.title}</h2>
                 <p className="mt-3 text-[16px] text-earth">{it.text}</p>
               </div>
             ))}
@@ -36,7 +36,7 @@ export default function Warranty() {
               {W.acceptance.map((a, i) => (
                 <li key={a.title} className="grid grid-cols-[48px_1fr] gap-x-6 border-b border-border py-6">
                   <span className="font-mono text-[14px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                  <div><h3 className="text-[22px] font-medium">{a.title}</h3><p className="mt-2 text-[16px] text-earth">{a.text}</p></div>
+                  <div><h3 className="text-[22px]">{a.title}</h3><p className="mt-2 text-[16px] text-earth">{a.text}</p></div>
                 </li>
               ))}
             </ol>

@@ -38,7 +38,7 @@ export default function Services() {
               <div className="border-t border-foreground">
                 {list.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}/`} className="group grid grid-cols-1 gap-x-6 gap-y-2 border-b border-foreground/15 py-8 md:grid-cols-12">
-                    <h2 className="text-[26px] font-medium tracking-[-0.015em] group-hover:text-brand md:col-span-5 md:text-[32px]">{s.title}</h2>
+                    <h2 className="text-[26px] tracking-[-0.015em] group-hover:text-brand md:col-span-5 md:text-[32px]">{s.title}</h2>
                     <p className="text-[16px] text-earth md:col-span-4">{s.short}</p>
                     <p className="flex justify-between gap-4 text-[16px] md:col-span-3 md:justify-end">
                       <span className="text-muted-foreground">{s.priceFrom}</span>

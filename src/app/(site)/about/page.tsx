@@ -21,7 +21,7 @@ export default function About() {
           {home.facts.map((f) => (
             <div key={f.label} className="border-b border-border py-8 pr-4">
               <dt className="sr-only">{f.label}</dt>
-              <dd className="text-[48px] leading-none font-medium tracking-[-0.04em] md:text-[64px]">{f.value}</dd>
+              <dd className="text-[48px] leading-none tracking-[-0.04em] md:text-[64px]">{f.value}</dd>
               <dd className="mt-3 text-[15px] text-muted-foreground">{f.label}</dd>
             </div>
           ))}
@@ -35,7 +35,7 @@ export default function About() {
             <img src="/images/team/nikolay.webp" alt={`${site.person.name}, директор URALDOMA`} width={600} height={900} className="aspect-[4/5] w-full object-cover md:col-span-4" />
             <div className="md:col-span-7 md:col-start-6">
               <Label n="01">Директор</Label>
-              <blockquote className="text-[28px] leading-[1.2] font-medium tracking-[-0.02em] md:text-[40px]">«{about.quote}»</blockquote>
+              <blockquote className="text-[28px] leading-[1.2] tracking-[-0.02em] md:text-[40px]">«{about.quote}»</blockquote>
               <p className="mt-8 border-t border-foreground pt-6 text-[18px] font-medium">{site.person.name}</p>
               <p className="text-[15px] text-muted-foreground">директор URALDOMA</p>
             </div>
@@ -49,7 +49,7 @@ export default function About() {
           <div className="grid grid-cols-1 border-t border-l border-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
             {about.principles.map((p) => (
               <div key={p.title} className="border-r border-b border-foreground/15 p-6">
-                <h3 className="text-[22px] font-medium">{p.title}</h3>
+                <h3 className="text-[22px]">{p.title}</h3>
                 <p className="mt-3 text-[15px] text-earth">{p.text}</p>
               </div>
             ))}

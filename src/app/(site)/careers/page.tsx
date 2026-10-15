@@ -32,7 +32,7 @@ export default function Careers() {
             <article key={j.title} className="grid grid-cols-1 gap-x-6 gap-y-6 border-t border-foreground py-10 md:grid-cols-12">
               <div className="md:col-span-4">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-3 text-[28px] leading-tight font-medium tracking-[-0.02em]">{j.title}</h2>
+                <h2 className="mt-3 text-[28px] leading-tight tracking-[-0.02em]">{j.title}</h2>
                 <p className="mt-4 text-[16px] text-earth">{j.text}</p>
               </div>
               <div className="md:col-span-4">

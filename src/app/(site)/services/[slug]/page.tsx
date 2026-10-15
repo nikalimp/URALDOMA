@@ -67,7 +67,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {s.includes.map((it, i) => (
               <div key={it.title} className="border-r border-b border-foreground/15 p-6 md:p-8">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[22px] font-medium">{it.title}</h3>
+                <h3 className="mt-4 text-[22px]">{it.title}</h3>
                 <p className="mt-3 text-[16px] text-earth">{it.text}</p>
               </div>
             ))}
@@ -86,7 +86,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <tbody>
                 {s.prices.map((p) => (
                   <tr key={p.name} className="border-b border-border">
-                    <th scope="row" className="py-5 pr-4 text-[19px] font-medium">{p.name}</th>
+                    <th scope="row" className="py-5 pr-4 text-[19px]">{p.name}</th>
                     <td className="py-5 pr-4 text-[19px] whitespace-nowrap">{p.value}</td>
                     <td className="hidden py-5 text-[15px] text-muted-foreground md:table-cell">{p.note}</td>
                   </tr>
@@ -105,7 +105,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {s.process.map((p, i) => (
               <li key={p.title} className="border-b border-border py-6 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px] font-medium">{p.title}</h3>
+                <h3 className="mt-3 text-[20px]">{p.title}</h3>
                 <p className="mt-2 text-[15px] text-earth">{p.text}</p>
               </li>
             ))}

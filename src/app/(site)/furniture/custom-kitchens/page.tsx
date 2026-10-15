@@ -27,19 +27,19 @@ export default function Kitchens() {
               {K.steps.map((s, i) => (
                 <li key={s.title} className="grid grid-cols-[48px_1fr] gap-x-6 border-b border-border py-6">
                   <span className="font-mono text-[14px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                  <div><h3 className="text-[22px] font-medium">{s.title}</h3><p className="mt-2 text-[16px] text-earth">{s.text}</p></div>
+                  <div><h3 className="text-[22px]">{s.title}</h3><p className="mt-2 text-[16px] text-earth">{s.text}</p></div>
                 </li>
               ))}
             </ol>
           </Grid>
         </Container>
       </Section>
-      <Section className="bg-earth text-card">
+      <Section className="bg-inverse text-inverse-foreground">
         <Container>
           <Grid>
-            <div className="md:col-span-5"><Label className="text-earth-foreground">Производство</Label><H2>Своё производство «Мебель-Урал»</H2></div>
-            <ul className="border-t border-card/40 md:col-span-6 md:col-start-7">
-              {F.production.map((p) => <li key={p} className="border-b border-card/20 py-5 text-[18px]">{p}</li>)}
+            <div className="md:col-span-5"><Label className="text-inverse-muted">Производство</Label><H2>Своё производство «Мебель-Урал»</H2></div>
+            <ul className="border-t border-inverse-line md:col-span-6 md:col-start-7">
+              {F.production.map((p) => <li key={p} className="border-b border-inverse-line py-5 text-[18px]">{p}</li>)}
             </ul>
           </Grid>
         </Container>

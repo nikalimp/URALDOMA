@@ -33,12 +33,12 @@ export default function Furniture() {
           <Link href="/furniture/custom-kitchens/" className={`${linkArrow} mt-8`}>Кухни на заказ <span aria-hidden="true">→</span></Link>
         </Container>
       </Section>
-      <Section className="bg-earth text-card">
+      <Section className="bg-inverse text-inverse-foreground">
         <Container>
           <Grid>
-            <div className="md:col-span-5"><Label n="02" className="text-earth-foreground">Производство</Label><H2>Своё производство в Екатеринбурге</H2></div>
-            <ul className="border-t border-card/40 md:col-span-6 md:col-start-7">
-              {F.production.map((p) => <li key={p} className="border-b border-card/20 py-5 text-[18px]">{p}</li>)}
+            <div className="md:col-span-5"><Label n="02" className="text-inverse-muted">Производство</Label><H2>Своё производство в Екатеринбурге</H2></div>
+            <ul className="border-t border-inverse-line md:col-span-6 md:col-start-7">
+              {F.production.map((p) => <li key={p} className="border-b border-inverse-line py-5 text-[18px]">{p}</li>)}
             </ul>
           </Grid>
         </Container>
@@ -50,7 +50,7 @@ export default function Furniture() {
             {F.process.map((p, i) => (
               <li key={p.title} className="border-b border-border py-6 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px] font-medium">{p.title}</h3>
+                <h3 className="mt-3 text-[20px]">{p.title}</h3>
                 <p className="mt-2 text-[15px] text-earth">{p.text}</p>
               </li>
             ))}

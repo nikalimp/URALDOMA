@@ -51,7 +51,7 @@ export default function Partners() {
           <dl className="grid grid-cols-1 border-t border-foreground md:grid-cols-2">
             {P.rules.map((r) => (
               <div key={r.title} className="border-b border-border py-8 md:odd:border-r md:odd:pr-6 md:even:pl-6">
-                <dt className="text-[22px] font-medium">{r.title}</dt>
+                <dt className="text-[22px]">{r.title}</dt>
                 <dd className="mt-3 text-[16px] text-earth">{r.text}</dd>
               </div>
             ))}
@@ -66,10 +66,10 @@ export default function Partners() {
           </Grid>
         </Container>
       </Section>
-      <Section id="lead" className="bg-earth text-card">
+      <Section id="lead" className="bg-inverse text-inverse-foreground">
         <Container>
           <Grid>
-            <div className="md:col-span-6"><Label className="text-earth-foreground">Заявка</Label><H2>Стать партнёром</H2><p className="mt-6 text-[17px] text-earth-foreground">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
+            <div className="md:col-span-6"><Label className="text-inverse-muted">Заявка</Label><H2>Стать партнёром</H2><p className="mt-6 text-[17px] text-inverse-muted">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
             <div className="md:col-span-4 md:col-start-9"><LeadForm tone="dark" source="partners" withName button="Стать партнёром" /></div>
           </Grid>
         </Container>

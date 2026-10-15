@@ -58,7 +58,7 @@ export default function Prices() {
           <div className="border-t border-foreground">
             {priceRows.map((r) => (
               <Link key={r.service} href={r.href} className="group grid grid-cols-1 gap-x-6 gap-y-1 border-b border-border py-5 md:grid-cols-12">
-                <span className="text-[20px] font-medium group-hover:text-brand md:col-span-5">{r.service}</span>
+                <span className="text-[20px] group-hover:text-brand md:col-span-5">{r.service}</span>
                 <span className="text-[18px] md:col-span-3">{r.value}</span>
                 <span className="text-[15px] text-muted-foreground md:col-span-4">{r.note}</span>
               </Link>
@@ -76,7 +76,7 @@ export default function Prices() {
               <dl className="mt-10 border-t border-foreground">
                 {P.affects.map((a) => (
                   <div key={a.title} className="border-b border-border py-5">
-                    <dt className="text-[19px] font-medium">{a.title}</dt>
+                    <dt className="text-[19px]">{a.title}</dt>
                     <dd className="mt-1 text-[16px] text-earth">{a.text}</dd>
                   </div>
                 ))}

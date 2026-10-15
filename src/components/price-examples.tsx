@@ -15,7 +15,7 @@ export function PriceExamples({ areas, caption }: { areas: number[]; caption: st
         <tbody>
           {areas.map((a) => (
             <tr key={a} className="border-t border-border">
-              <th scope="row" className="py-5 pr-4 text-[18px] font-medium md:text-[22px]">{a} м²</th>
+              <th scope="row" className="py-5 pr-4 text-[18px] md:text-[22px]">{a} м²</th>
               {tariffs.map((t) => <td key={t.id} className="py-5 pr-4 whitespace-nowrap">{formatRub(a * t.rate)}</td>)}
             </tr>
           ))}

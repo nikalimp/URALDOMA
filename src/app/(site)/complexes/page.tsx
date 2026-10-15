@@ -35,7 +35,7 @@ export default function Complexes() {
                       <img src={caseCover(cs[0])} alt={cs[0].alt} loading="lazy" className="aspect-[4/3] w-full object-cover md:col-span-3" />
                     )}
                     <div className="md:col-span-8 md:col-start-5">
-                      <h2 className="text-[28px] font-medium tracking-[-0.02em] group-hover:text-brand">{c.name}</h2>
+                      <h2 className="text-[28px] tracking-[-0.02em] group-hover:text-brand">{c.name}</h2>
                       <p className="mt-3 text-[16px] text-earth">{c.answer}</p>
                       <p className="label-mono mt-4 text-muted-foreground">{cs.length} {cs.length === 1 ? "объект" : "объекта"} URALDOMA</p>
                     </div>

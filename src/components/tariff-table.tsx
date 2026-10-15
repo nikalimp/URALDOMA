@@ -14,8 +14,8 @@ export function TariffTable() {
         <div />
         {tariffs.map((t) => (
           <div key={t.id} className="border-l border-border p-6">
-            <h3 className="text-[24px] font-medium">{t.name}</h3>
-            <p className="mt-2 text-[36px] leading-none font-medium tracking-[-0.03em]">{formatRub(t.rate)}<span className="text-[15px] font-normal text-muted-foreground"> / м²</span></p>
+            <h3 className="text-[24px]">{t.name}</h3>
+            <p className="mt-2 text-[36px] leading-none tracking-[-0.03em]">{formatRub(t.rate)}<span className="text-[15px] font-normal text-muted-foreground"> / м²</span></p>
             <p className="mt-4 text-[15px] text-earth">{t.forWhom}</p>
           </div>
         ))}
@@ -32,7 +32,7 @@ export function TariffTable() {
       <div className="space-y-12 md:hidden">
         {tariffs.map((t) => (
           <div key={t.id} className="border-t border-foreground pt-6">
-            <h3 className="text-[24px] font-medium">{t.name} — {formatRub(t.rate)} / м²</h3>
+            <h3 className="text-[24px]">{t.name} — {formatRub(t.rate)} / м²</h3>
             <p className="mt-3 text-[15px] text-earth">{t.forWhom}</p>
             <dl className="mt-4">
               {rows.map((r) => (

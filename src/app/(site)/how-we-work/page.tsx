@@ -25,7 +25,7 @@ export default function HowWeWork() {
       <JsonLd data={graph(howTo, faqSchema(H.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Как мы работаем", path: "/how-we-work/" }]))} />
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Как мы работаем" }]} h1={H.h1} answer={H.answer} />
 
-      <section aria-label="Чертёж стадий" className="bg-earth py-16 text-accent md:py-24">
+      <section aria-label="Чертёж стадий" className="bg-inverse py-16 text-inverse-muted md:py-24">
         <Container><ProcessBlueprint initial={1} /></Container>
       </section>
 
@@ -37,7 +37,7 @@ export default function HowWeWork() {
               <li key={s.title} className="grid grid-cols-1 gap-x-6 gap-y-3 border-b border-border py-10 md:grid-cols-12">
                 <div className="md:col-span-4">
                   <span className="font-mono text-[14px] text-brand">{String(i + 1).padStart(2, "0")} · {s.term}</span>
-                  <h3 className="mt-3 text-[26px] font-medium tracking-[-0.015em]">{s.title}</h3>
+                  <h3 className="mt-3 text-[26px] tracking-[-0.015em]">{s.title}</h3>
                 </div>
                 <p className="text-[17px] md:col-span-4">{s.text}</p>
                 <div className="md:col-span-4">
@@ -56,7 +56,7 @@ export default function HowWeWork() {
           <div className="grid grid-cols-1 border-t border-l border-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
             {H.remote.map((r) => (
               <div key={r.title} className="border-r border-b border-foreground/15 p-6">
-                <h3 className="text-[20px] font-medium">{r.title}</h3>
+                <h3 className="text-[20px]">{r.title}</h3>
                 <p className="mt-3 text-[15px] text-earth">{r.text}</p>
               </div>
             ))}

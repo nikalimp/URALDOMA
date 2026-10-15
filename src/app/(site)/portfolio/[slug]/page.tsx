@@ -44,7 +44,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Grid className="items-end">
           <div className="md:col-span-8">
             <p className="label-mono mb-6 text-brand">{c.place}</p>
-            <h1 className="text-[40px] leading-[1.02] font-medium tracking-[-0.035em] text-balance md:text-[72px]">{c.title}</h1>
+            <h1 className="text-[40px] leading-[1.02] tracking-[-0.035em] text-balance md:text-[72px]">{c.title}</h1>
           </div>
           <p className="text-[18px] text-earth md:col-span-4">{c.summary}</p>
         </Grid>
@@ -52,7 +52,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           {[["Объект", c.kind], ["Площадь", c.area && `${c.area} м²`], ["Тариф", c.tariff], ["Срок", c.term]].filter(([, v]) => v).map(([k, v]) => (
             <div key={k} className="border-b border-border py-5 pr-4">
               <dt className="label-mono text-muted-foreground">{k}</dt>
-              <dd className="mt-2 text-[20px] font-medium">{v}</dd>
+              <dd className="mt-2 text-[20px]">{v}</dd>
             </div>
           ))}
         </dl>
@@ -70,7 +70,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="01">Решения</Label><h2 className="text-[34px] leading-tight font-medium tracking-[-0.03em]">Что сделали</h2></div>
+            <div className="md:col-span-4"><Label n="01">Решения</Label><h2 className="text-[34px] leading-tight tracking-[-0.03em]">Что сделали</h2></div>
             <ul className="border-t border-foreground md:col-span-7 md:col-start-6">
               {c.solutions.map((s) => <li key={s} className="border-b border-border py-5 text-[19px]">{s}</li>)}
             </ul>

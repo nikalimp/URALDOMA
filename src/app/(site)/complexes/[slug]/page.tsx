@@ -48,7 +48,7 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
           {c.facts.map(([k, v]) => (
             <div key={k} className="border-b border-border py-5 pr-4">
               <dt className="label-mono text-muted-foreground">{k}</dt>
-              <dd className="mt-2 text-[19px] font-medium">{v}</dd>
+              <dd className="mt-2 text-[19px]">{v}</dd>
             </div>
           ))}
         </dl>
@@ -60,7 +60,7 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
             <Grid key={s.h2} className="border-t border-border py-10 first:border-foreground">
               <div className="md:col-span-4">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-3 text-[28px] leading-tight font-medium tracking-[-0.02em]">{s.h2}</h2>
+                <h2 className="mt-3 text-[28px] leading-tight tracking-[-0.02em]">{s.h2}</h2>
               </div>
               <div className="md:col-span-7 md:col-start-6">
                 {s.text && <p className="text-[18px]">{s.text}</p>}
@@ -87,7 +87,7 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
             {start(c.name).map((s, i) => (
               <li key={s.title} className="border-b border-foreground/15 py-6 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
                 <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px] font-medium">{s.title}</h3>
+                <h3 className="mt-3 text-[20px]">{s.title}</h3>
                 <p className="mt-2 text-[15px] text-earth">{s.text}</p>
               </li>
             ))}
