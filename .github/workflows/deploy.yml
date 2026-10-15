@@ -1,0 +1,63 @@
+# Сборка и выкладка сайта на хостинг по SSH (rsync) при каждом push в main.
+# Секреты репозитория (Settings → Secrets and variables → Actions):
+#   SSH_KEY  — приватный ключ деплоя (публичный — в ~/.ssh/authorized_keys на хостинге)
+#   SSH_HOST — адрес сервера, SSH_USER — пользователь, SITE_DIR — папка сайта со слешем на конце
+#   SITE_URL — боевой адрес для проверки после выкладки (https://…)
+# Хостинг без SSH — замени шаг заливки на SamKirkland/FTP-Deploy-Action.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["specs/**", "*.md"]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # check = сборка + проверка TODO и geo-check: сайт с заглушками на хостинг не попадёт
+      - run: npm run check
+      # Какие страницы изменились с прошлой выкладки — для IndexNow (ключ: npm run indexnow:key)
+      - run: node scripts/indexnow.mjs prepare
+
+      - name: Заливка (rsync по SSH)
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SITE_DIR: ${{ secrets.SITE_DIR }}
+        run: |
+          [ -z "$SSH_KEY" ] && { echo "::error::Нет секрета SSH_KEY"; exit 1; }
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # Не трогаем .well-known (SSL), cgi-bin и служебные файлы панели.
+          # Файлы, которые должны жить на сайте всегда (подтверждения Вебмастера, ключ IndexNow), — в public/.
+          rsync -az --delete --stats --exclude '.well-known/' --exclude 'cgi-bin/' \
+            -e "ssh -i ~/.ssh/deploy_key -o ConnectTimeout=20" out/ "$SSH_USER@$SSH_HOST:$SITE_DIR"
+
+      - name: Сайт отвечает
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+        run: |
+          [ -z "$SITE_URL" ] && exit 0
+          code=$(curl -sk -o /dev/null -w "%{http_code}" --max-time 20 "$SITE_URL/" || true)
+          echo "$SITE_URL: $code"
+          [ "$code" = "200" ] || { echo "::error::Сайт ответил $code"; exit 1; }
+
+      # Яндекс и Bing узнают о новых и изменённых страницах сразу, без ожидания обхода
+      - name: IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs submit
