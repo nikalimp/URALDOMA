@@ -1,0 +1,28 @@
+# Временная диагностика: что видно с серверов GitHub — DNS сервера, порты 22/21/80/443, SSH-баннер, ответ сайта.
+# Ничего не выкладывает. Удалить после разбора.
+name: Diag SSH
+on:
+  pull_request:
+    paths: [".github/workflows/diag-ssh.yml"]
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Diag
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+        run: |
+          ip=$(getent hosts "$SSH_HOST" | awk '{print $1}' | head -1)
+          echo "::notice title=dns::SSH_HOST -> ${ip:-не резолвится}"
+          me=$(curl -s --max-time 10 https://api.ipify.org || echo "?")
+          echo "::notice title=runner::IP раннера GitHub ${me}"
+          for p in 22 21 80 443; do
+            if timeout 12 bash -c "</dev/tcp/$SSH_HOST/$p" 2>/dev/null; then r="открыт"; else r="нет ответа"; fi
+            echo "::notice title=port $p::$r"
+          done
+          banner=$(timeout 12 bash -c "exec 3<>/dev/tcp/$SSH_HOST/22; head -c 40 <&3" 2>/dev/null | tr -dc '[:print:]' || true)
+          echo "::notice title=ssh::баннер ${banner:-нет}"
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${SITE_URL:-https://uraldoma.ru}/" || true)
+          echo "::notice title=site::HTTPS ${code}"
