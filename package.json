@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/tokens.mjs",
     "dev": "next dev -p 3010",
-    "prebuild": "node scripts/typograf.mjs",
+    "prebuild": "node scripts/tokens.mjs && node scripts/typograf.mjs",
     "build": "next build",
     "preview": "npx serve out -l 3011",
     "typograf": "node scripts/typograf.mjs",
     "typograf:check": "node scripts/typograf.mjs --check",
     "check": "npm run build && node scripts/check.mjs",
-    "indexnow:key": "node scripts/indexnow.mjs key"
+    "indexnow:key": "node scripts/indexnow.mjs key",
+    "tokens": "node scripts/tokens.mjs",
+    "icons": "node scripts/icons.mjs"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",

@@ -59,7 +59,7 @@ export function ProcessBlueprint({ initial = 3 }: { initial?: number }) {
               <ul className="mt-3">
                 {s.specs.map(([name, value], j) => (
                   <li key={name} className="grid grid-cols-[28px_1fr_auto] items-center gap-x-3 border-b border-dashed border-panel-line py-3 font-mono text-[13px]">
-                    <span className="inline-flex size-[22px] items-center justify-center rounded-full bg-panel-foreground text-[11px] text-panel">{i * 3 + j + 1}</span>
+                    <span className="inline-flex size-[22px] items-center justify-center rounded-pill bg-panel-foreground text-[11px] text-panel">{i * 3 + j + 1}</span>
                     <span className="text-panel-foreground">{name}</span>
                     <span className="text-panel-muted">{value}</span>
                   </li>

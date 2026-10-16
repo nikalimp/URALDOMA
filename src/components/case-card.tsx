@@ -16,7 +16,7 @@ export function CaseCard({ c, ratio = "aspect-[3/4]", className, sizes = "(min-w
     <Link href={`/portfolio/${c.slug}/`} className={cn("group block", className)}>
       <div className={cn("relative overflow-hidden bg-secondary", ratio)}>
         <Img p={p} alt={c.alt} sizes={sizes} className="transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]" />
-        {index && <span className="label-tech absolute top-4 left-4 text-white/90">{index}</span>}
+        {index && <span className="label-tech absolute top-4 left-4 text-on-photo/90">{index}</span>}
       </div>
       <div className="mt-3 flex items-baseline justify-between gap-4 border-t border-border pt-3">
         <span className="text-[18px] tracking-[-0.01em] group-hover:text-brand">{c.place}</span>

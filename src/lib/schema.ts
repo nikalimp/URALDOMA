@@ -15,6 +15,8 @@ export const orgSchema: Record<string, unknown> = {
   legalName: site.legalName,
   taxID: site.legal.inn,
   url: site.url,
+  // Плитка с монограммой из дизайн-системы (npm run icons); знак есть на каждой странице — в шапке
+  logo: { "@type": "ImageObject", url: `${site.url}/images/logo.png`, width: 512, height: 512 },
   description: site.description,
   foundingDate: String(site.foundingYear),
   areaServed: site.areaServed,

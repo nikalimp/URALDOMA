@@ -12,7 +12,7 @@ export function PartnerCalc() {
       <label className="flex flex-col gap-4">
         <span className="label-mono text-muted-foreground">Сумма договора клиента</span>
         <span className="text-[40px] leading-none tracking-[-0.03em]">{formatRub(sum)}</span>
-        <input type="range" min={100_000} max={10_000_000} step={100_000} value={sum} onChange={(e) => setSum(Number(e.target.value))} className="w-full accent-[var(--brand)]" />
+        <input type="range" min={100_000} max={10_000_000} step={100_000} value={sum} onChange={(e) => setSum(Number(e.target.value))} className="w-full accent-brand" />
       </label>
       <div className="beam bg-panel p-6 text-panel-foreground">
         <p className="label-mono text-panel-muted">Ваше вознаграждение</p>

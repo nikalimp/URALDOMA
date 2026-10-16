@@ -1,19 +1,19 @@
 import { cn } from "@/lib/utils";
 
-// Фуллскрин-сетка по направляющим (03-design §6–7): во всю ширину окна, поля 20 px / 40 px,
-// 12 колонок с gutter 20 px — те же, что рисует <GuideLines />. Правило: любой ряд блоков — на этой сетке
+// Фуллскрин-сетка по направляющим (03-design §6–8): во всю ширину окна, поля page-pad-mobile / page-pad (20 / 40 px),
+// 12 колонок с gutter 20 px — те же, что рисует <GuideLines />. Значения — токены дизайн-системы (design-system/tokens.json). Правило: любой ряд блоков — на этой сетке
 // (gap-x-5, число колонок делит 12); «ящики» с общими рамками без зазоров не используем — только линия сверху.
-export const pagePad = "px-5 md:px-10";
+export const pagePad = "px-page-pad-mobile md:px-page-pad";
 export function Container({ className, ...props }: React.ComponentProps<"div">) {
   return <div className={cn("w-full", pagePad, className)} {...props} />;
 }
 
 export function Grid({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("grid grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-12", className)} {...props} />;
+  return <div className={cn("grid grid-cols-1 gap-x-gutter gap-y-10 md:grid-cols-12", className)} {...props} />;
 }
 
 export function Section({ className, ...props }: React.ComponentProps<"section">) {
-  return <section className={cn("py-16 md:py-28", className)} {...props} />;
+  return <section className={cn("py-section-mobile md:py-section", className)} {...props} />;
 }
 
 // Метка раздела: «[ Услуги ]  (02)» — капсом, в квадратных скобках
@@ -72,8 +72,8 @@ export function Marquee({ items, className, itemClassName, speed = "40s", sep = 
 }
 
 export const linkArrow = "inline-flex items-center gap-2 border-b border-current pb-0.5 font-medium text-foreground hover:text-brand";
-export const btnPrimary = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-full bg-foreground px-7 py-3 text-[15px] font-medium text-background transition-colors hover:bg-brand hover:text-white";
+export const btnPrimary = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-foreground px-7 py-3 text-[15px] font-medium text-background transition-colors hover:bg-brand hover:text-on-brand";
 export const btnBrand = btnPrimary;
-export const btnOutline = "inline-flex min-h-[52px] items-center justify-center gap-6 rounded-full border border-foreground/30 px-7 py-3 text-[15px] font-medium transition-colors hover:border-foreground hover:bg-foreground hover:text-background";
+export const btnOutline = "inline-flex min-h-[52px] items-center justify-center gap-6 rounded-pill border border-foreground/30 px-7 py-3 text-[15px] font-medium transition-colors hover:border-foreground hover:bg-foreground hover:text-background";
 // Кнопка на фото: всегда светлая
-export const btnOnPhoto = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-full bg-white px-7 py-3 text-[15px] font-medium text-[#111110] transition-colors hover:bg-brand hover:text-white";
+export const btnOnPhoto = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-on-photo px-7 py-3 text-[15px] font-medium text-on-photo-foreground transition-colors hover:bg-brand hover:text-on-brand";

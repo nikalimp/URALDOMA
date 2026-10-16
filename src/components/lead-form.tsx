@@ -62,10 +62,10 @@ export function LeadForm({ tone = "light", source, extra, withName = false, butt
       {/* Ловушка для ботов: людям не видна */}
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
       <label className={cn("flex items-start gap-3 text-[12px] leading-snug", hint)}>
-        <input type="checkbox" name="consent" required className="mt-0.5 size-4 shrink-0 accent-[var(--brand)]" />
+        <input type="checkbox" name="consent" required className="mt-0.5 size-4 shrink-0 accent-brand" />
         <span>Даю <a href="/consent/" target="_blank" className="underline underline-offset-2">согласие на обработку персональных данных</a> и принимаю <a href="/privacy-policy/" target="_blank" className="underline underline-offset-2">политику</a></span>
       </label>
-      <button type="submit" disabled={state === "sending"} className={cn("flex min-h-[52px] items-center justify-between gap-6 rounded-full px-6 text-left text-[15px] font-medium transition-colors disabled:opacity-60", dark ? "bg-panel-foreground text-panel hover:bg-brand hover:text-white" : "bg-foreground text-background hover:bg-brand hover:text-white")}>
+      <button type="submit" disabled={state === "sending"} className={cn("flex min-h-[52px] items-center justify-between gap-6 rounded-pill px-6 text-left text-[15px] font-medium transition-colors disabled:opacity-60", dark ? "bg-panel-foreground text-panel hover:bg-brand hover:text-on-brand" : "bg-foreground text-background hover:bg-brand hover:text-on-brand")}>
         {state === "sending" ? "Отправляем…" : button}
         <span aria-hidden="true">→</span>
       </button>

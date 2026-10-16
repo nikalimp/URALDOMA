@@ -48,17 +48,17 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: фото объекта на весь экран, H1 капсом + курсив с засечками, «анонсы» как на обложке журнала, форма — стеклянной карточкой */}
-        <section aria-label="Первый экран" className="relative isolate flex min-h-[calc(100svh-64px)] flex-col overflow-hidden text-white md:min-h-[calc(100svh-72px)]">
-          <div className="absolute inset-0 -z-10 bg-[#2a2622]">
+        <section aria-label="Первый экран" className="relative isolate flex min-h-[calc(100svh-64px)] flex-col overflow-hidden text-on-photo md:min-h-[calc(100svh-72px)]">
+          <div className="absolute inset-0 -z-10 bg-cover-fill">
             {site.heroVideo.src ? (
               <video className="size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true"><source src={site.heroVideo.src} type="video/mp4" /></video>
             ) : (
               <Img p={hero} eager wide sizes="100vw" className="kenburns" />
             )}
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/80 md:from-black/45 md:via-black/10 md:to-black/70" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-scrim/50 via-scrim/35 to-scrim/80 md:from-scrim/45 md:via-scrim/10 md:to-scrim/70" />
           </div>
           <Container className="flex flex-1 flex-col justify-between gap-16 pt-5 pb-5 md:pt-8 md:pb-10">
-            <Grid className="caps gap-y-2 text-white/85">
+            <Grid className="caps gap-y-2 text-on-photo/85">
               <p className="md:col-span-3">[ С 2016 · Екатеринбург ]</p>
               <p className="hidden md:col-span-5 md:col-start-4 md:block">Дизайн-проект · ремонт · мебель — одна команда</p>
               <p className="label-tech md:col-span-4 md:col-start-9 md:text-right">(01) {hero.caption} · {hero.place}</p>
@@ -71,18 +71,18 @@ export default function Home() {
               </h1>
               <Grid className="mt-10 items-end md:mt-14">
                 <div className="md:col-span-4">
-                  <p className="max-w-[40ch] text-[17px] text-white/90">{home.lead} Дизайн-проект, ремонт с авторским надзором и мебель собственного производства.</p>
+                  <p className="max-w-[40ch] text-[17px] text-on-photo/90">{home.lead} Дизайн-проект, ремонт с авторским надзором и мебель собственного производства.</p>
                   <a href={site.cta.href} className={`${btnOnPhoto} mt-6 md:hidden`}>{site.cta.label}<span aria-hidden="true">→</span></a>
                 </div>
                 <ul className="md:col-span-3 md:col-start-5">
                   {coverLines.map(([v, l]) => (
-                    <li key={l} className="flex items-baseline justify-between gap-4 border-t border-white/40 py-2.5">
+                    <li key={l} className="flex items-baseline justify-between gap-4 border-t border-on-photo/40 py-2.5">
                       <span className="text-[22px] leading-none tracking-[-0.03em] md:text-[26px]">{v}</span>
-                      <span className="text-right text-[12px] text-white/75">{l}</span>
+                      <span className="text-right text-[12px] text-on-photo/75">{l}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="beam glass hidden rounded-[28px] p-6 text-foreground md:col-span-4 md:col-start-9 md:block">
+                <div className="beam glass hidden rounded-card p-6 text-foreground md:col-span-4 md:col-start-9 md:block">
                   <p className="caps mb-4 text-muted-foreground">[ Бесплатный замер и смета ]</p>
                   <LeadForm source="hero" />
                 </div>
@@ -125,7 +125,7 @@ export default function Home() {
                 <Link key={s.slug} href={`/services/${s.slug}/`} className="group reveal block md:col-span-3">
                   <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
                     <Img p={pic(s.cover)} alt={`${s.title}: ${pic(s.cover).alt}`} sizes="(min-width: 768px) 25vw, 50vw" className="transition-transform duration-[1.2s] ease-out group-hover:scale-[1.05]" />
-                    <span className="label-tech absolute top-4 left-4 text-white/90">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="label-tech absolute top-4 left-4 text-on-photo/90">{String(i + 1).padStart(2, "0")}</span>
                   </div>
                   <div className="mt-3 border-t border-border pt-3">
                     <h3 className="flex items-baseline justify-between gap-3 text-[17px] leading-tight tracking-[-0.015em] group-hover:text-brand md:text-[21px]">{s.title}<span aria-hidden="true" className="text-brand transition-transform group-hover:translate-x-1">→</span></h3>
@@ -136,7 +136,7 @@ export default function Home() {
               <Link href="/furniture/" className="group reveal block md:col-span-3">
                 <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
                   <Img p={pic("garinsky-21/05")} alt={`Мебель на заказ «Мебель-Урал»: ${pic("garinsky-21/05").alt}`} sizes="(min-width: 768px) 25vw, 50vw" className="transition-transform duration-[1.2s] ease-out group-hover:scale-[1.05]" />
-                  <span className="label-tech absolute top-4 left-4 text-white/90">07</span>
+                  <span className="label-tech absolute top-4 left-4 text-on-photo/90">07</span>
                 </div>
                 <div className="mt-3 border-t border-border pt-3">
                   <h3 className="flex items-baseline justify-between gap-3 text-[17px] leading-tight tracking-[-0.015em] group-hover:text-brand md:text-[21px]">Мебель на заказ<span aria-hidden="true" className="text-brand transition-transform group-hover:translate-x-1">→</span></h3>
@@ -162,14 +162,14 @@ export default function Home() {
               <div className="absolute inset-0 -z-10 overflow-hidden bg-secondary">
                 <Img p={p} wide sizes="100vw" className="parallax transition-transform duration-[1.4s] group-hover:scale-[1.02]" />
               </div>
-              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/65 via-black/0 to-black/25" />
-              <Container className="flex h-full flex-col justify-between py-5 text-white md:py-10">
-                <div className="caps flex justify-between text-white/85"><span>[ {c.kind} ]</span><span className="label-tech">({String(i + 1).padStart(2, "0")} / {String(spreads.length).padStart(2, "0")})</span></div>
+              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-scrim/65 via-scrim/0 to-scrim/25" />
+              <Container className="flex h-full flex-col justify-between py-5 text-on-photo md:py-10">
+                <div className="caps flex justify-between text-on-photo/85"><span>[ {c.kind} ]</span><span className="label-tech">({String(i + 1).padStart(2, "0")} / {String(spreads.length).padStart(2, "0")})</span></div>
                 <Grid className="items-end">
                   <p className="text-[40px] leading-[0.92] tracking-[-0.05em] text-balance sm:text-[52px] md:col-span-8 md:text-[clamp(72px,8.6vw,156px)]">{c.place.split(",")[0]}{c.place.includes(",") && <em className="block text-[0.6em]">{c.place.split(",").slice(1).join(",").trim()}</em>}</p>
                   <div className="md:col-span-3 md:col-start-10">
-                    <p className="max-w-[36ch] text-[15px] text-white/90">{c.summary}</p>
-                    <p className="label-tech mt-4 border-t border-white/35 pt-3 text-white/75">{p.caption}</p>
+                    <p className="max-w-[36ch] text-[15px] text-on-photo/90">{c.summary}</p>
+                    <p className="label-tech mt-4 border-t border-on-photo/35 pt-3 text-on-photo/75">{p.caption}</p>
                   </div>
                 </Grid>
               </Container>
