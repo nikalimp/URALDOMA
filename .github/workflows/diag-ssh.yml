@@ -1,5 +1,4 @@
-# Временная диагностика: что видно с серверов GitHub — DNS, порты, SSH-баннер, ответ сайта, трассировка до порта 22.
-# Ничего не выкладывает. Удалить после разбора.
+# Временная диагностика: ключи подписи GitHub OIDC (JWKS) для приёмника выкладки по HTTPS. Ничего не выкладывает.
 name: Diag SSH
 on:
   pull_request:
@@ -7,27 +6,9 @@ on:
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 5
     steps:
-      - name: Diag
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
+      - name: JWKS
         run: |
-          site_ip=$(getent hosts uraldoma.ru | awk '{print $1}' | head -1)
-          ssh_ip=$(getent hosts "$SSH_HOST" | awk '{print $1}' | head -1)
-          echo "::notice title=dns::uraldoma.ru -> ${site_ip:-нет}; SSH_HOST -> ${ssh_ip:-нет}"
-          err=$(curl -sS -o /dev/null -w "%{http_code} %{time_total}s" --max-time 25 https://uraldoma.ru/ 2>&1 | tail -n 1 | tr -dc '[:print:]')
-          echo "::notice title=https uraldoma.ru::${err}"
-          err=$(curl -sS -o /dev/null -w "%{http_code} %{time_total}s" --max-time 25 http://uraldoma.ru/ 2>&1 | tail -n 1 | tr -dc '[:print:]')
-          echo "::notice title=http uraldoma.ru::${err}"
-          for t in 1 2 3; do
-            if timeout 30 bash -c "</dev/tcp/$ssh_ip/22" 2>/dev/null; then r="открыт"; else r="нет ответа за 30 с"; fi
-            echo "::notice title=port 22 try $t::$r"
-          done
-          ftp=$(timeout 15 bash -c "exec 3<>/dev/tcp/$ssh_ip/21; head -c 60 <&3" 2>/dev/null | tr -dc '[:print:]' || true)
-          echo "::notice title=ftp banner::${ftp:-нет}"
-          sudo apt-get install -y -qq traceroute >/dev/null 2>&1 || true
-          tr22=$(sudo traceroute -T -p 22 -n -q 1 -w 2 -m 25 "$ssh_ip" 2>/dev/null | tail -n 6 | awk '{print $1":"$2}' | tr '\n' ' ')
-          tr443=$(sudo traceroute -T -p 443 -n -q 1 -w 2 -m 25 "$ssh_ip" 2>/dev/null | tail -n 3 | awk '{print $1":"$2}' | tr '\n' ' ')
-          echo "::notice title=trace 22::${tr22}"
-          echo "::notice title=trace 443::${tr443}"
+          j=$(curl -sS --max-time 20 https://token.actions.githubusercontent.com/.well-known/jwks | base64 -w0)
+          echo "::notice title=jwks::${j}"
