@@ -55,7 +55,7 @@ export function Photo({ p, ratio = "aspect-[3/4]", sizes, eager, caption = true,
     <figure className={cn("group", className)}>
       {link ? <Link href={p.href} aria-label={`${p.place}: ${p.caption}`}>{body}</Link> : body}
       {caption && (
-        <figcaption className="mt-3 flex items-baseline gap-3 text-[13px] leading-snug text-muted-foreground">
+        <figcaption className="mt-3 flex items-baseline gap-3 text-small text-muted-foreground">
           {index && <span className="label-tech shrink-0 text-foreground">{index}</span>}
           <span>{caption === true ? <>{p.caption}{p.place && <span className="text-foreground/70"> · {p.place}</span>}</> : caption}</span>
         </figcaption>

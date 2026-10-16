@@ -1,35 +1,28 @@
 import Link from "next/link";
 import { footerNav, site } from "@/content/site";
 import { services } from "@/content/services";
-import { Container, Marquee } from "./container";
+import { Container } from "./container";
 import { Logo } from "./logo";
 import { ThemeSelect } from "./theme-toggle";
 
-// Футер — панель в цвет темы (светлая в светлой, тёмная в тёмной). Все колонки — на 12-колоночной сетке.
+// Футер — панель в цвет темы. Контакты крупно, четыре тихие колонки, внизу — знак URALDOMA во всю ширину (03-design §9, приём Swiss Brut / Style).
 export function Footer() {
   const c = site.contacts;
   return (
     <footer className="border-t border-panel-line bg-panel text-panel-muted">
-      <Marquee
-        className="border-b border-panel-line py-5 text-panel-foreground"
-        itemClassName="text-[28px] tracking-[-0.03em] md:text-[44px]"
-        speed="60s"
-        items={["Ремонт под ключ", <em key="d" className="serif">дизайн-проект</em>, "Авторский надзор", <em key="m" className="serif">мебель на заказ</em>, "Гарантия 2 года", <em key="e" className="serif">Екатеринбург</em>]}
-      />
-      <Container className="pt-16 md:pt-24">
-        <p className="caps mb-6">[ Связаться ]</p>
-        <a href={`tel:${c.phone}`} className="block text-[44px] leading-none tracking-[-0.045em] text-panel-foreground transition-colors hover:text-brand md:text-[clamp(72px,8vw,140px)]">{c.phoneDisplay}</a>
-        <a href={`mailto:${c.email}`} className="mt-5 inline-block text-[18px] text-panel-foreground hover:text-brand md:text-[22px]">{c.email}</a>
+      <Container className="pt-section-mobile md:pt-section">
+        <p className="caps mb-8">Связаться</p>
+        <a href={`tel:${c.phone}`} className="t-statement block text-panel-foreground transition-colors hover:text-brand">{c.phoneDisplay}</a>
+        <a href={`mailto:${c.email}`} className="t-lead mt-4 inline-block text-panel-foreground hover:text-brand">{c.email}</a>
       </Container>
-      <Container className="grid grid-cols-1 gap-x-5 gap-y-10 py-16 md:grid-cols-12">
+      <Container className="grid grid-cols-1 gap-x-gutter gap-y-12 py-24 md:grid-cols-12 md:py-32">
         <div className="md:col-span-3">
-          <Logo className="h-[20px] text-panel-foreground" label={site.name} />
-          <p className="mt-5 max-w-[30ch] text-[15px]">{site.tagline}</p>
+          <p className="max-w-[30ch] text-small">{site.tagline}</p>
           <div className="mt-8"><ThemeSelect /></div>
         </div>
         <nav aria-label="Услуги" className="md:col-span-3 md:col-start-4">
           <p className="caps mb-4">Услуги</p>
-          <ul className="space-y-2 text-[15px] text-panel-foreground">
+          <ul className="space-y-2 text-small text-panel-foreground">
             {services.map((s) => (
               <li key={s.slug}><Link href={`/services/${s.slug}/`} className="hover:text-brand">{s.title}</Link></li>
             ))}
@@ -38,7 +31,7 @@ export function Footer() {
         </nav>
         <nav aria-label="Компания" className="md:col-span-3 md:col-start-7">
           <p className="caps mb-4">Компания</p>
-          <ul className="space-y-2 text-[15px] text-panel-foreground">
+          <ul className="space-y-2 text-small text-panel-foreground">
             {footerNav.map((n) => (
               <li key={n.href}><Link href={n.href} className="hover:text-brand">{n.label}</Link></li>
             ))}
@@ -47,7 +40,7 @@ export function Footer() {
         </nav>
         <div className="md:col-span-3 md:col-start-10">
           <p className="caps mb-4">Контакты</p>
-          <ul className="space-y-2 text-[15px] text-panel-foreground">
+          <ul className="space-y-2 text-small text-panel-foreground">
             {site.socials.map((s) => (
               <li key={s.href}><a href={s.href} target="_blank" rel="noopener me" className="hover:text-brand">{s.label}</a></li>
             ))}
@@ -56,7 +49,10 @@ export function Footer() {
           </ul>
         </div>
       </Container>
-      <Container className="flex flex-col gap-3 border-t border-panel-line py-6 text-[12px] md:flex-row md:justify-between">
+      <Container>
+        <Logo className="w-full text-panel-foreground" label={site.name} />
+      </Container>
+      <Container className="flex flex-col gap-3 py-6 text-[12px] md:flex-row md:justify-between">
         <span>© {site.foundingYear}–{new Date().getFullYear()} {site.name} · {site.legalName} · ИНН {site.legal.inn} · ОГРНИП {site.legal.ogrnip}</span>
         <span className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/privacy-policy/" className="hover:text-panel-foreground">Политика обработки персональных данных</Link>

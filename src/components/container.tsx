@@ -16,58 +16,28 @@ export function Section({ className, ...props }: React.ComponentProps<"section">
   return <section className={cn("py-section-mobile md:py-section", className)} {...props} />;
 }
 
-// Метка раздела: «[ Услуги ]  (02)» — капсом, в квадратных скобках
-export function Label({ n, children, className }: { n?: string; children: React.ReactNode; className?: string }) {
-  return (
-    <p className={cn("caps mb-6 flex items-center gap-4 text-muted-foreground", className)}>
-      <span>[ {children} ]</span>
-      {n && <span>({n})</span>}
-    </p>
-  );
+// Метка раздела: одна строка капсом, без скобок и номеров (03-design §9). n оставлен для совместимости и не выводится.
+export function Label({ children, className }: { n?: string; children: React.ReactNode; className?: string }) {
+  return <p className={cn("caps mb-6 text-muted-foreground", className)}>{children}</p>;
 }
 
-// H2: гротеск, акцентные слова — <em> курсивом с засечками (стили em в globals.css)
-export function H2({ className, count, children, ...props }: React.ComponentProps<"h2"> & { count?: number | string }) {
-  return (
-    <h2 className={cn("text-[40px] leading-[0.98] tracking-[-0.045em] text-balance md:text-[clamp(52px,5.4vw,96px)]", className)} {...props}>
-      {children}
-      {count !== undefined && <sup className="sup-count">{count}</sup>}
-    </h2>
-  );
+// H2 — ступень statement: крупное утверждение, акцентные слова — <em> курсивом с засечками
+export function H2({ className, children, count: _count, ...props }: React.ComponentProps<"h2"> & { count?: number | string }) {
+  void _count;
+  return <h2 className={cn("t-statement", className)} {...props}>{children}</h2>;
 }
 
-// Заголовок секции: строка-линейка «[ Метка ] (02) ……… счётчик», ниже H2 от 4-й колонки, пояснение — в колонках 1–3
-export function SectionHead({ n, label, title, aside, count, className }: { n?: string; label: string; title: React.ReactNode; aside?: React.ReactNode; count?: number | string; className?: string }) {
+// Заголовок секции: метка в колонках 1–3, утверждение с 4-й, пояснение под ним тише. Ниже — пауза space-24.
+// Бегущая строка, счётчики и номера разделов убраны (03-design §9).
+export function SectionHead({ label, title, aside, className }: { n?: string; label: string; title: React.ReactNode; aside?: React.ReactNode; count?: number | string; className?: string }) {
   return (
-    <div className={cn("mb-12 md:mb-20", className)}>
-      <div className="caps flex items-baseline justify-between border-t border-current/20 pt-3 text-muted-foreground">
-        <span>[ {label} ]{n && <span className="ml-4">({n})</span>}</span>
-        {count !== undefined && <span className="label-tech">{String(count).padStart(2, "0")}</span>}
+    <Grid className={cn("mb-16 gap-y-6 md:mb-24", className)}>
+      <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">{label}</p>
+      <div className="md:col-span-9 md:col-start-4">
+        <H2 className="max-w-[18ch]">{title}</H2>
+        {aside && <div className="mt-8 max-w-[52ch] text-muted-foreground">{aside}</div>}
       </div>
-      <Grid className="mt-8 items-end md:mt-12">
-        <H2 className="md:col-span-9 md:col-start-4 md:row-start-1">{title}</H2>
-        {aside && <div className="text-[15px] text-muted-foreground md:col-span-3 md:row-start-1 md:self-end">{aside}</div>}
-      </Grid>
-    </div>
-  );
-}
-
-// Бегущая строка: вторая копия скрыта от скринридеров; при reduced motion — статичная строка (globals.css)
-export function Marquee({ items, className, itemClassName, speed = "40s", sep = "✦" }: { items: React.ReactNode[]; className?: string; itemClassName?: string; speed?: string; sep?: string }) {
-  const row = (hidden?: boolean) => (
-    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
-      {items.map((it, i) => (
-        <li key={i} className={cn("flex items-center whitespace-nowrap", itemClassName)}>
-          {it}
-          <span aria-hidden="true" className="mx-[0.6em] text-[0.45em] text-brand">{sep}</span>
-        </li>
-      ))}
-    </ul>
-  );
-  return (
-    <div className={cn("marquee", className)} style={{ ["--marquee-speed" as string]: speed }}>
-      <div className="marquee-track">{row()}{row(true)}</div>
-    </div>
+    </Grid>
   );
 }
 

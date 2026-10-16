@@ -22,6 +22,7 @@
 ## Дизайн-система
 - Токены живут в `design-system/tokens.json` — копии tokens.json из артефакта дизайн-системы. `src/app/tokens.css` собирается из него сам (`npm run tokens`, перед dev и build) — руками не править.
 - Цвет в вёрстке — только токеном (`text-earth`, `hover:text-on-brand`, `text-on-photo/90`, `from-scrim/50`). HEX, `rgb()`, `text-white`, `bg-black/…` и палитра Tailwind в `src/` валят `npm run check`.
+- Кегли — только шкала дизайн-системы: `t-display`, `t-title`, `t-statement`, `t-lead`, `text-body`, `text-small`, `caps`. Один экран — одна мысль, без бегущих строк и эффектов (03-design §9).
 - Сетка, радиусы и мелкий текст — тоже токенами: `Container`/`Grid`/`Section`, `rounded-card`/`rounded-pill`, `text-caps`/`text-tech`.
 - Нужен новый токен — сначала правка дизайн-системы (артефакт), потом копия tokens.json и `npm run tokens`.
 - Логотип — только `Logo`/`Monogram` из `src/components/logo.tsx` (контуры из `design-system/logo/*.svg`, цвет — токен текста). Картинками и шрифтом знак не ставим.
