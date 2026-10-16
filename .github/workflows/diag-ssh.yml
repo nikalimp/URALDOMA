@@ -1,4 +1,4 @@
-# Временная диагностика: что видно с серверов GitHub — DNS сервера, порты 22/21/80/443, SSH-баннер, ответ сайта.
+# Временная диагностика: что видно с серверов GitHub — DNS, порты, SSH-баннер, ответ сайта, трассировка до порта 22.
 # Ничего не выкладывает. Удалить после разбора.
 name: Diag SSH
 on:
@@ -7,22 +7,27 @@ on:
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Diag
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          SITE_URL: ${{ secrets.SITE_URL }}
         run: |
-          ip=$(getent hosts "$SSH_HOST" | awk '{print $1}' | head -1)
-          echo "::notice title=dns::SSH_HOST -> ${ip:-не резолвится}"
-          me=$(curl -s --max-time 10 https://api.ipify.org || echo "?")
-          echo "::notice title=runner::IP раннера GitHub ${me}"
-          for p in 22 21 80 443; do
-            if timeout 12 bash -c "</dev/tcp/$SSH_HOST/$p" 2>/dev/null; then r="открыт"; else r="нет ответа"; fi
-            echo "::notice title=port $p::$r"
+          site_ip=$(getent hosts uraldoma.ru | awk '{print $1}' | head -1)
+          ssh_ip=$(getent hosts "$SSH_HOST" | awk '{print $1}' | head -1)
+          echo "::notice title=dns::uraldoma.ru -> ${site_ip:-нет}; SSH_HOST -> ${ssh_ip:-нет}"
+          err=$(curl -sS -o /dev/null -w "%{http_code} %{time_total}s" --max-time 25 https://uraldoma.ru/ 2>&1 | tail -n 1 | tr -dc '[:print:]')
+          echo "::notice title=https uraldoma.ru::${err}"
+          err=$(curl -sS -o /dev/null -w "%{http_code} %{time_total}s" --max-time 25 http://uraldoma.ru/ 2>&1 | tail -n 1 | tr -dc '[:print:]')
+          echo "::notice title=http uraldoma.ru::${err}"
+          for t in 1 2 3; do
+            if timeout 30 bash -c "</dev/tcp/$ssh_ip/22" 2>/dev/null; then r="открыт"; else r="нет ответа за 30 с"; fi
+            echo "::notice title=port 22 try $t::$r"
           done
-          banner=$(timeout 12 bash -c "exec 3<>/dev/tcp/$SSH_HOST/22; head -c 40 <&3" 2>/dev/null | tr -dc '[:print:]' || true)
-          echo "::notice title=ssh::баннер ${banner:-нет}"
-          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${SITE_URL:-https://uraldoma.ru}/" || true)
-          echo "::notice title=site::HTTPS ${code}"
+          ftp=$(timeout 15 bash -c "exec 3<>/dev/tcp/$ssh_ip/21; head -c 60 <&3" 2>/dev/null | tr -dc '[:print:]' || true)
+          echo "::notice title=ftp banner::${ftp:-нет}"
+          sudo apt-get install -y -qq traceroute >/dev/null 2>&1 || true
+          tr22=$(sudo traceroute -T -p 22 -n -q 1 -w 2 -m 25 "$ssh_ip" 2>/dev/null | tail -n 6 | awk '{print $1":"$2}' | tr '\n' ' ')
+          tr443=$(sudo traceroute -T -p 443 -n -q 1 -w 2 -m 25 "$ssh_ip" 2>/dev/null | tail -n 3 | awk '{print $1":"$2}' | tr '\n' ' ')
+          echo "::notice title=trace 22::${tr22}"
+          echo "::notice title=trace 443::${tr443}"
