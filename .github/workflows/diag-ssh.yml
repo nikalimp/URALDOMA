@@ -10,5 +10,6 @@ jobs:
     steps:
       - name: JWKS
         run: |
-          j=$(curl -sS --max-time 20 https://token.actions.githubusercontent.com/.well-known/jwks | base64 -w0)
-          echo "::notice title=jwks::${j}"
+          j=$(curl -sS --max-time 20 https://token.actions.githubusercontent.com/.well-known/jwks | gzip -9 | base64 -w0)
+          echo "len ${#j}"
+          i=0; while [ -n "$j" ]; do echo "::notice title=jwks-$i::${j:0:900}"; j="${j:900}"; i=$((i+1)); done
