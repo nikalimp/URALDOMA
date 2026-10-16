@@ -16,9 +16,10 @@
 | Услуги | `src/content/services.ts` |
 | Главная, «О компании» | `src/content/home.ts` |
 | Статьи | `content/articles/<slug>.md` (образец — `_primer.md`) |
-| Цвета, радиус | `src/app/globals.css` |
+| Цвета, шрифты, радиусы, отступы | `design-system/tokens.json` → `npm run tokens` (см. `design-system/README.md`) |
 | Шрифт | `src/app/layout.tsx` (`@fontsource-variable/…`) |
-| OG-картинка | `public/og.png` (1200×630) |
+| Логотип | `design-system/logo/*.svg` → `src/components/logo.tsx`; фавиконы — `npm run icons` |
+| OG-картинка | `public/og.jpg` (1200×630, из дизайн-системы) |
 
 ## Команды
 ```bash

@@ -10,6 +10,7 @@ import { GuideLines } from "@/components/guide-lines";
 import { JsonLd } from "@/components/json-ld";
 import { graph, orgSchema, personSchema, websiteSchema } from "@/lib/schema";
 import { tokenColor } from "@/lib/tokens";
+import { ogImage } from "@/lib/meta";
 
 // Тестовый поддомен закрыт от индексации: сборка с NEXT_PUBLIC_NOINDEX=1 (workflow staging).
 const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   title: { default: site.title, template: `%s — ${site.name}` },
   description: site.description,
   alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: site.locale, siteName: site.name, title: site.title, description: site.description, url: site.url, images: ["/og.png"] },
+  openGraph: { type: "website", locale: site.locale, siteName: site.name, title: site.title, description: site.description, url: site.url, images: [ogImage] },
   robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
 };
 

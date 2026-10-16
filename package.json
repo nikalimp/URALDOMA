@@ -12,7 +12,8 @@
     "typograf:check": "node scripts/typograf.mjs --check",
     "check": "npm run build && node scripts/check.mjs",
     "indexnow:key": "node scripts/indexnow.mjs key",
-    "tokens": "node scripts/tokens.mjs"
+    "tokens": "node scripts/tokens.mjs",
+    "icons": "node scripts/icons.mjs"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { footerNav, site } from "@/content/site";
 import { services } from "@/content/services";
 import { Container, Marquee } from "./container";
-import { Logo } from "./header";
+import { Logo } from "./logo";
 import { ThemeSelect } from "./theme-toggle";
 
 // Футер — панель в цвет темы (светлая в светлой, тёмная в тёмной). Все колонки — на 12-колоночной сетке.
@@ -23,7 +23,7 @@ export function Footer() {
       </Container>
       <Container className="grid grid-cols-1 gap-x-5 gap-y-10 py-16 md:grid-cols-12">
         <div className="md:col-span-3">
-          <Logo />
+          <Logo className="h-[20px] text-panel-foreground" label={site.name} />
           <p className="mt-5 max-w-[30ch] text-[15px]">{site.tagline}</p>
           <div className="mt-8"><ThemeSelect /></div>
         </div>

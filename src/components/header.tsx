@@ -1,18 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { ThemeToggle } from "./theme-toggle";
-
-// Логотип в двух цветах: тёмный — в светлой теме, белый — в тёмной
-export function Logo({ className = "h-[18px] w-auto md:h-[20px]" }: { className?: string }) {
-  return (
-    <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/logo-dark.png" alt="URALDOMA" width={200} height={20} className={`${className} dark:hidden`} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/logo-white.png" alt="" aria-hidden="true" width={200} height={20} className={`${className} hidden dark:block`} />
-    </>
-  );
-}
+import { Logo } from "./logo";
 
 // Мобильное меню на <details>: работает без JavaScript
 function MobileMenu() {

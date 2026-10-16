@@ -24,6 +24,7 @@
 - Цвет в вёрстке — только токеном (`text-earth`, `hover:text-on-brand`, `text-on-photo/90`, `from-scrim/50`). HEX, `rgb()`, `text-white`, `bg-black/…` и палитра Tailwind в `src/` валят `npm run check`.
 - Сетка, радиусы и мелкий текст — тоже токенами: `Container`/`Grid`/`Section`, `rounded-card`/`rounded-pill`, `text-caps`/`text-tech`.
 - Нужен новый токен — сначала правка дизайн-системы (артефакт), потом копия tokens.json и `npm run tokens`.
+- Логотип — только `Logo`/`Monogram` из `src/components/logo.tsx` (контуры из `design-system/logo/*.svg`, цвет — токен текста). Картинками и шрифтом знак не ставим.
 
 ## Команды
 ```bash
@@ -32,6 +33,7 @@ npm run dev        # http://localhost:3010
 npm run build      # статический сайт в out/ (перед сборкой сам запускается типограф)
 npm run check      # сборка + проверка: нет TODO, домен задан, geo-check ≥ 8/10 без P1, цвета только из токенов
 npm run tokens     # design-system/tokens.json → src/app/tokens.css
+npm run icons      # design-system/logo + токены → фавикон, apple-icon, logo.png (после смены знака или цветов)
 node ~/Desktop/NikitOS/.claude/skills/web-dev/glavred.mjs <файл>   # Главред
 ```
 

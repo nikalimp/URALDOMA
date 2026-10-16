@@ -2,7 +2,6 @@
 
 Главный документ — артефакт «URALDOMA — дизайн-система»: https://claude.ai/artifact/RSfSeE3vwTJfMaM3RTGBbw
 Там палитра обеих тем, типографика, сетка, фотография, логотип, иконки, приёмы, тон текста и 12 компонентов сайта с превью.
-Логотип ищем на холсте «URALDOMA — поиск логотипа»: https://claude.ai/artifact/RSSi65ggGCiKD6DxyEjgm6
 
 Вёрстка сайта ссылается на систему, а не копирует её значения.
 
@@ -11,6 +10,8 @@
 | Файл | Что это |
 |---|---|
 | `tokens.json` | Копия `tokens.json` из артефакта: 23 цвета × 2 темы, шрифты, 18 стилей текста, отступы, радиусы, сетка. Единственный источник токенов в репозитории |
+| `logo/uraldoma-wordmark.svg` | Полная версия логотипа, 800 × 80, `fill="currentColor"`. Мастер-файл |
+| `logo/uraldoma-mark.svg` | Сокращённая версия — монограмма UD, 120 × 120, `fill="currentColor"`. Мастер-файл |
 
 ## Как токены попадают на сайт
 
@@ -20,6 +21,18 @@
    - `@theme` — утилиты Tailwind из токенов.
 2. `src/app/globals.css` подключает `tokens.css` и своих цветов не задаёт. Классы `.caps`, `.label-tech`, `.label-mono`, `.dropcap`, `.glass`, `.tag`, `.prose-site` берут размеры из токенов.
 3. В TS-коде, где CSS-переменной нет (цвет панели браузера в `<head>`), — `tokenColor()` из `src/lib/tokens.ts`.
+
+## Логотип на сайте
+
+- `src/components/logo.tsx`: `Logo` (полная версия) и `Monogram` (UD). Контуры читаются при сборке из `design-system/logo/*.svg` и вставляются inline. Цвет — `currentColor`, то есть токен текста вокруг: в шапке `foreground`, в футере `panel-foreground`. Тема меняет его сама.
+- Размеры: шапка 18px на телефоне и 20px от 768px, футер 20px.
+- `npm run icons` (`scripts/icons.mjs`) собирает из монограммы и цветов токенов:
+  - `src/app/icon.svg` — знак цветом `foreground` светлой или тёмной темы;
+  - `src/app/favicon.ico` 16/32/48 и `src/app/apple-icon.png` 180 — плитка `foreground` с монограммой `background`;
+  - `public/images/logo.png` 512 — logo в JSON-LD.
+  Результат коммитится. Запускать после смены знака или цветов.
+- `public/og.jpg` — карточка для соцсетей, копия `assets/Logos/uraldoma-og-1200x630.jpg` из артефакта.
+- Новый знак: замените мастер-файлы и ассеты артефакта, затем `npm run icons`.
 
 ## Утилиты
 
