@@ -4,6 +4,7 @@
 # Секреты репозитория (Settings → Secrets and variables → Actions):
 #   SSH_KEY       — приватный ключ деплоя (публичный — в ~/.ssh/authorized_keys на хостинге REG.RU)
 #   SSH_HOST      — сервер хостинга (например, server123.hosting.reg.ru), SSH_USER — логин хостинга (u1234567)
+#   SSH_KNOWN_HOSTS — необязательно: строка ключа сервера (ssh-keyscan сервера); без неё ключ берётся при каждой выкладке
 #   SITE_DIR      — папка сайта со слешем на конце (например, www/uraldoma.ru/)
 #   SITE_URL      — https://uraldoma.ru
 #   TG_TOKEN, TG_CHATS (id через запятую), MAIL_TO (адреса через запятую) — для заявок, см. public/api/lead.php
@@ -37,11 +38,24 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
         run: |
           [ -z "$SSH_KEY" ] && { echo "::error::Нет секрета SSH_KEY"; exit 1; }
+          [ -z "$SSH_HOST" ] && { echo "::error::Нет секрета SSH_HOST"; exit 1; }
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # Ключ сервера: из секрета SSH_KNOWN_HOSTS, если он задан, иначе ssh-keyscan с повторами.
+          # Хостинг иногда не отвечает с первого раза: 2026-10-16 keyscan молча упал, и выкладка остановилась.
+          if [ -n "$SSH_KNOWN_HOSTS" ]; then
+            echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+          else
+            for i in 1 2 3 4 5; do
+              if ssh-keyscan -T 15 -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/tmp/keyscan.log && [ -s ~/.ssh/known_hosts ]; then break; fi
+              echo "ssh-keyscan: попытка $i не удалась — $(tail -n 1 /tmp/keyscan.log)"
+              sleep $((i * 10))
+            done
+            [ -s ~/.ssh/known_hosts ] || { echo "::error::Сервер не отдал SSH-ключ за 5 попыток: хостинг недоступен с GitHub или закрыт порт 22"; exit 1; }
+          fi
 
       - name: Настройки заявок (lead-config.php рядом с папкой сайта)
         env:
