@@ -40,7 +40,7 @@ export default function Portfolio() {
                 {list.map((c, j) => (
                   <div key={c.slug} className={`reveal ${j % 3 === 1 ? "md:mt-24" : ""}`}>
                     <CaseCard c={c} index={`(${String(j + 1).padStart(2, "0")})`} />
-                    <p className="mt-3 text-[15px] text-earth">{c.summary}</p>
+                    <p className="text-small mt-3 text-earth">{c.summary}</p>
                   </div>
                 ))}
               </div>
@@ -48,12 +48,12 @@ export default function Portfolio() {
           </Section>
         );
       })}
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <SectionHead n="04" label="ЖК и посёлки" title={<>Ремонт в домах, <em>которые мы знаем</em></>} />
-          <ul className="border-t border-foreground">
+          <ul className="border-t border-border">
             {complexes.map((c) => (
-              <li key={c.slug}><Link href={`/complexes/${c.slug}/`} className="flex justify-between border-b border-foreground/15 py-5 text-[20px] hover:text-brand">{c.h1}<span aria-hidden="true" className="text-brand">→</span></Link></li>
+              <li key={c.slug}><Link href={`/complexes/${c.slug}/`} className="t-lead flex justify-between border-b border-foreground/15 py-5 hover:text-brand">{c.h1}<span aria-hidden="true" className="text-brand">→</span></Link></li>
             ))}
           </ul>
         </Container>

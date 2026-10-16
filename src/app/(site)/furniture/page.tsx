@@ -26,8 +26,8 @@ export default function Furniture() {
           <SectionHead n="01" label="Что делаем" title={<>Мебель по размерам <em>квартиры</em></>} />
           <ul className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3">
             {F.categories.map((c, i) => (
-              <li key={c} className="flex items-baseline gap-4 border-t border-foreground pt-4 pb-8 text-[24px] tracking-[-0.015em]">
-                <span className="font-serif text-[28px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>{c}
+              <li key={c} className="t-lead flex items-baseline gap-4 border-t border-border pt-4 pb-8">
+                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>{c}
               </li>
             ))}
           </ul>
@@ -42,15 +42,16 @@ export default function Furniture() {
           </Grid>
         </Container>
         <ul id="furniture-rail" className="rail auto-cols-[78%] gap-x-5 px-5 sm:auto-cols-[42%] md:auto-cols-[calc((100%-60px)/4)] md:px-10">
-          {gallery.map((p, i) => <li key={p.key}><Photo p={p} link index={`Fig. ${String(i + 1).padStart(2, "0")}`} sizes="(min-width: 768px) 25vw, 80vw" /></li>)}
+          {gallery.map((p, i) => <li key={p.key}><Photo p={p} link sizes="(min-width: 768px) 25vw, 80vw" /></li>)}
         </ul>
       </section>
       <Section className="bg-panel text-panel-foreground">
         <Container>
           <Grid>
-            <div className="md:col-span-5"><Label n="02" className="text-panel-muted">Производство</Label><H2>Своё производство <em>в Екатеринбурге</em></H2></div>
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3 text-panel-muted">Производство</p>
+              <H2 className="md:col-span-9 md:col-start-4">Своё производство <em>в Екатеринбурге</em></H2>
             <ul className="border-t border-panel-line md:col-span-6 md:col-start-7">
-              {F.production.map((p) => <li key={p} className="border-b border-panel-line py-5 text-[18px]">{p}</li>)}
+              {F.production.map((p) => <li key={p} className="text-body border-b border-panel-line py-5">{p}</li>)}
             </ul>
           </Grid>
         </Container>
@@ -60,20 +61,21 @@ export default function Furniture() {
           <SectionHead n="03" label="Как работаем" title={<>От проекта <em>до установки</em></>} />
           <ol className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {F.process.map((p, i) => (
-              <li key={p.title} className="border-t border-foreground pt-5 pb-10">
-                <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px]">{p.title}</h3>
-                <p className="mt-2 text-[15px] text-earth">{p.text}</p>
+              <li key={p.title} className="border-t border-border pt-5 pb-10">
+                <span className="text-small font-mono text-brand">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="t-lead mt-3">{p.title}</h3>
+                <p className="text-small mt-2 text-earth">{p.text}</p>
               </li>
             ))}
           </ol>
         </Container>
       </Section>
-      <Section className="border-t border-border">
+      <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="04">Вопросы</Label><H2>Частые <em>вопросы</em></H2></div>
-            <FaqList items={F.faq} className="md:col-span-7 md:col-start-6" />
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые <em>вопросы</em></H2>
+            <FaqList items={F.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
           </Grid>
         </Container>
       </Section>

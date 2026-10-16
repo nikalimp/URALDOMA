@@ -37,13 +37,13 @@ export default function Services() {
           <Section key={g.label} className="pt-0 md:pt-0">
             <Container>
               <SectionHead n={String(gi + 1).padStart(2, "0")} label={g.label} title={g.label} />
-              <div className="border-t border-foreground">
+              <div className="border-t border-border">
                 {list.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}/`} className="group grid grid-cols-[96px_1fr] items-center gap-x-5 gap-y-2 border-b border-foreground/15 py-5 md:grid-cols-12">
                     <div className="row-span-2 aspect-[3/4] overflow-hidden bg-secondary md:col-span-1 md:row-span-1"><Img p={pic(s.cover)} alt="" sizes="120px" className="transition-transform duration-700 group-hover:scale-[1.06]" /></div>
-                    <h2 className="text-[24px] leading-tight tracking-[-0.02em] group-hover:text-brand md:col-span-4 md:col-start-3 md:text-[34px]">{s.title}</h2>
-                    <p className="hidden text-[16px] text-earth md:col-span-4 md:block">{s.short}</p>
-                    <p className="flex justify-between gap-4 text-[15px] md:col-span-2 md:col-start-11 md:justify-end">
+                    <h2 className="t-lead group-hover:text-brand md:col-span-4 md:col-start-3">{s.title}</h2>
+                    <p className="text-small hidden text-earth md:col-span-4 md:block">{s.short}</p>
+                    <p className="text-small flex justify-between gap-4 md:col-span-2 md:col-start-11 md:justify-end">
                       <span className="text-muted-foreground">{s.priceFrom}</span>
                       <span aria-hidden="true" className="text-brand transition-transform group-hover:translate-x-1">→</span>
                     </p>
@@ -59,7 +59,7 @@ export default function Services() {
           <SectionHead n="04" label="Мебель" title={<>Мебель на заказ <em>«Мебель-Урал»</em></>} aside="Кухни, островки, столешницы, раковины и мебель в стиле лофт делаем на своём производстве — под размеры квартиры после ремонта." />
           <Link href="/furniture/" className="group relative block h-[70svh] min-h-[420px] overflow-hidden bg-secondary">
             <Img p={pic("garinsky-21/05")} wide sizes="100vw" className="parallax" />
-            <span className="absolute bottom-5 left-5 inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 text-[15px] font-medium text-on-photo-foreground group-hover:bg-brand group-hover:text-on-brand md:bottom-8 md:left-8">О производстве <span aria-hidden="true">→</span></span>
+            <span className="text-small absolute bottom-5 left-5 inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 font-medium text-on-photo-foreground group-hover:bg-brand group-hover:text-on-brand md:bottom-8 md:left-8">О производстве <span aria-hidden="true">→</span></span>
           </Link>
         </Container>
       </Section>

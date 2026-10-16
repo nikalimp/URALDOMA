@@ -7,7 +7,7 @@ import { tariffs, formatRub } from "@/content/tariffs";
 import { cases, caseBySlug } from "@/content/cases";
 import { pic } from "@/content/photos";
 import { Header } from "@/components/header";
-import { Container, Grid, Section, SectionHead, linkArrow, btnPrimary, btnOutline, btnOnPhoto } from "@/components/container";
+import { Container, Grid, Section, SectionHead, linkArrow, btnPrimary, btnOutline } from "@/components/container";
 import { FaqList } from "@/components/faq";
 import { CtaSection } from "@/components/cta";
 import { Img } from "@/components/photo";
@@ -39,34 +39,36 @@ export default function Home() {
     <>
       <Header />
       <main id="main" className="flex-1">
-        {/* 1. Обложка: фото, H1, одна строка и кнопка. Ни формы, ни цифр — им отдельные экраны */}
-        <section aria-label="Первый экран" className="relative isolate flex min-h-[calc(100svh-64px)] flex-col overflow-hidden text-on-photo md:min-h-[calc(100svh-72px)]">
-          <div className="absolute inset-0 -z-10 bg-cover-fill">
-            {site.heroVideo.src ? (
-              <video className="size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true"><source src={site.heroVideo.src} type="video/mp4" /></video>
-            ) : (
-              <Img p={hero} eager wide sizes="100vw" className="kenburns" />
-            )}
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-scrim/40 via-scrim/10 to-scrim/75 md:from-scrim/35 md:via-scrim/0 md:to-scrim/65" />
-          </div>
-          <Container className="flex flex-1 flex-col justify-between pt-6 pb-8 md:pt-8 md:pb-12">
-            <Grid className="caps text-on-photo/85">
-              <p className="md:col-span-3">Екатеринбург · с 2016</p>
-              <p className="hidden md:col-span-3 md:col-start-10 md:block md:text-right">{hero.place}</p>
+        {/* 1. Обложка: типографика на бумаге, фото отдельным кадром ниже — без текста поверх (03-design §9, приём Reduce / Agency) */}
+        <section aria-label="Первый экран">
+          <Container className="pt-12 md:pt-20">
+            <Grid className="caps text-muted-foreground">
+              <p className="md:col-span-3">Ремонт квартир · Екатеринбург</p>
+              <p className="hidden md:col-span-3 md:col-start-10 md:block md:text-right">С 2016 года</p>
             </Grid>
-            <div>
-              <h1 className="t-display">
-                <span className="block">{h1a}</span>
-                <span className="sr-only"> — </span>
-                <em className="block pt-[0.08em] text-[0.82em] leading-[0.95] md:pl-[calc((100%+20px)/4)]">{h1b}</em>
-              </h1>
-              <Grid className="mt-12 items-end gap-y-8 md:mt-16">
-                <p className="t-lead text-on-photo/90 md:col-span-5">{home.lead}</p>
-                <div className="flex md:col-span-4 md:col-start-9 md:justify-end">
-                  <a href={site.cta.href} className={btnOnPhoto}>{site.cta.label}<span aria-hidden="true">→</span></a>
-                </div>
-              </Grid>
-            </div>
+            <h1 className="t-display mt-16 md:mt-24">
+              <span className="block">{h1a}</span>
+              <span className="sr-only"> — </span>
+              <em className="block pt-[0.06em] text-[0.82em] leading-[0.95] md:pl-[calc((100%+20px)/4)]">{h1b}</em>
+            </h1>
+            <Grid className="mt-12 items-end gap-y-8 md:mt-16">
+              <p className="t-lead text-earth md:col-span-5 md:col-start-4">{home.lead}</p>
+              <div className="flex md:col-span-3 md:col-start-10 md:justify-end">
+                <a href={site.cta.href} className={btnPrimary}>{site.cta.label}<span aria-hidden="true">→</span></a>
+              </div>
+            </Grid>
+          </Container>
+          <Container className="mt-16 md:mt-24">
+            <figure>
+              <div className="relative aspect-[4/5] overflow-hidden bg-secondary md:aspect-auto md:h-[78svh]">
+                {site.heroVideo.src ? (
+                  <video className="size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true"><source src={site.heroVideo.src} type="video/mp4" /></video>
+                ) : (
+                  <Img p={hero} eager wide sizes="100vw" />
+                )}
+              </div>
+              <figcaption className="caps mt-3 flex justify-between gap-6 text-muted-foreground"><span>{hero.caption}</span><span className="text-right">{hero.place}</span></figcaption>
+            </figure>
           </Container>
         </section>
 

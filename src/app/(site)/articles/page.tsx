@@ -38,9 +38,9 @@ export default function Articles() {
                       </div>
                     )}
                     <div className={lead ? "md:col-span-4" : ""}>
-                      <time dateTime={p.date} className="label-tech text-muted-foreground">{formatDate(p.date)}</time>
-                      <h2 className={`mt-3 border-t border-border pt-3 leading-snug tracking-[-0.02em] group-hover:text-brand ${lead ? "text-[30px] md:text-[44px] md:leading-[1.05]" : "text-[24px]"}`}>{p.title}</h2>
-                      <p className="mt-3 text-[16px] text-earth">{p.description}</p>
+                      <time dateTime={p.date} className="caps text-muted-foreground">{formatDate(p.date)}</time>
+                      <h2 className={`mt-4 group-hover:text-brand ${lead ? "t-statement" : "t-lead"}`}>{p.title}</h2>
+                      <p className="text-small mt-3 text-earth">{p.description}</p>
                     </div>
                   </Link>
                 </li>

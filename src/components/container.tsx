@@ -42,8 +42,8 @@ export function SectionHead({ label, title, aside, className }: { n?: string; la
 }
 
 export const linkArrow = "inline-flex items-center gap-2 border-b border-current pb-0.5 font-medium text-foreground hover:text-brand";
-export const btnPrimary = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-foreground px-7 py-3 text-[15px] font-medium text-background transition-colors hover:bg-brand hover:text-on-brand";
+export const btnPrimary = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-foreground px-7 py-3 text-small font-medium text-background transition-colors hover:bg-brand hover:text-on-brand";
 export const btnBrand = btnPrimary;
-export const btnOutline = "inline-flex min-h-[52px] items-center justify-center gap-6 rounded-pill border border-foreground/30 px-7 py-3 text-[15px] font-medium transition-colors hover:border-foreground hover:bg-foreground hover:text-background";
+export const btnOutline = "inline-flex min-h-[52px] items-center justify-center gap-6 rounded-pill border border-foreground/30 px-7 py-3 text-small font-medium transition-colors hover:border-foreground hover:bg-foreground hover:text-background";
 // Кнопка на фото: всегда светлая
-export const btnOnPhoto = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-on-photo px-7 py-3 text-[15px] font-medium text-on-photo-foreground transition-colors hover:bg-brand hover:text-on-brand";
+export const btnOnPhoto = "inline-flex min-h-[52px] items-center justify-between gap-6 rounded-pill bg-on-photo px-7 py-3 text-small font-medium text-on-photo-foreground transition-colors hover:bg-brand hover:text-on-brand";

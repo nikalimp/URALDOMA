@@ -24,7 +24,7 @@ export function PhotoStory({ pics, start = 1 }: { pics: Pic[]; start?: number })
           return (
             <figure key={ri}>
               <div className="relative h-[70svh] min-h-[380px] overflow-hidden bg-secondary md:h-[92svh]"><Img p={p} wide sizes="100vw" className="parallax" /></div>
-              <Container><figcaption className="mt-3 flex gap-3 text-[13px] text-muted-foreground"><span className="label-tech text-foreground">{fig()}</span>{p.caption}</figcaption></Container>
+              <Container><figcaption className="text-small mt-3 flex gap-3 text-muted-foreground"><span className="label-tech text-foreground">{fig()}</span>{p.caption}</figcaption></Container>
             </figure>
           );
         }

@@ -37,8 +37,8 @@ export function ProcessBlueprint({ initial = 3 }: { initial?: number }) {
             const n = i + 1;
             return (
               <li key={s.title}>
-                <button type="button" onClick={() => setCur(n)} aria-pressed={n === cur} className={cn("grid min-h-[52px] w-full grid-cols-[48px_1fr_24px] items-center gap-x-3 border-b border-panel-line px-4 py-3.5 text-left font-mono text-[14px] italic transition-colors", n === cur ? "bg-panel-foreground text-panel" : n < cur ? "bg-panel-foreground/[0.06] text-panel-foreground" : "text-panel-muted hover:bg-panel-foreground/[0.04]")}>
-                  <span className="text-[13px]">{pad(n)}</span>
+                <button type="button" onClick={() => setCur(n)} aria-pressed={n === cur} className={cn("text-small grid min-h-[52px] w-full grid-cols-[48px_1fr_24px] items-center gap-x-3 border-b border-panel-line px-4 py-3.5 text-left font-mono italic transition-colors", n === cur ? "bg-panel-foreground text-panel" : n < cur ? "bg-panel-foreground/[0.06] text-panel-foreground" : "text-panel-muted hover:bg-panel-foreground/[0.04]")}>
+                  <span className="text-small">{pad(n)}</span>
                   <span>{s.title}</span>
                   <span aria-hidden="true">{n <= cur ? "✓" : ""}</span>
                 </button>
@@ -54,26 +54,26 @@ export function ProcessBlueprint({ initial = 3 }: { initial?: number }) {
           <div className="h-[3px] bg-panel-line"><div className="h-[3px] bg-brand transition-[width] duration-500" style={{ width: `${pct}%` }} /></div>
           {stages.map((s, i) => (
             <div key={s.title} hidden={i + 1 !== cur}>
-              <h3 className="text-[24px] tracking-[-0.01em] text-panel-foreground">{s.title}</h3>
-              <p className="mt-2 text-[16px] text-panel-foreground/85">{s.text}</p>
+              <h3 className="t-lead text-panel-foreground">{s.title}</h3>
+              <p className="text-small mt-2 text-panel-foreground/85">{s.text}</p>
               <ul className="mt-3">
                 {s.specs.map(([name, value], j) => (
-                  <li key={name} className="grid grid-cols-[28px_1fr_auto] items-center gap-x-3 border-b border-dashed border-panel-line py-3 font-mono text-[13px]">
+                  <li key={name} className="text-small grid grid-cols-[28px_1fr_auto] items-center gap-x-3 border-b border-dashed border-panel-line py-3 font-mono">
                     <span className="inline-flex size-[22px] items-center justify-center rounded-pill bg-panel-foreground text-[11px] text-panel">{i * 3 + j + 1}</span>
                     <span className="text-panel-foreground">{name}</span>
                     <span className="text-panel-muted">{value}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-[15px] text-panel-muted"><span className="text-panel-foreground">Вы: </span>{s.client}</p>
-              <p className="mt-4 font-mono text-[13px] text-panel-muted italic">Срок: {s.term}</p>
+              <p className="text-small mt-4 text-panel-muted"><span className="text-panel-foreground">Вы: </span>{s.client}</p>
+              <p className="text-small mt-4 font-mono text-panel-muted italic">Срок: {s.term}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <p className="mt-10 border-t border-panel-line pt-5 text-[20px] tracking-[-0.01em] text-panel-foreground md:col-span-7 md:text-[24px]">График работ, смета и гарантия 2 года — <em className="serif">в договоре до начала ремонта</em></p>
-      <p className="mt-10 flex items-start justify-between border-t border-panel-line pt-5 font-mono text-[13px] text-panel-muted md:col-span-5 md:col-start-8"><span>URALDOMA · Екатеринбург</span><span>2016–{new Date().getFullYear()}</span></p>
+      <p className="t-lead mt-10 border-t border-panel-line pt-5 text-panel-foreground md:col-span-7">График работ, смета и гарантия 2 года — <em className="serif">в договоре до начала ремонта</em></p>
+      <p className="text-small mt-10 flex items-start justify-between border-t border-panel-line pt-5 font-mono text-panel-muted md:col-span-5 md:col-start-8"><span>URALDOMA · Екатеринбург</span><span>2016–{new Date().getFullYear()}</span></p>
     </div>
   );
 }

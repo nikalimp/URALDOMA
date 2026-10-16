@@ -15,16 +15,16 @@ export function TariffTable() {
         <div className="col-span-3 border-t border-foreground" />
         {tariffs.map((t) => (
           <div key={t.id} className="col-span-3 border-t border-foreground pt-6 pb-8">
-            <h3 className="text-[24px]">{t.name}</h3>
-            <p className="mt-2 text-[40px] leading-none tracking-[-0.04em]">{formatRub(t.rate)}<span className="text-[15px] font-normal text-muted-foreground"> / м²</span></p>
-            <p className="mt-4 text-[15px] text-earth">{t.forWhom}</p>
+            <h3 className="t-lead">{t.name}</h3>
+            <p className="t-statement mt-2">{formatRub(t.rate)}<span className="text-small font-normal text-muted-foreground"> / м²</span></p>
+            <p className="text-small mt-4 text-earth">{t.forWhom}</p>
           </div>
         ))}
         {rows.map((r) => (
           <div key={r.key} className="contents">
             <div className="caps col-span-3 border-t border-border py-6 text-muted-foreground">{r.label}</div>
             {tariffs.map((t) => (
-              <p key={t.id} className="col-span-3 border-t border-border py-6 text-[15px] leading-relaxed">{t[r.key]}</p>
+              <p key={t.id} className="text-small col-span-3 border-t border-border py-6 leading-relaxed">{t[r.key]}</p>
             ))}
           </div>
         ))}
@@ -33,20 +33,20 @@ export function TariffTable() {
       <div className="space-y-12 md:hidden">
         {tariffs.map((t) => (
           <div key={t.id} className="border-t border-foreground pt-6">
-            <h3 className="text-[24px]">{t.name} — {formatRub(t.rate)} / м²</h3>
-            <p className="mt-3 text-[15px] text-earth">{t.forWhom}</p>
+            <h3 className="t-lead">{t.name} — {formatRub(t.rate)} / м²</h3>
+            <p className="text-small mt-3 text-earth">{t.forWhom}</p>
             <dl className="mt-4">
               {rows.map((r) => (
                 <div key={r.key} className="border-t border-border py-4">
                   <dt className="label-mono text-muted-foreground">{r.label}</dt>
-                  <dd className="mt-2 text-[15px]">{t[r.key]}</dd>
+                  <dd className="text-small mt-2">{t[r.key]}</dd>
                 </div>
               ))}
             </dl>
           </div>
         ))}
       </div>
-      <p className="mt-6 text-[14px] text-muted-foreground">{tariffCommon}</p>
+      <p className="text-small mt-6 text-muted-foreground">{tariffCommon}</p>
     </div>
   );
 }

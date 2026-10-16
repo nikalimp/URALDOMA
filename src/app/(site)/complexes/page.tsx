@@ -26,7 +26,7 @@ export default function Complexes() {
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Ремонт в ЖК" }]} h1={<>Ремонт квартир <em>в ЖК Екатеринбурга</em></>} answer={answer} photo="garinsky/04" />
       <Section className="pt-0 md:pt-0">
         <Container>
-          <ul className="border-t border-foreground">
+          <ul className="border-t border-border">
             {complexes.map((c) => {
               const cs = c.cases.map((s) => caseBySlug(s)).filter((x) => x !== undefined);
               return (
@@ -36,8 +36,8 @@ export default function Complexes() {
                       <div className="aspect-[4/3] overflow-hidden bg-secondary md:col-span-3"><Img p={pic(`${cs[0].slug}/${cs[0].cover}`)} alt={cs[0].alt} sizes="(min-width: 768px) 25vw, 100vw" className="transition-transform duration-700 group-hover:scale-[1.05]" /></div>
                     )}
                     <div className="md:col-span-7 md:col-start-5">
-                      <h2 className="text-[34px] leading-tight tracking-[-0.03em] group-hover:text-brand md:text-[44px]">{c.name}</h2>
-                      <p className="mt-3 text-[16px] text-earth">{c.answer}</p>
+                      <h2 className="t-statement group-hover:text-brand">{c.name}</h2>
+                      <p className="text-small mt-3 text-earth">{c.answer}</p>
                       <p className="label-mono mt-4 text-muted-foreground">{cs.length} {cs.length === 1 ? "объект" : "объекта"} URALDOMA</p>
                     </div>
                   </Link>

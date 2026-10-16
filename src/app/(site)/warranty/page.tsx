@@ -15,14 +15,14 @@ export default function Warranty() {
     <>
       <JsonLd data={graph({ "@type": "WebPage", name: W.h1, url: `${site.url}/warranty/`, description: W.answer, about: { "@id": orgId } }, faqSchema(W.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Гарантия и договор", path: "/warranty/" }]))} />
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Гарантия и договор" }]} h1={W.h1} answer={W.answer} photo="garinsky-21/01" />
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3">
             {W.items.map((it, i) => (
-              <div key={it.title} className="reveal border-t border-foreground pt-5 pb-12">
-                <span className="font-serif text-[44px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-4 text-[26px] tracking-[-0.015em]">{it.title}</h2>
-                <p className="mt-3 text-[16px] text-earth">{it.text}</p>
+              <div key={it.title} className="reveal border-t border-border pt-5 pb-12">
+                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <h2 className="t-lead mt-4">{it.title}</h2>
+                <p className="text-small mt-3 text-earth">{it.text}</p>
               </div>
             ))}
           </div>
@@ -31,23 +31,25 @@ export default function Warranty() {
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="02">Приёмка</Label><H2>Как вы принимаете <em>работы</em></H2></div>
-            <ol className="border-t border-foreground md:col-span-7 md:col-start-6">
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Приёмка</p>
+              <H2 className="md:col-span-9 md:col-start-4">Как вы принимаете <em>работы</em></H2>
+            <ol className="border-t border-border md:col-span-9 md:col-start-4 md:mt-16">
               {W.acceptance.map((a, i) => (
                 <li key={a.title} className="grid grid-cols-[56px_1fr] gap-x-5 border-b border-border py-6">
-                  <span className="font-serif text-[28px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                  <div><h3 className="text-[22px]">{a.title}</h3><p className="mt-2 text-[16px] text-earth">{a.text}</p></div>
+                  <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  <div><h3 className="t-lead">{a.title}</h3><p className="text-small mt-2 text-earth">{a.text}</p></div>
                 </li>
               ))}
             </ol>
           </Grid>
         </Container>
       </Section>
-      <Section className="border-t border-border">
+      <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="03">Вопросы</Label><H2>Частые вопросы <em>о гарантии</em></H2></div>
-            <FaqList items={W.faq} className="md:col-span-7 md:col-start-6" />
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые вопросы <em>о гарантии</em></H2>
+            <FaqList items={W.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
           </Grid>
         </Container>
       </Section>

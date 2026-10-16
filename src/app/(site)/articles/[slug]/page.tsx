@@ -37,20 +37,20 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
       <Container className="pt-10 md:pt-14">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title }]} />
-        <p className="caps mb-6 text-muted-foreground">[ Статья · <time dateTime={p.date}>{formatDate(p.date)}</time> ]</p>
-        <h1 className="max-w-[20ch] text-[40px] leading-[1] tracking-[-0.045em] text-balance md:text-[clamp(52px,5.6vw,96px)]">{p.title}</h1>
+        <p className="caps mb-6 text-muted-foreground">Статья · <time dateTime={p.date}>{formatDate(p.date)}</time></p>
+        <h1 className="t-statement max-w-[20ch]">{p.title}</h1>
       </Container>
       {p.cover && (
         <figure className="mt-12 md:mt-16">
           <div className="relative h-[56svh] min-h-[340px] overflow-hidden bg-secondary md:h-[78svh]"><Img p={pic(p.cover)} eager wide sizes="100vw" className="parallax" /></div>
-          <Container><figcaption className="label-tech mt-3 flex justify-between gap-6 text-muted-foreground"><span>{pic(p.cover).caption}</span><span>{pic(p.cover).place}</span></figcaption></Container>
+          <Container><figcaption className="caps mt-3 flex justify-between gap-6 text-muted-foreground"><span>{pic(p.cover).caption}</span><span>{pic(p.cover).place}</span></figcaption></Container>
         </figure>
       )}
       <Section className="pt-10 md:pt-14">
         <Container>
           <Grid>
             <aside className="md:col-span-3">
-              <div className="border-t border-foreground pt-4 text-[15px] md:sticky md:top-28">
+              <div className="text-small border-t border-border pt-4 md:sticky md:top-28">
                 <p className="font-medium">{site.person.name}</p>
                 <p className="text-muted-foreground">директор URALDOMA</p>
                 <p className="label-mono mt-4 text-muted-foreground"><time dateTime={p.date}>{formatDate(p.date)}</time></p>
@@ -70,7 +70,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </Container>
       </Section>
       {more.length > 0 && (
-        <Section className="border-t border-border">
+        <Section>
           <Container>
             <Label>Ещё статьи</Label>
             <ul className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
@@ -78,7 +78,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <li key={m.slug}>
                   <Link href={`/articles/${m.slug}/`} className="group block">
                     {m.cover && <div className="aspect-[4/3] overflow-hidden bg-secondary"><Img p={pic(m.cover)} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" /></div>}
-                    <h3 className="mt-4 border-t border-border pt-3 text-[22px] leading-snug tracking-[-0.01em] group-hover:text-brand">{m.title}</h3>
+                    <h3 className="t-lead mt-4 border-t border-border pt-3 group-hover:text-brand">{m.title}</h3>
                   </Link>
                 </li>
               ))}
