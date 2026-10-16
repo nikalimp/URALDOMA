@@ -55,7 +55,7 @@ export default function Home() {
             ) : (
               <Img p={hero} eager wide sizes="100vw" className="kenburns" />
             )}
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-black/70" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/80 md:from-black/45 md:via-black/10 md:to-black/70" />
           </div>
           <Container className="flex flex-1 flex-col justify-between gap-16 pt-5 pb-5 md:pt-8 md:pb-10">
             <Grid className="caps gap-y-2 text-white/85">
