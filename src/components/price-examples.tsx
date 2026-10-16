@@ -3,7 +3,7 @@ import { tariffs, formatRub } from "@/content/tariffs";
 // Стоимость работ по тарифам для типичных площадей. На телефоне таблица прокручивается внутри себя.
 export function PriceExamples({ areas, caption }: { areas: number[]; caption: string }) {
   return (
-    <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">
+    <div className="-mx-5 overflow-x-auto px-5 md:mx-0 md:px-0">
       <table className="w-full min-w-[520px] border-t border-foreground text-left text-[15px] md:text-[17px]">
         <caption className="sr-only">{caption}</caption>
         <thead>

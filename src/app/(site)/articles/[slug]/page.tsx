@@ -11,6 +11,8 @@ import { CtaSection } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { articleSchema, breadcrumbs, graph } from "@/lib/schema";
 import { pageMeta } from "@/lib/meta";
+import { pic } from "@/content/photos";
+import { Img } from "@/components/photo";
 
 export const dynamicParams = false;
 
@@ -22,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const p = getPost((await params).slug);
   if (!p) return { robots: { index: false } };
-  return pageMeta({ title: p.seoTitle || p.title, description: p.description, path: `/articles/${p.slug}/` });
+  return pageMeta({ title: p.seoTitle || p.title, description: p.description, path: `/articles/${p.slug}/`, image: p.cover ? `${pic(p.cover).base}.webp` : undefined });
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -35,8 +37,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
       <Container className="pt-10 md:pt-14">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title }]} />
-        <h1 className="max-w-[22ch] text-[36px] leading-[1.05] tracking-[-0.03em] md:text-[60px]">{p.title}</h1>
+        <p className="caps mb-6 text-muted-foreground">[ Статья · <time dateTime={p.date}>{formatDate(p.date)}</time> ]</p>
+        <h1 className="max-w-[20ch] text-[40px] leading-[1] tracking-[-0.045em] text-balance md:text-[clamp(52px,5.6vw,96px)]">{p.title}</h1>
       </Container>
+      {p.cover && (
+        <figure className="mt-12 md:mt-16">
+          <div className="relative h-[56svh] min-h-[340px] overflow-hidden bg-secondary md:h-[78svh]"><Img p={pic(p.cover)} eager wide sizes="100vw" className="parallax" /></div>
+          <Container><figcaption className="label-tech mt-3 flex justify-between gap-6 text-muted-foreground"><span>{pic(p.cover).caption}</span><span>{pic(p.cover).place}</span></figcaption></Container>
+        </figure>
+      )}
       <Section className="pt-10 md:pt-14">
         <Container>
           <Grid>
@@ -64,11 +73,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <Section className="border-t border-border">
           <Container>
             <Label>Ещё статьи</Label>
-            <ul className="grid grid-cols-1 border-t border-foreground md:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
               {more.map((m) => (
-                <li key={m.slug} className="border-b border-border md:border-r md:last:border-r-0">
-                  <Link href={`/articles/${m.slug}/`} className="group block py-6 md:px-6 md:first:pl-0">
-                    <h3 className="text-[20px] leading-snug group-hover:text-brand">{m.title}</h3>
+                <li key={m.slug}>
+                  <Link href={`/articles/${m.slug}/`} className="group block">
+                    {m.cover && <div className="aspect-[4/3] overflow-hidden bg-secondary"><Img p={pic(m.cover)} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" /></div>}
+                    <h3 className="mt-4 border-t border-border pt-3 text-[22px] leading-snug tracking-[-0.01em] group-hover:text-brand">{m.title}</h3>
                   </Link>
                 </li>
               ))}

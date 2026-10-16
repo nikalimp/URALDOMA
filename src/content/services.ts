@@ -21,11 +21,10 @@ export type Service = {
   faq: Faq[];
   related: string[];
   articles: string[]; // slug статей
-  cover: string;
+  cover: string; // ключ фото "объект/NN" из content/photos.ts
   showTariffs?: boolean;
 };
 
-const img = (obj: string, n: string) => `/images/objects/${obj}/${n}.webp`;
 
 const commonFaq: Record<string, Faq> = {
   price: { q: "Будет ли меняться стоимость в процессе ремонта?", a: "Нет, если вы не меняете объём работ. В договоре — смета с перечнем, объёмом и ценой за единицу; при изменениях пересчитываем по тем же расценкам." },
@@ -78,7 +77,7 @@ export const services: Service[] = [
     ],
     related: ["interior-design", "designer-renovation", "bathroom-renovation", "kitchen-renovation"],
     articles: ["apartment-renovation-cost-yekaterinburg", "renovation-steps-where-to-start", "how-to-choose-renovation-company"],
-    cover: img("garinsky", "04"),
+    cover: "garinsky/04",
     showTariffs: true,
   },
   {
@@ -118,7 +117,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "designer-renovation", "furnishing"],
     articles: ["do-you-need-interior-design-project", "renovation-steps-where-to-start"],
-    cover: img("radishcheva-31", "04"),
+    cover: "radishcheva-31/04",
   },
   {
     slug: "designer-renovation",
@@ -155,7 +154,7 @@ export const services: Service[] = [
     faq: [commonFaq.price, commonFaq.materials, commonFaq.warranty, commonFaq.pay],
     related: ["interior-design", "turnkey-renovation", "furnishing"],
     articles: ["do-you-need-interior-design-project", "renovation-warranty-guide"],
-    cover: img("obraztsovo", "02"),
+    cover: "obraztsovo/06",
     showTariffs: true,
   },
   {
@@ -197,7 +196,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "redevelopment", "furnishing"],
     articles: ["renovation-steps-where-to-start"],
-    cover: img("garinsky", "01"),
+    cover: "radishcheva-31/07",
   },
   {
     slug: "bathroom-renovation",
@@ -235,7 +234,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "interior-design"],
     articles: ["bathroom-renovation-guide", "wiring-and-plumbing-renovation"],
-    cover: img("trinity-14", "12"),
+    cover: "trinity-14/02",
   },
   {
     slug: "redevelopment",
@@ -273,7 +272,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "interior-design", "kitchen-renovation"],
     articles: ["redevelopment-approval-yekaterinburg"],
-    cover: img("zapovednik", "02"),
+    cover: "zapovednik/02",
   },
   {
     slug: "new-build-renovation",
@@ -314,7 +313,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "interior-design", "redevelopment"],
     articles: ["new-build-renovation-guide", "rough-finishing-what-is-included"],
-    cover: img("clover-park", "01"),
+    cover: "clover-park/05",
     showTariffs: true,
   },
   {
@@ -355,7 +354,7 @@ export const services: Service[] = [
     ],
     related: ["turnkey-renovation", "redevelopment", "bathroom-renovation"],
     articles: ["cosmetic-renovation-resale-apartment", "wiring-and-plumbing-renovation"],
-    cover: img("radishcheva-31", "02"),
+    cover: "radishcheva-31/05",
     showTariffs: true,
   },
   {
@@ -390,7 +389,7 @@ export const services: Service[] = [
     faq: [commonFaq.materials, { q: "Входит ли стоимость материалов в ремонт?", a: "Нет. Цена за м² в тарифах — это стоимость работ. Материалы оплачиваются отдельно, по прайсу с закупочными ценами, который вы видите до покупки." }],
     related: ["interior-design", "turnkey-renovation"],
     articles: [],
-    cover: img("trinity-14", "01"),
+    cover: "trinity-14/01",
   },
 ];
 

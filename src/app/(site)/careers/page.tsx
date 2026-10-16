@@ -25,14 +25,14 @@ export default function Careers() {
   return (
     <>
       <JsonLd data={graph(...jobs, breadcrumbs([{ name: "Главная", path: "/" }, { name: "Вакансии", path: "/careers/" }]))} />
-      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Вакансии" }]} h1={C.h1} answer={C.answer} />
+      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Вакансии" }]} h1={C.h1} answer={C.answer} photo="obraztsovo/06" />
       <Section className="pt-0 md:pt-0">
         <Container>
           {C.jobs.map((j, i) => (
-            <article key={j.title} className="grid grid-cols-1 gap-x-6 gap-y-6 border-t border-foreground py-10 md:grid-cols-12">
+            <article key={j.title} className="grid grid-cols-1 gap-x-5 gap-y-6 border-t border-foreground py-10 md:grid-cols-12">
               <div className="md:col-span-4">
-                <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-3 text-[28px] leading-tight tracking-[-0.02em]">{j.title}</h2>
+                <span className="font-serif text-[40px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
+                <h2 className="mt-4 text-[32px] leading-tight tracking-[-0.025em]">{j.title}</h2>
                 <p className="mt-4 text-[16px] text-earth">{j.text}</p>
               </div>
               <div className="md:col-span-4">
@@ -52,10 +52,10 @@ export default function Careers() {
           <Grid>
             <div className="md:col-span-6">
               <Label>Отклик</Label>
-              <H2>Давайте знакомиться</H2>
+              <H2>Давайте <em>знакомиться</em></H2>
               <p className="mt-6 max-w-[48ch] text-[17px] text-earth">Оставьте имя и телефон — перезвоним и договоримся о встрече. Портфолио и резюме можно прислать на <a href={`mailto:${site.contacts.email}`} className="underline underline-offset-4">{site.contacts.email}</a>.</p>
             </div>
-            <div className="md:col-span-4 md:col-start-9"><LeadForm source="careers" withName button="Отправить отклик" /></div>
+            <div className="beam rounded-[28px] bg-background p-6 md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="careers" withName button="Отправить отклик" /></div>
           </Grid>
         </Container>
       </Section>

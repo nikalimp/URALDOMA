@@ -23,20 +23,20 @@ export default function HowWeWork() {
   return (
     <>
       <JsonLd data={graph(howTo, faqSchema(H.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Как мы работаем", path: "/how-we-work/" }]))} />
-      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Как мы работаем" }]} h1={H.h1} answer={H.answer} />
+      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Как мы работаем" }]} h1={H.h1} answer={H.answer} photo="zapovednik/04" />
 
-      <section aria-label="Чертёж стадий" className="bg-inverse py-16 text-inverse-muted md:py-24">
+      <section aria-label="Чертёж стадий" className="bg-panel py-16 text-panel-muted md:py-24">
         <Container><ProcessBlueprint initial={1} /></Container>
       </section>
 
       <Section>
         <Container>
-          <SectionHead n="01" label="Стадии" title="Шесть стадий ремонта" />
+          <SectionHead n="01" label="Стадии" title={<>Шесть стадий <em>ремонта</em></>} />
           <ol className="border-t border-foreground">
             {stages.map((s, i) => (
-              <li key={s.title} className="grid grid-cols-1 gap-x-6 gap-y-3 border-b border-border py-10 md:grid-cols-12">
+              <li key={s.title} className="grid grid-cols-1 gap-x-5 gap-y-3 border-b border-border py-10 md:grid-cols-12">
                 <div className="md:col-span-4">
-                  <span className="font-mono text-[14px] text-brand">{String(i + 1).padStart(2, "0")} · {s.term}</span>
+                  <span className="flex items-baseline gap-4"><span className="font-serif text-[40px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span><span className="label-tech text-muted-foreground">{s.term}</span></span>
                   <h3 className="mt-3 text-[26px] tracking-[-0.015em]">{s.title}</h3>
                 </div>
                 <p className="text-[17px] md:col-span-4">{s.text}</p>
@@ -52,10 +52,10 @@ export default function HowWeWork() {
 
       <Section className="bg-secondary">
         <Container>
-          <SectionHead n="02" label="Контроль" title="Видно каждый этап — даже из другого города" />
-          <div className="grid grid-cols-1 border-t border-l border-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHead n="02" label="Контроль" title={<>Видно каждый этап — <em>даже из другого города</em></>} />
+          <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {H.remote.map((r) => (
-              <div key={r.title} className="border-r border-b border-foreground/15 p-6">
+              <div key={r.title} className="reveal border-t border-foreground pt-5 pb-10">
                 <h3 className="text-[20px]">{r.title}</h3>
                 <p className="mt-3 text-[15px] text-earth">{r.text}</p>
               </div>
@@ -67,7 +67,7 @@ export default function HowWeWork() {
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="03">Вопросы</Label><H2>Частые вопросы о сроках</H2></div>
+            <div className="md:col-span-4"><Label n="03">Вопросы</Label><H2>Частые вопросы <em>о сроках</em></H2></div>
             <FaqList items={H.faq} className="md:col-span-7 md:col-start-6" />
           </Grid>
         </Container>

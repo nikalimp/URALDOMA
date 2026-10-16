@@ -18,7 +18,7 @@ export default function Partners() {
   return (
     <>
       <JsonLd data={graph({ "@type": "WebPage", name: P.h1, url: `${site.url}/partners/`, description: P.answer, publisher: { "@id": orgId } }, faqSchema(P.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Партнёрская программа", path: "/partners/" }]))} />
-      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Партнёрская программа" }]} h1={P.h1} answer={P.answer} />
+      <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Партнёрская программа" }]} h1={P.h1} answer={P.answer} photo="trinity-14/12" />
       <Section className="pt-0 md:pt-0">
         <Container>
           <Grid>
@@ -36,7 +36,7 @@ export default function Partners() {
       </Section>
       <Section className="bg-secondary">
         <Container>
-          <SectionHead n="03" label="Шкала" title="Ставка растёт послойно" aside="Каждая часть суммы договора считается по своей ставке — как прогрессивный налог, а не вся сумма по верхнему порогу." />
+          <SectionHead n="03" label="Шкала" title={<>Ставка растёт <em>послойно</em></>} aside="Каждая часть суммы договора считается по своей ставке — как прогрессивный налог, а не вся сумма по верхнему порогу." />
           <table className="w-full border-t border-foreground text-left text-[18px]">
             <caption className="sr-only">Ставки вознаграждения по слоям суммы договора</caption>
             <thead><tr className="label-mono text-muted-foreground"><th scope="col" className="py-4 font-normal">Слой суммы договора</th><th scope="col" className="py-4 font-normal">Ставка</th></tr></thead>
@@ -47,10 +47,10 @@ export default function Partners() {
       </Section>
       <Section>
         <Container>
-          <SectionHead n="04" label="Правила" title="Как начисляется вознаграждение" />
-          <dl className="grid grid-cols-1 border-t border-foreground md:grid-cols-2">
+          <SectionHead n="04" label="Правила" title={<>Как начисляется <em>вознаграждение</em></>} />
+          <dl className="grid grid-cols-1 gap-x-5 md:grid-cols-2">
             {P.rules.map((r) => (
-              <div key={r.title} className="border-b border-border py-8 md:odd:border-r md:odd:pr-6 md:even:pl-6">
+              <div key={r.title} className="border-t border-foreground pt-5 pb-10">
                 <dt className="text-[22px]">{r.title}</dt>
                 <dd className="mt-3 text-[16px] text-earth">{r.text}</dd>
               </div>
@@ -61,16 +61,16 @@ export default function Partners() {
       <Section className="border-t border-border">
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="05">Вопросы</Label><H2>Частые вопросы</H2></div>
+            <div className="md:col-span-4"><Label n="05">Вопросы</Label><H2>Частые <em>вопросы</em></H2></div>
             <FaqList items={P.faq} className="md:col-span-7 md:col-start-6" />
           </Grid>
         </Container>
       </Section>
-      <Section id="lead" className="bg-inverse text-inverse-foreground">
+      <Section id="lead" className="bg-panel text-panel-foreground">
         <Container>
           <Grid>
-            <div className="md:col-span-6"><Label className="text-inverse-muted">Заявка</Label><H2>Стать партнёром</H2><p className="mt-6 text-[17px] text-inverse-muted">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
-            <div className="md:col-span-4 md:col-start-9"><LeadForm tone="dark" source="partners" withName button="Стать партнёром" /></div>
+            <div className="md:col-span-6"><Label className="text-panel-muted">Заявка</Label><H2>Стать <em>партнёром</em></H2><p className="mt-6 text-[17px] text-panel-muted">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
+            <div className="beam rounded-[28px] bg-background p-6 text-foreground md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="partners" withName button="Стать партнёром" /></div>
           </Grid>
         </Container>
       </Section>

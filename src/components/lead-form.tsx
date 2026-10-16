@@ -35,12 +35,12 @@ export function LeadForm({ tone = "light", source, extra, withName = false, butt
     }
   }
 
-  const field = cn("min-h-[48px] w-full border-0 border-b bg-transparent py-2 text-[18px] outline-none placeholder:opacity-50", dark ? "border-inverse-line text-inverse-foreground focus:border-inverse-foreground" : "border-foreground/30 focus:border-foreground");
-  const hint = dark ? "text-inverse-muted" : "text-muted-foreground";
+  const field = cn("min-h-[48px] w-full border-0 border-b bg-transparent py-2 text-[18px] outline-none placeholder:opacity-50", dark ? "border-panel-line text-panel-foreground focus:border-panel-foreground" : "border-foreground/30 focus:border-foreground");
+  const hint = dark ? "text-panel-muted" : "text-muted-foreground";
 
   if (state === "ok") {
     return (
-      <div role="status" className={cn("border-t pt-6", dark ? "border-inverse-line text-inverse-foreground" : "border-foreground", className)}>
+      <div role="status" className={cn("border-t pt-6", dark ? "border-panel-line text-panel-foreground" : "border-foreground", className)}>
         <p className="text-[22px]">Заявка отправлена</p>
         <p className={cn("mt-2", hint)}>Перезвоним в рабочее время. Если срочно — звоните: <a href={`tel:${site.contacts.phone}`} className="underline underline-offset-4">{site.contacts.phoneDisplay}</a>.</p>
       </div>
@@ -65,12 +65,12 @@ export function LeadForm({ tone = "light", source, extra, withName = false, butt
         <input type="checkbox" name="consent" required className="mt-0.5 size-4 shrink-0 accent-[var(--brand)]" />
         <span>Даю <a href="/consent/" target="_blank" className="underline underline-offset-2">согласие на обработку персональных данных</a> и принимаю <a href="/privacy-policy/" target="_blank" className="underline underline-offset-2">политику</a></span>
       </label>
-      <button type="submit" disabled={state === "sending"} className={cn("flex min-h-[52px] items-center justify-between gap-6 rounded-full px-6 text-left text-[15px] font-medium transition-colors disabled:opacity-60", dark ? "bg-inverse-foreground text-inverse hover:bg-brand hover:text-white" : "bg-foreground text-background hover:bg-brand hover:text-white")}>
+      <button type="submit" disabled={state === "sending"} className={cn("flex min-h-[52px] items-center justify-between gap-6 rounded-full px-6 text-left text-[15px] font-medium transition-colors disabled:opacity-60", dark ? "bg-panel-foreground text-panel hover:bg-brand hover:text-white" : "bg-foreground text-background hover:bg-brand hover:text-white")}>
         {state === "sending" ? "Отправляем…" : button}
         <span aria-hidden="true">→</span>
       </button>
       {state === "error" && (
-        <p role="alert" className={cn("text-[14px]", dark && "text-inverse-foreground")}>Не получилось отправить. Позвоните нам: <a href={`tel:${site.contacts.phone}`} className="underline">{site.contacts.phoneDisplay}</a> или напишите на <a href={`mailto:${site.contacts.email}`} className="underline">{site.contacts.email}</a>.</p>
+        <p role="alert" className={cn("text-[14px]", dark && "text-panel-foreground")}>Не получилось отправить. Позвоните нам: <a href={`tel:${site.contacts.phone}`} className="underline">{site.contacts.phoneDisplay}</a> или напишите на <a href={`mailto:${site.contacts.email}`} className="underline">{site.contacts.email}</a>.</p>
       )}
     </form>
   );

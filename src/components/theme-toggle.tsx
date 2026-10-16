@@ -4,16 +4,35 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 // Тема: "system" (по умолчанию, без записи в localStorage), "light" или "dark".
-// Начальный класс .dark ставит скрипт в <head> (layout.tsx) до отрисовки — без мигания.
+// Начальный класс .dark и цвет панели браузера ставит скрипт в <head> (layout.tsx) до отрисовки — без мигания.
 type Mode = "system" | "light" | "dark";
+const EVENT = "uraldoma:theme";
 
-function apply(mode: Mode) {
+function paint(dark: boolean) {
+  const d = document.documentElement;
+  d.classList.toggle("dark", dark);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0e0e0d" : "#f5f4f0");
+}
+
+// Переключение с анимацией: круг от кнопки (View Transitions), иначе — плавная смена цветов
+function apply(mode: Mode, from?: { x: number; y: number }) {
   const dark = mode === "dark" || (mode === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
-  document.documentElement.classList.toggle("dark", dark);
   try {
     if (mode === "system") localStorage.removeItem("theme");
     else localStorage.setItem("theme", mode);
   } catch {}
+  const d = document.documentElement;
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const vt = (document as Document & { startViewTransition?: (cb: () => void) => unknown }).startViewTransition;
+  if (from) { d.style.setProperty("--tx", `${from.x}px`); d.style.setProperty("--ty", `${from.y}px`); }
+  if (vt && !calm && d.classList.contains("dark") !== dark) {
+    vt.call(document, () => paint(dark));
+  } else {
+    d.classList.add("theme-anim");
+    paint(dark);
+    setTimeout(() => d.classList.remove("theme-anim"), 400);
+  }
+  window.dispatchEvent(new CustomEvent(EVENT, { detail: mode }));
 }
 
 function read(): Mode {
@@ -27,7 +46,10 @@ function read(): Mode {
 
 // Кнопка в шапке: переключает светлую ↔ тёмную относительно того, что видно сейчас
 export function ThemeToggle({ className }: { className?: string }) {
-  const toggle = () => apply(document.documentElement.classList.contains("dark") ? "light" : "dark");
+  const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    apply(document.documentElement.classList.contains("dark") ? "light" : "dark", { x: r.left + r.width / 2, y: r.top + r.height / 2 });
+  };
   return (
     <button type="button" onClick={toggle} aria-label="Переключить тему" title="Светлая / тёмная тема" className={cn("inline-flex size-11 items-center justify-center rounded-full hover:bg-secondary", className)}>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="dark:hidden"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>
@@ -36,15 +58,20 @@ export function ThemeToggle({ className }: { className?: string }) {
   );
 }
 
-// Переключатель в футере: Система · Светлая · Тёмная
+// Переключатель в футере: Как в системе · Светлая · Тёмная. Синхронизирован с кнопкой в шапке
 export function ThemeSelect() {
   const [mode, setMode] = useState<Mode>("system");
-  useEffect(() => setMode(read()), []);
+  useEffect(() => {
+    setMode(read());
+    const on = (e: Event) => setMode((e as CustomEvent<Mode>).detail);
+    window.addEventListener(EVENT, on);
+    return () => window.removeEventListener(EVENT, on);
+  }, []);
   const options: [Mode, string][] = [["system", "Как в системе"], ["light", "Светлая"], ["dark", "Тёмная"]];
   return (
-    <div role="radiogroup" aria-label="Тема сайта" className="inline-flex rounded-full border border-inverse-line p-1">
+    <div role="radiogroup" aria-label="Тема сайта" className="inline-flex rounded-full border border-panel-line p-1">
       {options.map(([m, label]) => (
-        <button key={m} type="button" role="radio" aria-checked={mode === m} onClick={() => { apply(m); setMode(m); }} className={cn("min-h-[32px] rounded-full px-3 text-[12px]", mode === m ? "bg-inverse-foreground text-inverse" : "text-inverse-muted hover:text-inverse-foreground")}>
+        <button key={m} type="button" role="radio" aria-checked={mode === m} onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); apply(m, { x: r.left + r.width / 2, y: r.top + r.height / 2 }); }} className={cn("min-h-[32px] rounded-full px-3 text-[12px] transition-colors", mode === m ? "bg-panel-foreground text-panel" : "text-panel-muted hover:text-panel-foreground")}>
           {label}
         </button>
       ))}

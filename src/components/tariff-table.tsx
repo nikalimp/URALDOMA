@@ -10,20 +10,21 @@ const rows: { key: "prep" | "engineering" | "finish"; label: string }[] = [
 export function TariffTable() {
   return (
     <div>
-      <div className="hidden border-t border-foreground md:grid md:grid-cols-[200px_repeat(3,minmax(0,1fr))]">
-        <div />
+      {/* Десктоп: 3 колонки подписи + по 3 на тариф — ровно по направляющим, только горизонтальные линии */}
+      <div className="hidden md:grid md:grid-cols-12 md:gap-x-5">
+        <div className="col-span-3 border-t border-foreground" />
         {tariffs.map((t) => (
-          <div key={t.id} className="border-l border-border p-6">
+          <div key={t.id} className="col-span-3 border-t border-foreground pt-6 pb-8">
             <h3 className="text-[24px]">{t.name}</h3>
-            <p className="mt-2 text-[36px] leading-none tracking-[-0.03em]">{formatRub(t.rate)}<span className="text-[15px] font-normal text-muted-foreground"> / м²</span></p>
+            <p className="mt-2 text-[40px] leading-none tracking-[-0.04em]">{formatRub(t.rate)}<span className="text-[15px] font-normal text-muted-foreground"> / м²</span></p>
             <p className="mt-4 text-[15px] text-earth">{t.forWhom}</p>
           </div>
         ))}
         {rows.map((r) => (
           <div key={r.key} className="contents">
-            <div className="label-mono border-t border-border py-6 pr-4 text-muted-foreground">{r.label}</div>
+            <div className="caps col-span-3 border-t border-border py-6 text-muted-foreground">{r.label}</div>
             {tariffs.map((t) => (
-              <p key={t.id} className="border-t border-l border-border p-6 text-[15px] leading-relaxed">{t[r.key]}</p>
+              <p key={t.id} className="col-span-3 border-t border-border py-6 text-[15px] leading-relaxed">{t[r.key]}</p>
             ))}
           </div>
         ))}
