@@ -1,0 +1,148 @@
+/* Сгенерировано scripts/tokens.mjs из design-system/tokens.json — не править руками.
+   Дизайн-система URALDOMA: https://claude.ai/artifact/RSfSeE3vwTJfMaM3RTGBbw
+   Новый или изменённый токен — сначала в дизайн-системе, потом копия tokens.json сюда и npm run tokens. */
+
+:root {
+  /* Цвета — светлая тема */
+  --background: #f5f4f0;
+  --foreground: #111110;
+  --card: #ffffff;
+  --primary: #111110;
+  --primary-foreground: #ffffff;
+  --secondary: #ebeae5;
+  --secondary-foreground: #111110;
+  --muted: #ebeae5;
+  --muted-foreground: #66665f;
+  --earth: #3a3a37;
+  --border: rgba(17, 17, 16, 0.12);
+  --ring: #111110;
+  --brand: #8a5a3c;
+  --on-brand: #ffffff;
+  --panel: #e8e7e1;
+  --panel-foreground: #111110;
+  --panel-muted: #5c5c56;
+  --panel-line: rgba(17, 17, 16, 0.14);
+  --guide: rgba(17, 17, 16, 0.06);
+  --on-photo: #ffffff;
+  --on-photo-foreground: #111110;
+  --cover-fill: #2a2622;
+  --scrim: #000000;
+  color-scheme: light;
+  /* Отступы и поля */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --gutter: 20px;
+  --page-pad-mobile: 20px;
+  --page-pad: 40px;
+  --space-6: 24px;
+  --space-10: 40px;
+  --section-mobile: 64px;
+  --section: 112px;
+  /* Радиусы */
+  --radius-none: 0px;
+  /* Сетка и линии */
+  --grid-columns: 12;
+  --breakpoint-md: 768px;
+  --header-height: 72px;
+  --hairline: 1px;
+  /* Прозрачность */
+  --glass: 0.78;
+}
+
+.dark {
+  /* Цвета — тёмная тема */
+  --background: #0e0e0d;
+  --foreground: #f0efeb;
+  --card: #161615;
+  --primary: #f0efeb;
+  --primary-foreground: #0e0e0d;
+  --secondary: #1a1a19;
+  --secondary-foreground: #f0efeb;
+  --muted: #1a1a19;
+  --muted-foreground: #9d9d97;
+  --earth: #cfcfc9;
+  --border: rgba(255, 255, 255, 0.11);
+  --ring: #f0efeb;
+  --brand: #d6a07c;
+  --on-brand: #0e0e0d;
+  --panel: #181817;
+  --panel-foreground: #f0efeb;
+  --panel-muted: #a3a39d;
+  --panel-line: rgba(255, 255, 255, 0.12);
+  --guide: rgba(255, 255, 255, 0.06);
+  --on-photo: #ffffff;
+  --on-photo-foreground: #111110;
+  --cover-fill: #2a2622;
+  --scrim: #000000;
+  color-scheme: dark;
+}
+
+/* Утилиты Tailwind, зависящие от темы: bg-background, text-brand, hover:text-on-brand, border-panel-line, from-scrim/50 … */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-earth: var(--earth);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-panel-muted: var(--panel-muted);
+  --color-panel-line: var(--panel-line);
+  --color-guide: var(--guide);
+  --color-on-photo: var(--on-photo);
+  --color-on-photo-foreground: var(--on-photo-foreground);
+  --color-cover-fill: var(--cover-fill);
+  --color-scrim: var(--scrim);
+  --spacing-gutter: var(--gutter);
+  --spacing-page-pad-mobile: var(--page-pad-mobile);
+  --spacing-page-pad: var(--page-pad);
+  --spacing-section-mobile: var(--section-mobile);
+  --spacing-section: var(--section);
+}
+
+/* Постоянные токены: font-sans/serif/mono, rounded-card/pill, text-body/caps/tech … */
+@theme static {
+  --font-sans: "Onest Variable", "Onest", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display Variable", "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* shadcn-компоненты — без скруглений (radius-none) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-card: 28px;
+  --radius-pill: 999px;
+  --text-h3: 24px;
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.015em;
+  --text-dropcap: 3.2em;
+  --text-dropcap--line-height: 0.82;
+  --text-body: 17px;
+  --text-body--line-height: 1.55;
+  --text-article: 18px;
+  --text-article--line-height: 1.7;
+  --text-small: 15px;
+  --text-small--line-height: 1.5;
+  --text-label: 13px;
+  --text-label--line-height: 1.35;
+  --text-label--letter-spacing: 0.005em;
+  --text-caps: 12px;
+  --text-caps--line-height: 1.4;
+  --text-caps--letter-spacing: 0.06em;
+  --text-tech: 11px;
+  --text-tech--line-height: 1.4;
+  --text-tech--letter-spacing: 0.08em;
+  --text-blueprint: 14px;
+  --text-blueprint--line-height: 1.4;
+}

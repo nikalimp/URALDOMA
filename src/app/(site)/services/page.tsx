@@ -59,7 +59,7 @@ export default function Services() {
           <SectionHead n="04" label="Мебель" title={<>Мебель на заказ <em>«Мебель-Урал»</em></>} aside="Кухни, островки, столешницы, раковины и мебель в стиле лофт делаем на своём производстве — под размеры квартиры после ремонта." />
           <Link href="/furniture/" className="group relative block h-[70svh] min-h-[420px] overflow-hidden bg-secondary">
             <Img p={pic("garinsky-21/05")} wide sizes="100vw" className="parallax" />
-            <span className="absolute bottom-5 left-5 inline-flex min-h-[52px] items-center gap-6 rounded-full bg-white px-7 text-[15px] font-medium text-[#111110] group-hover:bg-brand group-hover:text-white md:bottom-8 md:left-8">О производстве <span aria-hidden="true">→</span></span>
+            <span className="absolute bottom-5 left-5 inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 text-[15px] font-medium text-on-photo-foreground group-hover:bg-brand group-hover:text-on-brand md:bottom-8 md:left-8">О производстве <span aria-hidden="true">→</span></span>
           </Link>
         </Container>
       </Section>

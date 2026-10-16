@@ -34,7 +34,7 @@ export default function Contacts() {
                 </div>
               ))}
             </dl>
-            <div className="beam self-start rounded-[28px] bg-card p-6 md:col-span-4 md:col-start-9 md:p-8">
+            <div className="beam self-start rounded-card bg-card p-6 md:col-span-4 md:col-start-9 md:p-8">
               <Label>Заявка</Label>
               <LeadForm source="contacts" withName />
             </div>

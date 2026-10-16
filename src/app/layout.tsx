@@ -9,6 +9,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { GuideLines } from "@/components/guide-lines";
 import { JsonLd } from "@/components/json-ld";
 import { graph, orgSchema, personSchema, websiteSchema } from "@/lib/schema";
+import { tokenColor } from "@/lib/tokens";
 
 // Тестовый поддомен закрыт от индексации: сборка с NEXT_PUBLIC_NOINDEX=1 (workflow staging).
 const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 // theme-color — один тег: его обновляют скрипт темы и переключатель, чтобы панель браузера меняла цвет вместе с сайтом
 export const viewport: Viewport = { colorScheme: "light dark" };
-const themeColors = { light: "#f5f4f0", dark: "#0e0e0d" };
+const themeColors = tokenColor("background");
 
 // Тема до первой отрисовки: сохранённый выбор или системная; при «как в системе» следим за сменой темы ОС
 const themeScript = `(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function s(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}var k=t?t==='dark':m.matches;d.classList.toggle('dark',k);var c=document.querySelector('meta[name="theme-color"]');if(c)c.setAttribute('content',k?'${themeColors.dark}':'${themeColors.light}')}s();m.addEventListener&&m.addEventListener('change',s)})()`;

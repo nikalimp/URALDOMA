@@ -1,87 +1,18 @@
 @import "tailwindcss";
+/* Токены дизайн-системы: цвета обеих тем, шрифты, радиусы, отступы, стили текста — design-system/tokens.json → tokens.css */
+@import "./tokens.css";
 
-/* URALDOMA v5 «Журнал» — specs/03-design.md §7.
+/* URALDOMA v5 «Журнал» — specs/03-design.md §7–8, дизайн-система — design-system/README.md.
    Светлая и тёмная темы на одних токенах: класс .dark на <html> ставит скрипт в layout.tsx (по умолчанию — как в системе).
    Панели (футер, заявка, чертёж, итог калькулятора) — токены --panel-*: светлые в светлой теме, тёмные в тёмной.
-   Цвет даёт фотография; интерфейс — монохром, волосяные линии, один тёплый акцент (бронза). */
+   Цвет даёт фотография; интерфейс — монохром, волосяные линии, один тёплый акцент (бронза).
+   Цвета здесь и в компонентах — только через токены: npm run check ищет HEX, rgb() и white/black в обход них. */
 @custom-variant dark (&:where(.dark, .dark *));
-
-:root {
-  --radius: 0rem;
-  --background: #f5f4f0;
-  --foreground: #111110;
-  --card: #ffffff;
-  --primary: #111110;
-  --primary-foreground: #ffffff;
-  --secondary: #ebeae5;
-  --secondary-foreground: #111110;
-  --muted: #ebeae5;
-  --muted-foreground: #66665f; /* 5.3:1 на фоне */
-  --earth: #3a3a37;
-  --border: rgb(17 17 16 / 12%);
-  --ring: #111110;
-  --brand: #8a5a3c; /* бронза: номера, стрелки, акценты — 5.4:1 */
-  --panel: #e8e7e1;
-  --panel-foreground: #111110;
-  --panel-muted: #5c5c56;
-  --panel-line: rgb(17 17 16 / 14%);
-  --guide: rgb(17 17 16 / 6%);
-  color-scheme: light;
-}
-
-.dark {
-  --background: #0e0e0d;
-  --foreground: #f0efeb;
-  --card: #161615;
-  --primary: #f0efeb;
-  --primary-foreground: #0e0e0d;
-  --secondary: #1a1a19;
-  --secondary-foreground: #f0efeb;
-  --muted: #1a1a19;
-  --muted-foreground: #9d9d97;
-  --earth: #cfcfc9;
-  --border: rgb(255 255 255 / 11%);
-  --ring: #f0efeb;
-  --brand: #d6a07c;
-  --panel: #181817;
-  --panel-foreground: #f0efeb;
-  --panel-muted: #a3a39d;
-  --panel-line: rgb(255 255 255 / 12%);
-  --guide: rgb(255 255 255 / 6%);
-  color-scheme: dark;
-}
-
-@theme inline {
-  --font-sans: "Onest Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-serif: "Playfair Display Variable", Georgia, "Times New Roman", serif;
-  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --radius-sm: var(--radius);
-  --radius-md: var(--radius);
-  --radius-lg: var(--radius);
-  --radius-xl: var(--radius);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  --color-brand: var(--brand);
-  --color-earth: var(--earth);
-  --color-panel: var(--panel);
-  --color-panel-foreground: var(--panel-foreground);
-  --color-panel-muted: var(--panel-muted);
-  --color-panel-line: var(--panel-line);
-}
 
 @layer base {
   * { @apply border-border outline-ring/60; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body { @apply bg-background text-foreground; font-size: var(--text-body); line-height: var(--text-body--line-height); -webkit-font-smoothing: antialiased; }
   h1, h2, h3 { font-weight: 400; }
   em { font-style: italic; }
   ::selection { background: color-mix(in oklch, var(--brand) 25%, transparent); }
@@ -105,17 +36,17 @@ h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: i
 .caps-display { text-transform: uppercase; font-weight: 400; }
 .caps-display em { text-transform: none; }
 /* Капс-подпись: [ Метка ], (01), метаданные в углах экрана */
-.caps { font-size: 12px; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; }
+.caps { font-size: var(--text-caps); line-height: var(--text-caps--line-height); letter-spacing: var(--text-caps--letter-spacing); text-transform: uppercase; }
 /* Микроподпись: мелкий гротеск без капса */
-.label-mono { font-size: 13px; line-height: 1.35; letter-spacing: 0.005em; }
+.label-mono { font-size: var(--text-label); line-height: var(--text-label--line-height); letter-spacing: var(--text-label--letter-spacing); }
 /* Технические подписи — моно: чертёж, подписи к фото, индексы */
-.label-tech { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; }
+.label-tech { font-family: var(--font-mono); font-size: var(--text-tech); line-height: var(--text-tech--line-height); letter-spacing: var(--text-tech--letter-spacing); text-transform: uppercase; }
 /* Счётчик у заголовка: «Портфолио¹⁰» */
 .sup-count { font-family: var(--font-mono); font-size: 0.22em; vertical-align: super; margin-left: 0.3em; letter-spacing: 0; color: var(--muted-foreground); font-weight: 400; font-style: normal; }
 /* Пилюля-метка */
-.tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+.tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: var(--hairline) solid var(--border); border-radius: var(--radius-pill); font-size: var(--text-caps); text-transform: uppercase; letter-spacing: 0.04em; }
 /* Заглавная буквица для вводного абзаца */
-.dropcap::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: 3.2em; line-height: 0.82; padding: 0.06em 0.12em 0 0; color: var(--brand); }
+.dropcap::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: var(--text-dropcap); line-height: var(--text-dropcap--line-height); padding: 0.06em 0.12em 0 0; color: var(--brand); }
 
 /* —— Элементы в духе 21st.dev —— */
 /* Бегущая строка (Marquee): вторая копия — aria-hidden; при reduced motion — статичная строка */
@@ -147,16 +78,16 @@ h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: i
 .dots { background-image: radial-gradient(color-mix(in oklch, currentColor 22%, transparent) 1px, transparent 1.2px); background-size: 20px 20px; }
 
 /* Горизонтальная лента с прокруткой по кадрам (scroll-snap gallery) */
-.rail { display: grid; grid-auto-flow: column; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: 20px; }
+.rail { display: grid; grid-auto-flow: column; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: var(--page-pad-mobile); }
 .rail::-webkit-scrollbar { display: none; }
 .rail > * { scroll-snap-align: start; }
-@media (min-width: 768px) { .rail { scroll-padding-inline: 40px; } }
+@media (min-width: 768px) { .rail { scroll-padding-inline: var(--page-pad); } }
 
 /* Блик по стеклянной карточке */
-.glass { background: color-mix(in oklch, var(--background) 78%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); }
+.glass { background: color-mix(in oklch, var(--background) calc(var(--glass) * 100%), transparent); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); }
 
 /* Типографика статей */
-.prose-site { font-size: 18px; line-height: 1.7; max-width: 44rem; }
+.prose-site { font-size: var(--text-article); line-height: var(--text-article--line-height); max-width: 44rem; }
 .prose-site > * + * { margin-top: 0.9em; }
 .prose-site h2 { font-size: 1.6em; font-weight: 500; margin-top: 1.9em; line-height: 1.2; letter-spacing: -0.02em; }
 .prose-site h3 { font-size: 1.2em; font-weight: 500; margin-top: 1.4em; }
@@ -169,7 +100,7 @@ h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: i
 .prose-site th, .prose-site td { border-bottom: 1px solid var(--border); padding: 0.6em 0.8em 0.6em 0; text-align: left; vertical-align: top; }
 .prose-site th { font-weight: 600; }
 .prose-site blockquote { border-left: 2px solid var(--brand); padding-left: 1em; color: var(--muted-foreground); }
-.prose-site > p:first-of-type::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: 3.4em; line-height: 0.8; padding: 0.08em 0.12em 0 0; color: var(--brand); }
+.prose-site > p:first-of-type::first-letter { font-family: var(--font-serif); font-style: italic; float: left; font-size: var(--text-dropcap); line-height: var(--text-dropcap--line-height); padding: 0.08em 0.12em 0 0; color: var(--brand); }
 
 /* —— Движение: только если пользователь не просил его убрать —— */
 @media (prefers-reduced-motion: no-preference) {

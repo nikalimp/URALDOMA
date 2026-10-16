@@ -55,7 +55,7 @@ export default function Careers() {
               <H2>Давайте <em>знакомиться</em></H2>
               <p className="mt-6 max-w-[48ch] text-[17px] text-earth">Оставьте имя и телефон — перезвоним и договоримся о встрече. Портфолио и резюме можно прислать на <a href={`mailto:${site.contacts.email}`} className="underline underline-offset-4">{site.contacts.email}</a>.</p>
             </div>
-            <div className="beam rounded-[28px] bg-background p-6 md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="careers" withName button="Отправить отклик" /></div>
+            <div className="beam rounded-card bg-background p-6 md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="careers" withName button="Отправить отклик" /></div>
           </Grid>
         </Container>
       </Section>

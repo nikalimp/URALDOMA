@@ -18,7 +18,7 @@ export function Logo({ className = "h-[18px] w-auto md:h-[20px]" }: { className?
 function MobileMenu() {
   return (
     <details className="group/m lg:hidden">
-      <summary aria-label="Открыть меню" className="flex size-11 cursor-pointer list-none items-center justify-center rounded-full border border-border [&::-webkit-details-marker]:hidden">
+      <summary aria-label="Открыть меню" className="flex size-11 cursor-pointer list-none items-center justify-center rounded-pill border border-border [&::-webkit-details-marker]:hidden">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="group-open/m:hidden"><path d="M4 9h16M4 15h16" /></svg>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="hidden group-open/m:block"><path d="M6 6l12 12M18 6L6 18" /></svg>
       </summary>
@@ -31,7 +31,7 @@ function MobileMenu() {
           ))}
         </ul>
         <a href={`tel:${site.contacts.phone}`} className="mt-6 block text-[22px]">{site.contacts.phoneDisplay}</a>
-        <a href={site.cta.href} className="mt-6 flex min-h-[52px] items-center justify-between rounded-full bg-foreground px-6 text-background">{site.cta.label}<span aria-hidden="true">→</span></a>
+        <a href={site.cta.href} className="mt-6 flex min-h-[52px] items-center justify-between rounded-pill bg-foreground px-6 text-background">{site.cta.label}<span aria-hidden="true">→</span></a>
       </div>
     </details>
   );
@@ -49,11 +49,11 @@ export function Header() {
         </nav>
         <div className="col-start-3 flex items-center justify-end gap-2 whitespace-nowrap md:col-span-4 md:col-start-9 md:gap-3">
           <a href={`tel:${site.contacts.phone}`} className="hidden text-[15px] xl:block">{site.contacts.phoneDisplay}</a>
-          <a href={`tel:${site.contacts.phone}`} aria-label="Позвонить" className="flex size-11 items-center justify-center rounded-full hover:bg-secondary xl:hidden">
+          <a href={`tel:${site.contacts.phone}`} aria-label="Позвонить" className="flex size-11 items-center justify-center rounded-pill hover:bg-secondary xl:hidden">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M15 14.5c-.8.8-3-.8-4.5-2.3S7.7 8.5 8.5 7.7L10 6.2 7 2.5 4 4.8C4 11.6 12.4 20 19.2 20l2.3-3-3.7-3z" /></svg>
           </a>
           <ThemeToggle />
-          <a href={site.cta.href} className="ml-2 hidden min-h-[44px] items-center rounded-full bg-foreground px-5 text-[14px] font-medium text-background transition-colors hover:bg-brand hover:text-white sm:inline-flex">{site.cta.label}</a>
+          <a href={site.cta.href} className="ml-2 hidden min-h-[44px] items-center rounded-pill bg-foreground px-5 text-[14px] font-medium text-background transition-colors hover:bg-brand hover:text-on-brand sm:inline-flex">{site.cta.label}</a>
           <MobileMenu />
         </div>
       </div>

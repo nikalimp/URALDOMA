@@ -68,7 +68,7 @@ export function RailControls({ target, total, label }: { target: string; total: 
     if (!el || !first) return;
     el.scrollBy({ left: dir * (first.offsetWidth + 20), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   };
-  const btn = "inline-flex size-12 items-center justify-center rounded-full border border-foreground/25 transition-colors hover:bg-foreground hover:text-background";
+  const btn = "inline-flex size-12 items-center justify-center rounded-pill border border-foreground/25 transition-colors hover:bg-foreground hover:text-background";
   return (
     <div className="flex items-center gap-3">
       <span className="label-tech mr-3 tabular-nums text-muted-foreground">{String(i).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>

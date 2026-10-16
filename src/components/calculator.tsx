@@ -31,7 +31,7 @@ export function Calculator() {
             <input id="calc-area" type="number" min={15} max={400} value={area} onChange={(e) => setArea(Math.max(0, Math.min(400, Number(e.target.value) || 0)))} style={{ width: `${String(area).length + 0.5}ch` }} className="border-0 border-b border-foreground bg-transparent text-[64px] leading-none tracking-[-0.05em] outline-none focus:border-brand md:text-[112px]" />
             <span className="pb-3 text-[24px] text-muted-foreground">м²</span>
           </div>
-          <input type="range" min={20} max={250} step={1} value={Math.min(250, Math.max(20, area))} onChange={(e) => setArea(Number(e.target.value))} aria-label="Площадь, м²" className="mt-6 w-full accent-[var(--brand)]" />
+          <input type="range" min={20} max={250} step={1} value={Math.min(250, Math.max(20, area))} onChange={(e) => setArea(Number(e.target.value))} aria-label="Площадь, м²" className="mt-6 w-full accent-brand" />
         </fieldset>
 
         <fieldset className="mt-12 border-t border-foreground pt-6">
@@ -51,7 +51,7 @@ export function Calculator() {
         <fieldset className="mt-12 border-t border-foreground pt-6">
           <legend className="label-mono float-left mb-6 w-full text-muted-foreground">03 — Дизайн-проект</legend>
           <label className="clear-both flex cursor-pointer items-center gap-4 text-[18px]">
-            <input type="checkbox" checked={design} onChange={(e) => setDesign(e.target.checked)} className="size-5 accent-[var(--brand)]" />
+            <input type="checkbox" checked={design} onChange={(e) => setDesign(e.target.checked)} className="size-5 accent-brand" />
             Нужен дизайн-проект — {formatRub(designPrice.rate)} / м²
           </label>
         </fieldset>

@@ -70,7 +70,7 @@ export default function Partners() {
         <Container>
           <Grid>
             <div className="md:col-span-6"><Label className="text-panel-muted">Заявка</Label><H2>Стать <em>партнёром</em></H2><p className="mt-6 text-[17px] text-panel-muted">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
-            <div className="beam rounded-[28px] bg-background p-6 text-foreground md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="partners" withName button="Стать партнёром" /></div>
+            <div className="beam rounded-card bg-background p-6 text-foreground md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="partners" withName button="Стать партнёром" /></div>
           </Grid>
         </Container>
       </Section>
