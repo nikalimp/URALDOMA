@@ -19,7 +19,7 @@ export default function Privacy() {
     <Section className="pt-10 md:pt-14">
       <Container>
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Политика обработки персональных данных" }]} />
-        <h1 className="max-w-[18ch] text-[40px] leading-[1.02] tracking-[-0.035em] md:text-[64px]">Политика обработки персональных данных</h1>
+        <h1 className="t-statement max-w-[18ch]">Политика обработки персональных данных</h1>
         <p className="label-mono mt-6 text-muted-foreground">Редакция от {formatDate(legalUpdated)}</p>
         <div className="prose-site mt-12 md:ml-[calc(41.666%+12px)]">
           <h2>1. Общие положения</h2>

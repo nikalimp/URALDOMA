@@ -47,32 +47,32 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   return (
     <>
       <JsonLd data={graph(caseSchema({ ...c, photos }), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Портфолио", path: "/portfolio/" }, { name: c.title, path }]))} />
-      <Container className="pt-10 pb-14 md:pt-14 md:pb-20">
+      <Container className="pt-12 pb-20 md:pt-16 md:pb-32">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Портфолио", path: "/portfolio/" }, { name: c.title }]} />
         <Grid className="items-end">
           <div className="md:col-span-10">
-            <p className="caps mb-6 text-muted-foreground">[ {c.place} ]</p>
-            <h1 className="text-[44px] leading-[0.96] tracking-[-0.05em] text-balance md:text-[clamp(60px,6.6vw,120px)]">{c.title}</h1>
+            <p className="caps mb-6 text-muted-foreground">{c.place}</p>
+            <h1 className="t-title">{c.title}</h1>
           </div>
         </Grid>
       </Container>
 
       <figure>
         <div className="relative h-[72svh] min-h-[400px] overflow-hidden bg-secondary md:h-[92svh]"><Img p={cover} eager wide alt={c.alt} sizes="100vw" className="parallax" /></div>
-        <Container><figcaption className="label-tech mt-3 flex justify-between gap-6 text-muted-foreground"><span>Fig. 01 · {cover.caption}</span><span>{c.place}</span></figcaption></Container>
+        <Container><figcaption className="caps mt-3 flex justify-between gap-6 text-muted-foreground"><span>{cover.caption}</span><span>{c.place}</span></figcaption></Container>
       </figure>
 
       <Section>
         <Container>
           <Grid>
-            <p className="caps text-muted-foreground md:col-span-3">[ Об объекте ]</p>
-            <p className="dropcap text-[22px] leading-[1.35] tracking-[-0.01em] md:col-span-7 md:col-start-4 md:text-[30px]">{c.summary}</p>
+            <p className="caps text-muted-foreground md:col-span-3">Об объекте</p>
+            <p className="t-lead md:col-span-7 md:col-start-4">{c.summary}</p>
           </Grid>
           <dl className="mt-14 grid grid-cols-2 gap-x-5 md:grid-cols-12">
             {facts.map(([k, v]) => (
-              <div key={k} className="border-t border-foreground pt-3 pb-6 md:col-span-3">
+              <div key={k} className="border-t border-border pt-3 pb-6 md:col-span-3">
                 <dt className="caps text-muted-foreground">{k}</dt>
-                <dd className="mt-2 text-[22px] tracking-[-0.01em]">{v}</dd>
+                <dd className="t-lead mt-2">{v}</dd>
               </div>
             ))}
           </dl>
@@ -84,15 +84,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4">
-              <Label n="01">Решения</Label>
-              <H2>Что <em>сделали</em></H2>
-            </div>
-            <ol className="md:col-span-7 md:col-start-6">
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Решения</p>
+              <H2 className="md:col-span-9 md:col-start-4">Что <em>сделали</em></H2>
+            <ol className="md:col-span-9 md:col-start-4 md:mt-16">
               {c.solutions.map((s, i) => (
                 <li key={s} className="grid grid-cols-[56px_1fr] items-baseline gap-x-5 border-t border-border py-5 first:border-foreground">
-                  <span className="font-serif text-[28px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-[19px] md:text-[21px]">{s}</span>
+                  <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="t-lead">{s}</span>
                 </li>
               ))}
             </ol>
@@ -104,7 +102,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       </Section>
 
       {more.length > 0 && (
-        <Section className="border-t border-border">
+        <Section>
           <Container>
             <Label>Другие объекты</Label>
             <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">{more.map((m, i) => <CaseCard key={m.slug} c={m} className={i === 1 ? "md:mt-16" : ""} />)}</div>

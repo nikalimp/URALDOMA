@@ -7,7 +7,6 @@ import { CtaSection } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbs, graph, orgId, personId } from "@/lib/schema";
 import { pageMeta } from "@/lib/meta";
-import { Ticker } from "@/components/motion";
 import { Photo } from "@/components/photo";
 import { pic } from "@/content/photos";
 
@@ -22,10 +21,10 @@ export default function About() {
       <Container>
         <dl className="grid grid-cols-2 gap-x-5 md:grid-cols-4">
           {home.facts.map((f) => (
-            <div key={f.label} className="border-t border-foreground pt-4 pb-10">
+            <div key={f.label} className="border-t border-border pt-4 pb-10">
               <dt className="sr-only">{f.label}</dt>
-              <dd className="text-[56px] leading-none tracking-[-0.05em] md:text-[clamp(72px,7vw,120px)]">{/^(19|20)\d\d$/.test(f.value) ? f.value : <Ticker value={f.value} />}</dd>
-              <dd className="mt-3 text-[15px] text-muted-foreground">{f.label}</dd>
+              <dd className="t-statement">{f.value}</dd>
+              <dd className="text-small mt-3 text-muted-foreground">{f.label}</dd>
             </div>
           ))}
         </dl>
@@ -36,25 +35,25 @@ export default function About() {
           <Grid className="items-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/team/nikolay.webp" alt={`${site.person.name}, директор URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover grayscale md:col-span-4" />
-            <div className="md:col-span-7 md:col-start-6">
+            <div className="md:col-span-9 md:col-start-4 md:mt-16">
               <Label n="01">Директор</Label>
-              <blockquote className="font-serif text-[32px] leading-[1.12] tracking-[-0.02em] text-balance italic md:text-[clamp(40px,3.6vw,64px)]">«{about.quote}»</blockquote>
-              <p className="mt-8 border-t border-foreground pt-6 text-[18px] font-medium">{site.person.name}</p>
-              <p className="text-[15px] text-muted-foreground">директор URALDOMA</p>
+              <blockquote className="t-statement font-serif italic">«{about.quote}»</blockquote>
+              <p className="text-body mt-8 border-t border-border pt-6 font-medium">{site.person.name}</p>
+              <p className="text-small text-muted-foreground">директор URALDOMA</p>
             </div>
           </Grid>
         </Container>
       </Section>
 
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <SectionHead n="02" label="Принципы" title={<>Как мы <em>работаем</em></>} />
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {about.principles.map((p, i) => (
-              <div key={p.title} className="reveal border-t border-foreground pt-5 pb-10">
-                <span className="font-serif text-[40px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-5 text-[24px] tracking-[-0.015em]">{p.title}</h3>
-                <p className="mt-3 text-[15px] text-earth">{p.text}</p>
+              <div key={p.title} className="reveal border-t border-border pt-5 pb-10">
+                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="t-lead mt-5">{p.title}</h3>
+                <p className="text-small mt-3 text-earth">{p.text}</p>
               </div>
             ))}
           </div>
@@ -69,24 +68,22 @@ export default function About() {
               <li key={t.photo}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`/images/team/${t.photo}.webp`} alt={`${t.name}, ${t.role.toLowerCase()} URALDOMA`} width={600} height={900} loading="lazy" className="aspect-[3/4] w-full bg-secondary object-cover grayscale transition-[filter] duration-500 hover:grayscale-0" />
-                <p className="mt-3 border-t border-border pt-3 text-[18px] font-medium">{t.name}</p>
-                <p className="text-[14px] text-muted-foreground">{t.role}</p>
+                <p className="text-body mt-3 border-t border-border pt-3 font-medium">{t.name}</p>
+                <p className="text-small text-muted-foreground">{t.role}</p>
               </li>
             ))}
           </ul>
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-5">
-              <Label n="04">Производство</Label>
-              <H2>Своя мебель — <em>«Мебель-Урал»</em></H2>
-            </div>
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Производство</p>
+              <H2 className="md:col-span-9 md:col-start-4">Своя мебель — <em>«Мебель-Урал»</em></H2>
             <div className="md:col-span-6 md:col-start-7">
               <Photo p={pic("trinity-14/01")} ratio="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" className="mb-8" />
-              <p className="text-[18px]">Кухни, шкафы, столешницы и мебель в стиле лофт делаем на собственном производстве. Мебель проектируют те же дизайнеры, что и интерьер, поэтому она встаёт точно по размерам после ремонта.</p>
+              <p className="text-body">Кухни, шкафы, столешницы и мебель в стиле лофт делаем на собственном производстве. Мебель проектируют те же дизайнеры, что и интерьер, поэтому она встаёт точно по размерам после ремонта.</p>
               <Link href="/furniture/" className={`${linkArrow} mt-6`}>О производстве <span aria-hidden="true">→</span></Link>
             </div>
           </Grid>

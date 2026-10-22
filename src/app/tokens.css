@@ -38,8 +38,10 @@
   --page-pad: 40px;
   --space-6: 24px;
   --space-10: 40px;
-  --section-mobile: 64px;
-  --section: 112px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --section-mobile: 96px;
+  --section: 176px;
   /* Радиусы */
   --radius-none: 0px;
   /* Сетка и линии */
@@ -123,23 +125,17 @@
   --radius-xl: 0px;
   --radius-card: 28px;
   --radius-pill: 999px;
-  --text-h3: 24px;
-  --text-h3--line-height: 1.2;
-  --text-h3--letter-spacing: -0.015em;
-  --text-dropcap: 3.2em;
-  --text-dropcap--line-height: 0.82;
   --text-body: 17px;
   --text-body--line-height: 1.55;
   --text-article: 18px;
   --text-article--line-height: 1.7;
   --text-small: 15px;
   --text-small--line-height: 1.5;
-  --text-label: 13px;
-  --text-label--line-height: 1.35;
-  --text-label--letter-spacing: 0.005em;
   --text-caps: 12px;
   --text-caps--line-height: 1.4;
   --text-caps--letter-spacing: 0.06em;
+  --text-dropcap: 3.2em;
+  --text-dropcap--line-height: 0.82;
   --text-tech: 11px;
   --text-tech--line-height: 1.4;
   --text-tech--letter-spacing: 0.08em;

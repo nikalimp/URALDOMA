@@ -32,17 +32,17 @@ export default function HowWeWork() {
       <Section>
         <Container>
           <SectionHead n="01" label="Стадии" title={<>Шесть стадий <em>ремонта</em></>} />
-          <ol className="border-t border-foreground">
+          <ol className="border-t border-border">
             {stages.map((s, i) => (
               <li key={s.title} className="grid grid-cols-1 gap-x-5 gap-y-3 border-b border-border py-10 md:grid-cols-12">
                 <div className="md:col-span-4">
-                  <span className="flex items-baseline gap-4"><span className="font-serif text-[40px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span><span className="label-tech text-muted-foreground">{s.term}</span></span>
-                  <h3 className="mt-3 text-[26px] tracking-[-0.015em]">{s.title}</h3>
+                  <span className="flex items-baseline gap-4"><span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span><span className="caps text-muted-foreground">{s.term}</span></span>
+                  <h3 className="t-lead mt-3">{s.title}</h3>
                 </div>
-                <p className="text-[17px] md:col-span-4">{s.text}</p>
+                <p className="text-body md:col-span-4">{s.text}</p>
                 <div className="md:col-span-4">
                   <p className="label-mono text-muted-foreground">Что делаете вы</p>
-                  <p className="mt-2 text-[16px] text-earth">{s.client}</p>
+                  <p className="text-small mt-2 text-earth">{s.client}</p>
                 </div>
               </li>
             ))}
@@ -50,14 +50,14 @@ export default function HowWeWork() {
         </Container>
       </Section>
 
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <SectionHead n="02" label="Контроль" title={<>Видно каждый этап — <em>даже из другого города</em></>} />
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {H.remote.map((r) => (
-              <div key={r.title} className="reveal border-t border-foreground pt-5 pb-10">
-                <h3 className="text-[20px]">{r.title}</h3>
-                <p className="mt-3 text-[15px] text-earth">{r.text}</p>
+              <div key={r.title} className="reveal border-t border-border pt-5 pb-10">
+                <h3 className="t-lead">{r.title}</h3>
+                <p className="text-small mt-3 text-earth">{r.text}</p>
               </div>
             ))}
           </div>
@@ -67,8 +67,9 @@ export default function HowWeWork() {
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="03">Вопросы</Label><H2>Частые вопросы <em>о сроках</em></H2></div>
-            <FaqList items={H.faq} className="md:col-span-7 md:col-start-6" />
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые вопросы <em>о сроках</em></H2>
+            <FaqList items={H.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
           </Grid>
         </Container>
       </Section>

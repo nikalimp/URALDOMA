@@ -45,26 +45,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <Section className="pt-0 md:pt-0">
         <Container>
           <Grid>
-            <div className="md:col-span-4">
-              <Label n={num()}>Кому подходит</Label>
-              <H2>Когда это <em>ваш вариант</em></H2>
-            </div>
-            <ul className="border-t border-foreground md:col-span-7 md:col-start-6">
-              {s.forWhom.map((f) => <li key={f} className="border-b border-border py-5 text-[19px]">{f}</li>)}
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Кому подходит</p>
+              <H2 className="md:col-span-9 md:col-start-4">Когда это <em>ваш вариант</em></H2>
+            <ul className="border-t border-border md:col-span-9 md:col-start-4 md:mt-16">
+              {s.forWhom.map((f) => <li key={f} className="t-lead border-b border-border py-5">{f}</li>)}
             </ul>
           </Grid>
         </Container>
       </Section>
 
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <SectionHead n={num()} label="Что входит" title={<>Что входит <em>в работу</em></>} />
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-12">
             {s.includes.map((it, i) => (
-              <div key={it.title} className="reveal border-t border-foreground pt-5 pb-12 md:col-span-4">
-                <span className="font-serif text-[44px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-5 text-[24px] tracking-[-0.015em]">{it.title}</h3>
-                <p className="mt-3 max-w-[40ch] text-[16px] text-earth">{it.text}</p>
+              <div key={it.title} className="reveal border-t border-border pt-5 pb-12 md:col-span-4">
+                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="t-lead mt-5">{it.title}</h3>
+                <p className="text-small mt-3 max-w-[40ch] text-earth">{it.text}</p>
               </div>
             ))}
           </div>
@@ -77,14 +75,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {s.showTariffs ? (
             <TariffTable />
           ) : (
-            <table className="w-full border-t border-foreground text-left">
+            <table className="w-full border-t border-border text-left">
               <caption className="sr-only">Цены: {s.title}</caption>
               <tbody>
                 {s.prices.map((p) => (
                   <tr key={p.name} className="border-b border-border">
-                    <th scope="row" className="py-5 pr-4 text-[19px]">{p.name}</th>
-                    <td className="py-5 pr-4 text-[19px] whitespace-nowrap">{p.value}</td>
-                    <td className="hidden py-5 text-[15px] text-muted-foreground md:table-cell">{p.note}</td>
+                    <th scope="row" className="t-lead py-5 pr-4">{p.name}</th>
+                    <td className="t-lead py-5 pr-4 whitespace-nowrap">{p.value}</td>
+                    <td className="text-small hidden py-5 text-muted-foreground md:table-cell">{p.note}</td>
                   </tr>
                 ))}
               </tbody>
@@ -94,22 +92,22 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section>
         <Container>
           <SectionHead n={num()} label="Как работаем" title={<>Как проходит <em>работа</em></>} />
           <ol className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {s.process.map((p, i) => (
-              <li key={p.title} className="border-t border-foreground pt-5 pb-10">
-                <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px]">{p.title}</h3>
-                <p className="mt-2 text-[15px] text-earth">{p.text}</p>
+              <li key={p.title} className="border-t border-border pt-5 pb-10">
+                <span className="text-small font-mono text-brand">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="t-lead mt-3">{p.title}</h3>
+                <p className="text-small mt-2 text-earth">{p.text}</p>
               </li>
             ))}
           </ol>
         </Container>
       </Section>
 
-      <Section className="bg-card">
+      <Section>
         <Container>
           <SectionHead n={num()} label="Портфолио" title={<>Наши <em>объекты</em></>} aside={<Link href="/portfolio/" className={linkArrow}>Все объекты <span aria-hidden="true">→</span></Link>} />
           <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
@@ -122,26 +120,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <Section>
           <Container>
             <Grid>
-              <div className="md:col-span-4">
-                <Label n={num()}>Вопросы</Label>
-                <H2>Частые <em>вопросы</em></H2>
-              </div>
-              <FaqList items={s.faq} className="md:col-span-7 md:col-start-6" />
+              <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые <em>вопросы</em></H2>
+              <FaqList items={s.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
             </Grid>
           </Container>
         </Section>
       )}
 
       {(related.length > 0 || posts.length > 0) && (
-        <Section className="border-t border-border">
+        <Section>
           <Container>
             <Grid>
               {related.length > 0 && (
                 <nav aria-label="Связанные услуги" className="md:col-span-5">
                   <Label>Ещё услуги</Label>
-                  <ul className="border-t border-foreground">
+                  <ul className="border-t border-border">
                     {related.map((r) => (
-                      <li key={r.slug}><Link href={`/services/${r.slug}/`} className="flex justify-between border-b border-border py-4 text-[19px] hover:text-brand">{r.title}<span aria-hidden="true" className="text-brand">→</span></Link></li>
+                      <li key={r.slug}><Link href={`/services/${r.slug}/`} className="t-lead flex justify-between border-b border-border py-4 hover:text-brand">{r.title}<span aria-hidden="true" className="text-brand">→</span></Link></li>
                     ))}
                   </ul>
                 </nav>
@@ -149,9 +145,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {posts.length > 0 && (
                 <nav aria-label="Статьи по теме" className="md:col-span-6 md:col-start-7">
                   <Label>Статьи по теме</Label>
-                  <ul className="border-t border-foreground">
+                  <ul className="border-t border-border">
                     {posts.map((p) => (
-                      <li key={p.slug}><Link href={`/articles/${p.slug}/`} className="flex justify-between gap-4 border-b border-border py-4 text-[19px] hover:text-brand">{p.title}<span aria-hidden="true" className="text-brand">→</span></Link></li>
+                      <li key={p.slug}><Link href={`/articles/${p.slug}/`} className="t-lead flex justify-between gap-4 border-b border-border py-4 hover:text-brand">{p.title}<span aria-hidden="true" className="text-brand">→</span></Link></li>
                     ))}
                   </ul>
                 </nav>

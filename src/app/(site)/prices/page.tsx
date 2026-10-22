@@ -30,7 +30,7 @@ export default function Prices() {
       <JsonLd data={graph(schema, faqSchema(P.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Цены", path: "/prices/" }]))} />
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Цены" }]} h1={P.h1} answer={P.answer} photo="garinsky/01" />
 
-      <Section className="pt-0 md:pt-0">
+      <Section id="tariffs" className="scroll-mt-20 pt-0 md:pt-0">
         <Container>
           <SectionHead n="01" label="Тарифы" title={<>Что входит <em>в каждый тариф</em></>} />
           <TariffTable />
@@ -48,36 +48,36 @@ export default function Prices() {
         <Container>
           <SectionHead n="03" label="Примеры" title={<>Сколько стоят работы <em>для типичных квартир</em></>} />
           <PriceExamples areas={P.examples} caption={"Стоимость работ по тарифам для квартир 40, 60 и 80 м²"} />
-          <p className="mt-4 text-[14px] text-muted-foreground">Стоимость работ без материалов и мебели. Дизайн-проект — {formatRub(designPrice.rate)} за м², {designPrice.term}.</p>
+          <p className="text-small mt-4 text-muted-foreground">Стоимость работ без материалов и мебели. Дизайн-проект — {formatRub(designPrice.rate)} за м², {designPrice.term}.</p>
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section>
         <Container>
           <SectionHead n="04" label="Другие услуги" title={<>Цены на <em>отдельные работы</em></>} />
-          <div className="border-t border-foreground">
+          <div className="border-t border-border">
             {priceRows.map((r) => (
               <Link key={r.service} href={r.href} className="group grid grid-cols-1 gap-x-5 gap-y-1 border-b border-border py-5 md:grid-cols-12">
-                <span className="text-[20px] group-hover:text-brand md:col-span-5">{r.service}</span>
-                <span className="text-[18px] md:col-span-3">{r.value}</span>
-                <span className="text-[15px] text-muted-foreground md:col-span-4">{r.note}</span>
+                <span className="t-lead group-hover:text-brand md:col-span-5">{r.service}</span>
+                <span className="text-body md:col-span-3">{r.value}</span>
+                <span className="text-small text-muted-foreground md:col-span-4">{r.note}</span>
               </Link>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-card">
+      <Section>
         <Container>
           <Grid>
             <div className="md:col-span-5">
               <Label n="05">Что влияет на цену</Label>
               <H2>От чего зависит <em>итог</em></H2>
-              <dl className="mt-10 border-t border-foreground">
+              <dl className="mt-10 border-t border-border">
                 {P.affects.map((a) => (
                   <div key={a.title} className="border-b border-border py-5">
-                    <dt className="text-[19px]">{a.title}</dt>
-                    <dd className="mt-1 text-[16px] text-earth">{a.text}</dd>
+                    <dt className="t-lead">{a.title}</dt>
+                    <dd className="text-small mt-1 text-earth">{a.text}</dd>
                   </div>
                 ))}
               </dl>
@@ -85,10 +85,10 @@ export default function Prices() {
             <div className="md:col-span-6 md:col-start-7">
               <Label n="06">Что не входит</Label>
               <H2>Считается <em>отдельно</em></H2>
-              <ul className="mt-10 border-t border-foreground">
-                {P.notIncluded.map((x) => <li key={x} className="border-b border-border py-5 text-[19px]">{x}</li>)}
+              <ul className="mt-10 border-t border-border">
+                {P.notIncluded.map((x) => <li key={x} className="t-lead border-b border-border py-5">{x}</li>)}
               </ul>
-              <p className="mt-8 text-[17px]">{paymentTerms}</p>
+              <p className="text-body mt-8">{paymentTerms}</p>
             </div>
           </Grid>
         </Container>
@@ -97,8 +97,9 @@ export default function Prices() {
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-4"><Label n="07">Вопросы</Label><H2>Частые вопросы <em>о цене</em></H2></div>
-            <FaqList items={P.faq} className="md:col-span-7 md:col-start-6" />
+            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые вопросы <em>о цене</em></H2>
+            <FaqList items={P.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
           </Grid>
         </Container>
       </Section>

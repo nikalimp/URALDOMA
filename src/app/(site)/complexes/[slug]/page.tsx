@@ -51,9 +51,9 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
       <Container>
         <dl className="grid grid-cols-2 gap-x-5 md:grid-cols-12">
           {c.facts.map(([k, v]) => (
-            <div key={k} className="border-t border-foreground pt-3 pb-6 md:col-span-2">
+            <div key={k} className="border-t border-border pt-3 pb-6 md:col-span-2">
               <dt className="caps text-muted-foreground">{k}</dt>
-              <dd className="mt-2 text-[19px]">{v}</dd>
+              <dd className="t-lead mt-2">{v}</dd>
             </div>
           ))}
         </dl>
@@ -64,12 +64,12 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
           {c.sections.map((s, i) => (
             <Grid key={s.h2} className="border-t border-border py-10 first:border-foreground">
               <div className="md:col-span-4">
-                <span className="font-serif text-[36px] leading-none text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-4 text-[30px] leading-tight tracking-[-0.025em]">{s.h2}</h2>
+                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <h2 className="t-lead mt-4">{s.h2}</h2>
               </div>
-              <div className="md:col-span-7 md:col-start-6">
-                {s.text && <p className="text-[18px]">{s.text}</p>}
-                {s.items && <ul className="mt-4 border-t border-border">{s.items.map((it) => <li key={it} className="border-b border-border py-3 text-[17px]">{it}</li>)}</ul>}
+              <div className="md:col-span-9 md:col-start-4 md:mt-16">
+                {s.text && <p className="text-body">{s.text}</p>}
+                {s.items && <ul className="mt-4 border-t border-border">{s.items.map((it) => <li key={it} className="text-body border-b border-border py-3">{it}</li>)}</ul>}
               </div>
             </Grid>
           ))}
@@ -88,7 +88,7 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
             </Grid>
           </Container>
           <ul id="complex-rail" className="rail auto-cols-[78%] gap-x-5 px-5 sm:auto-cols-[42%] md:auto-cols-[calc((100%-60px)/4)] md:px-10">
-            {pics.map((p, i) => <li key={p.key}><Photo p={p} link index={`Fig. ${String(i + 1).padStart(2, "0")}`} sizes="(min-width: 768px) 25vw, 80vw" /></li>)}
+            {pics.map((p, i) => <li key={p.key}><Photo p={p} link sizes="(min-width: 768px) 25vw, 80vw" /></li>)}
           </ul>
           <Container className="mt-14">
             <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">{cs.map((x) => <CaseCard key={x.slug} c={x} ratio="aspect-[4/3]" />)}</div>
@@ -96,15 +96,15 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      <Section className="bg-secondary">
+      <Section>
         <Container>
           <SectionHead n="—" label="Старт" title={<>Как начать ремонт <em>в {c.name}</em></>} />
           <ol className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
             {start(c.name).map((s, i) => (
-              <li key={s.title} className="border-t border-foreground pt-5 pb-10">
-                <span className="font-mono text-[13px] text-brand">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-[20px]">{s.title}</h3>
-                <p className="mt-2 text-[15px] text-earth">{s.text}</p>
+              <li key={s.title} className="border-t border-border pt-5 pb-10">
+                <span className="text-small font-mono text-brand">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="t-lead mt-3">{s.title}</h3>
+                <p className="text-small mt-2 text-earth">{s.text}</p>
               </li>
             ))}
           </ol>
@@ -119,11 +119,12 @@ export default async function ComplexPage({ params }: { params: Promise<{ slug: 
       </Section>
 
       {c.faq.length > 0 && (
-        <Section className="border-t border-border">
+        <Section>
           <Container>
             <Grid>
-              <div className="md:col-span-4"><Label>Вопросы</Label><H2>Частые <em>вопросы</em></H2></div>
-              <FaqList items={c.faq} className="md:col-span-7 md:col-start-6" />
+              <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Вопросы</p>
+              <H2 className="md:col-span-9 md:col-start-4">Частые <em>вопросы</em></H2>
+              <FaqList items={c.faq} className="md:col-span-9 md:col-start-4 md:mt-16" />
             </Grid>
           </Container>
         </Section>

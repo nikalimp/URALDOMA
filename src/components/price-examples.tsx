@@ -4,7 +4,7 @@ import { tariffs, formatRub } from "@/content/tariffs";
 export function PriceExamples({ areas, caption }: { areas: number[]; caption: string }) {
   return (
     <div className="-mx-5 overflow-x-auto px-5 md:mx-0 md:px-0">
-      <table className="w-full min-w-[520px] border-t border-foreground text-left text-[15px] md:text-[17px]">
+      <table className="text-body w-full min-w-[520px] border-t border-foreground text-left">
         <caption className="sr-only">{caption}</caption>
         <thead>
           <tr className="label-mono text-muted-foreground">
@@ -15,7 +15,7 @@ export function PriceExamples({ areas, caption }: { areas: number[]; caption: st
         <tbody>
           {areas.map((a) => (
             <tr key={a} className="border-t border-border">
-              <th scope="row" className="py-5 pr-4 text-[18px] md:text-[22px]">{a} м²</th>
+              <th scope="row" className="t-lead py-5 pr-4">{a} м²</th>
               {tariffs.map((t) => <td key={t.id} className="py-5 pr-4 whitespace-nowrap">{formatRub(a * t.rate)}</td>)}
             </tr>
           ))}

@@ -16,7 +16,7 @@ const need = (cond, msg) => { if (!cond) errors.push(msg); };
 
 // Стили текста с постоянным кеглем становятся утилитами text-<имя>. У заголовков, цифр, номеров и вводок кегль
 // резиновый (clamp в компоненте), в токенах — его максимум, поэтому утилиты для них нет.
-const FLUID = new Set(["display", "cover", "h2", "number", "accent", "index", "quote", "lead", "lead-page"]);
+const FLUID = new Set(["display", "title", "statement", "lead", "accent"]); // резиновые: классы t-display, t-title, t-statement, t-lead в globals.css
 
 const color = ds.color.tokens;
 const themes = ds.color.themes.map((t) => t.id);
