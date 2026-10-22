@@ -71,6 +71,14 @@
   "wiring-and-plumbing-renovation": {
    "tg": "skip",
    "max": "skip"
+  },
+  "two-room-apartment-renovation-cost": {
+   "iv": "https://telegra.ph/Skolko-stoit-remont-dvuhkomnatnoj-kvartiry-v-Ekaterinburge-v-2026-godu-10-22-2",
+   "iv_path": "Skolko-stoit-remont-dvuhkomnatnoj-kvartiry-v-Ekaterinburge-v-2026-godu-10-22-2",
+   "tg": "error",
+   "tg_error": "Telegram: {\"ok\":false,\"error_code\":400,\"description\":\"Bad Request: chat not found\"}",
+   "max": "off"
   }
- }
+ },
+ "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b"
 }
