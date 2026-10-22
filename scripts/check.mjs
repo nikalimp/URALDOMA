@@ -193,31 +193,7 @@ for (const f of [...srcFiles.filter((f) => f.includes(`${path.sep}content${path.
 }
 if (estimates.length) warn(`Ориентиры без подтверждения клиента (estimate), ${estimates.length}: ${estimates.slice(0, 10).join(", ")} — каждый должен быть в «Вопросах» specs/05-tasks.md`);
 
-// 8. Статьи под Instant View (стандарт §6 «Статьи блога»): один <article>, meta telegram:channel, если у проекта есть канал
-// путь блога и канал — из конфига контент-завода (links.blog_prefix, channels.telegram), иначе /blog/ и contacts.telegram
-const factory = (() => {
-  for (const f of ["content/factory/content.config.json", "Content/content.config.json"]) {
-    const p = path.join(ROOT, f);
-    if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, "utf8"));
-  }
-  return {};
-})();
-const blogDir = path.join(OUT, (factory.links?.blog_prefix || "/blog/").replace(/^\/|\/$/g, ""));
-const tgChannel = factory.channels?.telegram || field("telegram").replace(/^https?:\/\/t\.me\//, "@");
-if (fs.existsSync(blogDir)) {
-  const posts = fs.readdirSync(blogDir, { withFileTypes: true }).filter((e) => e.isDirectory() && e.name !== "_" && fs.existsSync(path.join(blogDir, e.name, "index.html"))); // "_" — заглушка без статей
-  const noArticle = [], noChannel = [];
-  for (const e of posts) {
-    const h = fs.readFileSync(path.join(blogDir, e.name, "index.html"), "utf8");
-    if ((h.match(/<article[\s>]/g) || []).length !== 1) noArticle.push(e.name);
-    if (tgChannel.startsWith("@") && !h.includes('property="telegram:channel"')) noChannel.push(e.name);
-  }
-  if (noArticle.length) warn(`Instant View: у ${noArticle.length} статей не ровно один <article> — ${noArticle.slice(0, 5).join(", ")}`);
-  if (noChannel.length) warn(`Instant View: нет <meta property="telegram:channel" content="${tgChannel}"> в ${noChannel.length} статьях`);
-  if (posts.length && !noArticle.length && !noChannel.length) ok(`Instant View: ${posts.length} статей размечены`);
-}
-
-// 9. Проектные проверки — scripts/check.local.mjs (переживает обновление этого файла из стартера).
+// 8. Проектные проверки — scripts/check.local.mjs (переживает обновление этого файла из стартера).
 //    export default async ({ ROOT, OUT, fail, ok, warn }) => { … }
 const local = path.join(ROOT, "scripts", "check.local.mjs");
 if (fs.existsSync(local)) {

@@ -115,8 +115,7 @@
     "telegram": "@uraldomaekb",
     "telegram_public": "https://t.me/s/uraldomaekb",
     "max": null,
-    "enabled": true,
-    "iv_rhash": ""
+    "enabled": true
   },
   "notify": "telegram_bot",
   "analytics": {

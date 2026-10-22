@@ -27,7 +27,6 @@ export const site = {
     phoneDisplay: "+7 929 262-83-76",
     email: "remont.ural96@mail.ru",
     telegram: "https://t.me/uraldoma",
-    telegramChannel: "@uraldomaekb", // публичный канал статей — meta telegram:channel для Instant View
     whatsapp: "", // TODO(клиент, бриф в. 19): нужен ли WhatsApp
     address: {
       street: "", // TODO(клиент, бриф в. 3): актуальный адрес офиса
