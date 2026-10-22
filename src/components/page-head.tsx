@@ -12,13 +12,13 @@ export function PageHead({ crumbs, h1, answer, eyebrow, photo, children }: { cru
       <Container className="pt-12 pb-20 md:pt-16 md:pb-32">
         <Crumbs items={crumbs} />
         <Grid>
-          <div className="md:col-span-10">
+          <div className="md:col-span-9">
             {eyebrow && <p className="tag mb-6">{eyebrow}</p>}
             <h1 className="t-title">{h1}</h1>
           </div>
         </Grid>
         <Grid className="mt-16 md:mt-24">
-          <div className="md:col-span-7 md:col-start-4">
+          <div className="md:col-span-6 md:col-start-4">
             <p className="t-lead text-earth">{answer}</p>
             {children}
           </div>

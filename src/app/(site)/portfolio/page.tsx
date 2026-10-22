@@ -36,10 +36,10 @@ export default function Portfolio() {
           <Section key={g.kind} className={i === 0 ? "pt-0 md:pt-0" : ""}>
             <Container>
               <SectionHead n={String(i + 1).padStart(2, "0")} label={g.label} title={g.label} count={list.length} />
-              <div className="grid grid-cols-1 gap-x-5 gap-y-14 sm:grid-cols-2 md:grid-cols-3">
-                {list.map((c, j) => (
-                  <div key={c.slug} className={`reveal ${j % 3 === 1 ? "md:mt-24" : ""}`}>
-                    <CaseCard c={c} index={`(${String(j + 1).padStart(2, "0")})`} />
+              <div className="grid grid-cols-1 gap-x-gutter gap-y-16 md:grid-cols-2 md:gap-y-24">
+                {list.map((c) => (
+                  <div key={c.slug} className="reveal">
+                    <CaseCard c={c} ratio="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" />
                     <p className="text-small mt-3 text-earth">{c.summary}</p>
                   </div>
                 ))}

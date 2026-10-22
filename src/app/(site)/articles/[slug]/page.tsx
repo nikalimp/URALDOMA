@@ -63,7 +63,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 )}
               </div>
             </aside>
-            <article className="prose-site md:col-span-8 md:col-start-5">
+            <article className="prose-site md:col-span-6 md:col-start-4">
               <Markdown remarkPlugins={[remarkGfm]}>{p.body}</Markdown>
             </article>
           </Grid>
@@ -73,7 +73,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <Section>
           <Container>
             <Label>Ещё статьи</Label>
-            <ul className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-x-gutter gap-y-12 md:grid-cols-4">
               {more.map((m) => (
                 <li key={m.slug}>
                   <Link href={`/articles/${m.slug}/`} className="group block">

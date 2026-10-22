@@ -24,7 +24,7 @@ export default function Furniture() {
       <Section className="pt-0 md:pt-0">
         <Container>
           <SectionHead n="01" label="Что делаем" title={<>Мебель по размерам <em>квартиры</em></>} />
-          <ul className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-x-gutter sm:grid-cols-2 md:grid-cols-4">
             {F.categories.map((c, i) => (
               <li key={c} className="t-lead flex items-baseline gap-4 border-t border-border pt-4 pb-8">
                 <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>{c}
@@ -37,8 +37,8 @@ export default function Furniture() {
       <section aria-label="Мебель в наших объектах" className="pb-16 md:pb-28">
         <Container>
           <Grid className="mb-10 items-end md:mb-14">
-            <div className="md:col-span-8"><Label>Галерея</Label><H2>Кухни и встроенная мебель <em>в наших ремонтах</em></H2></div>
-            <div className="flex md:col-span-4 md:col-start-9 md:justify-end"><RailControls target="furniture-rail" total={gallery.length} label="Галерея" /></div>
+            <div className="md:col-span-9"><Label>Галерея</Label><H2>Кухни и встроенная мебель <em>в наших ремонтах</em></H2></div>
+            <div className="flex md:col-span-3 md:col-start-10 md:justify-end"><RailControls target="furniture-rail" total={gallery.length} label="Галерея" /></div>
           </Grid>
         </Container>
         <ul id="furniture-rail" className="rail auto-cols-[78%] gap-x-5 px-5 sm:auto-cols-[42%] md:auto-cols-[calc((100%-60px)/4)] md:px-10">

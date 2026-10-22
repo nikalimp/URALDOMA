@@ -2,10 +2,17 @@
 // Факты о домах — из статей URALDOMA (октябрь 2026) с проверкой по открытым источникам.
 
 import type { Faq } from "./services";
+import { objects, pageFromFacts, factsTable } from "./objects";
 
+// Страница ЖК или посёлка. kind, geo, sources, ours — из src/content/geo/objects.json (волна 22.10.2026, 02-spec §4.1).
 export type Complex = {
   slug: string;
   name: string; // «ЖК «Тринити»»
+  kind: "zk" | "kp";
+  geo: { lat: number; lon: number; approx?: boolean };
+  sources: string[];
+  district?: string;
+  ours: boolean; // есть наш объект — точка акцентом, на странице фото и кейсы
   h1: string;
   metaTitle: string;
   metaDescription: string;
@@ -22,7 +29,10 @@ const priceFaq = (name: string): Faq => ({
   a: "Работы URALDOMA стоят от 20 000 ₽ за м² в Базовом тарифе до 40 000 ₽ во «Всё включено». Точную сумму считаем после бесплатного замера и фиксируем в договоре.",
 });
 
-export const complexes: Complex[] = [
+type Handmade = Omit<Complex, "kind" | "geo" | "sources" | "district" | "ours">;
+
+// Страницы домов, где работала URALDOMA, — тексты написаны по нашим объектам
+const handmade: Handmade[] = [
   {
     slug: "trinity",
     name: "ЖК «Тринити»",
@@ -127,6 +137,42 @@ export const complexes: Complex[] = [
     cases: ["zapovednik"],
     priority: "P1",
   },
+];
+
+// Синонимы ключей: факты из objects.json заменяют короткие таблицы рукописных страниц, уникальные строки остаются
+const same: Record<string, string> = { "Сдан": "Сдача", "Этажей": "Этажность", "Тип": "", "Город": "", "Район": "Район", "Адрес": "Адрес", "Конструкция": "Конструкция" };
+
+export const complexes: Complex[] = [
+  ...handmade.map((h): Complex => {
+    const f = objects.find((o) => o.slug === h.slug);
+    const table = f ? factsTable(f) : [];
+    const keys = new Set(table.map(([k]) => k));
+    const extra = h.facts.filter(([k]) => same[k] === undefined ? !keys.has(k) : same[k] !== "" && !keys.has(same[k]));
+    return {
+      ...h,
+      kind: f?.kind ?? (h.name.startsWith("КП") ? "kp" : "zk"),
+      geo: f ? { lat: f.lat, lon: f.lon, approx: f.approx } : { lat: 0, lon: 0 },
+      sources: f?.sources ?? [],
+      district: f?.district ?? undefined,
+      ours: true,
+      facts: [...table, ...extra],
+    };
+  }),
+  ...objects
+    .filter((o) => !handmade.some((h) => h.slug === o.slug))
+    .map((o): Complex => ({
+      slug: o.slug,
+      name: o.name,
+      kind: o.kind,
+      geo: { lat: o.lat, lon: o.lon, approx: o.approx },
+      sources: o.sources,
+      district: o.district ?? undefined,
+      ours: false,
+      facts: factsTable(o),
+      cases: [],
+      priority: "P1",
+      ...pageFromFacts(o),
+    })),
 ];
 
 export const complexBySlug = (slug: string) => complexes.find((c) => c.slug === slug);

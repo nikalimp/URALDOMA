@@ -57,7 +57,7 @@ export function Calculator() {
         </fieldset>
       </div>
 
-      <div className="md:col-span-5 md:col-start-8">
+      <div className="md:col-span-6 md:col-start-7">
         <div className="bg-panel p-6 text-panel-foreground md:sticky md:top-28 md:p-8">
           <p className="label-mono text-panel-muted">Ориентир стоимости работ</p>
           <p aria-live="polite" className="t-statement mt-4">{formatRub(total)}</p>

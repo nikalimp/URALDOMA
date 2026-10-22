@@ -59,7 +59,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <SectionHead n={num()} label="Что входит" title={<>Что входит <em>в работу</em></>} />
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-12">
             {s.includes.map((it, i) => (
-              <div key={it.title} className="reveal border-t border-border pt-5 pb-12 md:col-span-4">
+              <div key={it.title} className="reveal border-t border-border pt-5 pb-12 md:col-span-6">
                 <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="t-lead mt-5">{it.title}</h3>
                 <p className="text-small mt-3 max-w-[40ch] text-earth">{it.text}</p>
@@ -75,18 +75,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {s.showTariffs ? (
             <TariffTable />
           ) : (
-            <table className="w-full border-t border-border text-left">
-              <caption className="sr-only">Цены: {s.title}</caption>
-              <tbody>
-                {s.prices.map((p) => (
-                  <tr key={p.name} className="border-b border-border">
-                    <th scope="row" className="t-lead py-5 pr-4">{p.name}</th>
-                    <td className="t-lead py-5 pr-4 whitespace-nowrap">{p.value}</td>
-                    <td className="text-small hidden py-5 text-muted-foreground md:table-cell">{p.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div role="table" aria-label={`Цены: ${s.title}`} className="border-t border-border">
+              {s.prices.map((p) => (
+                <div key={p.name} role="row" className="grid grid-cols-1 gap-x-gutter gap-y-1 border-b border-border py-5 md:grid-cols-12 md:items-baseline">
+                  <span role="rowheader" className="t-lead md:col-span-6">{p.name}</span>
+                  <span role="cell" className="t-lead whitespace-nowrap md:col-span-3">{p.value}</span>
+                  <span role="cell" className="text-small text-muted-foreground md:col-span-3">{p.note}</span>
+                </div>
+              ))}
+            </div>
           )}
           <Link href="/prices/#calculator" className={`${linkArrow} mt-8`}>Рассчитать стоимость <span aria-hidden="true">→</span></Link>
         </Container>
@@ -110,7 +107,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <Section>
         <Container>
           <SectionHead n={num()} label="Портфолио" title={<>Наши <em>объекты</em></>} aside={<Link href="/portfolio/" className={linkArrow}>Все объекты <span aria-hidden="true">→</span></Link>} />
-          <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-gutter gap-y-12 md:grid-cols-2">
             {examples.map((c, i) => <CaseCard key={c.slug} c={c} index={`(0${i + 1})`} className={i === 1 ? "md:mt-16" : ""} />)}
           </div>
         </Container>
@@ -133,7 +130,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <Container>
             <Grid>
               {related.length > 0 && (
-                <nav aria-label="Связанные услуги" className="md:col-span-5">
+                <nav aria-label="Связанные услуги" className="md:col-span-6">
                   <Label>Ещё услуги</Label>
                   <ul className="border-t border-border">
                     {related.map((r) => (

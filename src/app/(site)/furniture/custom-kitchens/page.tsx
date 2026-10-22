@@ -22,9 +22,9 @@ export default function Kitchens() {
               <H2 className="md:col-span-9 md:col-start-4">От проекта <em>до установки</em></H2>
             <ol className="border-t border-border md:col-span-9 md:col-start-4 md:mt-16">
               {K.steps.map((s, i) => (
-                <li key={s.title} className="grid grid-cols-[56px_1fr] gap-x-5 border-b border-border py-6">
-                  <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <div><h3 className="t-lead">{s.title}</h3><p className="text-small mt-2 text-earth">{s.text}</p></div>
+                <li key={s.title} className="grid grid-cols-[56px_1fr] gap-x-gutter border-b border-border py-6 md:grid-cols-9">
+                  <span className="caps text-muted-foreground md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="md:col-span-6"><h3 className="t-lead">{s.title}</h3><p className="text-small mt-2 text-earth">{s.text}</p></div>
                 </li>
               ))}
             </ol>

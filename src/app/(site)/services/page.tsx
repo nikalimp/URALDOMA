@@ -39,11 +39,10 @@ export default function Services() {
               <SectionHead n={String(gi + 1).padStart(2, "0")} label={g.label} title={g.label} />
               <div className="border-t border-border">
                 {list.map((s) => (
-                  <Link key={s.slug} href={`/services/${s.slug}/`} className="group grid grid-cols-[96px_1fr] items-center gap-x-5 gap-y-2 border-b border-foreground/15 py-5 md:grid-cols-12">
-                    <div className="row-span-2 aspect-[3/4] overflow-hidden bg-secondary md:col-span-1 md:row-span-1"><Img p={pic(s.cover)} alt="" sizes="120px" className="transition-transform duration-700 group-hover:scale-[1.06]" /></div>
-                    <h2 className="t-lead group-hover:text-brand md:col-span-4 md:col-start-3">{s.title}</h2>
-                    <p className="text-small hidden text-earth md:col-span-4 md:block">{s.short}</p>
-                    <p className="text-small flex justify-between gap-4 md:col-span-2 md:col-start-11 md:justify-end">
+                  <Link key={s.slug} href={`/services/${s.slug}/`} className="group grid grid-cols-1 gap-x-gutter gap-y-2 border-b border-foreground/15 py-6 md:grid-cols-12 md:items-baseline md:py-8">
+                    <h2 className="t-lead group-hover:text-brand md:col-span-6">{s.title}</h2>
+                    <p className="text-small text-earth md:col-span-3 md:col-start-7">{s.short}</p>
+                    <p className="text-small flex justify-between gap-4 md:col-span-3 md:col-start-10">
                       <span className="text-muted-foreground">{s.priceFrom}</span>
                       <span aria-hidden="true" className="text-brand transition-transform group-hover:translate-x-1">→</span>
                     </p>

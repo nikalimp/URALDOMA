@@ -26,26 +26,21 @@ export default function Articles() {
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Статьи" }]} h1={<>Статьи о ремонте <em>квартир</em></>} answer={answer} />
       <Section className="pt-0 md:pt-0">
         <Container>
-          <ul className="grid grid-cols-1 gap-x-5 gap-y-16 md:grid-cols-12">
-            {posts.map((p, i) => {
-              const lead = i === 0;
-              return (
-                <li key={p.slug} className={lead ? "md:col-span-12" : "md:col-span-4"}>
-                  <Link href={`/articles/${p.slug}/`} className={`group grid grid-cols-1 gap-x-5 gap-y-4 ${lead ? "md:grid-cols-12 md:items-end" : ""}`}>
-                    {p.cover && (
-                      <div className={`overflow-hidden bg-secondary ${lead ? "aspect-[16/10] md:col-span-8" : "aspect-[4/3]"}`}>
-                        <Img p={pic(p.cover)} wide={lead} sizes={lead ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"} className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" />
-                      </div>
-                    )}
-                    <div className={lead ? "md:col-span-4" : ""}>
-                      <time dateTime={p.date} className="caps text-muted-foreground">{formatDate(p.date)}</time>
-                      <h2 className={`mt-4 group-hover:text-brand ${lead ? "t-statement" : "t-lead"}`}>{p.title}</h2>
-                      <p className="text-small mt-3 text-earth">{p.description}</p>
+          <ul className="grid grid-cols-1 gap-x-gutter gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+            {posts.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/articles/${p.slug}/`} className="group block">
+                  {p.cover && (
+                    <div className="aspect-[4/5] overflow-hidden bg-secondary">
+                      <Img p={pic(p.cover)} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" />
                     </div>
-                  </Link>
-                </li>
-              );
-            })}
+                  )}
+                  <time dateTime={p.date} className="caps mt-5 block text-muted-foreground">{formatDate(p.date)}</time>
+                  <h2 className="t-lead mt-3 group-hover:text-brand">{p.title}</h2>
+                  <p className="text-small mt-3 text-earth">{p.description}</p>
+                </Link>
+              </li>
+            ))}
           </ul>
         </Container>
       </Section>

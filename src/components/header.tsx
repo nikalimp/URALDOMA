@@ -2,6 +2,7 @@ import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "./logo";
+import { NavLink } from "./nav-link";
 
 // Мобильное меню на <details>: работает без JavaScript
 function MobileMenu() {
@@ -15,7 +16,7 @@ function MobileMenu() {
         <ul>
           {nav.map((n) => (
             <li key={n.href} className="border-b border-border">
-              <a href={n.href} className="t-lead block py-4">{n.label}</a>
+              <NavLink href={n.href} prefix className="t-lead block py-4" active="text-brand">{n.label}</NavLink>
             </li>
           ))}
         </ul>
@@ -33,7 +34,7 @@ export function Header() {
         <Link href="/" aria-label="URALDOMA — на главную" className="shrink-0"><Logo /></Link>
         <nav aria-label="Основное меню" className="caps hidden gap-6 xl:col-span-5 xl:col-start-4 xl:flex">
           {nav.map((n) => (
-            <Link key={n.href} href={n.href} className="text-muted-foreground transition-colors hover:text-foreground">{n.label}</Link>
+            <NavLink key={n.href} href={n.href} prefix className="relative py-2 text-muted-foreground transition-colors hover:text-foreground" active="text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-foreground">{n.label}</NavLink>
           ))}
         </nav>
         <div className="col-start-3 flex items-center justify-end gap-2 whitespace-nowrap md:col-span-4 md:col-start-9 md:gap-3">

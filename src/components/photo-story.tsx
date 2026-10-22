@@ -34,13 +34,13 @@ export function PhotoStory({ pics, start = 1 }: { pics: Pic[]; start?: number })
               {r.t === "a" && (
                 <>
                   <Photo p={r.ps[0]} index={fig()} sizes="(min-width: 768px) 50vw, 100vw" className="reveal md:col-span-6" />
-                  <Photo p={r.ps[1]} index={fig()} sizes="(min-width: 768px) 33vw, 100vw" className="reveal md:col-span-4 md:col-start-9" />
+                  <Photo p={r.ps[1]} index={fig()} sizes="(min-width: 768px) 33vw, 100vw" className="reveal md:col-span-3 md:col-start-10" />
                 </>
               )}
               {r.t === "b" && (
                 <>
-                  <Photo p={r.ps[0]} index={fig()} sizes="(min-width: 768px) 42vw, 100vw" className="reveal self-start md:col-span-5 md:col-start-2" />
-                  <Photo p={r.ps[1]} index={fig()} sizes="(min-width: 768px) 42vw, 100vw" className="reveal self-start md:col-span-5 md:col-start-8 md:mt-40" />
+                  <Photo p={r.ps[0]} index={fig()} sizes="(min-width: 768px) 25vw, 100vw" className="reveal self-start md:col-span-3" />
+                  <Photo p={r.ps[1]} index={fig()} sizes="(min-width: 768px) 50vw, 100vw" className="reveal self-start md:col-span-6 md:col-start-7 md:mt-40" />
                 </>
               )}
               {r.t === "c" && <Photo p={r.ps[0]} index={fig()} sizes="(min-width: 768px) 50vw, 100vw" className="reveal md:col-span-6 md:col-start-4" />}

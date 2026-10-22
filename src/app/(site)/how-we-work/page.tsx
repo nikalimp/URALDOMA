@@ -35,12 +35,12 @@ export default function HowWeWork() {
           <ol className="border-t border-border">
             {stages.map((s, i) => (
               <li key={s.title} className="grid grid-cols-1 gap-x-5 gap-y-3 border-b border-border py-10 md:grid-cols-12">
-                <div className="md:col-span-4">
+                <div className="md:col-span-3">
                   <span className="flex items-baseline gap-4"><span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span><span className="caps text-muted-foreground">{s.term}</span></span>
                   <h3 className="t-lead mt-3">{s.title}</h3>
                 </div>
-                <p className="text-body md:col-span-4">{s.text}</p>
-                <div className="md:col-span-4">
+                <p className="text-body md:col-span-6 md:col-start-4">{s.text}</p>
+                <div className="md:col-span-3 md:col-start-10">
                   <p className="label-mono text-muted-foreground">Что делаете вы</p>
                   <p className="text-small mt-2 text-earth">{s.client}</p>
                 </div>

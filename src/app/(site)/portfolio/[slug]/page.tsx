@@ -50,7 +50,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <Container className="pt-12 pb-20 md:pt-16 md:pb-32">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Портфолио", path: "/portfolio/" }, { name: c.title }]} />
         <Grid className="items-end">
-          <div className="md:col-span-10">
+          <div className="md:col-span-9">
             <p className="caps mb-6 text-muted-foreground">{c.place}</p>
             <h1 className="t-title">{c.title}</h1>
           </div>
@@ -66,7 +66,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Container>
           <Grid>
             <p className="caps text-muted-foreground md:col-span-3">Об объекте</p>
-            <p className="t-lead md:col-span-7 md:col-start-4">{c.summary}</p>
+            <p className="t-lead md:col-span-6 md:col-start-4">{c.summary}</p>
           </Grid>
           <dl className="mt-14 grid grid-cols-2 gap-x-5 md:grid-cols-12">
             {facts.map(([k, v]) => (
@@ -88,9 +88,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
               <H2 className="md:col-span-9 md:col-start-4">Что <em>сделали</em></H2>
             <ol className="md:col-span-9 md:col-start-4 md:mt-16">
               {c.solutions.map((s, i) => (
-                <li key={s} className="grid grid-cols-[56px_1fr] items-baseline gap-x-5 border-t border-border py-5 first:border-foreground">
-                  <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="t-lead">{s}</span>
+                <li key={s} className="grid grid-cols-[56px_1fr] items-baseline gap-x-gutter border-t border-border py-5 first:border-foreground md:grid-cols-12">
+                  <span className="caps text-muted-foreground md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="t-lead md:col-span-9">{s}</span>
                 </li>
               ))}
             </ol>
@@ -105,7 +105,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Section>
           <Container>
             <Label>Другие объекты</Label>
-            <div className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-3">{more.map((m, i) => <CaseCard key={m.slug} c={m} className={i === 1 ? "md:mt-16" : ""} />)}</div>
+            <div className="grid grid-cols-1 gap-x-gutter gap-y-12 md:grid-cols-2">{more.slice(0, 2).map((m) => <CaseCard key={m.slug} c={m} ratio="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" />)}</div>
           </Container>
         </Section>
       )}
