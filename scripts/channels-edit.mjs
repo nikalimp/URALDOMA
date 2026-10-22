@@ -1,22 +1,32 @@
-// Разовая правка уже опубликованных постов Telegram-канала под формат 22.10.2026:
-// без Instant View и ссылки в тексте — только кнопка «Читать полностью на сайте» и превью страницы на сайте.
+// Синхронизация уже опубликованных постов Telegram-канала с текстами в репозитории.
+// Решения Ника 22.10.2026: в посте нет ссылок и Instant View — только кнопка «Читать полностью на сайте»;
+// посты индексируются отдельно, поэтому это развёрнутый конспект статьи (2 800–3 600 знаков).
 //
-// Какие посты: старые (telegra.ph) — content/factory/telegram-edit-map.json (номер поста → путь на сайте),
+// Какие посты: старые (до 22.10) — content/factory/telegram-edit-map.json (номер поста → путь на сайте),
 // новые — content/media/channels.json (ссылка t.me/<канал>/<номер> у статьи).
-// Текст поста берётся с публичной страницы канала t.me/s/<канал>: из него убирается последняя ссылка
-// «Читать статью» / «Читать полностью», хэштеги становятся обычным текстом (Telegram распознает их сам).
-// Править может только бот-администратор канала с правом редактировать сообщения.
+// Текст поста: telegram.text из спецификации content/media/<slug>.json, а если её нет —
+// content/media/telegram/<slug>.html (для страниц ЖК — complex-<slug>.html).
+// Пост правится, когда текст или адрес поменялись: отпечаток хранится в реестре (synced).
+// Бот правит только свои сообщения: чужие (MESSAGE_ID_INVALID) запоминаются с именем бота (edit_failed)
+// и не пробуются снова, пока не поменяется бот или текст.
 //
-// Запускается из scripts/channels.mjs при выкладке (deploy-kit), после публикации новых статей.
-// Отредактированные посты записываются в реестр (edited) и больше не трогаются — правка разовая.
 //   node scripts/channels-edit.mjs          — показать, что изменится
 //   node scripts/channels-edit.mjs --apply  — отредактировать (нужны TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID)
+// Запускается из scripts/channels.mjs при выкладке (deploy-kit), после публикации новых статей.
+// --registry <файл> — писать реестр в другой файл (запуск с чужим ботом вне Actions).
 import fs from "node:fs";
+import crypto from "node:crypto";
 
-const apply = process.argv.includes("--apply");
-const REG = "content/media/channels.json";
-const regAll = fs.existsSync(REG) ? JSON.parse(fs.readFileSync(REG, "utf8")) : { posts: {} };
-const edited = (regAll.edited ||= {});
+const argv = process.argv.slice(2);
+const apply = argv.includes("--apply");
+const ri = argv.indexOf("--registry");
+const REG_IN = "content/media/channels.json";
+const REG_OUT = ri >= 0 ? argv[ri + 1] : REG_IN;
+const regAll = fs.existsSync(REG_OUT) ? JSON.parse(fs.readFileSync(REG_OUT, "utf8")) : JSON.parse(fs.readFileSync(REG_IN, "utf8"));
+const synced = (regAll.synced ||= {});
+const failed = (regAll.edit_failed ||= {});
+delete regAll.edited; // прежний формат (до синхронизации текстов)
+const save = () => fs.writeFileSync(REG_OUT, JSON.stringify(regAll, null, 1) + "\n");
 const env = process.env;
 const GH = !!env.GITHUB_ACTIONS;
 const report = (level, msg) => {
@@ -31,87 +41,56 @@ const BLOG = (brand.blogPath || cfg.links?.blog_prefix || "/blog/").replace(/^\/
 const CHANNEL = (env.TELEGRAM_CHAT_ID || cfg.channels?.telegram || "").replace(/^@/, "");
 if (!CHANNEL || /^-?\d+$/.test(CHANNEL)) { report("warning", "нужен публичный канал (@имя) в TELEGRAM_CHAT_ID"); process.exit(1); }
 
-const utm = (url, slug) => `${url}?utm_source=telegram&utm_medium=channel&utm_campaign=${slug}`;
-const targets = new Map(); // номер поста → адрес на сайте
+// номер поста → { path, key }; key — имя текста: slug статьи или complex-<slug>
+const targets = new Map();
+const keyOf = (p) => { const parts = p.split("/").filter(Boolean); return parts[0] === "complexes" ? `complex-${parts[1]}` : parts[parts.length - 1]; };
 const old = JSON.parse(fs.readFileSync("content/factory/telegram-edit-map.json", "utf8")).posts;
-for (const [id, p] of Object.entries(old)) targets.set(Number(id), utm(SITE + p, p.split("/").filter(Boolean).pop()));
-const reg = regAll.posts || {};
-for (const [slug, r] of Object.entries(reg)) {
+for (const [id, p] of Object.entries(old)) targets.set(Number(id), { path: p, key: keyOf(p) });
+for (const [slug, r] of Object.entries(regAll.posts || {})) {
   const m = String(r.tg || "").match(new RegExp(`t\\.me/${CHANNEL}/(\\d+)$`));
-  if (m) targets.set(Number(m[1]), utm(`${SITE}${BLOG}${slug}/`, slug));
+  if (m) targets.set(Number(m[1]), { path: `${BLOG}${slug}/`, key: slug });
 }
 
-// HTML виджета t.me/s → HTML для Bot API (b, i, u, s, a, переводы строк)
-const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, " ");
-function toBotHtml(html) {
-  let s = html
-    .replace(/<br\s*\/?>/g, "\n")
-    .replace(/<i class="emoji"[^>]*><b>([^<]*)<\/b><\/i>/g, "$1")
-    .replace(/<a href="\?q=[^"]*"[^>]*>([^<]*)<\/a>/g, "$1") // хэштеги
-    .replace(/<span[^>]*>|<\/span>/g, "")
-    .replace(/<a [^>]*href="([^"]+)"[^>]*>/g, '<a href="$1">')
-    .replace(/<(\/?)(strong|em)>/g, (_, c, t) => `<${c}${t === "strong" ? "b" : "i"}>`)
-    .replace(/<(?!\/?(b|i|u|s|a|code|pre)[ >])[^>]+>/g, "");
-  // последняя ссылка «Читать …» (telegra.ph или сайт) — убираем вместе с пустыми строками перед ней
-  s = s.replace(/\s*<a href="[^"]+">[^<]*Читать[^<]*<\/a>\s*$/, "");
-  return decode(s).trim();
+function textOf(key) {
+  const spec = `content/media/${key}.json`;
+  const t = fs.existsSync(spec) ? JSON.parse(fs.readFileSync(spec, "utf8")).telegram?.text : "";
+  if (t && t.trim()) return t.trim();
+  const f = `content/media/telegram/${key}.html`;
+  return fs.existsSync(f) ? fs.readFileSync(f, "utf8").trim() : "";
 }
+const visible = (t) => t.replace(/<[^>]+>/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").length;
 
-async function channelPage(before) {
-  const r = await fetch(`https://t.me/s/${CHANNEL}${before ? `?before=${before}` : ""}`);
-  return r.text();
-}
-function parsePosts(html) {
-  const out = new Map();
-  const re = new RegExp(`data-post="${CHANNEL}/(\\d+)"[\\s\\S]*?<div class="tgme_widget_message_text[^"]*"[^>]*>([\\s\\S]*?)</div>\\s*(?:<div class="tgme_widget_message_(?:link_preview|footer|reply_markup)|<a class="tgme_widget_message_link_preview)`, "g");
-  for (const m of html.matchAll(re)) out.set(Number(m[1]), m[2]);
-  return out;
-}
-
-async function tg(method, body) {
-  const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-  return r.json();
-}
-
-// Бот правит только свои сообщения. Чужие посты (MESSAGE_ID_INVALID) запоминаем с именем бота и не пробуем снова,
-// пока в секрете тот же бот; сменили токен — попробуем ещё раз.
-const failed = (regAll.edit_failed ||= {});
 const me = apply && env.TELEGRAM_BOT_TOKEN ? (await (await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getMe`)).json()).result?.username : "";
-const ids = [...targets.keys()].filter((id) => !edited[id] && (!me || failed[id] !== me)).sort((a, b) => a - b);
-if (!ids.length) process.exit(0);
-if (me) report("notice", `правит бот @${me}, постов к правке: ${ids.length}`);
-const posts = new Map();
-for (let before = Math.max(...ids) + 1; before > Math.min(...ids); ) {
-  const page = parsePosts(await channelPage(before));
-  if (!page.size) break;
-  for (const [k, v] of page) posts.set(k, v);
-  before = Math.min(...page.keys());
+const tg = async (method, body) => (await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })).json();
+
+const todo = [];
+for (const [id, t] of [...targets].sort((a, b) => a[0] - b[0])) {
+  const text = textOf(t.key);
+  if (!text) { report("warning", `пост ${id}: нет текста ${t.key}`); continue; }
+  if (visible(text) > 4096) { report("warning", `пост ${id}: текст длиннее 4096 знаков (${visible(text)})`); continue; }
+  const url = `${SITE}${t.path}?utm_source=telegram&utm_medium=channel&utm_campaign=${t.path.split("/").filter(Boolean).pop()}`;
+  const hash = crypto.createHash("sha1").update(text + "\n" + url).digest("hex").slice(0, 12);
+  if (synced[id] === hash) continue;
+  if (me && failed[id] === `${me}:${hash}`) continue;
+  todo.push({ id, text, url, hash });
 }
+if (!todo.length) process.exit(0);
+if (!apply) { for (const p of todo) report("notice", `пост ${p.id}: ${visible(p.text)} знаков → ${p.url.split("?")[0]}`); process.exit(0); }
+report("notice", `правит бот @${me || "?"}, постов к правке: ${todo.length}`);
 
 let ok = 0;
-for (const id of ids) {
-  const url = targets.get(id);
-  const raw = posts.get(id);
-  if (!raw) { report("warning", `пост ${id}: не нашёл текст на t.me/s/${CHANNEL}`); continue; }
-  // новые посты уже в нужном формате (без ссылки «Читать…» в тексте) — только отмечаем
-  if (!old[id] && !/>[^<]*Читать[^<]*<\/a>/.test(raw)) { edited[id] = url.split("?")[0]; fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n"); continue; }
-  const text = toBotHtml(raw);
-  const first = text.split("\n")[0].replace(/<[^>]+>/g, "").slice(0, 60);
-  if (!apply) { report("notice", `пост ${id} (${text.length} симв.) «${first}» → кнопка ${url.split("?")[0]}`); continue; }
+for (const p of todo) {
   const j = await tg("editMessageText", {
-    chat_id: `@${CHANNEL}`, message_id: id, text, parse_mode: "HTML",
-    link_preview_options: { url, prefer_large_media: true, show_above_text: true },
-    reply_markup: { inline_keyboard: [[{ text: "Читать полностью на сайте", url }]] },
+    chat_id: `@${CHANNEL}`, message_id: p.id, text: p.text, parse_mode: "HTML",
+    link_preview_options: { url: p.url, prefer_large_media: true, show_above_text: true },
+    reply_markup: { inline_keyboard: [[{ text: "Читать полностью на сайте", url: p.url }]] },
   });
   if (j.ok || /message is not modified/.test(j.description || "")) {
-    ok++; edited[id] = url.split("?")[0];
-    fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n");
-    report("notice", `пост ${id} отредактирован`);
+    ok++; synced[p.id] = p.hash; delete failed[p.id]; save();
+  } else {
+    if (/MESSAGE_ID_INVALID|message can't be edited/.test(j.description || "") && me) { failed[p.id] = `${me}:${p.hash}`; save(); }
+    report("warning", `пост ${p.id}: ${j.description}${/MESSAGE_ID_INVALID/.test(j.description || "") ? ` (бот @${me} не автор поста)` : ""}`);
   }
-  else {
-    if (/MESSAGE_ID_INVALID|message can't be edited/.test(j.description || "") && me) { failed[id] = me; fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n"); }
-    report("warning", `пост ${id}: ${j.description}${me ? ` (бот @${me} не автор поста)` : ""}`);
-  }
-  await new Promise((r) => setTimeout(r, 1200)); // лимит Telegram на правки в канале
+  await new Promise((r) => setTimeout(r, 1500)); // лимит Telegram на правки в канале
 }
-report("notice", apply ? `отредактировано ${ok} из ${ids.length}` : `проверка: ${ids.length} постов, запустите с apply`);
+report("notice", `отредактировано ${ok} из ${todo.length}`);
