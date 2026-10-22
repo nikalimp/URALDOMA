@@ -7,12 +7,16 @@
 // «Читать статью» / «Читать полностью», хэштеги становятся обычным текстом (Telegram распознает их сам).
 // Править может только бот-администратор канала с правом редактировать сообщения.
 //
-//   TELEGRAM_BOT_TOKEN=… TELEGRAM_CHAT_ID=@канал node scripts/channels-edit.mjs          — показать, что изменится
-//   TELEGRAM_BOT_TOKEN=… TELEGRAM_CHAT_ID=@канал node scripts/channels-edit.mjs --apply  — отредактировать
-// Запуск — вручную: Actions → «Channels edit».
+// Запускается из scripts/channels.mjs при выкладке (deploy-kit), после публикации новых статей.
+// Отредактированные посты записываются в реестр (edited) и больше не трогаются — правка разовая.
+//   node scripts/channels-edit.mjs          — показать, что изменится
+//   node scripts/channels-edit.mjs --apply  — отредактировать (нужны TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID)
 import fs from "node:fs";
 
 const apply = process.argv.includes("--apply");
+const REG = "content/media/channels.json";
+const regAll = fs.existsSync(REG) ? JSON.parse(fs.readFileSync(REG, "utf8")) : { posts: {} };
+const edited = (regAll.edited ||= {});
 const env = process.env;
 const GH = !!env.GITHUB_ACTIONS;
 const report = (level, msg) => {
@@ -31,7 +35,7 @@ const utm = (url, slug) => `${url}?utm_source=telegram&utm_medium=channel&utm_ca
 const targets = new Map(); // номер поста → адрес на сайте
 const old = JSON.parse(fs.readFileSync("content/factory/telegram-edit-map.json", "utf8")).posts;
 for (const [id, p] of Object.entries(old)) targets.set(Number(id), utm(SITE + p, p.split("/").filter(Boolean).pop()));
-const reg = fs.existsSync("content/media/channels.json") ? JSON.parse(fs.readFileSync("content/media/channels.json", "utf8")).posts : {};
+const reg = regAll.posts || {};
 for (const [slug, r] of Object.entries(reg)) {
   const m = String(r.tg || "").match(new RegExp(`t\\.me/${CHANNEL}/(\\d+)$`));
   if (m) targets.set(Number(m[1]), utm(`${SITE}${BLOG}${slug}/`, slug));
@@ -69,7 +73,8 @@ async function tg(method, body) {
   return r.json();
 }
 
-const ids = [...targets.keys()].sort((a, b) => a - b);
+const ids = [...targets.keys()].filter((id) => !edited[id]).sort((a, b) => a - b);
+if (!ids.length) process.exit(0);
 const posts = new Map();
 for (let before = Math.max(...ids) + 1; before > Math.min(...ids); ) {
   const page = parsePosts(await channelPage(before));
@@ -83,6 +88,8 @@ for (const id of ids) {
   const url = targets.get(id);
   const raw = posts.get(id);
   if (!raw) { report("warning", `пост ${id}: не нашёл текст на t.me/s/${CHANNEL}`); continue; }
+  // новые посты уже в нужном формате (без ссылки «Читать…» в тексте) — только отмечаем
+  if (!old[id] && !/>[^<]*Читать[^<]*<\/a>/.test(raw)) { edited[id] = url.split("?")[0]; fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n"); continue; }
   const text = toBotHtml(raw);
   const first = text.split("\n")[0].replace(/<[^>]+>/g, "").slice(0, 60);
   if (!apply) { report("notice", `пост ${id} (${text.length} симв.) «${first}» → кнопка ${url.split("?")[0]}`); continue; }
@@ -91,7 +98,11 @@ for (const id of ids) {
     link_preview_options: { url, prefer_large_media: true, show_above_text: true },
     reply_markup: { inline_keyboard: [[{ text: "Читать полностью на сайте", url }]] },
   });
-  if (j.ok || /message is not modified/.test(j.description || "")) { ok++; report("notice", `пост ${id} отредактирован`); }
+  if (j.ok || /message is not modified/.test(j.description || "")) {
+    ok++; edited[id] = url.split("?")[0];
+    fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n");
+    report("notice", `пост ${id} отредактирован`);
+  }
   else report("warning", `пост ${id}: ${j.description}`);
   await new Promise((r) => setTimeout(r, 1200)); // лимит Telegram на правки в канале
 }

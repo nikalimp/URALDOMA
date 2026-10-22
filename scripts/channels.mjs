@@ -153,4 +153,13 @@ async function main() {
   }
 }
 
-main().catch((e) => { report("warning", `упал: ${e.message}`); process.exit(1); });
+main()
+  .then(async () => {
+    // Разовая правка старых постов под формат «только кнопка» (scripts/channels-edit.mjs, если есть в проекте)
+    const edit = path.join(ROOT, "scripts/channels-edit.mjs");
+    if (TG && !dry && !only && fs.existsSync(edit)) {
+      const { spawnSync } = await import("node:child_process");
+      spawnSync(process.execPath, [edit, "--apply"], { stdio: "inherit", cwd: ROOT, env });
+    }
+  })
+  .catch((e) => { report("warning", `упал: ${e.message}`); process.exit(1); });
