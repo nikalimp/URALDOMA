@@ -1,0 +1,24 @@
+{
+  "name": "URALDOMA",
+  "site": "https://uraldoma.ru",
+  "siteLabel": "uraldoma.ru",
+  "author": "URALDOMA",
+  "avatar": "",
+  "logo": "../../public/images/logo.png",
+  "logosDir": "logos",
+  "blogPath": "/articles/",
+  "font": { "family": "Onest Variable", "source": "fontsource:onest" },
+  "colors": {
+    "bg": "#F5F4F0", "fg": "#111110", "card": "#FFFFFF", "muted": "#EBEAE5", "mfg": "#66665F",
+    "border": "#DAD9D5", "brand": "#8A5A3C", "brandBg": "#EBEAE5", "onBrand": "#FFFFFF", "shade": "rgb(17 17 16)"
+  },
+  "radius": 28,
+  "pattern": "none",
+  "cta": {
+    "title": "Рассчитаем стоимость вашего ремонта",
+    "text": "Бесплатно приедем на замер, составим постатейную смету и зафиксируем цену в договоре. Гарантия 2 года на все виды работ.",
+    "label": "Рассчитать стоимость →",
+    "url": "https://uraldoma.ru/prices/#calculator"
+  },
+  "_source": "Цвета и шрифт — design-system/tokens.json (светлая тема): background, foreground, card, muted, muted-foreground, brand, on-brand; border — rgba(17,17,16,.12) на фоне background. Правится вслед за дизайн-системой."
+}

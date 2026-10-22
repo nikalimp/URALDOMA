@@ -24,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const p = getPost((await params).slug);
   if (!p) return { robots: { index: false } };
-  return pageMeta({ title: p.seoTitle || p.title, description: p.description, path: `/articles/${p.slug}/`, image: p.cover ? `${pic(p.cover).base}.webp` : undefined });
+  return pageMeta({ title: p.seoTitle || p.title, description: p.description, path: `/articles/${p.slug}/`, image: p.coverImage ?? (p.cover ? `${pic(p.cover).base}.webp` : undefined) });
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {

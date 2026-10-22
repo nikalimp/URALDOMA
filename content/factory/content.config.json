@@ -1,0 +1,128 @@
+{
+  "factory_version": 2,
+  "project": "URALDOMA",
+  "site": "https://uraldoma.ru",
+  "root": "../..",
+  "stack": "nextjs-github",
+  "language": "ru",
+  "timezone": "Asia/Yekaterinburg",
+  "cadence": "20",
+  "approval": false,
+  "author": "команда URALDOMA при участии директора Николая Грабовских",
+  "voice_mode": "we",
+  "paths": {
+    "plan": "content/factory/plan.md",
+    "strategy": "content/factory/strategy.md",
+    "voice": [
+      "content/factory/voice.md"
+    ],
+    "facts": "content/factory/facts.md",
+    "brand": "content/factory/brand.json",
+    "reports": "content/factory/reports/{date}-weekly.md",
+    "journal": "",
+    "article": "content/blog/{slug}.md",
+    "drafts": "content/factory/drafts/{slug}.md",
+    "media_spec": "content/media/{slug}.json",
+    "media_out": "public/blog/{slug}",
+    "photos": "public/images/objects",
+    "secrets": "content/factory/.env",
+    "channels_registry": "content/media/channels.json"
+  },
+  "article": {
+    "url": "https://uraldoma.ru/articles/{slug}/",
+    "image_url": "/blog/{slug}/",
+    "cover_url": "/blog/{slug}/cover.jpg",
+    "cover_rule": "cover — обложка завода /blog/{slug}/cover.jpg: media.mjs рисует её в Actions по спецификации content/media/{slug}.json (layout photo, photo — кадр сайта public/images/objects/<объект>/<NN>.webp). Обложка идёт в Telegram, Max и og:image. photo — ключ того же кадра «объект/NN» (подписи — src/content/photos.ts): сайт показывает его над статьёй без текста поверх (03-design §9). Инфографика — по желанию, /blog/{slug}/info-N.png.",
+    "frontmatter": [
+      "title",
+      "description",
+      "seoTitle",
+      "date",
+      "cover",
+      "photo"
+    ]
+  },
+  "links": {
+    "blog_prefix": "/articles/",
+    "internal": [
+      "/articles/",
+      "/complexes/",
+      "/portfolio/",
+      "/prices/",
+      "/how-we-work/",
+      "/warranty/",
+      "/furniture/"
+    ],
+    "services": {
+      "list": [
+        "turnkey-renovation",
+        "interior-design",
+        "designer-renovation",
+        "kitchen-renovation",
+        "bathroom-renovation",
+        "redevelopment",
+        "new-build-renovation",
+        "major-renovation",
+        "furnishing"
+      ],
+      "prefix": "/services/"
+    },
+    "service_extra": [
+      "/prices/#calculator",
+      "/prices/#tariffs"
+    ],
+    "catalogs": [
+      "/complexes/trinity/",
+      "/complexes/garinsky/",
+      "/complexes/clover-park/",
+      "/complexes/radishcheva/",
+      "/complexes/obraztsovo/",
+      "/complexes/zapovednik/"
+    ]
+  },
+  "rules": {
+    "meta_asterisk": true,
+    "forbidden": [
+      "площадь, бюджет и сроки конкретных объектов — их нет в facts.md",
+      "отзывы и цитаты клиентов",
+      "отдельные статьи про ЖК, у которых есть страница /complexes/<жк>/ — они конкурируют со своей страницей"
+    ],
+    "emoji": false,
+    "first_person": false,
+    "we_voice": true
+  },
+  "tilda": {
+    "projectid": "",
+    "feeduid": "",
+    "parts": {},
+    "fields": {}
+  },
+  "publish": {
+    "how": "Push из облака (stacks/nextjs-github.md): add_repo nikalimp/URALDOMA, статья → content/blog/<slug>.md, коммит «статья: <заголовок>» в main → deploy-kit (npm run check → выкладка на REG.RU → Telegram из Actions). npm run check не пропускает статью короче 250 слов в <main> и с Главредом ниже 6,5. Старые адреса статей (транслит) — 301 в public/.htaccess и поле legacy во frontmatter; соответствие — content/factory/slug-map.csv.",
+    "verify": "https://uraldoma.ru/articles/{slug}/",
+    "wait_minutes": 15
+  },
+  "channels": {
+    "runner": "ci",
+    "telegram": "@uraldomaekb",
+    "telegram_public": "https://t.me/s/uraldomaekb",
+    "max": null,
+    "enabled": true
+  },
+  "notify": "telegram_bot",
+  "analytics": {
+    "metrika": "112779075 (счётчик URALDOMA в аккаунте Ника, данные до 15.10; на сайте сейчас стоит 62022598 — вопрос в STATUS.md)",
+    "webmaster": "https://uraldoma.ru (права на главный адрес не подтверждены на 19.10)",
+    "gsc": "",
+    "geo_pool": "content/factory/strategy.md"
+  },
+  "schedule": {
+    "daily": "Пн–Пт 11:11 Asia/Bangkok — «Контент-завод — публикация»",
+    "weekly": "Пт 11:11 Asia/Bangkok — «Контент-завод — отчёт недели»; Сб 11:11 — «Контент-завод — копирайтинг недели»"
+  },
+  "tasks": [
+    "Контент-завод — отчёт недели",
+    "Контент-завод — копирайтинг недели",
+    "Контент-завод — публикация"
+  ]
+}
