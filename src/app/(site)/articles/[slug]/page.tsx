@@ -34,6 +34,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const more = getPosts().filter((x) => x.slug !== p.slug).slice(0, 3);
   return (
     <>
+      {/* Instant View: канал проекта в шапке IV-страницы (стандарт §6 «Статьи блога»). React поднимает meta в <head>; metadata.other дал бы name=, а Telegram читает property= */}
+      <meta property="telegram:channel" content={site.contacts.telegramChannel} />
       <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
       <Container className="pt-10 md:pt-14">
         <Crumbs items={[{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title }]} />

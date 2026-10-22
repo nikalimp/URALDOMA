@@ -32,15 +32,23 @@
     "url": "https://uraldoma.ru/articles/{slug}/",
     "image_url": "/blog/{slug}/",
     "cover_url": "/blog/{slug}/cover.jpg",
-    "cover_rule": "cover — обложка завода /blog/{slug}/cover.jpg: media.mjs рисует её в Actions по спецификации content/media/{slug}.json (layout photo, photo — кадр сайта public/images/objects/<объект>/<NN>.webp). Обложка идёт в Telegram, Max и og:image. photo — ключ того же кадра «объект/NN» (подписи — src/content/photos.ts): сайт показывает его над статьёй без текста поверх (03-design §9). Инфографика — по желанию, /blog/{slug}/info-N.png.",
-    "frontmatter": [
+    "frontmatter_required": [
       "title",
       "description",
       "seoTitle",
       "date",
       "cover",
       "photo"
-    ]
+    ],
+    "frontmatter_optional": [
+      "updated",
+      "legacy",
+      "coverAlt",
+      "rubric",
+      "channels"
+    ],
+    "photo_field": "photo",
+    "cover_rule": "cover — обложка завода /blog/{slug}/cover.jpg: media.mjs рисует её в Actions по спецификации content/media/{slug}.json (layout photo, photo — кадр сайта public/images/objects/<объект>/<NN>.webp). Обложка идёт в Telegram, Max и og:image. photo — ключ того же кадра «объект/NN» (подписи — src/content/photos.ts): сайт показывает его над статьёй без текста поверх (03-design §9). Инфографика — по желанию, /blog/{slug}/info-N.png."
   },
   "links": {
     "blog_prefix": "/articles/",
@@ -107,7 +115,8 @@
     "telegram": "@uraldomaekb",
     "telegram_public": "https://t.me/s/uraldomaekb",
     "max": null,
-    "enabled": true
+    "enabled": true,
+    "iv_rhash": ""
   },
   "notify": "telegram_bot",
   "analytics": {
