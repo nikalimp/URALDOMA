@@ -30,7 +30,7 @@ export default function Prices() {
       <JsonLd data={graph(schema, faqSchema(P.faq), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Цены", path: "/prices/" }]))} />
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Цены" }]} h1={P.h1} answer={P.answer} photo="garinsky/01" />
 
-      <Section className="pt-0 md:pt-0">
+      <Section id="tariffs" className="scroll-mt-20 pt-0 md:pt-0">
         <Container>
           <SectionHead n="01" label="Тарифы" title={<>Что входит <em>в каждый тариф</em></>} />
           <TariffTable />
