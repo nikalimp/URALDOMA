@@ -111,7 +111,7 @@
   },
   "notify": "telegram_bot",
   "analytics": {
-    "metrika": "112779075 (счётчик URALDOMA в аккаунте Ника, данные до 15.10; на сайте сейчас стоит 62022598 — вопрос в STATUS.md)",
+    "metrika": "112779075 (счётчик «URALDOMA», на сайте с 22.10.2026; с 16 по 22.10 сайт не измерялся)",
     "webmaster": "https://uraldoma.ru (права на главный адрес не подтверждены на 19.10)",
     "gsc": "",
     "geo_pool": "content/factory/strategy.md"

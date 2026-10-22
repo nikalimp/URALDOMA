@@ -63,7 +63,7 @@ export const site = {
   // Видео с объекта для первого экрана ждём от клиента: пока src пустой, на первом экране — фото (hero.photo)
   heroVideo: { src: "", poster: "/images/objects/garinsky/02-wide.webp" },
 
-  metrikaId: 62022598,
+  metrikaId: 112779075, // счётчик «URALDOMA» (решение Ника 22.10.2026); 62022598 со старой Tilda удалён
   darkTheme: true, // переключатель в шапке и футере, по умолчанию — системная тема
 };
 
