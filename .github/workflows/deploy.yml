@@ -9,7 +9,7 @@
 # Заявки: public/api/lead.php читает www/lead-config.php — уровнем выше папки сайта, выкладка его не трогает.
 # Файл кладётся один раз руками (файловый менеджер REG.RU → www/). Текст файла:
 #   TG_TOKEN=<токен бота> TG_CHATS=<id1,id2> MAIL_TO=<почта1,почта2> node scripts/lead-config.mjs > lead-config.php
-# Прежний workflow (SSH + запись lead-config.php) — deploy.legacy.yml.disabled, удалить после зелёной выкладки.
+# Прежний workflow (SSH + запись lead-config.php) удалён 2026-10-22 после первой зелёной выкладки — история в git.
 name: Deploy
 on:
   push:
