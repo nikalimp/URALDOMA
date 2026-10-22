@@ -1,16 +1,22 @@
-// Контент-завод (скилл /content), стек «Next.js + GitHub»: дублирование новых статей блога в Telegram-канал
-// (Instant View через telegra.ph) и в канал Max. Оригинал — NikitOS/.claude/plugins/website/skills/content/tools/nextjs/channels.mjs.
+// Контент-завод, стек «Next.js + GitHub»: дублирование новых статей блога в Telegram-канал и в канал Max.
+// Оригинал — NikitOS/.claude/toolkit/site-channels/channels.mjs (копия в проекте — scripts/channels.mjs).
 // Сайт, автор и финальный призыв — из brand.json проекта (--brand или MEDIA_BRAND).
+// Пути (папка статей, спецификации медиа, реестр) и rhash Instant View — из content.config.json
+// (--config, CONTENT_CONFIG или content/factory/content.config.json); без конфига — content/blog, content/media.
 // Запускается в GitHub Actions после выкладки сайта. Каналы включаются секретами репозитория:
-//   Telegram: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (@username или -100…); TELEGRAPH_TOKEN — по желанию
+//   Telegram: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (бот — администратор публичного канала, id или @канал)
 //   Max:      MAX_BOT_TOKEN, MAX_CHAT_ID (id канала, бот — администратор)
+// Instant View: если задан channels.iv_rhash (или ivRhash в brand.json) — ссылка t.me/iv?url=<статья>&rhash=<шаблон>,
+// Telegram строит IV прямо со страницы сайта по шаблону instantview.telegram.org. Пусто — запасной путь: копия на telegra.ph
+// (TELEGRAPH_TOKEN по желанию — только для запасного пути).
 // Нет секретов — канал выключен: статья отмечается "off" и потом не догоняется (чтобы не было лавины постов).
-// Реестр — content/media/channels.json (коммитится обратно в репозиторий).
+// Реестр — paths.channels_registry (по умолчанию content/media/channels.json; коммитится обратно в репозиторий).
+// Итоги пишутся аннотациями ::notice:: / ::warning:: и в $GITHUB_STEP_SUMMARY — их видно без доступа к логам.
 //
 //   node scripts/channels.mjs            — опубликовать новые статьи (date за последние 3 дня, ещё нет в реестре)
 //   node scripts/channels.mjs <slug> --force — опубликовать/переопубликовать конкретную
-//   node scripts/channels.mjs --dry      — показать, что ушло бы, без отправки
-//   node scripts/channels.mjs <slug> --nodes — показать узлы Instant View (отладка)
+//   node scripts/channels.mjs --dry      — показать, что ушло бы (и ссылку IV), без отправки
+//   node scripts/channels.mjs <slug> --nodes — показать узлы telegra.ph (отладка запасного пути)
 import fs from "node:fs";
 import path from "node:path";
 import { unified } from "unified";
@@ -22,16 +28,31 @@ const argv = process.argv.slice(2);
 const bi = argv.indexOf("--brand");
 const BRAND_FILE = bi >= 0 ? argv[bi + 1] : process.env.MEDIA_BRAND;
 const B = BRAND_FILE ? JSON.parse(fs.readFileSync(BRAND_FILE, "utf8")) : {};
-const SITE = (B.site || "").replace(/\/$/, "");
-if (!SITE) { console.error("channels: нет site в brand.json (--brand)"); process.exit(1); }
-const AUTHOR = B.author || B.name || "";
+const ci = argv.indexOf("--config");
+const CFG_FILE = ci >= 0 ? argv[ci + 1] : process.env.CONTENT_CONFIG || (fs.existsSync("content/factory/content.config.json") ? "content/factory/content.config.json" : "");
+const C = CFG_FILE ? JSON.parse(fs.readFileSync(CFG_FILE, "utf8")) : {};
+const ROOT = CFG_FILE ? path.resolve(path.dirname(CFG_FILE), C.root || ".") : process.cwd();
+const P = C.paths || {};
+const dirOf = (tpl, def) => path.join(ROOT, tpl ? path.dirname(tpl) : def);
+const SITE = (B.site || C.site || "").replace(/\/$/, "");
+if (!SITE) { console.error("channels: нет site в brand.json (--brand) или content.config.json"); process.exit(1); }
+const AUTHOR = B.author || B.name || C.author || "";
 const CTA = B.cta || null;
-const BLOG = (B.blogPath || "/blog/").replace(/^\/?/, "/").replace(/\/?$/, "/");
-const ROOT = process.cwd();
-const BLOG_DIR = path.join(ROOT, "content/blog");
-const MEDIA = path.join(ROOT, "content/media");
-const REG = path.join(MEDIA, "channels.json");
-const args = argv.filter((a, i) => a !== "--brand" && argv[i - 1] !== "--brand");
+const BLOG = (B.blogPath || C.links?.blog_prefix || "/blog/").replace(/^\/?/, "/").replace(/\/?$/, "/");
+const BLOG_DIR = dirOf(P.article, "content/blog/x.md");
+const MEDIA = dirOf(P.media_spec, "content/media/x.json");
+const REG = path.join(ROOT, P.channels_registry || "content/media/channels.json");
+const RHASH = (C.channels?.iv_rhash || B.ivRhash || "").trim();
+// адрес статьи без UTM: article.url из конфига ({slug}) или сайт + путь блога
+const articleUrl = (slug) => (C.article?.url ? C.article.url.replace("{slug}", slug) : `${SITE}${BLOG}${slug}/`);
+const ivLink = (slug) => `https://t.me/iv?url=${encodeURIComponent(articleUrl(slug))}&rhash=${RHASH}`;
+// итоги — аннотациями и в сводку запуска: журналы Actions из облачной сессии не читаются
+const GH = !!process.env.GITHUB_ACTIONS;
+const report = (level, msg) => {
+  console.log(GH ? `::${level}::channels: ${msg}` : `  ${level === "warning" ? "!" : "·"} ${msg}`);
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${level === "warning" ? "⚠️" : "✓"} channels: ${msg}\n`);
+};
+const args = argv.filter((a, i) => !["--brand", "--config"].includes(a) && !["--brand", "--config"].includes(argv[i - 1]));
 const dry = args.includes("--dry");
 const force = args.includes("--force");
 const only = args.find((a) => !a.startsWith("--"));
@@ -51,7 +72,7 @@ function parsePost(file) {
 }
 
 const loadReg = () => (fs.existsSync(REG) ? JSON.parse(fs.readFileSync(REG, "utf8")) : null);
-const saveReg = (r) => { fs.mkdirSync(MEDIA, { recursive: true }); fs.writeFileSync(REG, JSON.stringify(r, null, 1) + "\n"); };
+const saveReg = (r) => { fs.mkdirSync(path.dirname(REG), { recursive: true }); fs.writeFileSync(REG, JSON.stringify(r, null, 1) + "\n"); };
 const utm = (url, medium, slug) => {
   if (!url.startsWith(SITE) || url.includes("utm_")) return url;
   const [base, frag] = url.split("#");
@@ -152,7 +173,7 @@ function caption(p, medium) {
 
 async function sendTelegram(p, iv) {
   const url = `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`;
-  const site = utm(`${SITE}${BLOG}${p.slug}/`, "channel", p.slug);
+  const site = utm(articleUrl(p.slug), "channel", p.slug);
   const text = `${caption(p, "tg")}\n\n<a href="${iv}">Читать в Telegram →</a>`;
   const r = await post(url, {
     chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: "HTML",
@@ -165,7 +186,7 @@ async function sendTelegram(p, iv) {
 }
 
 async function sendMax(p) {
-  const site = utm(`${SITE}${BLOG}${p.slug}/`, "max", p.slug);
+  const site = utm(articleUrl(p.slug), "max", p.slug);
   const attachments = [];
   if (p.cover) attachments.push({ type: "image", payload: { url: abs(p.cover) } });
   attachments.push({ type: "inline_keyboard", payload: { buttons: [[{ type: "link", text: "Читать статью", url: site }]] } });
@@ -190,28 +211,31 @@ async function main() {
   }
   const today = new Date().toISOString().slice(0, 10);
   const since = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 10);
-  console.log(`channels: Telegram ${TG ? "вкл" : "выкл"}, Max ${MAX ? "вкл" : "выкл"}`);
+  console.log(`channels: Telegram ${TG ? "вкл" : "выкл"}, Max ${MAX ? "вкл" : "выкл"}, Instant View ${RHASH ? "t.me/iv" : "telegra.ph"}, реестр ${path.relative(ROOT, REG)}`);
+  if (!TG) report("notice", "Telegram выключен — нет TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID");
   for (const p of posts) {
     if (only && p.slug !== only) continue;
     if (!only && (p.date > today || p.date < since)) continue;
     if (p.channels === "no") continue;
     const r = (reg.posts[p.slug] ||= {});
     const want = (k) => force || !r[k] || r[k] === "error";
-    if (dry) { console.log(`  ${p.slug}: tg=${r.tg ?? "—"} max=${r.max ?? "—"}`); continue; }
+    if (dry) { console.log(`  ${p.slug}: tg=${r.tg ?? "—"} max=${r.max ?? "—"} iv=${RHASH ? ivLink(p.slug) : "telegra.ph (нет iv_rhash)"}`); continue; }
     if (want("tg")) {
       if (!TG) r.tg = "off";
       else try {
-        Object.assign(r, await instantView(p, reg));
-        r.tg = await sendTelegram(p, r.iv); console.log(`  ✓ Telegram ${p.slug}: ${r.tg}`);
-      } catch (e) { r.tg = "error"; r.tg_error = e.message.slice(0, 300); console.warn(`  ! ${e.message}`); }
+        if (RHASH) r.iv = ivLink(p.slug); // IV Telegram по шаблону — со страницы сайта
+        else Object.assign(r, await instantView(p, reg)); // запасной путь — копия на telegra.ph
+        r.tg = await sendTelegram(p, r.iv); report("notice", `Telegram ${p.slug} → ${r.tg} (${RHASH ? "t.me/iv" : "telegra.ph"})`);
+      } catch (e) { r.tg = "error"; r.tg_error = e.message.slice(0, 300); report("warning", `Telegram ${p.slug}: ${e.message.slice(0, 200)}`); }
     }
     if (want("max")) {
       if (!MAX) r.max = "off";
-      else try { r.max = await sendMax(p); console.log(`  ✓ Max ${p.slug}`); }
-      catch (e) { r.max = "error"; r.max_error = e.message.slice(0, 300); console.warn(`  ! ${e.message}`); }
+      else try { r.max = await sendMax(p); report("notice", `Max ${p.slug} → ${r.max}`); }
+      catch (e) { r.max = "error"; r.max_error = e.message.slice(0, 300); report("warning", `Max ${p.slug}: ${e.message.slice(0, 200)}`); }
     }
     saveReg(reg);
+    report("notice", `реестр сохранён: ${path.relative(ROOT, REG)}`);
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => { report("warning", `упал: ${e.message}`); process.exit(1); });
