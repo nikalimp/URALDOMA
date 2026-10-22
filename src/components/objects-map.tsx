@@ -4,16 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import type { MapData } from "@/lib/map";
 import { cn } from "@/lib/utils";
+import { Grid } from "@/components/container";
 
 // Контурная карта ЖК или посёлков (03-design §9: монохром, линии структурные, один акцент — объекты URALDOMA).
 // SVG собран при сборке (lib/map.ts); точки — ссылки на страницы объектов. Наведение на точку или строку списка
-// подсвечивает пару и показывает название. Список под картой дублирует карту текстом — для поиска и без мыши.
-export function ObjectsMap({ map, title, list, cols = 3 }: { map: MapData; title: string; list: { slug: string; name: string; note?: string }[]; cols?: 1 | 2 | 3 }) {
+// подсвечивает пару и показывает название. Карта — колонки 1–6, справа легенда: условные знаки и список объектов
+// текстом (для поиска и без мыши).
+export function ObjectsMap({ map, title, list, kind }: { map: MapData; title: string; list: { slug: string; name: string; note?: string }[]; kind: string }) {
   const [on, setOn] = useState<string | null>(null);
   const active = map.points.find((p) => p.slug === on);
   return (
-    <div>
-      <figure className="relative border-t border-foreground pt-4">
+    <Grid className="gap-y-10">
+      <figure className="relative border-t border-foreground pt-4 md:sticky md:top-[96px] md:col-span-6 md:self-start">
         <figcaption className="caps flex justify-between gap-6 text-muted-foreground">
           <span>{title}</span>
           <span>© участники OpenStreetMap</span>
@@ -45,16 +47,24 @@ export function ObjectsMap({ map, title, list, cols = 3 }: { map: MapData; title
           )}
         </svg>
       </figure>
-      <ul className={cn("mt-10 gap-x-gutter", cols === 3 ? "sm:columns-2 md:columns-3" : cols === 2 ? "sm:columns-2" : "")}>
-        {list.map((o) => (
-          <li key={o.slug} className="break-inside-avoid border-t border-border">
-            <Link href={`/complexes/${o.slug}/`} onMouseEnter={() => setOn(o.slug)} onMouseLeave={() => setOn(null)} onFocus={() => setOn(o.slug)} className={cn("flex items-baseline justify-between gap-4 py-3 transition-colors hover:text-brand", on === o.slug && "text-brand")}>
-              <span className="text-body">{o.name}</span>
-              {o.note && <span className="caps shrink-0 text-muted-foreground">{o.note}</span>}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className="border-t border-foreground pt-4 md:col-span-6 md:col-start-7">
+        <p className="caps text-muted-foreground">Легенда</p>
+        <ul className="caps mt-4 flex flex-wrap gap-x-8 gap-y-3 text-muted-foreground">
+          <li className="flex items-center gap-3"><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" className="fill-foreground" /></svg>{kind}</li>
+          <li className="flex items-center gap-3"><svg width="28" height="28" aria-hidden="true"><circle cx="14" cy="14" r="7" className="fill-brand" /><circle cx="14" cy="14" r="13" fill="none" className="stroke-brand" /></svg>Наш объект</li>
+          <li className="flex items-center gap-3"><svg width="28" height="14" aria-hidden="true"><path d="M1 7h26" className={map.districts ? "stroke-border" : "stroke-foreground/60"} strokeWidth={1.2} /></svg>{map.districts ? "Граница района" : "Граница Екатеринбурга"}</li>
+        </ul>
+        <ul className="mt-8 gap-x-gutter sm:columns-2">
+          {list.map((o) => (
+            <li key={o.slug} className="break-inside-avoid border-t border-border">
+              <Link href={`/complexes/${o.slug}/`} onMouseEnter={() => setOn(o.slug)} onMouseLeave={() => setOn(null)} onFocus={() => setOn(o.slug)} className={cn("flex items-baseline justify-between gap-4 py-3 transition-colors hover:text-brand", on === o.slug && "text-brand")}>
+                <span className="text-body">{o.name}</span>
+                {o.note && <span className="caps shrink-0 text-muted-foreground">{o.note}</span>}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Grid>
   );
 }
