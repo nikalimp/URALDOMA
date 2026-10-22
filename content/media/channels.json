@@ -81,27 +81,28 @@
   }
  },
  "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b",
- "edited": {
-  "7": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
-  "8": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
-  "9": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
-  "10": "https://uraldoma.ru/articles/new-build-renovation-guide/",
-  "11": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
-  "12": "https://uraldoma.ru/articles/rough-finishing-what-is-included/",
-  "13": "https://uraldoma.ru/articles/do-you-need-interior-design-project/",
-  "14": "https://uraldoma.ru/articles/common-renovation-mistakes/",
-  "15": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
-  "16": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
-  "17": "https://uraldoma.ru/articles/renovation-for-rental/",
-  "18": "https://uraldoma.ru/articles/wiring-and-plumbing-renovation/",
-  "19": "https://uraldoma.ru/articles/renovation-warranty-guide/",
-  "20": "https://uraldoma.ru/complexes/trinity/",
-  "21": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
-  "22": "https://uraldoma.ru/articles/kitchen-renovation-guide/",
-  "23": "https://uraldoma.ru/complexes/garinsky/",
-  "24": "https://uraldoma.ru/articles/how-long-renovation-takes/",
-  "25": "https://uraldoma.ru/articles/wall-finishing-options/",
-  "28": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/"
+ "edit_failed": {
+  "7": "uraldoma_post_bot:f214f47112d5",
+  "8": "uraldoma_post_bot:fc37775a3cca",
+  "9": "uraldoma_post_bot:313b1958d542",
+  "10": "uraldoma_post_bot:a4d6c5d3bfd0",
+  "11": "uraldoma_post_bot:c3d8f7fe181f",
+  "12": "uraldoma_post_bot:99b774734382",
+  "13": "uraldoma_post_bot:0bafe7e4b73b",
+  "14": "uraldoma_post_bot:3fc73e439e61",
+  "15": "uraldoma_post_bot:4265c399ec85",
+  "16": "uraldoma_post_bot:3b71259fb69a",
+  "17": "uraldoma_post_bot:9e6edd6f73d6",
+  "18": "uraldoma_post_bot:17bc2a0df50e",
+  "19": "uraldoma_post_bot:6ab09ef3a0f9",
+  "20": "uraldoma_post_bot:d4c2e83e7a76",
+  "21": "uraldoma_post_bot:0d7b68015459",
+  "22": "uraldoma_post_bot:539d2aac5136",
+  "23": "uraldoma_post_bot:ddb027c202ac",
+  "24": "uraldoma_post_bot:d694888b765e",
+  "25": "uraldoma_post_bot:31255458ada3"
  },
- "edit_failed": {}
+ "synced": {
+  "28": "93f315f22b1c"
+ }
 }
