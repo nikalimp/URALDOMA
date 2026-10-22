@@ -78,7 +78,7 @@ function ceilingText(c?: string | null) {
 
 const facts = (f: ObjectFacts): [string, string][] =>
   (f.kind === "zk"
-    ? [["Застройщик", f.developer], ["Район", f.district], ["Адрес", f.address], ["Сдача", f.years], ["Класс", f.class], ["Конструкция", f.frame], ["Этажность", f.floors], ["Потолки", f.ceiling], ["Отделка от застройщика", f.finishing], ["Отопление", f.heating]]
+    ? [["Застройщик", f.developer], ["Район", f.district], ["Адрес", f.address], [/^(19\d\d|200\d|201[0-4])$/.test(f.years ?? "") ? "Год постройки" : "Сдача", f.years], ["Класс", f.class], ["Конструкция", f.frame], ["Этажность", f.floors], ["Потолки", f.ceiling], ["Отделка от застройщика", f.finishing], ["Отопление", f.heating]]
     : [["Девелопер", f.developer], ["Где", f.location], ["Застройка", f.years], ["Размер", f.size], ["Дома", f.houses], ["Коммуникации", f.utilities], ["Отделка", f.finishing]]
   ).filter((x): x is [string, string] => has(x[1]));
 
