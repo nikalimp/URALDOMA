@@ -68,7 +68,7 @@ export function Calculator() {
           <p className="text-small mt-4 text-panel-muted">Без материалов и мебели. Точную смету фиксируем в договоре после бесплатного замера.</p>
           <div className="mt-8 border-t border-panel-line pt-6">
             <p className="text-body mb-4">Получить смету по этому расчёту</p>
-            <LeadForm tone="dark" source="calculator" extra={extra} button="Отправить расчёт" />
+            <LeadForm tone="dark" source="calculator" extra={extra} button="Отправить расчёт" label="Отправить расчёт калькулятора" />
           </div>
         </div>
       </div>

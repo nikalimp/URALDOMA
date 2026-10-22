@@ -10,9 +10,9 @@ declare global {
   interface Window { ym?: (id: number, action: string, goal: string, params?: Record<string, unknown>) => void }
 }
 
-type Props = { tone?: "light" | "dark"; source: string; extra?: string; withName?: boolean; button?: string; className?: string };
+type Props = { tone?: "light" | "dark"; source: string; extra?: string; withName?: boolean; button?: string; label?: string; className?: string };
 
-export function LeadForm({ tone = "light", source, extra, withName = false, button = "Получить консультацию", className }: Props) {
+export function LeadForm({ tone = "light", source, extra, withName = false, button = "Получить консультацию", label = "Заявка на консультацию", className }: Props) {
   const [state, setState] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const dark = tone !== "light";
 
@@ -48,7 +48,7 @@ export function LeadForm({ tone = "light", source, extra, withName = false, butt
   }
 
   return (
-    <form onSubmit={submit} aria-label="Заявка на консультацию" className={cn("flex flex-col gap-5", className)}>
+    <form onSubmit={submit} aria-label={label} className={cn("flex flex-col gap-5", className)}>
       {withName && (
         <label className={cn("text-small flex flex-col gap-1", hint)}>
           Имя
