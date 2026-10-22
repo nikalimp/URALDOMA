@@ -8,7 +8,7 @@
 - **Выкладка:** `publish.json` → deploy-kit `site.yml@v1`, адаптер `ssh-ftp`, по push в `main`. Первая выкладка 2026-10-22 (PR #6) прошла по SSH: порт 22 у REG.RU снова открыт. Секреты `FTP_*` заданы — если SSH снова закроют, выкладка уйдёт по FTP.
 - **Решение Ника 2026-10-15:** без тестового поддомена, выкладка сразу на прод (шапка прежнего deploy.yml, история в git). Стандарт §10 п. 4 допускает это только с письменным подтверждением здесь.
 - **Заявки:** `public/api/lead.php` → `www/leads/*.csv` всегда. Telegram и почта — только при `www/lead-config.php`, его нет, пока не получены id чатов и почты (T17).
-- **Контент-завод:** v2 с 2026-10-22 — `content/factory/` (конфиг, план, голос, факты, бриф, бренд), статьи `content/blog/`. Работают три общие задачи NikitOS: отчёт Пт, копирайтинг Сб, публикация Пн–Пт 11:11 (Бангкок). Telegram-анонсы шлёт `scripts/channels.mjs` в Actions — нужны секреты `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `TELEGRAPH_TOKEN`. Папка `~/Desktop/URALDOMA/Content` на Mac — архив v1.
+- **Контент-завод:** v2 с 2026-10-22 — `content/factory/` (конфиг, план, голос, факты, бриф, бренд), статьи `content/blog/`. Работают три общие задачи NikitOS: отчёт Пт, копирайтинг Сб, публикация Пн–Пт 11:11 (Бангкок). Telegram-анонсы шлёт `scripts/channels.mjs` в Actions — секреты `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` заданы 22.10. `TELEGRAPH_TOKEN` не задаём (решение Ника 22.10): аккаунт telegra.ph для Instant View скрипт заводит сам и хранит токен в `content/media/channels.json` (репозиторий приватный). Папка `~/Desktop/URALDOMA/Content` на Mac — архив v1.
 
 ## Долги
 | Что | Почему | Кто | Задача |
