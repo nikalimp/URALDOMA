@@ -1,0 +1,22 @@
+{
+  "project": "URALDOMA",
+  "repo": "nikalimp/URALDOMA",
+  "site_dir": ".",
+  "url": "https://uraldoma.ru",
+  "adapter": "ssh-ftp",
+  "mode": "auto",
+  "content_dir": "content",
+  "factory": "content/factory/content.config.json",
+  "schedule": {
+    "daily": "09:05",
+    "weekly": "mon 08:50",
+    "tz": "Europe/Moscow",
+    "days": "1-5"
+  },
+  "version": 1,
+  "notes": "REG.RU: порт 22 закрыт для зарубежных IP (DDoS, октябрь 2026) — выкладка идёт по FTP. lead-config.php и leads/ лежат в www/ уровнем выше папки сайта: выкладка их не трогает, lead-config.php кладётся руками (см. .github/workflows/deploy.yml). Контент-завод ещё на Mac (~/Desktop/URALDOMA/Content) — переносит content-factory:update.",
+  "out_dir": "out",
+  "app_path": "",
+  "rsync_exclude": "",
+  "manual_script": "scripts/deploy-site.sh"
+}
