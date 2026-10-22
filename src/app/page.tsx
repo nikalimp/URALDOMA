@@ -4,28 +4,29 @@ import { site } from "@/content/site";
 import { home } from "@/content/home";
 import { services, serviceBySlug } from "@/content/services";
 import { tariffs, formatRub } from "@/content/tariffs";
-import { cases, caseBySlug } from "@/content/cases";
+import { cases } from "@/content/cases";
 import { pic } from "@/content/photos";
 import { Header } from "@/components/header";
 import { Container, Grid, Section, SectionHead, linkArrow, btnPrimary, btnOutline } from "@/components/container";
 import { FaqList } from "@/components/faq";
 import { CtaSection } from "@/components/cta";
 import { Img } from "@/components/photo";
+import { CaseRail } from "@/components/case-rail";
+import { ProcessScroll } from "@/components/process-scroll";
+import { ObjectsMaps } from "@/components/objects-maps";
+import { counts } from "@/lib/objects-map";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema, graph, itemList } from "@/lib/schema";
 
 export const metadata: Metadata = { title: { absolute: site.title }, description: site.description, alternates: { canonical: "/" } };
 
-// Главная по 03-design §9 «Swiss: воздух и сдержанность»: семь секций вместо тринадцати, одна мысль на экран.
-// Обложка → ответ и цифры → услуги списком → три объекта на весь экран → цена одной строкой → вопросы → заявка.
+// Главная по 03-design §9–10 «Swiss: воздух и сдержанность»: одна мысль на экран.
+// Обложка → ответ и цифры → услуги списком → этапы (липкий блок) → лента объектов → карта ЖК и посёлков → цена → вопросы → заявка.
 // Подробности (этапы, тарифы, договор, команда, статьи) — на своих страницах, сюда ведут ссылки.
 const [h1a, h1b] = home.h1.split(/\s—\s/);
 const hero = pic("garinsky/02");
-const spreads = [
-  { slug: "radishcheva-31", photo: "radishcheva-31/04" },
-  { slug: "obraztsovo", photo: "obraztsovo/06" },
-  { slug: "trinity-14", photo: "trinity-14/11" },
-].map((s) => ({ c: caseBySlug(s.slug)!, p: pic(s.photo) }));
+// Лента объектов: разные дома подряд, а не три «Гаринских» подряд
+const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
 const order = ["turnkey-renovation", "interior-design", "designer-renovation", "kitchen-renovation", "bathroom-renovation", "new-build-renovation", "major-renovation", "redevelopment", "furnishing"];
 
 export default function Home() {
@@ -52,7 +53,7 @@ export default function Home() {
               <em className="block pt-[0.06em] text-[0.82em] leading-[0.95] md:pl-[calc((100%+20px)/4)]">{h1b}</em>
             </h1>
             <Grid className="mt-12 items-end gap-y-8 md:mt-16">
-              <p className="t-lead text-earth md:col-span-5 md:col-start-4">{home.lead}</p>
+              <p className="t-lead text-earth md:col-span-6 md:col-start-4">{home.lead}</p>
               <div className="flex md:col-span-3 md:col-start-10 md:justify-end">
                 <a href={site.cta.href} className={btnPrimary}>{site.cta.label}<span aria-hidden="true">→</span></a>
               </div>
@@ -77,7 +78,7 @@ export default function Home() {
           <Container>
             <Grid>
               <p className="caps pt-[0.4em] text-muted-foreground md:col-span-3">О компании</p>
-              <p className="t-lead md:col-span-7 md:col-start-4">{home.answer}</p>
+              <p className="t-lead md:col-span-6 md:col-start-4">{home.answer}</p>
             </Grid>
             <dl className="mt-24 grid grid-cols-2 gap-x-gutter gap-y-12 md:mt-32 md:grid-cols-4">
               {home.facts.map((f) => (
@@ -111,31 +112,28 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* 4. Объекты: три разворота на весь экран. На фото — только место */}
-        <section aria-label="Портфолио">
+        {/* 4. Как проходит ремонт: аксонометрия собирается по стадиям, блок закреплён на экране */}
+        <ProcessScroll />
+
+        {/* 5. Объекты: две колонки по направляющим, горизонтальная лента */}
+        <Section aria-label="Портфолио">
           <Container>
             <SectionHead label="Портфолио" title={<>Ремонты в ЖК и посёлках <em>Екатеринбурга</em></>} />
+            <CaseRail cases={railOrder.map((s) => cases.find((c) => c.slug === s)).filter((c) => c !== undefined)}>
+              <Link href="/portfolio/" className={linkArrow}>Все объекты — {cases.length} <span aria-hidden="true">→</span></Link>
+            </CaseRail>
           </Container>
-          {spreads.map(({ c, p }) => (
-            <Link key={c.slug} href={`/portfolio/${c.slug}/`} className="group relative isolate block h-[80svh] min-h-[520px] overflow-hidden md:h-[100svh]">
-              <div className="absolute inset-0 -z-10 overflow-hidden bg-secondary">
-                <Img p={p} wide sizes="100vw" className="parallax transition-transform duration-[1.4s] group-hover:scale-[1.02]" />
-              </div>
-              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-scrim/55 via-scrim/0 to-scrim/0" />
-              <Container className="flex h-full flex-col justify-end pb-8 text-on-photo md:pb-12">
-                <Grid className="items-end gap-y-3">
-                  <p className="t-statement md:col-span-8">{c.place}</p>
-                  <p className="caps text-on-photo/85 md:col-span-3 md:col-start-10 md:text-right">{c.kind}</p>
-                </Grid>
-              </Container>
-            </Link>
-          ))}
-          <Container className="py-16 md:py-24">
-            <Link href="/portfolio/" className={linkArrow}>Все объекты — {cases.length} <span aria-hidden="true">→</span></Link>
-          </Container>
-        </section>
+        </Section>
 
-        {/* 5. Цена одной строкой; тарифы, этапы и договор — на своих страницах */}
+        {/* 5. Карта ЖК и посёлков: у каждого объекта своя страница с фактами дома */}
+        <Section aria-label="Карта ЖК и посёлков" className="border-t border-border">
+          <Container>
+            <SectionHead label="География" title={<>{counts.zk} ЖК и {counts.kp} посёлков — <em>на карте</em></>} aside="По каждому дому собрали застройщика, конструкцию, потолки и отделку от застройщика — и как это влияет на ремонт. Выберите свой дом на карте или в списке." />
+            <ObjectsMaps />
+          </Container>
+        </Section>
+
+        {/* 6. Цена одной строкой; тарифы, этапы и договор — на своих страницах */}
         <Section className="border-t border-border">
           <Container>
             <Grid className="gap-y-10">
@@ -152,7 +150,7 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* 6. Вопросы */}
+        {/* 7. Вопросы */}
         <Section className="border-t border-border">
           <Container>
             <Grid className="gap-y-10">

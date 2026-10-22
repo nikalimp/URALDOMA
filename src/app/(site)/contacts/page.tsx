@@ -26,7 +26,7 @@ export default function Contacts() {
       <Section className="pt-0 md:pt-0">
         <Container>
           <Grid>
-            <dl className="border-t border-border md:col-span-7">
+            <dl className="border-t border-border md:col-span-6">
               {rows.map(([k, v]) => (
                 <div key={k} className="grid grid-cols-1 gap-1 border-b border-border py-6 sm:grid-cols-[180px_1fr]">
                   <dt className="label-mono pt-1 text-muted-foreground">{k}</dt>
@@ -34,7 +34,7 @@ export default function Contacts() {
                 </div>
               ))}
             </dl>
-            <div className="self-start rounded-card bg-card p-6 md:col-span-4 md:col-start-9 md:p-8">
+            <div className="self-start rounded-card bg-card p-6 md:col-span-6 md:col-start-7 md:p-8">
               <Label>Заявка</Label>
               <LeadForm source="contacts" withName />
             </div>

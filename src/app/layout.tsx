@@ -7,6 +7,7 @@ import { site } from "@/content/site";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
 import { GuideLines } from "@/components/guide-lines";
+import { ScrollTop } from "@/components/scroll-top";
 import { JsonLd } from "@/components/json-ld";
 import { graph, orgSchema, personSchema, websiteSchema } from "@/lib/schema";
 import { tokenColor } from "@/lib/tokens";
@@ -40,7 +41,7 @@ const goalsScript = `document.addEventListener('click',function(e){var a=e.targe
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const metrika = site.metrikaId > 0 && !noindex;
   return (
-    <html lang={site.lang} suppressHydrationWarning>
+    <html lang={site.lang} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <meta name="theme-color" content={themeColors.light} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CookieBanner />
         <GuideLines />
+        <ScrollTop />
       </body>
     </html>
   );

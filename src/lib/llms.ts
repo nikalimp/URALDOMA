@@ -39,8 +39,10 @@ ${tariffs.map((t) => `- Тариф «${t.name}»: ${formatRub(t.rate)} за м²
 - [Цены и калькулятор](${site.url}/prices/)
 - ${paymentTerms}
 
-## Ремонт в ЖК
-${complexes.map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/)`).join("\n")}
+## Ремонт в ЖК и коттеджных посёлках
+- [Карта ЖК и посёлков](${site.url}/complexes/)
+${complexes.filter((c) => c.cases.length > 0).map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/) — наши объекты`).join("\n")}
+${complexes.filter((c) => c.cases.length === 0).map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/)`).join("\n")}
 
 ## О компании
 - [О компании](${site.url}/about/): ${site.tagline}

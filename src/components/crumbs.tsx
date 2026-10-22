@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 // Видимые хлебные крошки. JSON-LD BreadcrumbList — через breadcrumbs() из lib/schema.
+// Только при вложенности 2+ (Главная / Раздел / Страница): на страницах первого уровня крошек нет (spec §9).
 export function Crumbs({ items }: { items: { name: string; path?: string }[] }) {
+  if (items.length < 3) return null;
   return (
     <nav aria-label="Хлебные крошки" className="label-mono mb-10 flex flex-wrap gap-x-2 text-muted-foreground">
       {items.map((it, i) => (

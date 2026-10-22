@@ -3,7 +3,7 @@ import { footerNav, site } from "@/content/site";
 import { services } from "@/content/services";
 import { Container } from "./container";
 import { Logo } from "./logo";
-import { ThemeSelect } from "./theme-toggle";
+import { NavLink } from "./nav-link";
 
 // Футер — панель в цвет темы. Контакты крупно, четыре тихие колонки, внизу — знак URALDOMA во всю ширину (03-design §9, приём Swiss Brut / Style).
 export function Footer() {
@@ -18,24 +18,23 @@ export function Footer() {
       <Container className="grid grid-cols-1 gap-x-gutter gap-y-12 py-24 md:grid-cols-12 md:py-32">
         <div className="md:col-span-3">
           <p className="max-w-[30ch] text-small">{site.tagline}</p>
-          <div className="mt-8"><ThemeSelect /></div>
         </div>
         <nav aria-label="Услуги" className="md:col-span-3 md:col-start-4">
           <p className="caps mb-4">Услуги</p>
           <ul className="space-y-2 text-small text-panel-foreground">
             {services.map((s) => (
-              <li key={s.slug}><Link href={`/services/${s.slug}/`} className="hover:text-brand">{s.title}</Link></li>
+              <li key={s.slug}><NavLink href={`/services/${s.slug}/`} className="hover:text-brand" active="text-brand">{s.title}</NavLink></li>
             ))}
-            <li><Link href="/furniture/" className="hover:text-brand">Мебель на заказ</Link></li>
+            <li><NavLink href="/furniture/" className="hover:text-brand" active="text-brand">Мебель на заказ</NavLink></li>
           </ul>
         </nav>
         <nav aria-label="Компания" className="md:col-span-3 md:col-start-7">
           <p className="caps mb-4">Компания</p>
           <ul className="space-y-2 text-small text-panel-foreground">
             {footerNav.map((n) => (
-              <li key={n.href}><Link href={n.href} className="hover:text-brand">{n.label}</Link></li>
+              <li key={n.href}><NavLink href={n.href} className="hover:text-brand" active="text-brand">{n.label}</NavLink></li>
             ))}
-            <li><Link href="/articles/" className="hover:text-brand">Статьи</Link></li>
+            <li><NavLink href="/articles/" className="hover:text-brand" active="text-brand">Статьи</NavLink></li>
           </ul>
         </nav>
         <div className="md:col-span-3 md:col-start-10">

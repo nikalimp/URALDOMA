@@ -57,10 +57,10 @@ export default function Prices() {
           <SectionHead n="04" label="Другие услуги" title={<>Цены на <em>отдельные работы</em></>} />
           <div className="border-t border-border">
             {priceRows.map((r) => (
-              <Link key={r.service} href={r.href} className="group grid grid-cols-1 gap-x-5 gap-y-1 border-b border-border py-5 md:grid-cols-12">
-                <span className="t-lead group-hover:text-brand md:col-span-5">{r.service}</span>
-                <span className="text-body md:col-span-3">{r.value}</span>
-                <span className="text-small text-muted-foreground md:col-span-4">{r.note}</span>
+              <Link key={r.service} href={r.href} className="group grid grid-cols-1 gap-x-gutter gap-y-1 border-b border-border py-5 md:grid-cols-12 md:items-baseline">
+                <span className="t-lead group-hover:text-brand md:col-span-6">{r.service}</span>
+                <span className="text-body md:col-span-3 md:col-start-7">{r.value}</span>
+                <span className="text-small text-muted-foreground md:col-span-3 md:col-start-10">{r.note}</span>
               </Link>
             ))}
           </div>
@@ -70,7 +70,7 @@ export default function Prices() {
       <Section>
         <Container>
           <Grid>
-            <div className="md:col-span-5">
+            <div className="md:col-span-6">
               <Label n="05">Что влияет на цену</Label>
               <H2>От чего зависит <em>итог</em></H2>
               <dl className="mt-10 border-t border-border">

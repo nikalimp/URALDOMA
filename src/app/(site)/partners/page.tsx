@@ -22,7 +22,7 @@ export default function Partners() {
       <Section className="pt-0 md:pt-0">
         <Container>
           <Grid>
-            <div className="md:col-span-5">
+            <div className="md:col-span-6">
               <Label n="01">Кому подходит</Label>
               <ul className="border-t border-border">{P.allowed.map((a) => <li key={a} className="text-body border-b border-border py-4">{a}</li>)}</ul>
             </div>
@@ -71,7 +71,7 @@ export default function Partners() {
         <Container>
           <Grid>
             <div className="md:col-span-6"><Label className="text-panel-muted">Заявка</Label><H2>Стать <em>партнёром</em></H2><p className="text-body mt-6 text-panel-muted">Оставьте контакты — пришлём партнёрскую ссылку и договоримся об условиях.</p></div>
-            <div className="rounded-card bg-background p-6 text-foreground md:col-span-5 md:col-start-8 md:p-8"><LeadForm source="partners" withName button="Стать партнёром" /></div>
+            <div className="rounded-card bg-background p-6 text-foreground md:col-span-6 md:col-start-7 md:p-8"><LeadForm source="partners" withName button="Стать партнёром" /></div>
           </Grid>
         </Container>
       </Section>

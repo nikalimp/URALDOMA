@@ -17,7 +17,7 @@ export default function Warranty() {
       <PageHead crumbs={[{ name: "Главная", path: "/" }, { name: "Гарантия и договор" }]} h1={W.h1} answer={W.answer} photo="garinsky-21/01" />
       <Section>
         <Container>
-          <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-gutter sm:grid-cols-2 md:grid-cols-4">
             {W.items.map((it, i) => (
               <div key={it.title} className="reveal border-t border-border pt-5 pb-12">
                 <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
@@ -35,9 +35,9 @@ export default function Warranty() {
               <H2 className="md:col-span-9 md:col-start-4">Как вы принимаете <em>работы</em></H2>
             <ol className="border-t border-border md:col-span-9 md:col-start-4 md:mt-16">
               {W.acceptance.map((a, i) => (
-                <li key={a.title} className="grid grid-cols-[56px_1fr] gap-x-5 border-b border-border py-6">
-                  <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <div><h3 className="t-lead">{a.title}</h3><p className="text-small mt-2 text-earth">{a.text}</p></div>
+                <li key={a.title} className="grid grid-cols-[56px_1fr] gap-x-gutter border-b border-border py-6 md:grid-cols-9">
+                  <span className="caps text-muted-foreground md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="md:col-span-6"><h3 className="t-lead">{a.title}</h3><p className="text-small mt-2 text-earth">{a.text}</p></div>
                 </li>
               ))}
             </ol>

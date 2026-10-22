@@ -46,7 +46,9 @@ export const personSchema: Record<string, unknown> | null = site.person && {
 
 export const websiteSchema = { "@type": "WebSite", "@id": websiteId, url: site.url, name: site.name, inLanguage: "ru-RU", publisher: { "@id": orgId } };
 
+// Крошки показываем и размечаем только при вложенности 2+ (Главная / Раздел / Страница) — spec §9, решение Ника 22.10.2026.
 export function breadcrumbs(items: { name: string; path: string }[]) {
+  if (items.length < 3) return null;
   return {
     "@type": "BreadcrumbList",
     itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: `${site.url}${it.path}` })),
@@ -112,11 +114,11 @@ export function caseSchema(c: { slug: string; title: string; summary: string; pl
 }
 
 // Страница ЖК: услуга ремонта с привязкой к дому
-export function complexServiceSchema(c: { slug: string; h1: string; answer: string; name: string; address?: string }) {
+export function complexServiceSchema(c: { slug: string; h1: string; answer: string; name: string; address?: string; serviceType?: string }) {
   return {
     "@type": "Service",
     name: c.h1,
-    serviceType: "Ремонт квартиры",
+    serviceType: c.serviceType ?? "Ремонт квартиры",
     description: c.answer,
     url: `${site.url}/complexes/${c.slug}/`,
     provider: { "@id": orgId },
