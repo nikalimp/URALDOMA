@@ -6,8 +6,7 @@
 //  4. Блокирующее перед выкладкой (стандарт §11): Метрика подключена, ИНН и ОГРН проходят контрольную сумму,
 //     есть политика и согласие на обработку ПДн, у переноса — снят geo-check «до».
 //  5. Тексты по Главреду (стандарт §7): каждая страница из sitemap — 7,5+ (ниже 6,5 — ошибка).
-//  6. Дизайн-система (стандарт §6, CLAUDE.md): tokens.css собран из design-system/tokens.json; HEX, rgb(), text-white
-//     и палитра Tailwind в src/ — ошибка (своя проверка URALDOMA, строже стартера).
+//  6. Дизайн-система (стандарт §6): цвет в обход токенов (text-[#…], bg-[rgb(…)]) — ошибка.
 //  7. Ориентиры с пометкой «estimate» — список мест, которые ждут подтверждения клиента.
 // Режима тестовой выкладки нет (решение Ника, 21.10.2026): сайт всегда открыт для индексации, проверка всегда строгая.
 // Отчёт geo-check сохраняется в specs/reports/geo-check-<дата>.md — история для клиента.
@@ -133,8 +132,8 @@ const ogrnOk = (v) => {
   if (/^\d{15}$/.test(v)) return Number((BigInt(v.slice(0, 14)) % 13n) % 10n) === +v[14];
   return false;
 };
-const inn = field("inn"), ogrn = field("ogrn") || field("ogrnip"); // у ИП поле ogrnip (src/content/site.ts)
-if (/TODO/.test(inn + ogrn) || !inn || !ogrn) prodFail("Реквизиты не заполнены: legal.inn и legal.ogrn в src/content/site.ts");
+const inn = field("inn"), ogrn = field("ogrn") || field("ogrnip"); // у ИП поле ogrnip
+if (/TODO/.test(inn + ogrn) || !inn || !ogrn) prodFail("Реквизиты не заполнены: legal.inn и legal.ogrn (у ИП — legal.ogrnip) в src/content/site.ts");
 else {
   if (!innOk(inn)) fail(`ИНН ${inn} не проходит контрольную сумму (10 цифр — ООО, 12 — ИП; 9 цифр — это КПП, не ИНН). Сверь с ЕГРЮЛ: egrul.nalog.ru`);
   if (!ogrnOk(ogrn)) fail(`ОГРН ${ogrn} не проходит контрольную сумму (13 цифр — ООО, 15 — ОГРНИП). Сверь с ЕГРЮЛ: egrul.nalog.ru`);
@@ -168,39 +167,22 @@ const glavWarn = glav.filter((g) => g.score >= GLAV_FAIL);
 if (glavWarn.length) warn(`Главред ниже ${GLAV_OK} (цель для продающих страниц): ${glavWarn.map((g) => `${g.p} (${g.score})`).join(", ")}`);
 if (!glav.length) ok(`Главред: все страницы из sitemap — ${GLAV_OK}+`);
 
-// 6. Дизайн-система: tokens.css собран из design-system/tokens.json, цвета в вёрстке — только через токены
-try {
-  execFileSync("node", [path.join(ROOT, "scripts", "tokens.mjs"), "--check"], { stdio: "pipe" });
-} catch (e) {
-  fail(`Дизайн-система: ${String(e.stderr || e.message).trim().replace(/^✗ /, "")}`);
-}
-const SRC_DIR = path.join(ROOT, "src");
+// 6. Цвет в обход токенов
 const srcFiles = (function walk(d) {
   return fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => {
     const p = path.join(d, e.name);
-    return e.isDirectory() ? walk(p) : /\.(tsx?|css)$/.test(e.name) && e.name !== "tokens.css" ? [p] : [];
+    return e.isDirectory() ? walk(p) : /\.(tsx?|mdx?)$/.test(e.name) ? [p] : [];
   });
-})(SRC_DIR);
-const PALETTE = "white|black|(?:red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|slate|gray|zinc|neutral|stone)-\\d{2,3}";
-const RAW_COLOR = [
-  /\[#[0-9a-fA-F]{3,8}\]/, // text-[#111110]
-  /["'`]#[0-9a-fA-F]{3,8}["'`]/, // "#f5f4f0" в строке
-  new RegExp(`\\b(?:text|bg|border|from|via|to|fill|stroke|ring|outline|decoration|shadow|divide|placeholder|accent|caret)-(?:${PALETTE})\\b`), // text-white, bg-stone-100
-];
-const offToken = [];
+})(path.join(ROOT, "src"));
+const ARBITRARY_COLOR = /\b(?:text|bg|border|fill|stroke|from|via|to|ring|outline|accent|shadow|decoration|caret|divide|placeholder)-\[(?:#|rgb|rgba|hsl|hsla|oklch|oklab|lab|lch|color)/;
+const colorHits = [];
 for (const f of srcFiles) {
-  const css = f.endsWith(".css");
-  let text = fs.readFileSync(f, "utf8");
-  if (css) text = text.replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, " ")); // комментарии не считаем, номера строк сохраняем
-  text.split("\n").forEach((line, i) => {
-    const hit = css
-      ? /#[0-9a-fA-F]{3,8}\b|rgba?\(/.test(line) && !/mask/.test(line) // #000 в масках — не цвет, а прозрачность
-      : RAW_COLOR.some((re) => re.test(line)) || /rgba?\(\s*\d/.test(line);
-    if (hit) offToken.push(`${path.relative(ROOT, f)}:${i + 1}`);
+  fs.readFileSync(f, "utf8").split("\n").forEach((line, i) => {
+    if (ARBITRARY_COLOR.test(line)) colorHits.push(`${path.relative(ROOT, f)}:${i + 1}`);
   });
 }
-if (offToken.length) fail(`Цвета в обход дизайн-системы (нужен токен из design-system/tokens.json): ${offToken.slice(0, 10).join(", ")}${offToken.length > 10 ? " …" : ""}`);
-else ok("Дизайн-система: tokens.css актуален, цвета в вёрстке — только токены");
+if (colorHits.length) fail(`Цвет в обход токенов (стандарт §6, Tailwind п. 2) — заведи токен в globals.css: ${colorHits.slice(0, 8).join(", ")}${colorHits.length > 8 ? " …" : ""}`);
+else ok("Цвета — только через токены");
 
 // 7. Ориентиры, которые ждут подтверждения клиента
 const estimates = [];
@@ -210,6 +192,38 @@ for (const f of [...srcFiles.filter((f) => f.includes(`${path.sep}content${path.
   fs.readFileSync(f, "utf8").split("\n").forEach((line, i) => { if (/\bestimate\b/i.test(line)) estimates.push(`${path.relative(ROOT, f)}:${i + 1}`); });
 }
 if (estimates.length) warn(`Ориентиры без подтверждения клиента (estimate), ${estimates.length}: ${estimates.slice(0, 10).join(", ")} — каждый должен быть в «Вопросах» specs/05-tasks.md`);
+
+// 8. Статьи под Instant View (стандарт §6 «Статьи блога»): один <article>, meta telegram:channel, если у проекта есть канал
+// путь блога и канал — из конфига контент-завода (links.blog_prefix, channels.telegram), иначе /blog/ и contacts.telegram
+const factory = (() => {
+  for (const f of ["content/factory/content.config.json", "Content/content.config.json"]) {
+    const p = path.join(ROOT, f);
+    if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+  return {};
+})();
+const blogDir = path.join(OUT, (factory.links?.blog_prefix || "/blog/").replace(/^\/|\/$/g, ""));
+const tgChannel = factory.channels?.telegram || field("telegram").replace(/^https?:\/\/t\.me\//, "@");
+if (fs.existsSync(blogDir)) {
+  const posts = fs.readdirSync(blogDir, { withFileTypes: true }).filter((e) => e.isDirectory() && e.name !== "_" && fs.existsSync(path.join(blogDir, e.name, "index.html"))); // "_" — заглушка без статей
+  const noArticle = [], noChannel = [];
+  for (const e of posts) {
+    const h = fs.readFileSync(path.join(blogDir, e.name, "index.html"), "utf8");
+    if ((h.match(/<article[\s>]/g) || []).length !== 1) noArticle.push(e.name);
+    if (tgChannel.startsWith("@") && !h.includes('property="telegram:channel"')) noChannel.push(e.name);
+  }
+  if (noArticle.length) warn(`Instant View: у ${noArticle.length} статей не ровно один <article> — ${noArticle.slice(0, 5).join(", ")}`);
+  if (noChannel.length) warn(`Instant View: нет <meta property="telegram:channel" content="${tgChannel}"> в ${noChannel.length} статьях`);
+  if (posts.length && !noArticle.length && !noChannel.length) ok(`Instant View: ${posts.length} статей размечены`);
+}
+
+// 9. Проектные проверки — scripts/check.local.mjs (переживает обновление этого файла из стартера).
+//    export default async ({ ROOT, OUT, fail, ok, warn }) => { … }
+const local = path.join(ROOT, "scripts", "check.local.mjs");
+if (fs.existsSync(local)) {
+  try { await (await import(`file://${local}`)).default?.({ ROOT, OUT, fail, ok, warn, prodFail }); }
+  catch (e) { fail(`check.local.mjs упал: ${e.message.split("\n")[0]}`); }
+}
 
 console.log(failed ? "\nПроверка НЕ пройдена — к запуску рано." : "\nПроверка пройдена. Дальше — ручной чеклист specs/06-launch-checklist.md.");
 process.exit(failed ? 1 : 0);
