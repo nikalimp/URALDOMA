@@ -6,7 +6,7 @@
 ## Стек
 - Next.js 16 App Router, статический экспорт (`out/`), `trailingSlash: true`, Tailwind 4, токены в `src/app/globals.css`.
 - Шрифты локально: Onest Variable + JetBrains Mono Variable (`@fontsource-variable`). Иконки — инлайн-SVG и типографские стрелки.
-- Контент — `src/content/*.ts` и `content/articles/*.md`; из них страницы, JSON-LD (`src/lib/schema.ts`), `llms.txt`, `sitemap.xml`.
+- Контент — `src/content/*.ts` и `content/blog/*.md`; из них страницы, JSON-LD (`src/lib/schema.ts`), `llms.txt`, `sitemap.xml`.
 - Интерактив — три клиентских компонента: форма заявки, калькулятор, чертёж процесса. Весь текст есть в HTML без JS.
 
 ## Хостинг и выкладка

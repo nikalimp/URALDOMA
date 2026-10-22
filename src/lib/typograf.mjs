@@ -3,7 +3,7 @@
 // Не трогает: frontmatter, код (``` и `), HTML-теги, URL, email, [[вики-ссылки]], адреса ссылок ](...).
 //
 // Ядро — копия .claude/skills/web-dev/typograf.mjs (без CLI). Применяется:
-//   • статьи content/articles — при сборке (src/lib/posts.ts);
+//   • статьи content/blog — при сборке (src/lib/posts.ts);
 //   • тексты в src — скриптом scripts/typograf.mjs перед каждой сборкой (npm run typograf).
 
 const NBSP = "\u00A0";
