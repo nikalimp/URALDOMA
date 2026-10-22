@@ -73,8 +73,13 @@ async function tg(method, body) {
   return r.json();
 }
 
-const ids = [...targets.keys()].filter((id) => !edited[id]).sort((a, b) => a - b);
+// Бот правит только свои сообщения. Чужие посты (MESSAGE_ID_INVALID) запоминаем с именем бота и не пробуем снова,
+// пока в секрете тот же бот; сменили токен — попробуем ещё раз.
+const failed = (regAll.edit_failed ||= {});
+const me = apply && env.TELEGRAM_BOT_TOKEN ? (await (await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getMe`)).json()).result?.username : "";
+const ids = [...targets.keys()].filter((id) => !edited[id] && (!me || failed[id] !== me)).sort((a, b) => a - b);
 if (!ids.length) process.exit(0);
+if (me) report("notice", `правит бот @${me}, постов к правке: ${ids.length}`);
 const posts = new Map();
 for (let before = Math.max(...ids) + 1; before > Math.min(...ids); ) {
   const page = parsePosts(await channelPage(before));
@@ -103,7 +108,10 @@ for (const id of ids) {
     fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n");
     report("notice", `пост ${id} отредактирован`);
   }
-  else report("warning", `пост ${id}: ${j.description}`);
+  else {
+    if (/MESSAGE_ID_INVALID|message can't be edited/.test(j.description || "") && me) { failed[id] = me; fs.writeFileSync(REG, JSON.stringify(regAll, null, 1) + "\n"); }
+    report("warning", `пост ${id}: ${j.description}${me ? ` (бот @${me} не автор поста)` : ""}`);
+  }
   await new Promise((r) => setTimeout(r, 1200)); // лимит Telegram на правки в канале
 }
 report("notice", apply ? `отредактировано ${ok} из ${ids.length}` : `проверка: ${ids.length} постов, запустите с apply`);
