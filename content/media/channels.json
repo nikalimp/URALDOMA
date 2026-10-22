@@ -76,7 +76,7 @@
    "iv": "https://telegra.ph/Skolko-stoit-remont-dvuhkomnatnoj-kvartiry-v-Ekaterinburge-v-2026-godu-10-22-2",
    "iv_path": "Skolko-stoit-remont-dvuhkomnatnoj-kvartiry-v-Ekaterinburge-v-2026-godu-10-22-2",
    "tg": "error",
-   "tg_error": "Telegram: {\"ok\":false,\"error_code\":400,\"description\":\"Bad Request: chat not found\"}",
+   "tg_error": "Telegram: {\"ok\":false,\"error_code\":403,\"description\":\"Forbidden: bot is not a member of the channel chat\"}",
    "max": "off"
   }
  },
