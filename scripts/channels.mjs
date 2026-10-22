@@ -2,7 +2,8 @@
 // Оригинал — NikitOS/.claude/toolkit/site-channels/channels.mjs (копия в проекте — scripts/channels.mjs).
 //
 // Решение Ника (22.10.2026): полная статья живёт только на сайте. В канал идёт её краткое содержание —
-// суть, цифры, выводы (telegram.text из спецификации медиа) — и ссылка «Читать полностью на сайте».
+// суть, цифры, выводы (telegram.text из спецификации медиа) — и кнопка «Читать полностью на сайте».
+// Ссылки в тексте нет — только кнопка (решение Ника 22.10.2026); превью — страница статьи с обложкой.
 // Instant View и копии на telegra.ph не используем: они забирают трафик с сайта.
 //
 // Сайт, автор — из brand.json проекта (--brand или MEDIA_BRAND).
@@ -91,7 +92,7 @@ function summary(p) {
 
 async function sendTelegram(p) {
   const site = utm(articleUrl(p.slug), "telegram", p.slug);
-  const text = `${summary(p)}\n\n<a href="${site}">Читать полностью на ${HOST} →</a>`;
+  const text = summary(p);
   const r = await post(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     chat_id: env.TELEGRAM_CHAT_ID, text: text.slice(0, 4090), parse_mode: "HTML",
     // превью — страница статьи на сайте (обложка из og:image), над текстом
@@ -108,7 +109,7 @@ async function sendMax(p) {
   const attachments = [];
   if (p.cover) attachments.push({ type: "image", payload: { url: abs(p.cover) } });
   attachments.push({ type: "inline_keyboard", payload: { buttons: [[{ type: "link", text: "Читать полностью на сайте", url: site }]] } });
-  const text = `${summary(p)}\n\n<a href="${site}">Читать полностью на ${HOST} →</a>`.slice(0, 3990);
+  const text = summary(p).slice(0, 3990);
   const r = await post(`https://platform-api2.max.ru/messages?chat_id=${env.MAX_CHAT_ID}`, { text, format: "html", attachments, notify: true },
     { Authorization: env.MAX_BOT_TOKEN });
   if (!r.ok || r.j.code) throw new Error("Max: " + JSON.stringify(r.j));
@@ -134,7 +135,7 @@ async function main() {
     const r = (reg.posts[p.slug] ||= {});
     const want = (k) => force || !r[k] || r[k] === "error";
     if (dry) {
-      console.log(`\n— ${p.slug}: tg=${r.tg ?? "—"} max=${r.max ?? "—"}\n${summary(p)}\n\nЧитать полностью на ${HOST} → ${utm(articleUrl(p.slug), "telegram", p.slug)}`);
+      console.log(`\n— ${p.slug}: tg=${r.tg ?? "—"} max=${r.max ?? "—"}\n${summary(p)}\n\n[кнопка] Читать полностью на сайте → ${utm(articleUrl(p.slug), "telegram", p.slug)}`);
       continue;
     }
     if (want("tg")) {
