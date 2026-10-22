@@ -80,11 +80,16 @@ report("notice", `правит бот @${me || "?"}, постов к правк�
 
 let ok = 0;
 for (const p of todo) {
-  const j = await tg("editMessageText", {
+  const body = {
     chat_id: `@${CHANNEL}`, message_id: p.id, text: p.text, parse_mode: "HTML",
     link_preview_options: { url: p.url, prefer_large_media: true, show_above_text: true },
     reply_markup: { inline_keyboard: [[{ text: "Читать полностью на сайте", url: p.url }]] },
-  });
+  };
+  let j = await tg("editMessageText", body);
+  for (let n = 0; n < 3 && j.error_code === 429; n++) { // Telegram просит паузу — ждём и повторяем
+    await new Promise((r) => setTimeout(r, ((j.parameters?.retry_after || 15) + 1) * 1000));
+    j = await tg("editMessageText", body);
+  }
   if (j.ok || /message is not modified/.test(j.description || "")) {
     ok++; synced[p.id] = p.hash; delete failed[p.id]; save();
   } else {
