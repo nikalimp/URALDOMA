@@ -7,3 +7,6 @@ next-env.d.ts
 .DS_Store
 specs/reports/.*.json
 content/factory/.env
+# Отчёт geo-check, который пишет npm run check в день сборки: в Actions он меняется и мешает git pull --rebase
+# при сохранении реестра каналов. История — коммитить вручную под другим именем или в specs/reports/archive/.
+specs/reports/geo-check-*.md
