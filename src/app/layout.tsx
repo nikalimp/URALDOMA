@@ -8,6 +8,8 @@ import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
 import { GuideLines } from "@/components/guide-lines";
 import { ScrollTop } from "@/components/scroll-top";
+import { Preloader, preloaderScript } from "@/components/preloader";
+import { CursorTag } from "@/components/cursor-tag";
 import { JsonLd } from "@/components/json-ld";
 import { graph, orgSchema, personSchema, websiteSchema } from "@/lib/schema";
 import { tokenColor } from "@/lib/tokens";
@@ -45,10 +47,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="theme-color" content={themeColors.light} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: preloaderScript }} />
         {metrika && <script dangerouslySetInnerHTML={{ __html: metrikaScript(site.metrikaId) + goalsScript }} />}
         <JsonLd data={graph(websiteSchema, orgSchema, personSchema)} />
       </head>
       <body className="flex min-h-screen flex-col">
+        <Preloader />
         {metrika && (
           <noscript><div><img src={`https://mc.yandex.ru/watch/${site.metrikaId}`} style={{ position: "absolute", left: "-9999px" }} alt="" /></div></noscript>
         )}
@@ -58,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CookieBanner />
         <GuideLines />
         <ScrollTop />
+        <CursorTag />
       </body>
     </html>
   );

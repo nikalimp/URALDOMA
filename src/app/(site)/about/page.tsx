@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { about, home, team } from "@/content/home";
 import { site } from "@/content/site";
+import { StickyList } from "@/components/sticky-list";
+import { FillText } from "@/components/fill-text";
 import { Container, Grid, Section, SectionHead, Label, H2, linkArrow } from "@/components/container";
 import { PageHead } from "@/components/page-head";
 import { CtaSection } from "@/components/cta";
@@ -37,7 +39,7 @@ export default function About() {
             <img src="/images/team/nikolay.webp" alt={`${site.person.name}, директор URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover grayscale md:col-span-3" />
             <div className="md:col-span-9 md:col-start-4 md:mt-16">
               <Label n="01">Директор</Label>
-              <blockquote className="t-statement font-serif italic">«{about.quote}»</blockquote>
+              <FillText as="blockquote" text={`«${about.quote}»`} className="t-statement font-serif italic" />
               <p className="text-body mt-8 border-t border-border pt-6 font-medium">{site.person.name}</p>
               <p className="text-small text-muted-foreground">директор URALDOMA</p>
             </div>
@@ -47,16 +49,7 @@ export default function About() {
 
       <Section>
         <Container>
-          <SectionHead n="02" label="Принципы" title={<>Как мы <em>работаем</em></>} />
-          <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-4">
-            {about.principles.map((p, i) => (
-              <div key={p.title} className="reveal border-t border-border pt-5 pb-10">
-                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="t-lead mt-5">{p.title}</h3>
-                <p className="text-small mt-3 text-earth">{p.text}</p>
-              </div>
-            ))}
-          </div>
+          <StickyList label="Принципы" title={<>Как мы <em>работаем</em></>} items={about.principles} />
         </Container>
       </Section>
 

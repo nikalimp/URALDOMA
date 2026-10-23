@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Case } from "@/content/cases";
 import { pic } from "@/content/photos";
 import { Img } from "./photo";
+import { CaseHover } from "./case-card";
 
 // Объекты на главной: две колонки по направляющим (1–6 и 7–12), горизонтальная прокрутка с привязкой к кадру.
 // Стрелки листают на одну колонку; без JavaScript лента прокручивается пальцем, тачпадом и Shift+колесом.
@@ -25,9 +26,10 @@ export function CaseRail({ cases, children }: { cases: Case[]; children?: React.
           const p = pic(`${c.slug}/${c.cover}`);
           return (
             <li key={c.slug}>
-              <Link href={`/portfolio/${c.slug}/`} className="group block">
-                <div className="aspect-[4/3] overflow-hidden bg-secondary">
+              <Link href={`/portfolio/${c.slug}/`} data-cursor="(подробнее) ↘" className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                   <Img p={p} alt={c.alt} sizes="(min-width: 768px) 50vw, 85vw" className="transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]" />
+                  <CaseHover c={c} />
                 </div>
                 <div className="mt-5 flex items-baseline justify-between gap-6">
                   <span className="t-lead group-hover:text-brand">{c.place}</span>

@@ -7,7 +7,8 @@ import { CtaSection } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbs, graph, itemList } from "@/lib/schema";
 import { pageMeta } from "@/lib/meta";
-import { pic } from "@/content/photos";
+import { pic, picsOf } from "@/content/photos";
+import { twoPics } from "@/components/service-rows";
 import { Img } from "@/components/photo";
 
 export const metadata = pageMeta({
@@ -38,16 +39,24 @@ export default function Services() {
             <Container>
               <SectionHead n={String(gi + 1).padStart(2, "0")} label={g.label} title={g.label} />
               <div className="border-t border-border">
-                {list.map((s) => (
-                  <Link key={s.slug} href={`/services/${s.slug}/`} className="group grid grid-cols-1 gap-x-gutter gap-y-2 border-b border-foreground/15 py-6 md:grid-cols-12 md:items-baseline md:py-8">
-                    <h2 className="t-lead group-hover:text-brand md:col-span-6">{s.title}</h2>
-                    <p className="text-small text-earth md:col-span-3 md:col-start-7">{s.short}</p>
-                    <p className="text-small flex justify-between gap-4 md:col-span-3 md:col-start-10">
-                      <span className="text-muted-foreground">{s.priceFrom}</span>
-                      <span aria-hidden="true" className="text-brand transition-transform group-hover:translate-x-1">→</span>
-                    </p>
-                  </Link>
-                ))}
+                {list.map((s) => {
+                  const [a, b] = twoPics(s.cover, pic, picsOf);
+                  return (
+                    <Link key={s.slug} href={`/services/${s.slug}/`} data-cursor="(подробнее) ↘" className="group relative grid grid-cols-1 gap-x-gutter gap-y-2 border-b border-foreground/15 py-6 md:grid-cols-12 md:items-baseline md:py-8">
+                      <h2 className="t-lead group-hover:text-brand md:col-span-6">{s.title}</h2>
+                      <p className="text-small text-earth transition-opacity md:col-span-3 md:col-start-7 md:group-hover:opacity-0">{s.short}</p>
+                      <p className="text-small flex justify-between gap-4 transition-opacity md:col-span-3 md:col-start-10 md:group-hover:opacity-0">
+                        <span className="text-muted-foreground">{s.priceFrom}</span>
+                        <span aria-hidden="true" className="text-brand">→</span>
+                      </p>
+                      {/* превью при наведении: два кадра объекта на месте описания и цены (03-design §11) */}
+                      <span aria-hidden="true" className="pointer-events-none absolute inset-y-3 right-0 hidden w-[calc(50%-var(--gutter)/2)] grid-cols-2 gap-x-gutter opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:grid">
+                        <span className="overflow-hidden"><Img p={a} alt="" sizes="320px" className="scale-105 transition-transform duration-700 group-hover:scale-100" /></span>
+                        <span className="overflow-hidden"><Img p={b} alt="" sizes="320px" className="scale-105 transition-transform duration-700 group-hover:scale-100" /></span>
+                      </span>
+                    </Link>
+                  );
+                })}
               </div>
             </Container>
           </Section>
