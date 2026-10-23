@@ -21,7 +21,7 @@ jobs:
   site:
     # без этой строки запуск падает со startup_failure: сценарий коммитит медиа обратно в репозиторий
     permissions: { contents: write }
-    uses: nikalimp/deploy-kit/.github/workflows/site.yml@v1
+    uses: nikalimp/deploy-kit/.github/workflows/site.yml@main
     with:
       adapter: ssh-ftp
       site_dir: "."
