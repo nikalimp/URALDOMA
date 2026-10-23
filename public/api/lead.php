@@ -58,28 +58,46 @@ $text = (!empty($cfg['staging']) ? "ТЕСТ · " : '') . "Заявка с са�
   . ($lead['extra'] ? "{$lead['extra']}\n" : '');
 
 $sent = false;
+$log = [];
+
+// POST наружу: curl, если есть, иначе file_get_contents. Возвращает [http-код, тело или текст ошибки].
+function post_out(string $url, array $fields): array {
+  if (function_exists('curl_init')) {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_POSTFIELDS => http_build_query($fields), CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10, CURLOPT_CONNECTTIMEOUT => 6]);
+    $body = curl_exec($ch);
+    $code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $err = curl_error($ch);
+    curl_close($ch);
+    return [$code, $body === false ? "curl: $err" : (string)$body];
+  }
+  $ctx = stream_context_create(['http' => ['method' => 'POST', 'timeout' => 10, 'ignore_errors' => true,
+    'header' => "Content-Type: application/x-www-form-urlencoded\r\n", 'content' => http_build_query($fields)]]);
+  $body = @file_get_contents($url, false, $ctx);
+  $code = isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_response_header[0], $m) ? (int)$m[1] : 0;
+  return [$code, $body === false ? 'fopen: ' . (error_get_last()['message'] ?? 'нет ответа') : (string)$body];
+}
 
 // 2. Telegram
 if (!empty($cfg['tg_token']) && !empty($cfg['tg_chats'])) {
   foreach ((array)$cfg['tg_chats'] as $chat) {
-    $ctx = stream_context_create(['http' => [
-      'method' => 'POST', 'timeout' => 8,
-      'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-      'content' => http_build_query(['chat_id' => $chat, 'text' => $text, 'disable_web_page_preview' => 'true']),
-    ]]);
-    $res = @file_get_contents("https://api.telegram.org/bot{$cfg['tg_token']}/sendMessage", false, $ctx);
-    if ($res && str_contains($res, '"ok":true')) $sent = true;
+    [$code, $res] = post_out("https://api.telegram.org/bot{$cfg['tg_token']}/sendMessage", ['chat_id' => (string)$chat, 'text' => $text, 'disable_web_page_preview' => 'true']);
+    if (str_contains($res, '"ok":true')) $sent = true;
+    else $log[] = "tg $chat: $code " . mb_substr($res, 0, 200);
   }
-}
+} else $log[] = 'tg: нет tg_token или tg_chats в lead-config.php';
 
 // 3. Почта
 if (!empty($cfg['mail_to'])) {
   $from = $cfg['mail_from'] ?? ('site@' . preg_replace('/^www\./', '', $host));
   $headers = "From: URALDOMA <{$from}>\r\nContent-Type: text/plain; charset=utf-8\r\n";
   $subject = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $lead['source']) . '?=';
-  foreach ((array)$cfg['mail_to'] as $to) { if (@mail($to, $subject, $text, $headers)) $sent = true; }
+  foreach ((array)$cfg['mail_to'] as $to) {
+    if (@mail($to, $subject, $text, $headers, '-f' . $from)) $sent = true;
+    else $log[] = "mail $to: " . (error_get_last()['message'] ?? 'mail() вернул false');
+  }
 }
 
 // Заявка уже сохранена на сервере, поэтому отвечаем успехом даже при сбое отправки; сбой видно в логе
-if (!$sent) @file_put_contents($dir . '/errors.log', date('c') . " не отправлено: {$lead['phone']}\n", FILE_APPEND);
+if ($log) @file_put_contents($dir . '/errors.log', date('c') . ($sent ? ' частично' : ' не отправлено') . ": {$lead['phone']} | " . implode(' | ', $log) . "\n", FILE_APPEND);
 done(200, ['ok' => true]);
