@@ -78,6 +78,10 @@
    "tg": "https://t.me/uraldomaekb/28",
    "tg_error": "Telegram: {\"ok\":false,\"error_code\":403,\"description\":\"Forbidden: bot is not a member of the channel chat\"}",
    "max": "off"
+  },
+  "renovation-estimate": {
+   "tg": "https://t.me/uraldomaekb/29",
+   "max": "off"
   }
  },
  "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b",
@@ -102,6 +106,7 @@
   "23": "ddb027c202ac",
   "24": "d694888b765e",
   "25": "31255458ada3",
-  "28": "93f315f22b1c"
+  "28": "93f315f22b1c",
+  "29": "389543d05f0a"
  }
 }
