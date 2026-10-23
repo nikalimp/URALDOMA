@@ -2,8 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services, serviceBySlug } from "@/content/services";
 import { cases } from "@/content/cases";
-import { Container, Grid, Section, SectionHead, Label, H2, linkArrow } from "@/components/container";
+import { Container, Grid, Section, SectionHead, Label, H2, linkArrow, btnPrimary } from "@/components/container";
 import { PageHead } from "@/components/page-head";
+import { StickyList } from "@/components/sticky-list";
+import { site } from "@/content/site";
 import { FaqList } from "@/components/faq";
 import { CtaSection } from "@/components/cta";
 import { CaseCard } from "@/components/case-card";
@@ -56,16 +58,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section>
         <Container>
-          <SectionHead n={num()} label="Что входит" title={<>Что входит <em>в работу</em></>} />
-          <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 md:grid-cols-12">
-            {s.includes.map((it, i) => (
-              <div key={it.title} className="reveal border-t border-border pt-5 pb-12 md:col-span-6">
-                <span className="caps text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="t-lead mt-5">{it.title}</h3>
-                <p className="text-small mt-3 max-w-[40ch] text-earth">{it.text}</p>
-              </div>
-            ))}
-          </div>
+          <StickyList label="Что входит" title={<>Что входит <em>в работу</em></>} aside={s.short} action={<a href={site.cta.href} className={btnPrimary}>{site.cta.label}<span aria-hidden="true">→</span></a>} items={s.includes} />
         </Container>
       </Section>
 

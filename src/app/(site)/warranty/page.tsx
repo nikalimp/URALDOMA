@@ -6,6 +6,7 @@ import { FaqList } from "@/components/faq";
 import { CtaSection } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbs, faqSchema, graph, orgId } from "@/lib/schema";
+import { StickyList } from "@/components/sticky-list";
 import { pageMeta } from "@/lib/meta";
 
 export const metadata = pageMeta({ title: W.metaTitle, description: W.metaDescription, path: "/warranty/" });
@@ -30,18 +31,7 @@ export default function Warranty() {
       </Section>
       <Section>
         <Container>
-          <Grid>
-            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Приёмка</p>
-              <H2 className="md:col-span-9 md:col-start-4">Как вы принимаете <em>работы</em></H2>
-            <ol className="border-t border-border md:col-span-9 md:col-start-4 md:mt-16">
-              {W.acceptance.map((a, i) => (
-                <li key={a.title} className="grid grid-cols-[56px_1fr] gap-x-gutter border-b border-border py-6 md:grid-cols-9">
-                  <span className="caps text-muted-foreground md:col-span-3">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="md:col-span-6"><h3 className="t-lead">{a.title}</h3><p className="text-small mt-2 text-earth">{a.text}</p></div>
-                </li>
-              ))}
-            </ol>
-          </Grid>
+          <StickyList label="Приёмка" title={<>Как вы принимаете <em>работы</em></>} items={W.acceptance} />
         </Container>
       </Section>
       <Section>
