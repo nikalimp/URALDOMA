@@ -86,6 +86,18 @@
   "turnkey-renovation-tariffs": {
    "tg": "https://t.me/uraldomaekb/30",
    "max": "off"
+  },
+  "bedroom-renovation": {
+   "tg": "https://t.me/uraldomaekb/31",
+   "max": "off"
+  },
+  "flooring-options": {
+   "tg": "https://t.me/uraldomaekb/32",
+   "max": "off"
+  },
+  "winter-renovation": {
+   "tg": "https://t.me/uraldomaekb/33",
+   "max": "off"
   }
  },
  "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b",
@@ -112,6 +124,9 @@
   "25": "31255458ada3",
   "28": "93f315f22b1c",
   "29": "389543d05f0a",
-  "30": "025b589a5c31"
+  "30": "025b589a5c31",
+  "31": "44e11c569855",
+  "32": "8a6689fe3157",
+  "33": "a86af67b8fa3"
  }
 }
