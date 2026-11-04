@@ -30,22 +30,40 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 ::view-transition-new(root) { animation: theme-reveal .6s cubic-bezier(.4, 0, .2, 1); }
 @keyframes theme-reveal { from { clip-path: circle(0 at var(--tx, 100%) var(--ty, 0)); } to { clip-path: circle(150vmax at var(--tx, 100%) var(--ty, 0)); } }
 
-/* —— Типографика: 7 ступеней вместо 29 (03-design §9, дизайн-система «Шкала») ——
-   display — H1 обложки; title — H1 страниц; statement — H2, утверждения, цифры; lead — ответ, карточки, FAQ; дальше body/small/caps */
-.t-display { font-size: 12vw; line-height: 0.86; letter-spacing: -0.055em; text-transform: uppercase; }
-.t-title { font-size: 44px; line-height: 0.96; letter-spacing: -0.05em; text-wrap: balance; }
-.t-statement { font-size: 32px; line-height: 1.05; letter-spacing: -0.035em; text-wrap: balance; }
-.t-lead { font-size: 20px; line-height: 1.38; letter-spacing: -0.01em; }
-@media (min-width: 768px) {
-  .t-display { font-size: min(9vw, 168px); }
-  .t-title { font-size: clamp(56px, 7vw, 128px); line-height: 0.94; }
-  .t-statement { font-size: clamp(40px, 4.4vw, 76px); line-height: 1.02; }
-  .t-lead { font-size: 24px; line-height: 1.35; }
+/* —— Типографика: швейцарская шкала (03-design §12, дизайн-система «Шкала», Roboto Flex) ——
+   accidence — одна цифра или слово на экран; display — H1 обложки; title — H1 страниц и ключевые секции;
+   statement — H2, утверждения; lead — ответ, карточки, FAQ; дальше body/small/caps.
+   Кегли — clamp() между экранами 390 и 1440 px, минимумы в rem (масштаб браузера). Интерлиньяж округляется
+   до базовой линии 4 px (round()), верх прописных и базовая линия без «воздуха шрифта» (text-box). */
+.t-accidence, .t-display, .t-title, .t-statement { text-wrap: balance; hyphens: none; font-kerning: normal; font-feature-settings: "case"; }
+.t-accidence { font-size: clamp(5rem, -0.57rem + 22.86vw, 20rem); line-height: .82; letter-spacing: -0.06em; font-weight: 500; }
+.t-display { font-size: clamp(3rem, 0.21rem + 11.43vw, 10.5rem); line-height: .86; line-height: round(nearest, .86em, var(--baseline)); letter-spacing: -0.055em; font-weight: 500; text-transform: uppercase; }
+.t-title { font-size: clamp(2.25rem, 0.67rem + 6.48vw, 6.5rem); line-height: .94; line-height: round(up, .94em, var(--baseline)); letter-spacing: -0.045em; }
+.t-statement { font-size: clamp(1.75rem, 0.91rem + 3.43vw, 4rem); line-height: 1.04; line-height: round(up, 1.04em, var(--baseline)); letter-spacing: -0.03em; }
+.t-lead { font-size: clamp(1.1875rem, 1.07rem + 0.48vw, 1.5rem); line-height: var(--text-lead--line-height); letter-spacing: -0.01em; }
+.trim { text-box: trim-both cap alphabetic; } /* верх прописных и базовая линия без «воздуха шрифта»: метка и заголовок встают на одну линию */
+/* K1 — строки из маски: слова поднимаются из-под базовой линии по одному (Rise, 03-design §12) */
+.rise .w { display: inline-block; overflow: clip; overflow-clip-margin: .14em; vertical-align: top; }
+.rise .w > span { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .rise .w > span { animation: rise linear both; animation-timeline: view(); animation-range: entry calc(5% + var(--i) * 4%) entry calc(65% + var(--i) * 4%); }
+    .draw { position: relative; border-top-color: transparent !important; }
+    .draw::before { content: ""; position: absolute; inset: -1px 0 auto; height: 1px; background: var(--foreground); transform-origin: left; animation: draw linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+  }
 }
+@keyframes rise { from { translate: 0 110%; } }
+@keyframes draw { from { scale: 0 1; } }
+p { text-wrap: pretty; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+/* Отладка сетки: ?grid в адресе — линейка базовой линии 8 px */
+html[data-grid] body { background-image: repeating-linear-gradient(to bottom, transparent 0 calc(var(--baseline) * 2 - 1px), color-mix(in oklab, var(--brand) 28%, transparent) 0 calc(var(--baseline) * 2)); }
+/* Движение (03-design §11–12): длительности и кривые */
+:root { --dur-1: .2s; --dur-2: .45s; --dur-3: .9s; --ease-out: cubic-bezier(.22, 1, .36, 1); --ease-inout: cubic-bezier(.65, 0, .35, 1); }
 .t-display em { text-transform: none; }
 /* Курсив с засечками — акцент в заголовках, как в глянцевых журналах */
 .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
-h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; }
+h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: calc(-0.03em + 0.02em); font-size-adjust: ex-height 0.53; }
 .caps-display { text-transform: uppercase; font-weight: 400; }
 .caps-display em { text-transform: none; }
 /* Капс-подпись: [ Метка ], (01), метаданные в углах экрана */
@@ -142,3 +160,24 @@ html[data-preload] .preloader-fill { clip-path: inset(0 100% 0 0); animation: pr
   .hero-items { opacity: clamp(0, calc((var(--p) - .55) / .35), 1); }
 }
 @media (prefers-reduced-motion: reduce) { .hero-reveal { --p: 1 !important; } }
+
+/* ── Кинетика волны B (03-design §12). Всё — CSS, без JS; при reduced motion и без view() — статичный вид ── */
+/* K7: последнее слово услуги при наведении — курсив с засечками */
+.swap { transition: letter-spacing var(--dur-2) var(--ease-out); }
+.group:hover .swap, .group:focus-visible .swap { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size-adjust: ex-height 0.53; }
+/* K8: заливка знака в подвале */
+.logo-fill-top { clip-path: inset(0 0 0 0); }
+/* K3 + K5: строка направлений */
+.strip > span { display: inline-block; white-space: nowrap; font-variation-settings: "wdth" 100; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .logo-fill-top { animation: fill-x linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+    .strip > span { animation: strip linear both; animation-timeline: view(); animation-range: cover; }
+    .grow-in { transform-origin: left bottom; animation: grow linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  }
+}
+@keyframes fill-x { from { clip-path: inset(0 100% 0 0); } }
+@keyframes strip { from { translate: 0 0; font-variation-settings: "wdth" 75; } 50% { font-variation-settings: "wdth" 125; } to { translate: -40% 0; font-variation-settings: "wdth" 85; } }
+@keyframes grow { from { scale: .55; opacity: .2; } }
+/* Нижняя панель связи на телефоне — место под неё */
+@media (max-width: 767px) { body { padding-bottom: calc(3rem + env(safe-area-inset-bottom)); } }

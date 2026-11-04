@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { site } from "@/content/site";
-import { home } from "@/content/home";
+import { home, team } from "@/content/home";
 import { services, serviceBySlug } from "@/content/services";
 import { tariffs, formatRub } from "@/content/tariffs";
 import { cases } from "@/content/cases";
@@ -15,6 +15,7 @@ import { CaseRail } from "@/components/case-rail";
 import { ProcessScroll } from "@/components/process-scroll";
 import { HeroReveal } from "@/components/hero-reveal";
 import { FillText } from "@/components/fill-text";
+import { Ticker } from "@/components/motion";
 import { ServiceRows, twoPics } from "@/components/service-rows";
 import { ObjectsMaps } from "@/components/objects-maps";
 import { counts } from "@/lib/objects-map";
@@ -63,7 +64,10 @@ export default function Home() {
               <em className="block pt-[0.06em] text-[0.82em] leading-[0.95] md:pl-[calc((100%+20px)/4)]">{h1b}</em>
             </h1>
             <Grid className="mt-12 items-end gap-y-8 md:mt-16">
-              <p className="t-lead text-earth md:col-span-6 md:col-start-4">{home.lead}</p>
+              <div className="md:col-span-6 md:col-start-4">
+                <p className="t-lead text-earth">От {formatRub(from)} за м². {home.lead}</p>
+                <a href="#map" data-goal="map" className={`${linkArrow} mt-6`}>Найдите свой ЖК на карте <span aria-hidden="true">↓</span></a>
+              </div>
               <div className="flex md:col-span-3 md:col-start-10 md:justify-end">
                 <a href={site.cta.href} className={btnPrimary}>{site.cta.label}<span aria-hidden="true">→</span></a>
               </div>
@@ -91,7 +95,7 @@ export default function Home() {
               {home.facts.map((f) => (
                 <div key={f.label}>
                   <dt className="sr-only">{f.label}</dt>
-                  <dd className="t-statement">{f.value}</dd>
+                  <dd className="t-statement num">{/^\d{4}$/.test(f.value) ? f.value : <Ticker value={f.value} />}</dd>
                   <dd className="mt-3 max-w-[20ch] text-small text-muted-foreground">{f.label}</dd>
                 </div>
               ))}
@@ -107,6 +111,11 @@ export default function Home() {
           </Container>
         </Section>
 
+        {/* K3 + K5 (03-design §12): строка направлений сдвигается вместе со скроллом и «дышит» шириной знаков; дубль списка услуг выше — скрыт от читалок */}
+        <div aria-hidden="true" className="strip t-display overflow-clip whitespace-nowrap py-8 text-muted-foreground md:py-16">
+          <span>Квартиры · Дома · Кухни · Санузлы · Мебель · Квартиры · Дома</span>
+        </div>
+
         {/* 4. Как проходит ремонт: аксонометрия собирается по стадиям, блок закреплён на экране */}
         <ProcessScroll />
 
@@ -121,7 +130,7 @@ export default function Home() {
         </Section>
 
         {/* 5. Карта ЖК и посёлков: у каждого объекта своя страница с фактами дома */}
-        <Section aria-label="Карта ЖК и посёлков" className="border-t border-border">
+        <Section id="map" aria-label="Карта ЖК и посёлков" className="scroll-mt-20 border-t border-border">
           <Container>
             <SectionHead label="География" title={<>{counts.zk} ЖК и {counts.kp} посёлков — <em>на карте</em></>} aside="По каждому дому собрали застройщика, конструкцию, потолки и отделку от застройщика — и как это влияет на ремонт. Выберите свой дом на карте или в списке." />
             <ObjectsMaps />
@@ -134,14 +143,34 @@ export default function Home() {
             <Grid className="gap-y-10">
               <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Цена</p>
               <div className="md:col-span-9 md:col-start-4">
-                <p className="t-title">от {formatRub(from)} <span className="text-muted-foreground">за м²</span></p>
+                {/* K2 (03-design §12): цена — самый крупный знак сайта, растёт, пока блок входит в экран */}
+                <p className="caps text-muted-foreground">Работы — от</p>
+                <p className="t-accidence num grow-in mt-4 whitespace-nowrap">{formatRub(from).replace(/\s*₽$/, "")}</p>
+                <p className="t-statement mt-6">₽ <span className="text-muted-foreground">за м²</span></p>
                 <FillText text="Три тарифа. Итог фиксируется в договоре после замера и не растёт, пока вы сами не поменяете объём работ." className="t-lead mt-10 max-w-[34ch] text-earth" />
                 <div className="mt-12 flex flex-wrap gap-4">
-                  <Link href="/prices/#calculator" className={btnPrimary}>Посчитать квартиру <span aria-hidden="true">→</span></Link>
+                  <Link href="/prices/#calculator" data-goal="calc" className={btnPrimary}>Посчитать квартиру <span aria-hidden="true">→</span></Link>
                   <Link href="/how-we-work/" className={btnOutline}>Как проходит ремонт</Link>
                 </div>
               </div>
             </Grid>
+          </Container>
+        </Section>
+
+        {/* 6б. Люди: четыре лица по направляющим — доверие к подрядчику начинается с команды */}
+        <Section aria-label="Команда" className="border-t border-border">
+          <Container>
+            <SectionHead label="Команда" title={<>Кто ведёт <em>ваш</em> ремонт</>} />
+            <ul className="grid grid-cols-2 gap-x-gutter gap-y-10 md:grid-cols-4">
+              {team.slice(0, 4).map((t) => (
+                <li key={t.photo}>
+                  <img src={`/images/team/${t.photo}.webp`} alt={`${t.name}, ${t.role.toLowerCase()} URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[3/4] w-full bg-secondary object-cover grayscale transition-[filter] duration-500 hover:grayscale-0" />
+                  <p className="mt-4 text-body">{t.name}</p>
+                  <p className="text-small text-muted-foreground">{t.role}</p>
+                </li>
+              ))}
+            </ul>
+            <Link href="/about/" className={`${linkArrow} mt-12`}>Вся команда и производство <span aria-hidden="true">→</span></Link>
           </Container>
         </Section>
 

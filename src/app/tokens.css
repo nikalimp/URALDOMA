@@ -29,6 +29,7 @@
   --scrim: #000000;
   color-scheme: light;
   /* Отступы и поля */
+  --baseline: 4px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -42,6 +43,9 @@
   --space-32: 128px;
   --section-mobile: 96px;
   --section: 176px;
+  --gap-group: 64px;
+  --gap-group-lg: 104px;
+  --gap-pause: 168px;
   /* Радиусы */
   --radius-none: 0px;
   /* Сетка и линии */
@@ -106,16 +110,20 @@
   --color-on-photo-foreground: var(--on-photo-foreground);
   --color-cover-fill: var(--cover-fill);
   --color-scrim: var(--scrim);
+  --spacing-baseline: var(--baseline);
   --spacing-gutter: var(--gutter);
   --spacing-page-pad-mobile: var(--page-pad-mobile);
   --spacing-page-pad: var(--page-pad);
   --spacing-section-mobile: var(--section-mobile);
   --spacing-section: var(--section);
+  --spacing-gap-group: var(--gap-group);
+  --spacing-gap-group-lg: var(--gap-group-lg);
+  --spacing-gap-pause: var(--gap-pause);
 }
 
 /* Постоянные токены: font-sans/serif/mono, rounded-card/pill, text-body/caps/tech … */
 @theme static {
-  --font-sans: "Onest Variable", "Onest", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-sans: "Roboto Flex Variable", "Roboto Flex", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-serif: "Playfair Display Variable", "Playfair Display", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   /* shadcn-компоненты — без скруглений (radius-none) */
@@ -125,15 +133,19 @@
   --radius-xl: 0px;
   --radius-card: 28px;
   --radius-pill: 999px;
+  --text-accidence: 320px;
+  --text-accidence--line-height: 0.82;
+  --text-accidence--letter-spacing: -0.06em;
+  --text-accidence--font-weight: 500;
   --text-body: 17px;
-  --text-body--line-height: 1.55;
+  --text-body--line-height: 28px;
   --text-article: 18px;
-  --text-article--line-height: 1.7;
+  --text-article--line-height: 32px;
   --text-small: 15px;
-  --text-small--line-height: 1.5;
+  --text-small--line-height: 24px;
   --text-caps: 12px;
-  --text-caps--line-height: 1.4;
-  --text-caps--letter-spacing: 0.06em;
+  --text-caps--line-height: 16px;
+  --text-caps--letter-spacing: 0.08em;
   --text-dropcap: 3.2em;
   --text-dropcap--line-height: 0.82;
   --text-tech: 11px;

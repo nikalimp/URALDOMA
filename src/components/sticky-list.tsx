@@ -1,4 +1,5 @@
 import { Grid, H2 } from "@/components/container";
+import { rise } from "@/components/rise";
 
 export type StickyItem = { title: string; text?: string };
 
@@ -10,7 +11,7 @@ export function StickyList({ label, title, aside, action, items, as = "h3" }: { 
     <Grid className="gap-y-12">
       <div className="md:sticky md:top-28 md:col-span-6 md:self-start">
         <p className="caps text-muted-foreground">{label}</p>
-        <H2 className="mt-6 max-w-[16ch]">{title}</H2>
+        <H2 className="rise mt-6 max-w-[16ch]">{rise(title)}</H2>
         {aside && <div className="text-body mt-8 max-w-[44ch] text-earth">{aside}</div>}
         {action && <div className="mt-10">{action}</div>}
       </div>
