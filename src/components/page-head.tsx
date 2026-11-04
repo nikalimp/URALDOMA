@@ -2,6 +2,7 @@ import { pic } from "@/content/photos";
 import { Container, Grid } from "./container";
 import { Crumbs } from "./crumbs";
 import { Img } from "./photo";
+import { rise } from "./rise";
 
 // Шапка внутренней страницы: крошки, H1 ступени title, много воздуха, прямой ответ (поле answer) с 4-й колонки ступенью lead,
 // затем фото во всю ширину. Без меток и подписей-индексов (03-design §9).
@@ -14,7 +15,7 @@ export function PageHead({ crumbs, h1, answer, eyebrow, photo, children }: { cru
         <Grid>
           <div className="md:col-span-9">
             {eyebrow && <p className="tag mb-6">{eyebrow}</p>}
-            <h1 className="t-title">{h1}</h1>
+            <h1 className="t-title rise trim">{rise(h1)}</h1>
           </div>
         </Grid>
         <Grid className="mt-16 md:mt-24">

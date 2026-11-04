@@ -15,7 +15,7 @@ export function ServiceRows({ rows, className }: { rows: ServiceRow[]; className
         <li key={s.href} className="border-b border-border">
           <Link href={s.href} data-cursor="(подробнее) ↘" className="group relative grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-gutter py-6 md:grid-cols-12 md:py-8">
             <span className="caps text-muted-foreground transition-opacity md:col-span-3 md:group-hover:opacity-0">{String(i + 1).padStart(2, "0")}</span>
-            <span className="t-lead transition-colors group-hover:text-brand md:col-span-6">{s.title}</span>
+            <span className="t-lead transition-colors group-hover:text-brand md:col-span-6">{lastWord(s.title)}</span>
             {s.note && (
               <span className="col-start-2 text-small text-muted-foreground transition-opacity md:col-span-3 md:col-start-10 md:text-right md:group-hover:opacity-0">{s.note}</span>
             )}
@@ -26,6 +26,13 @@ export function ServiceRows({ rows, className }: { rows: ServiceRow[]; className
       ))}
     </ul>
   );
+}
+
+// K7 (03-design §12): последнее слово названия при наведении меняет гарнитуру на курсив с засечками — как em в заголовках
+function lastWord(t: string) {
+  const i = t.lastIndexOf(" ");
+  if (i < 0) return <span className="swap">{t}</span>;
+  return <>{t.slice(0, i + 1)}<span className="swap">{t.slice(i + 1)}</span></>;
 }
 
 // Два фото объекта для превью: обложка услуги и ещё один кадр того же объекта

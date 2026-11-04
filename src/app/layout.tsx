@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/onest";
+import "@fontsource-variable/roboto-flex/wdth.css";
 import "@fontsource-variable/jetbrains-mono";
 import "@fontsource-variable/playfair-display/wght-italic.css";
 import "./globals.css";
 import { site } from "@/content/site";
+import { MobileBar } from "@/components/mobile-bar";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
 import { GuideLines } from "@/components/guide-lines";
@@ -32,13 +33,13 @@ export const viewport: Viewport = { colorScheme: "light dark" };
 const themeColors = tokenColor("background");
 
 // Тема до первой отрисовки: сохранённый выбор или системная; при «как в системе» следим за сменой темы ОС
-const themeScript = `(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function s(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}var k=t?t==='dark':m.matches;d.classList.toggle('dark',k);var c=document.querySelector('meta[name="theme-color"]');if(c)c.setAttribute('content',k?'${themeColors.dark}':'${themeColors.light}')}s();m.addEventListener&&m.addEventListener('change',s)})()`;
+const themeScript = `(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function s(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}var k=t?t==='dark':m.matches;d.classList.toggle('dark',k);var c=document.querySelector('meta[name="theme-color"]');if(c)c.setAttribute('content',k?'${themeColors.dark}':'${themeColors.light}')}s();m.addEventListener&&m.addEventListener('change',s);if(/[?&]grid(=|&|$)/.test(location.search))d.setAttribute('data-grid','')})()`;
 
 const metrikaScript = (id: number) =>
   `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=${id}','ym');ym(${id},'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});`;
 
 // Цели Метрики без правки компонентов: клики по телефону, почте и Telegram
-const goalsScript = `document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!window.ym)return;var h=a.getAttribute('href')||'';var g=h.indexOf('tel:')===0?'phone':h.indexOf('mailto:')===0?'email':h.indexOf('t.me')>-1?'telegram':'';if(g)ym(${site.metrikaId},'reachGoal',g)});`;
+const goalsScript = `document.addEventListener('click',function(e){if(!window.ym||!e.target.closest)return;var q=e.target.closest('[data-goal]');if(q)ym(${site.metrikaId},'reachGoal',q.getAttribute('data-goal'));var a=e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';var g=h.indexOf('tel:')===0?'phone':h.indexOf('mailto:')===0?'email':h.indexOf('t.me')>-1?'telegram':'';if(g)ym(${site.metrikaId},'reachGoal',g)});`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const metrika = site.metrikaId > 0 && !noindex;
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:bg-card focus:px-3 focus:py-2">К содержанию</a>
         {children}
         <Footer />
+        <MobileBar />
         <CookieBanner />
         <GuideLines />
         <ScrollTop />

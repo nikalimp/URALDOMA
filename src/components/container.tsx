@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { rise } from "@/components/rise";
 
 // Фуллскрин-сетка по направляющим (03-design §6–8): во всю ширину окна, поля page-pad-mobile / page-pad (20 / 40 px),
 // 12 колонок с gutter 20 px — те же, что рисует <GuideLines />. Значения — токены дизайн-системы (design-system/tokens.json). Правило: любой ряд блоков — на этой сетке
@@ -32,9 +33,9 @@ export function H2({ className, children, count: _count, ...props }: React.Compo
 export function SectionHead({ label, title, aside, className }: { n?: string; label: string; title: React.ReactNode; aside?: React.ReactNode; count?: number | string; className?: string }) {
   return (
     <Grid className={cn("mb-16 gap-y-6 md:mb-24", className)}>
-      <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">{label}</p>
+      <p className="caps trim text-muted-foreground md:col-span-3">{label}</p>
       <div className="md:col-span-9 md:col-start-4">
-        <H2 className="max-w-[18ch]">{title}</H2>
+        <H2 className="rise trim max-w-[18ch]">{rise(title)}</H2>
         {aside && <div className="mt-8 max-w-[52ch] text-muted-foreground">{aside}</div>}
       </div>
     </Grid>

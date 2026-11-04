@@ -6,7 +6,7 @@ const accept = `try{localStorage.setItem('cookie-ok','1')}catch(e){};document.ge
 export function CookieBanner() {
   return (
     <>
-      <div id="cookie-banner" role="region" aria-label="Уведомление о cookies" className="text-small fixed inset-x-3 bottom-3 z-50 mx-auto flex max-w-xl flex-col gap-4 rounded-card border border-border bg-card p-5 shadow-lg sm:flex-row sm:items-center">
+      <div id="cookie-banner" role="region" aria-label="Уведомление о cookies" className="text-small fixed inset-x-3 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-50 md:bottom-3 mx-auto flex max-w-xl flex-col gap-4 rounded-card border border-border bg-card p-5 shadow-lg sm:flex-row sm:items-center">
         <p className="flex-1 text-earth">
           Сайт использует cookies и Яндекс Метрику. Оставаясь на сайте, вы соглашаетесь с <a href="/privacy-policy/" className="underline underline-offset-4 hover:text-brand">политикой обработки данных</a>.
         </p>
