@@ -102,6 +102,10 @@
   "underfloor-heating": {
    "tg": "https://t.me/uraldomaekb/34",
    "max": "off"
+  },
+  "hallway-renovation": {
+   "tg": "https://t.me/uraldomaekb/35",
+   "max": "off"
   }
  },
  "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b",
@@ -132,6 +136,7 @@
   "31": "44e11c569855",
   "32": "8a6689fe3157",
   "33": "a86af67b8fa3",
-  "34": "84f27931e867"
+  "34": "84f27931e867",
+  "35": "a1fa8461bb2e"
  }
 }
