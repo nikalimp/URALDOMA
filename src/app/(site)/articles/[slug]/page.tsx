@@ -31,7 +31,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const p = getPost((await params).slug);
   if (!p) notFound();
   const related = services.filter((s) => s.articles.includes(p.slug));
-  const more = getPosts().filter((x) => x.slug !== p.slug).slice(0, 3);
+  const more = getPosts().filter((x) => x.slug !== p.slug).slice(0, 4);
   return (
     <>
       <JsonLd data={graph(articleSchema(p), breadcrumbs([{ name: "Главная", path: "/" }, { name: "Статьи", path: "/articles/" }, { name: p.title, path: `/articles/${p.slug}/` }]))} />
@@ -77,7 +77,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               {more.map((m) => (
                 <li key={m.slug}>
                   <Link href={`/articles/${m.slug}/`} className="group block">
-                    {m.cover && <div className="aspect-[4/3] overflow-hidden bg-secondary"><Img p={pic(m.cover)} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" /></div>}
+                    {m.cover && <div className="aspect-[4/3] overflow-hidden bg-secondary"><Img p={pic(m.cover)} sizes="(min-width: 768px) 25vw, 100vw" className="transition-transform duration-[1.2s] group-hover:scale-[1.04]" /></div>}
                     <h3 className="t-lead mt-4 border-t border-border pt-3 group-hover:text-brand">{m.title}</h3>
                   </Link>
                 </li>

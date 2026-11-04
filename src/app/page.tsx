@@ -132,8 +132,9 @@ export default function Home() {
         {/* 5. Карта ЖК и посёлков: у каждого объекта своя страница с фактами дома */}
         <Section id="map" aria-label="Карта ЖК и посёлков" className="scroll-mt-20 border-t border-border">
           <Container>
-            <SectionHead label="География" title={<>{counts.zk} ЖК и {counts.kp} посёлков — <em>на карте</em></>} aside="По каждому дому собрали застройщика, конструкцию, потолки и отделку от застройщика — и как это влияет на ремонт. Выберите свой дом на карте или в списке." />
-            <ObjectsMaps />
+            <SectionHead label="География" title={<>{counts.zk} ЖК и {counts.kp} посёлков — <em>на карте</em></>} aside="По каждому дому собрали застройщика, конструкцию, потолки и отделку от застройщика — и как это влияет на ремонт. Выберите свой дом на карте — у каждой точки своя страница." />
+            <ObjectsMaps full />
+            <Link href="/complexes/" className={`${linkArrow} mt-16`}>Все ЖК и посёлки списком <span aria-hidden="true">→</span></Link>
           </Container>
         </Section>
 

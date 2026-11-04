@@ -13,13 +13,15 @@ type Ring = [number, number][];
 const parse = (s: string): Ring => s.split(" ").map((p) => p.split(",").map(Number) as [number, number]);
 
 // districts — районы Екатеринбурга (карта города); без них — округа вокруг (карта посёлков). minSpan — минимальный охват в градусах широты.
-export function buildMap(input: MapInput[], { width = 1360, pad = 0.12, districts = false, minSpan = 0 } = {}): MapData {
+// aspect — минимальное отношение ширины к высоте: охват по долготе расширяется вокруг центра (широкая карта на главной).
+export function buildMap(input: MapInput[], { width = 1360, pad = 0.12, districts = false, minSpan = 0, aspect = 0 } = {}): MapData {
   const lats = input.map((p) => p.lat), lons = input.map((p) => p.lon);
   let [lat0, lat1, lon0, lon1] = [Math.min(...lats), Math.max(...lats), Math.min(...lons), Math.max(...lons)];
   if (lat1 - lat0 < minSpan) { const c = (lat0 + lat1) / 2; lat0 = c - minSpan / 2; lat1 = c + minSpan / 2; }
   const dLat = (lat1 - lat0) * pad, dLon = (lon1 - lon0) * pad;
   [lat0, lat1, lon0, lon1] = [lat0 - dLat, lat1 + dLat, lon0 - dLon, lon1 + dLon];
   const cos = Math.cos((((lat0 + lat1) / 2) * Math.PI) / 180);
+  if (aspect && ((lon1 - lon0) * cos) / (lat1 - lat0) < aspect) { const c = (lon0 + lon1) / 2, h = ((lat1 - lat0) * aspect) / cos / 2; [lon0, lon1] = [c - h, c + h]; }
   const k = width / ((lon1 - lon0) * cos);
   const height = Math.round((lat1 - lat0) * k);
   const xy = (lon: number, lat: number) => [(lon - lon0) * cos * k, (lat1 - lat) * k] as const;

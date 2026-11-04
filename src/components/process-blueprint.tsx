@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { stages } from "@/content/process";
-import { isoLayers, isoViewBox } from "@/content/blueprint";
+import { isoParts, isoViewBox } from "@/content/blueprint";
 import { cn } from "@/lib/utils";
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -22,8 +22,8 @@ export function ProcessBlueprint({ initial = 3 }: { initial?: number }) {
           <span className="mt-1.5 block">Аксонометрия · 1:100 · квартира-пример 70 м²</span>
         </figcaption>
         <svg viewBox={isoViewBox} role="img" aria-label={`Аксонометрия квартиры на стадии «${stages[cur - 1].title}»`} className="mt-4 w-full text-panel-foreground" fill="none" stroke="currentColor" strokeOpacity={0.78} strokeWidth={1.2} strokeLinejoin="round">
-          {isoLayers.map((l, i) => (
-            <g key={i} style={{ opacity: i < cur ? 1 : 0.1, transition: "opacity .4s" }} dangerouslySetInnerHTML={{ __html: l }} />
+          {isoParts.map((l, i) => (
+            <g key={i} className={cn(l.s === cur && "text-brand")} style={{ opacity: l.s <= cur && (!l.e || cur <= l.e) ? 1 : 0, transition: "opacity .4s" }} dangerouslySetInnerHTML={{ __html: l.d }} />
           ))}
         </svg>
         <div className="mt-2 mb-6 flex items-center gap-3 font-mono text-[11px]">
