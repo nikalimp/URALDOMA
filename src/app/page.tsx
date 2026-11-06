@@ -22,7 +22,7 @@ import { counts } from "@/lib/objects-map";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema, graph, itemList } from "@/lib/schema";
 
-export const metadata: Metadata = { title: { absolute: site.title }, description: site.description, alternates: { canonical: "/" } };
+export const metadata: Metadata = { title: { absolute: site.title }, description: site.description, alternates: { canonical: "/" }, verification: { yandex: site.yandexVerification } };
 
 // Главная по 03-design §9–10 «Swiss: воздух и сдержанность»: одна мысль на экран.
 // Обложка → ответ и цифры → услуги списком → этапы (липкий блок) → лента объектов → карта ЖК и посёлков → цена → вопросы → заявка.
