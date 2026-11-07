@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# @nikitos-shared geo-check.py — общая версия в nikalimp/deploy-kit/shared
 """
 geo-check.py — техническая проверка сайта по стандарту [[GEO-аудит]] (блок 2 и часть блока 4).
 
@@ -53,12 +54,30 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
+def _ssl_context():
+    # macOS Python из python.org не видит системные сертификаты — берём certifi, если есть
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        pass
+    if os.path.exists("/etc/ssl/cert.pem"):  # системный набор сертификатов macOS
+        return ssl.create_default_context(cafile="/etc/ssl/cert.pem")
+    return ssl.create_default_context()
+
+
+_SSL = _ssl_context()
+
+
 def fetch(url, ua=UA_BROWSER, follow=True, timeout=20):
-    opener = urllib.request.build_opener() if follow else urllib.request.build_opener(NoRedirect)
+    handlers = [urllib.request.HTTPSHandler(context=_SSL)]
+    if not follow:
+        handlers.append(NoRedirect)
+    opener = urllib.request.build_opener(*handlers)
     req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept-Encoding": "gzip, deflate", "Accept": "*/*"})
     t0 = time.time()
     try:
-        r = opener.open(req, timeout=timeout, context=ssl.create_default_context()) if url.startswith("https") else opener.open(req, timeout=timeout)
+        r = opener.open(req, timeout=timeout)
         ttfb = time.time() - t0
         body = r.read()
         h = {k.lower(): v for k, v in r.headers.items()}
