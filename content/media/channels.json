@@ -110,6 +110,10 @@
   "apartment-lighting": {
    "tg": "https://t.me/uraldomaekb/36",
    "max": "off"
+  },
+  "hidden-interior-doors": {
+   "tg": "https://t.me/uraldomaekb/37",
+   "max": "off"
   }
  },
  "telegraph_token": "fdf8d851ced3a93aa41e6ce946741588e9a43ccee5baa23ff7cfb2ca794b",
@@ -142,6 +146,7 @@
   "33": "a86af67b8fa3",
   "34": "84f27931e867",
   "35": "a1fa8461bb2e",
-  "36": "f93a0941db3a"
+  "36": "f93a0941db3a",
+  "37": "58b845ebde80"
  }
 }
