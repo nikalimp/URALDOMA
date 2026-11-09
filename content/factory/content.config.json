@@ -8,7 +8,7 @@
   "timezone": "Asia/Yekaterinburg",
   "cadence": "20",
   "approval": false,
-  "author": "команда URALDOMA при участии директора Николая Грабовских",
+  "author": "команда URALDOMA при участии руководителя Николая Грабовских",
   "voice_mode": "we",
   "paths": {
     "plan": "content/factory/plan.md",
