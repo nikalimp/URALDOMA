@@ -52,7 +52,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <aside className="md:col-span-3">
               <div className="text-small border-t border-border pt-4 md:sticky md:top-28">
                 <p className="font-medium">{site.person.name}</p>
-                <p className="text-muted-foreground">директор URALDOMA</p>
+                <p className="text-muted-foreground">руководитель URALDOMA</p>
                 <p className="label-mono mt-4 text-muted-foreground"><time dateTime={p.date}>{formatDate(p.date)}</time></p>
                 {p.updated && p.updated !== p.date && <p className="label-mono mt-1 text-muted-foreground">обновлено <time dateTime={p.updated}>{formatDate(p.updated)}</time></p>}
                 {related.length > 0 && (

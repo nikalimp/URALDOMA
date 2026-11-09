@@ -36,12 +36,12 @@ export default function About() {
         <Container>
           <Grid className="items-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/team/nikolay.webp" alt={`${site.person.name}, директор URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover grayscale md:col-span-3" />
+            <img src="/images/team/nikolay.webp" alt={`${site.person.name}, руководитель URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover grayscale md:col-span-3" />
             <div className="md:col-span-9 md:col-start-4 md:mt-16">
-              <Label n="01">Директор</Label>
+              <Label n="01">Руководитель</Label>
               <FillText as="blockquote" text={`«${about.quote}»`} className="t-statement font-serif italic" />
               <p className="text-body mt-8 border-t border-border pt-6 font-medium">{site.person.name}</p>
-              <p className="text-small text-muted-foreground">директор URALDOMA</p>
+              <p className="text-small text-muted-foreground">руководитель URALDOMA</p>
             </div>
           </Grid>
         </Container>
