@@ -14,8 +14,15 @@ export type BuildStep = { n: string; title: string; text: string };
 // финальный кадр и H1, без прокрутки ролика.
 // frames — кадры стройки от бетона до готовой кухни (1920 и 960 px по ширине). Сменяются растворением по прокрутке.
 export type BuildFrame = { src: string; small: string; alt: string };
+// assembly — сборка по элементам, как в референсе: база (пустая комната после чистовой) и финальное фото,
+// из которого по маскам проявляются элементы — нижний ряд, фартук, пенал, верхние шкафы, свет, стол.
+// points — многоугольник в координатах кадра 1920×1080; from/to — отрезок --q, на котором элемент появляется;
+// dy — откуда он «приезжает», % высоты (+ снизу, − сверху). Маска с растушёвкой, размер cover — совпадает с object-cover.
+export type BuildPart = { points: string; from: number; to: number; dy: number };
+const maskUrl = (points: string) =>
+  `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'><filter id='b' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur stdDeviation='5'/></filter><polygon points='${points}' fill='white' filter='url(%23b)'/></svg>`).replace(/%2523/g, "%23")}")`;
 
-export function HeroBuild({ photo, video, frames, steps, children }: { photo: Pic; video?: { src: string; poster: string }; frames?: BuildFrame[]; steps: BuildStep[]; children: React.ReactNode }) {
+export function HeroBuild({ photo, video, frames, assembly, steps, children }: { photo: Pic; video?: { src: string; poster: string }; frames?: BuildFrame[]; assembly?: { base: BuildFrame; final: BuildFrame; parts: BuildPart[] }; steps: BuildStep[]; children: React.ReactNode }) {
   const sec = useRef<HTMLElement>(null);
   const vid = useRef<HTMLVideoElement>(null);
   const [step, setStep] = useState(0); // 0 — H1, 1…N — шаги
@@ -54,6 +61,21 @@ export function HeroBuild({ photo, video, frames, steps, children }: { photo: Pi
           <video ref={vid} className="absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true">
             <source src={video.src} type="video/mp4" />
           </video>
+        ) : assembly ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={assembly.base.src} srcSet={`${assembly.base.small} 960w, ${assembly.base.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="build-frame absolute inset-0 size-full object-cover" />
+            {assembly.parts.map((part, k) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img key={k} src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" decoding="async"
+                className="build-frame build-part absolute inset-0 size-full object-cover"
+                style={{ "--t": `clamp(0, calc((var(--q) - ${part.from}) / ${(part.to - part.from).toFixed(3)}), 1)`, "--dy": `${part.dy}%`, maskImage: maskUrl(part.points), WebkitMaskImage: maskUrl(part.points) } as React.CSSProperties} />
+            ))}
+            {/* В конце — финальное фото целиком: свет, тени и стыки масок сходятся в настоящий кадр */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt={assembly.final.alt} width={1920} height={1080} loading="eager" decoding="async"
+              className="build-frame absolute inset-0 size-full object-cover" style={{ opacity: "clamp(0, calc((var(--q) - .9) / .1), 1)" } as React.CSSProperties} />
+          </>
         ) : frames && frames.length > 1 ? (
           // Кадр k проявляется поверх предыдущего в первые 40 % своего шага и держится до следующего; --q — доля после обложки (0…1)
           frames.map((f, k) => (
@@ -66,7 +88,7 @@ export function HeroBuild({ photo, video, frames, steps, children }: { photo: Pi
         ) : (
           <div className="hero-build-photo absolute inset-0"><Img p={photo} eager wide sizes="100vw" /></div>
         )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-scrim/70 via-scrim/20 to-scrim/30" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-scrim/70 via-scrim/10 to-scrim/0" aria-hidden="true" />
 
         <Container className="absolute inset-x-0 bottom-0 pb-20 text-on-photo md:pb-14">
           <div className="relative min-h-[46svh] md:min-h-[52svh]">
