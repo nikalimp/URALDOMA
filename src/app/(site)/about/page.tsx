@@ -69,19 +69,6 @@ export default function About() {
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <Grid>
-            <p className="caps pt-[0.6em] text-muted-foreground md:col-span-3">Производство</p>
-              <H2 className="md:col-span-9 md:col-start-4">Своя мебель — <em>«Мебель-Урал»</em></H2>
-            <div className="md:col-span-6 md:col-start-7">
-              <Photo p={pic("trinity-14/01")} ratio="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" className="mb-8" />
-              <p className="text-body">Кухни, шкафы, столешницы и мебель в стиле лофт делаем на собственном производстве. Мебель проектируют те же дизайнеры, что и интерьер, поэтому она встаёт точно по размерам после ремонта.</p>
-              <Link href="/furniture/" className={`${linkArrow} mt-6`}>О производстве <span aria-hidden="true">→</span></Link>
-            </div>
-          </Grid>
-        </Container>
-      </Section>
       <CtaSection source="about" />
     </>
   );
