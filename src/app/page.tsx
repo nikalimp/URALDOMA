@@ -30,6 +30,12 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 const [h1a, h1b] = home.h1.split(/\s—\s/);
 // Финальный кадр обложки — кухня в «Клевер Парке» (решение Ника 11.11.2026); ролик стройки — site.heroVideo
 const hero = pic("clover-park/05");
+// Кадры стройки (ElevenLabs, Nano Banana Pro по фото «Клевер Парка», 11.11.2026): бетон → … → готовая кухня.
+// Промежуточные кадры добавляются сюда по мере генерации — компонент сам делит прокрутку поровну.
+const buildFrames = [
+  { src: "/images/hero/build-1.webp", small: "/images/hero/build-1-960.webp", alt: "Та же квартира до ремонта: бетонные стены и потолок, провода" },
+  { src: `${hero.base}-wide.webp`, small: `${hero.base}-wide-960.webp`, alt: hero.alt },
+];
 // Шаги поверх обложки — по стадиям ремонта (content/process.ts), короче
 const buildSteps = [
   { n: "01", title: "Черновые и инженерия", text: "Электрика, вода, стяжка и штукатурка по проекту. Скрытые работы принимаете по фото до того, как их закроют." },
@@ -51,7 +57,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} steps={buildSteps}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} frames={buildFrames} steps={buildSteps}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
