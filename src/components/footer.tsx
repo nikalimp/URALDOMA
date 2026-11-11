@@ -48,11 +48,7 @@ export function Footer() {
         </div>
       </Container>
       <Container>
-        {/* K8 (03-design §12): знак во всю ширину — контур-подложка и заливка слева направо, пока подвал входит в экран */}
-        <div className="logo-fill relative">
-          <Logo className="w-full text-panel-foreground/20" label={site.name} />
-          <div aria-hidden="true" className="logo-fill-top absolute inset-0"><Logo className="w-full text-panel-foreground" /></div>
-        </div>
+        <Logo className="w-full text-panel-foreground" label={site.name} />
       </Container>
       <Container className="flex flex-col gap-3 py-6 text-[12px] md:flex-row md:justify-between">
         <span>© {site.foundingYear}–{new Date().getFullYear()} {site.name} · {site.legalName} · ИНН {site.legal.inn} · ОГРНИП {site.legal.ogrnip}</span>
