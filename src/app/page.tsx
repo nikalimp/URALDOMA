@@ -30,19 +30,27 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 const [h1a, h1b] = home.h1.split(/\s—\s/);
 // Финальный кадр обложки — кухня в «Клевер Парке» (решение Ника 11.11.2026); ролик стройки — site.heroVideo
 const hero = pic("clover-park/05");
-// Кадры стройки (Nano Banana в Gemini, цепочкой от фото «Клевер Парка», 11.11.2026): бетон → черновые → чистовая → кухня.
-// Каждый кадр проявляется в начале своего шага (компонент делит прокрутку поровну).
-const buildFrames = [
-  { src: "/images/hero/build-1.webp", small: "/images/hero/build-1-960.webp", alt: "Квартира до ремонта: бетонные стены и потолок, открытые трассы" },
-  { src: "/images/hero/build-2.webp", small: "/images/hero/build-2-960.webp", alt: "После черновых работ: штукатурка, стяжка, выводы под кухню" },
-  { src: "/images/hero/build-3.webp", small: "/images/hero/build-3-960.webp", alt: "После чистовой отделки: покраска, пол, свет, выводы под кухню" },
-  { src: `${hero.base}-wide.webp`, small: `${hero.base}-wide-960.webp`, alt: hero.alt },
-];
-// Шаги поверх обложки — по стадиям ремонта (content/process.ts), короче
+// Обложка-сборка (решение Ника 11.11.2026): пустая комната после чистовой (Nano Banana в Gemini по фото «Клевер Парка»,
+// розетки — только за будущими шкафами) и настоящее фото кухни, из которого по скроллу проявляются элементы.
+// Многоугольники — в координатах фото 1920×1080; порядок — как собирают кухню: низ, фартук, пенал, верх, свет, стол.
+const assembly = {
+  base: { src: "/images/hero/finish.webp", small: "/images/hero/finish-960.webp", alt: "Кухня-гостиная после чистовой отделки, до монтажа кухни" },
+  final: { src: `${hero.base}-wide.webp`, small: `${hero.base}-wide-960.webp`, alt: hero.alt },
+  parts: [
+    { points: "180,770 470,668 470,652 1152,652 1152,942 960,942 960,872 370,872 370,952 180,956", from: 0, to: 0.2, dy: 6 }, // нижний ряд и столешница
+    { points: "478,476 1152,476 1152,656 478,656", from: 0.14, to: 0.3, dy: 0 }, // фартук
+    { points: "1150,38 1652,38 1652,1016 1150,1016", from: 0.26, to: 0.46, dy: 8 }, // пенал с техникой
+    { points: "470,92 1152,92 1152,478 470,478", from: 0.42, to: 0.6, dy: -4 }, // верхние шкафы
+    { points: "195,0 650,0 650,392 195,392", from: 0.58, to: 0.74, dy: -10 }, // подвесы слева
+    { points: "868,0 990,0 990,392 868,392", from: 0.62, to: 0.78, dy: -10 }, // подвес справа
+    { points: "0,860 1090,860 1090,1080 0,1080", from: 0.74, to: 0.9, dy: 3 }, // стол и стулья
+  ],
+};
+// Шаги поверх обложки — по мере сборки кухни
 const buildSteps = [
-  { n: "01", title: "Черновые и инженерия", text: "Электрика, вода, стяжка и штукатурка по проекту. Скрытые работы принимаете по фото до того, как их закроют." },
-  { n: "02", title: "Чистовая отделка", text: "Потолки, стены, плитка и пол — по выбранному тарифу. Фото- и видеоотчёт дважды в неделю." },
-  { n: "03", title: "Комплектация и сдача", text: "Монтаж кухни, свет и техника по проекту. Клининг, акт — и можно въезжать." },
+  { n: "01", title: "Кухня встаёт на готовые выводы", text: "Розетки, вода и слив разведены по проекту заранее — нижний ряд закрывает их ровно." },
+  { n: "02", title: "Пенал и верхний ряд", text: "Техника встраивается в пенал, фасады выставлены в одну линию по уровню." },
+  { n: "03", title: "Свет — и можно въезжать", text: "Подвесы и трек по проекту, клининг и акт приёмки. Фото- и видеоотчёт дважды в неделю — на каждом этапе." },
 ];
 // Лента объектов: разные дома подряд, а не три «Гаринских» подряд
 const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
@@ -59,7 +67,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} frames={buildFrames} steps={buildSteps}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} assembly={assembly} steps={buildSteps}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
