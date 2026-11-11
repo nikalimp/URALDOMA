@@ -114,6 +114,14 @@
   "hidden-interior-doors": {
    "tg": "https://t.me/uraldomaekb/37",
    "max": "off"
+  },
+  "apartment-soundproofing": {
+   "tg": "https://t.me/uraldomaekb/38",
+   "max": "off"
+  },
+  "kids-room-renovation": {
+   "tg": "https://t.me/uraldomaekb/39",
+   "max": "off"
   }
  },
  "edit_failed": {},
@@ -146,6 +154,8 @@
   "34": "84f27931e867",
   "35": "a1fa8461bb2e",
   "36": "f93a0941db3a",
-  "37": "58b845ebde80"
+  "37": "58b845ebde80",
+  "38": "742b566061fa",
+  "39": "6aa0b639c6d9"
  }
 }
