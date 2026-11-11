@@ -116,13 +116,9 @@
    "max": "off"
   }
  },
- "edit_failed": {
-  "7": "uraldoma_post_bot:8e81bcbcd789",
-  "20": "uraldoma_post_bot:f4b033caacb6",
-  "21": "uraldoma_post_bot:5e3663b02098"
- },
+ "edit_failed": {},
  "synced": {
-  "7": "f214f47112d5",
+  "7": "8e81bcbcd789",
   "8": "fc37775a3cca",
   "9": "313b1958d542",
   "10": "a4d6c5d3bfd0",
@@ -135,8 +131,8 @@
   "17": "9e6edd6f73d6",
   "18": "17bc2a0df50e",
   "19": "6ab09ef3a0f9",
-  "20": "d4c2e83e7a76",
-  "21": "0d7b68015459",
+  "20": "f4b033caacb6",
+  "21": "5e3663b02098",
   "22": "539d2aac5136",
   "23": "ddb027c202ac",
   "24": "d694888b765e",
