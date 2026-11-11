@@ -28,7 +28,7 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 // Обложка → ответ и цифры → услуги списком → этапы (липкий блок) → лента объектов → карта ЖК и посёлков → цена → вопросы → заявка.
 // Подробности (этапы, тарифы, договор, команда, статьи) — на своих страницах, сюда ведут ссылки.
 const [h1a, h1b] = home.h1.split(/\s—\s/);
-// Финальный кадр обложки — кухня в «Клевер Парке» (решение Ника 11.11.2026); ролик стройки — site.heroVideo
+// Обложка — ролик сборки кухни в «Клевер Парке» (site.heroVideo, решение Ника 11.11.2026); сборка по маскам (assembly) — запасной вариант без ролика
 const hero = pic("clover-park/05");
 // Обложка-сборка (решение Ника 11.11.2026): пустая комната после чистовой (Nano Banana в Gemini по фото «Клевер Парка»,
 // розетки — только за будущими шкафами) и настоящее фото кухни, из которого по скроллу проявляются элементы.
@@ -67,7 +67,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} assembly={assembly} steps={buildSteps}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: hero.alt } : undefined} assembly={assembly} steps={buildSteps}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
