@@ -30,10 +30,12 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 const [h1a, h1b] = home.h1.split(/\s—\s/);
 // Финальный кадр обложки — кухня в «Клевер Парке» (решение Ника 11.11.2026); ролик стройки — site.heroVideo
 const hero = pic("clover-park/05");
-// Кадры стройки (ElevenLabs, Nano Banana Pro по фото «Клевер Парка», 11.11.2026): бетон → … → готовая кухня.
-// Промежуточные кадры добавляются сюда по мере генерации — компонент сам делит прокрутку поровну.
+// Кадры стройки (Nano Banana в Gemini, цепочкой от фото «Клевер Парка», 11.11.2026): бетон → черновые → чистовая → кухня.
+// Каждый кадр проявляется в начале своего шага (компонент делит прокрутку поровну).
 const buildFrames = [
-  { src: "/images/hero/build-1.webp", small: "/images/hero/build-1-960.webp", alt: "Та же квартира до ремонта: бетонные стены и потолок, провода" },
+  { src: "/images/hero/build-1.webp", small: "/images/hero/build-1-960.webp", alt: "Квартира до ремонта: бетонные стены и потолок, открытые трассы" },
+  { src: "/images/hero/build-2.webp", small: "/images/hero/build-2-960.webp", alt: "После черновых работ: штукатурка, стяжка, выводы под кухню" },
+  { src: "/images/hero/build-3.webp", small: "/images/hero/build-3-960.webp", alt: "После чистовой отделки: покраска, пол, свет, выводы под кухню" },
   { src: `${hero.base}-wide.webp`, small: `${hero.base}-wide-960.webp`, alt: hero.alt },
 ];
 // Шаги поверх обложки — по стадиям ремонта (content/process.ts), короче
