@@ -12,7 +12,10 @@ export type BuildStep = { n: string; title: string; text: string };
 // Поверх — H1 и шаги ремонта, сменяются по доле прокрутки. Ролика ещё нет — фото объекта «проявляется»:
 // из серого бетона в цвет (CSS-фильтр от --p). Весь текст — в HTML; при «уменьшить движение» и без JS —
 // финальный кадр и H1, без прокрутки ролика.
-export function HeroBuild({ photo, video, steps, children }: { photo: Pic; video?: { src: string; poster: string }; steps: BuildStep[]; children: React.ReactNode }) {
+// frames — кадры стройки от бетона до готовой кухни (1920 и 960 px по ширине). Сменяются растворением по прокрутке.
+export type BuildFrame = { src: string; small: string; alt: string };
+
+export function HeroBuild({ photo, video, frames, steps, children }: { photo: Pic; video?: { src: string; poster: string }; frames?: BuildFrame[]; steps: BuildStep[]; children: React.ReactNode }) {
   const sec = useRef<HTMLElement>(null);
   const vid = useRef<HTMLVideoElement>(null);
   const [step, setStep] = useState(0); // 0 — H1, 1…N — шаги
@@ -30,12 +33,14 @@ export function HeroBuild({ photo, video, steps, children }: { photo: Pic; video
       const travel = el.offsetHeight - innerHeight;
       const p = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel));
       el.style.setProperty("--p", p.toFixed(3));
+      el.style.setProperty("--q", Math.min(1, Math.max(0, (p - 0.12) / 0.8)).toFixed(3));
       target = p;
       seek();
       setStep(p < 0.12 ? 0 : Math.min(steps.length, 1 + Math.floor(((p - 0.12) / 0.88) * steps.length)));
     };
     const on = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
     el.style.setProperty("--p", "0");
+    el.style.setProperty("--q", "0");
     update();
     addEventListener("scroll", on, { passive: true });
     addEventListener("resize", on);
@@ -49,6 +54,15 @@ export function HeroBuild({ photo, video, steps, children }: { photo: Pic; video
           <video ref={vid} className="absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true">
             <source src={video.src} type="video/mp4" />
           </video>
+        ) : frames && frames.length > 1 ? (
+          // Кадр k проявляется поверх предыдущего на своём отрезке прокрутки; --q — доля после обложки (0…1)
+          frames.map((f, k) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={f.src} src={f.src} srcSet={`${f.small} 960w, ${f.src} 1920w`} sizes="100vw" alt={k === frames.length - 1 ? f.alt : ""} aria-hidden={k === frames.length - 1 ? undefined : true}
+              width={1920} height={1080} loading={k < 2 ? "eager" : "lazy"} decoding="async"
+              className="build-frame absolute inset-0 size-full object-cover"
+              style={k === 0 ? undefined : { opacity: `clamp(0, calc(var(--q) * ${frames.length - 1} - ${k - 1}), 1)` } as React.CSSProperties} />
+          ))
         ) : (
           <div className="hero-build-photo absolute inset-0"><Img p={photo} eager wide sizes="100vw" /></div>
         )}
