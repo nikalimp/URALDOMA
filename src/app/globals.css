@@ -165,18 +165,14 @@ html[data-preload] .preloader-fill { clip-path: inset(0 100% 0 0); animation: pr
 /* K7: последнее слово услуги при наведении — курсив с засечками */
 .swap { transition: letter-spacing var(--dur-2) var(--ease-out); }
 .group:hover .swap, .group:focus-visible .swap { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size-adjust: ex-height 0.53; }
-/* K8: заливка знака в подвале */
-.logo-fill-top { clip-path: inset(0 0 0 0); }
 /* K3 + K5: строка направлений */
 .strip > span { display: inline-block; white-space: nowrap; font-variation-settings: "wdth" 100; }
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .logo-fill-top { animation: fill-x linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
     .strip > span { animation: strip linear both; animation-timeline: view(); animation-range: cover; }
     .grow-in { transform-origin: left bottom; animation: grow linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
   }
 }
-@keyframes fill-x { from { clip-path: inset(0 100% 0 0); } }
 @keyframes strip { from { translate: 0 0; font-variation-settings: "wdth" 75; } 50% { font-variation-settings: "wdth" 125; } to { translate: -40% 0; font-variation-settings: "wdth" 85; } }
 @keyframes grow { from { scale: .55; opacity: .2; } }
 /* Нижняя панель связи на телефоне — место под неё */

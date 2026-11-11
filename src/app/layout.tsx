@@ -7,7 +7,6 @@ import { site } from "@/content/site";
 import { MobileBar } from "@/components/mobile-bar";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
-import { GuideLines } from "@/components/guide-lines";
 import { ScrollTop } from "@/components/scroll-top";
 import { Preloader, preloaderScript } from "@/components/preloader";
 import { CursorTag } from "@/components/cursor-tag";
@@ -62,7 +61,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileBar />
         <CookieBanner />
-        <GuideLines />
         <ScrollTop />
         <CursorTag />
       </body>
