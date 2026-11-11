@@ -25,7 +25,6 @@ export function Footer() {
             {services.map((s) => (
               <li key={s.slug}><NavLink href={`/services/${s.slug}/`} className="hover:text-brand" active="text-brand">{s.title}</NavLink></li>
             ))}
-            <li><NavLink href="/furniture/" className="hover:text-brand" active="text-brand">Мебель на заказ</NavLink></li>
           </ul>
         </nav>
         <nav aria-label="Компания" className="md:col-span-3 md:col-start-7">

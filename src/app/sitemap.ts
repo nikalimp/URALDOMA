@@ -24,8 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cases.filter(caseReady).map((c) => u(`/portfolio/${c.slug}/`, 0.6)),
     u("/complexes/", 0.7),
     ...complexes.map((c) => u(`/complexes/${c.slug}/`, 0.7)),
-    u("/furniture/", 0.7),
-    u("/furniture/custom-kitchens/", 0.6),
     u("/about/", 0.6),
     u("/contacts/", 0.6),
     u("/careers/", 0.4),

@@ -49,7 +49,6 @@ ${complexes.filter((c) => c.cases.length === 0).map((c) => `- [${c.h1}](${site.u
 - [Как мы работаем](${site.url}/how-we-work/)
 - [Гарантия и договор](${site.url}/warranty/)
 - [Портфолио](${site.url}/portfolio/)
-- [Мебель на заказ «Мебель-Урал»](${site.url}/furniture/)
 - [Контакты](${site.url}/contacts/)
 - Подробная версия для LLM: ${site.url}/llms-full.txt
 

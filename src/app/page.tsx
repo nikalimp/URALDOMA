@@ -13,7 +13,7 @@ import { CtaSection } from "@/components/cta";
 import { Img } from "@/components/photo";
 import { CaseRail } from "@/components/case-rail";
 import { ProcessScroll } from "@/components/process-scroll";
-import { HeroReveal } from "@/components/hero-reveal";
+import { HeroBuild } from "@/components/hero-build";
 import { FillText } from "@/components/fill-text";
 import { Ticker } from "@/components/motion";
 import { ServiceRows, twoPics } from "@/components/service-rows";
@@ -28,61 +28,42 @@ export const metadata: Metadata = { title: { absolute: site.title }, description
 // Обложка → ответ и цифры → услуги списком → этапы (липкий блок) → лента объектов → карта ЖК и посёлков → цена → вопросы → заявка.
 // Подробности (этапы, тарифы, договор, команда, статьи) — на своих страницах, сюда ведут ссылки.
 const [h1a, h1b] = home.h1.split(/\s—\s/);
-const hero = pic("garinsky/02");
+// Финальный кадр обложки — кухня в «Клевер Парке» (решение Ника 11.11.2026); ролик стройки — site.heroVideo
+const hero = pic("clover-park/05");
+// Шаги поверх обложки — по стадиям ремонта (content/process.ts), короче
+const buildSteps = [
+  { n: "01", title: "Черновые и инженерия", text: "Электрика, вода, стяжка и штукатурка по проекту. Скрытые работы принимаете по фото до того, как их закроют." },
+  { n: "02", title: "Чистовая отделка", text: "Потолки, стены, плитка и пол — по выбранному тарифу. Фото- и видеоотчёт дважды в неделю." },
+  { n: "03", title: "Комплектация и сдача", text: "Монтаж кухни, свет и техника по проекту. Клининг, акт — и можно въезжать." },
+];
 // Лента объектов: разные дома подряд, а не три «Гаринских» подряд
 const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
-// Услуги поверх фото под обложкой — по направляющим, четыре главных
-const heroItems = [
-  { href: "/services/turnkey-renovation/", label: "Ремонт под ключ" },
-  { href: "/services/new-build-renovation/", label: "Ремонт новостройки" },
-  { href: "/services/interior-design/", label: "Дизайн-проект" },
-  { href: "/furniture/", label: "Мебель на заказ" },
-];
 const order = ["turnkey-renovation", "interior-design", "designer-renovation", "kitchen-renovation", "bathroom-renovation", "new-build-renovation", "major-renovation", "redevelopment", "furnishing"];
 
 export default function Home() {
   const list = [
     ...order.map((s) => serviceBySlug(s)).filter((s) => s !== undefined).map((s) => ({ href: `/services/${s.slug}/`, title: s.title, note: s.priceFrom, pics: twoPics(s.cover, pic, picsOf) })),
     ...services.filter((s) => !order.includes(s.slug)).map((s) => ({ href: `/services/${s.slug}/`, title: s.title, note: s.priceFrom, pics: twoPics(s.cover, pic, picsOf) })),
-    { href: "/furniture/", title: "Мебель на заказ", note: "своё производство «Мебель-Урал»", pics: twoPics("garinsky-21/05", pic, picsOf) },
   ];
   const from = Math.min(...tariffs.map((t) => t.rate));
   return (
     <>
       <Header />
       <main id="main" className="flex-1">
-        {/* 1. Обложка: типографика на бумаге, фото отдельным кадром ниже — без текста поверх (03-design §9, приём Reduce / Agency) */}
-        <section aria-label="Первый экран">
-          <Container className="pt-12 md:pt-20">
-            <Grid className="caps text-muted-foreground">
-              <p className="md:col-span-3">Ремонт квартир · Екатеринбург</p>
-              <p className="hidden md:col-span-3 md:col-start-10 md:block md:text-right">С 2016 года</p>
-            </Grid>
-            <h1 className="t-display mt-16 md:mt-24">
-              <span className="block">{h1a}</span>
-              <span className="sr-only"> — </span>
-              <em className="block pt-[0.06em] text-[0.82em] leading-[0.95] md:pl-[calc((100%+20px)/4)]">{h1b}</em>
-            </h1>
-            <Grid className="mt-12 items-end gap-y-8 md:mt-16">
-              <div className="md:col-span-6 md:col-start-4">
-                <p className="t-lead text-earth">От {formatRub(from)} за м². {home.lead}</p>
-                <a href="#map" data-goal="map" className={`${linkArrow} mt-6`}>Найдите свой ЖК на карте <span aria-hidden="true">↓</span></a>
-              </div>
-              <div className="flex md:col-span-3 md:col-start-10 md:justify-end">
-                <a href={site.cta.href} className={btnPrimary}>{site.cta.label}<span aria-hidden="true">→</span></a>
-              </div>
-            </Grid>
-          </Container>
-        </section>
-
-        {/* 1б. Фото под обложкой раскрывается на весь экран, поверх — услуги (03-design §11) */}
-        <HeroReveal items={heroItems} caption={<><span>{hero.caption}</span><span className="text-right">{hero.place}</span></>}>
-          {site.heroVideo.src ? (
-            <video className="size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster={site.heroVideo.poster} aria-hidden="true"><source src={site.heroVideo.src} type="video/mp4" /></video>
-          ) : (
-            <Img p={hero} eager wide sizes="100vw" />
-          )}
-        </HeroReveal>
+        {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
+        <HeroBuild photo={hero} video={site.heroVideo.src ? site.heroVideo : undefined} steps={buildSteps}>
+          <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
+          <h1 className="t-title mt-6 max-w-[16ch]">
+            {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
+          </h1>
+          <div className="mt-8 grid gap-y-6 md:grid-cols-12 md:items-end md:gap-x-gutter">
+            <p className="t-lead text-on-photo/90 md:col-span-6">От {formatRub(from)} за м². {home.lead}</p>
+            <div className="flex flex-wrap gap-4 md:col-span-6 md:justify-end">
+              <a href={site.cta.href} className="text-small inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 font-medium text-on-photo-foreground hover:bg-brand hover:text-on-brand">{site.cta.label}<span aria-hidden="true">→</span></a>
+              <a href="#map" data-goal="map" className="text-small max-md:hidden inline-flex min-h-[52px] items-center gap-2 rounded-pill border border-on-photo/60 px-7 font-medium text-on-photo hover:bg-on-photo hover:text-on-photo-foreground">Найдите свой ЖК <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+        </HeroBuild>
 
         {/* 2. Прямой ответ (AEO) и четыре цифры — одна мысль, много воздуха */}
         <Section aria-label="Коротко о компании">
@@ -171,7 +152,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <Link href="/about/" className={`${linkArrow} mt-12`}>Вся команда и производство <span aria-hidden="true">→</span></Link>
+            <Link href="/about/" className={`${linkArrow} mt-12`}>Вся команда <span aria-hidden="true">→</span></Link>
           </Container>
         </Section>
 

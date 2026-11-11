@@ -13,12 +13,12 @@ import { Img } from "@/components/photo";
 
 export const metadata = pageMeta({
   title: "Услуги по ремонту квартир в Екатеринбурге — цены URALDOMA",
-  description: "Ремонт под ключ, дизайн-проект, ремонт кухни и санузла, перепланировка и мебель на заказ в Екатеринбурге. Цены от 20 000 ₽/м², гарантия 2 года.",
+  description: "Ремонт под ключ, дизайн-проект, ремонт кухни и санузла, перепланировка и комплектация в Екатеринбурге. Цены от 20 000 ₽/м², гарантия 2 года.",
   path: "/services/",
 });
 
 const answer =
-  "URALDOMA делает ремонт квартир и домов в Екатеринбурге полного цикла: дизайн-проект, черновые и чистовые работы, инженерию, перепланировку, комплектацию и мебель на собственном производстве. Ремонт под ключ стоит от 20 000 до 40 000 ₽ за м² работ по трём тарифам, цена фиксируется в договоре.";
+  "URALDOMA делает ремонт квартир и домов в Екатеринбурге полного цикла: дизайн-проект, черновые и чистовые работы, инженерию, перепланировку и комплектацию. Ремонт под ключ стоит от 20 000 до 60 000 ₽ за м² работ по трём тарифам, цена фиксируется в договоре.";
 
 const groups = [
   { label: "Ремонт квартиры", slugs: ["turnkey-renovation", "designer-renovation", "new-build-renovation", "major-renovation"] },
@@ -62,15 +62,6 @@ export default function Services() {
           </Section>
         );
       })}
-      <Section>
-        <Container>
-          <SectionHead n="04" label="Мебель" title={<>Мебель на заказ <em>«Мебель-Урал»</em></>} aside="Кухни, островки, столешницы, раковины и мебель в стиле лофт делаем на своём производстве — под размеры квартиры после ремонта." />
-          <Link href="/furniture/" className="group relative block h-[70svh] min-h-[420px] overflow-hidden bg-secondary">
-            <Img p={pic("garinsky-21/05")} wide sizes="100vw" className="parallax" />
-            <span className="text-small absolute bottom-5 left-5 inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 font-medium text-on-photo-foreground group-hover:bg-brand group-hover:text-on-brand md:bottom-8 md:left-8">О производстве <span aria-hidden="true">→</span></span>
-          </Link>
-        </Container>
-      </Section>
       <CtaSection source="services" />
     </>
   );
