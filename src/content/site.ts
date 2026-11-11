@@ -59,10 +59,9 @@ export const site = {
     sameAs: [] as string[],
   },
 
-  // Фоновое видео первого экрана: файл с текущего сайта (02-spec §7). Пока файла нет — показывается постер.
-  // Видео с объекта для первого экрана ждём от клиента: пока src пустой, на первом экране — фото (hero.photo)
-  // Ролик «стройка» для обложки главной (scripts/hero-video.md): пока пусто — фото «Клевер Парка» проявляется из серого
-  heroVideo: { src: "", poster: "/video/hero-build-start.webp" },
+  // Ролик обложки главной (specs/hero-video.md): кухня в «Клевер Парке» собирается по скроллу. Kling по кадрам «чистовая → готовая кухня», 11.11.2026.
+  // small — 720p для телефона, poster — первый кадр, end — последний (при «уменьшить движение»)
+  heroVideo: { src: "/video/hero-build.mp4", small: "/video/hero-build-720.mp4", poster: "/video/hero-build-start.webp", end: "/video/hero-build-end.webp" },
 
   yandexVerification: "9f3d320e606a6621", // подтверждение прав в Яндекс Вебмастере — метатег в <head> главной (Ник, 06.11.2026)
   metrikaId: 112779075, // счётчик «URALDOMA» (решение Ника 22.10.2026); 62022598 со старой Tilda удалён

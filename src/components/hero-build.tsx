@@ -22,7 +22,7 @@ export type BuildPart = { points: string; from: number; to: number; dy: number }
 const maskUrl = (points: string) =>
   `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'><filter id='b' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur stdDeviation='5'/></filter><polygon points='${points}' fill='white' filter='url(%23b)'/></svg>`).replace(/%2523/g, "%23")}")`;
 
-export function HeroBuild({ photo, video, frames, assembly, steps, children }: { photo: Pic; video?: { src: string; poster: string }; frames?: BuildFrame[]; assembly?: { base: BuildFrame; final: BuildFrame; parts: BuildPart[] }; steps: BuildStep[]; children: React.ReactNode }) {
+export function HeroBuild({ photo, video, frames, assembly, steps, children }: { photo: Pic; video?: { src: string; small?: string; poster: string; end: string; alt: string }; frames?: BuildFrame[]; assembly?: { base: BuildFrame; final: BuildFrame; parts: BuildPart[] }; steps: BuildStep[]; children: React.ReactNode }) {
   const sec = useRef<HTMLElement>(null);
   const vid = useRef<HTMLVideoElement>(null);
   const [step, setStep] = useState(0); // 0 — H1, 1…N — шаги
@@ -31,10 +31,18 @@ export function HeroBuild({ photo, video, frames, assembly, steps, children }: {
     const el = sec.current;
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const v = vid.current;
-    let raf = 0, target = 0;
-    // Ролик перематываем только по готовности кадра: новая цель во время перемотки ставится после события seeked
-    const seek = () => { if (v && v.duration && !v.seeking) v.currentTime = target * v.duration; };
-    v?.addEventListener("seeked", () => { if (Math.abs(v.currentTime - target * v.duration) > 0.04) seek(); });
+    let raf = 0, target = 0, blobUrl = "";
+    // Ролик грузим целиком в Blob: так перемотка не ждёт сеть и не зависит от поддержки Range у хостинга.
+    // На узком экране — лёгкая версия 720p с ключевым кадром каждые 4 кадра.
+    if (v && video) {
+      const src = innerWidth < 768 && video.small ? video.small : video.src;
+      fetch(src).then((r) => r.blob()).then((b) => { blobUrl = URL.createObjectURL(b); v.src = blobUrl; }).catch(() => { v.src = src; });
+    }
+    // Ролик перематываем только по готовности кадра: новая цель во время перемотки ставится после события seeked.
+    // Последний кадр — чуть раньше конца: на самом конце часть браузеров показывает пустой кадр.
+    const at = () => (v ? Math.min(target * v.duration, v.duration - 0.05) : 0);
+    const seek = () => { if (v && v.duration && !v.seeking) v.currentTime = at(); };
+    v?.addEventListener("seeked", () => { if (Math.abs(v.currentTime - at()) > 0.04) seek(); });
     v?.addEventListener("loadedmetadata", seek);
     const update = () => {
       const travel = el.offsetHeight - innerHeight;
@@ -51,16 +59,21 @@ export function HeroBuild({ photo, video, frames, assembly, steps, children }: {
     update();
     addEventListener("scroll", on, { passive: true });
     addEventListener("resize", on);
-    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); };
-  }, [steps.length]);
+    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); if (blobUrl) URL.revokeObjectURL(blobUrl); };
+  }, [steps.length, video]);
 
   return (
     <section ref={sec} aria-label="Первый экран" className="hero-build relative -mt-[64px] h-[300svh] md:-mt-[72px] md:h-[400svh]">
       <div className="sticky top-0 h-svh overflow-hidden bg-secondary">
         {video ? (
-          <video ref={vid} className="absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true">
-            <source src={video.src} type="video/mp4" />
-          </video>
+          <>
+            {/* Ролик без src в HTML: его подставляет скрипт из Blob. Без JS и при «уменьшить движение» — финальный кадр картинкой */}
+            <video ref={vid} className="hero-video absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={video.end} alt={video.alt} width={1920} height={1080} loading="lazy" decoding="async" className="hero-video-end absolute inset-0 size-full object-cover" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <noscript><img src={video.end} alt="" aria-hidden="true" width={1920} height={1080} className="absolute inset-0 size-full object-cover" /></noscript>
+          </>
         ) : assembly ? (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
