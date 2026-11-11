@@ -55,13 +55,13 @@ export function HeroBuild({ photo, video, frames, steps, children }: { photo: Pi
             <source src={video.src} type="video/mp4" />
           </video>
         ) : frames && frames.length > 1 ? (
-          // Кадр k проявляется поверх предыдущего на своём отрезке прокрутки; --q — доля после обложки (0…1)
+          // Кадр k проявляется поверх предыдущего в первые 40 % своего шага и держится до следующего; --q — доля после обложки (0…1)
           frames.map((f, k) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img key={f.src} src={f.src} srcSet={`${f.small} 960w, ${f.src} 1920w`} sizes="100vw" alt={k === frames.length - 1 ? f.alt : ""} aria-hidden={k === frames.length - 1 ? undefined : true}
               width={1920} height={1080} loading={k < 2 ? "eager" : "lazy"} decoding="async"
               className="build-frame absolute inset-0 size-full object-cover"
-              style={k === 0 ? undefined : { opacity: `clamp(0, calc(var(--q) * ${frames.length - 1} - ${k - 1}), 1)` } as React.CSSProperties} />
+              style={k === 0 ? undefined : { opacity: `clamp(0, calc((var(--q) * ${frames.length - 1} - ${k - 1}) * 2.5), 1)` } as React.CSSProperties} />
           ))
         ) : (
           <div className="hero-build-photo absolute inset-0"><Img p={photo} eager wide sizes="100vw" /></div>
