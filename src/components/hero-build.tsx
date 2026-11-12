@@ -22,7 +22,7 @@ export type BuildPart = { points: string; from: number; to: number; dy: number }
 const maskUrl = (points: string) =>
   `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'><filter id='b' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur stdDeviation='5'/></filter><polygon points='${points}' fill='white' filter='url(%23b)'/></svg>`).replace(/%2523/g, "%23")}")`;
 
-export function HeroBuild({ photo, video, frames, assembly, steps, children }: { photo: Pic; video?: { src: string; small?: string; poster: string; end: string; alt: string }; frames?: BuildFrame[]; assembly?: { base: BuildFrame; final: BuildFrame; parts: BuildPart[] }; steps: BuildStep[]; children: React.ReactNode }) {
+export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12, children }: { photo: Pic; video?: { src: string; small?: string; poster: string; end: string; alt: string }; frames?: BuildFrame[]; assembly?: { base: BuildFrame; final: BuildFrame; parts: BuildPart[] }; steps: BuildStep[]; intro?: number; children: React.ReactNode }) {
   const sec = useRef<HTMLElement>(null);
   const vid = useRef<HTMLVideoElement>(null);
   const [step, setStep] = useState(0); // 0 — H1, 1…N — шаги
@@ -51,7 +51,8 @@ export function HeroBuild({ photo, video, frames, assembly, steps, children }: {
       el.style.setProperty("--q", Math.min(1, Math.max(0, (p - 0.12) / 0.8)).toFixed(3));
       target = p;
       seek();
-      setStep(p < 0.12 ? 0 : Math.min(steps.length, 1 + Math.floor(((p - 0.12) / 0.88) * steps.length)));
+      // intro — доля прокрутки под H1, остаток делится поровну между шагами
+      setStep(p < intro ? 0 : Math.min(steps.length, 1 + Math.floor(((p - intro) / (1 - intro)) * steps.length)));
     };
     const on = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); };
     el.style.setProperty("--p", "0");
@@ -60,7 +61,7 @@ export function HeroBuild({ photo, video, frames, assembly, steps, children }: {
     addEventListener("scroll", on, { passive: true });
     addEventListener("resize", on);
     return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); if (blobUrl) URL.revokeObjectURL(blobUrl); };
-  }, [steps.length, video]);
+  }, [steps.length, video, intro]);
 
   return (
     <section ref={sec} aria-label="Первый экран" className="hero-build relative -mt-[64px] h-[300svh] md:-mt-[72px] md:h-[400svh]">
