@@ -59,7 +59,7 @@ export const site = {
     sameAs: [] as string[],
   },
 
-  // Ролик обложки главной (specs/hero-video.md): кухня в «Клевер Парке» собирается по скроллу. Kling по кадрам «чистовая → готовая кухня», 11.11.2026.
+  // Ролик обложки главной (specs/hero-video.md): гостиная с кухней от white box до готового интерьера. Veo 3.1 по опорным кадрам, 12.11.2026.
   // small — 720p для телефона, poster — первый кадр, end — последний (при «уменьшить движение»)
   heroVideo: { src: "/video/hero-build.mp4", small: "/video/hero-build-720.mp4", poster: "/video/hero-build-start.webp", end: "/video/hero-build-end.webp" },
 

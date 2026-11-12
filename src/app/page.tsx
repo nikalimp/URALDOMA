@@ -46,11 +46,11 @@ const assembly = {
     { points: "0,860 1090,860 1090,1080 0,1080", from: 0.74, to: 0.9, dy: 3 }, // стол и стулья
   ],
 };
-// Шаги поверх обложки — по мере сборки кухни
+// Шаги поверх обложки — под ролик: отделка, встроенная кухня, мебель (решение Ника 12.11.2026: коротко и по-человечески)
 const buildSteps = [
-  { n: "01", title: "Кухня встаёт на готовые выводы", text: "Розетки, вода и слив разведены по проекту заранее — нижний ряд закрывает их ровно." },
-  { n: "02", title: "Пенал и верхний ряд", text: "Техника встраивается в пенал, фасады выставлены в одну линию по уровню." },
-  { n: "03", title: "Свет — и можно въезжать", text: "Подвесы и трек по проекту, клининг и акт приёмки. Фото- и видеоотчёт дважды в неделю — на каждом этапе." },
+  { n: "01", title: "Сначала — основа", text: "Стены, свет и пол. То, что делают один раз и надолго." },
+  { n: "02", title: "Кухня встаёт на место", text: "Шкафы, остров и ТВ-зона — точно по проекту." },
+  { n: "03", title: "Остаётся въехать", text: "Свет, детали, уют. Ключи — ваши." },
 ];
 // Лента объектов: разные дома подряд, а не три «Гаринских» подряд
 const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
@@ -67,7 +67,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: hero.alt } : undefined} assembly={assembly} steps={buildSteps}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
