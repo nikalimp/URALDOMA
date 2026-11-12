@@ -48,9 +48,8 @@ const assembly = {
 };
 // Шаги поверх обложки — под ролик: отделка, встроенная кухня, мебель (решение Ника 12.11.2026: коротко и по-человечески)
 const buildSteps = [
-  { n: "01", title: "Сначала — основа", text: "Стены, свет и пол. То, что делают один раз и надолго." },
-  { n: "02", title: "Кухня встаёт на место", text: "Шкафы, остров и ТВ-зона — точно по проекту." },
-  { n: "03", title: "Остаётся въехать", text: "Свет, детали, уют. Ключи — ваши." },
+  { n: "01", title: "Сначала — основа", text: "Стены, свет, пол." },
+  { n: "02", title: "Потом — уют", text: "Кухня, детали, ключи — ваши." },
 ];
 // Лента объектов: разные дома подряд, а не три «Гаринских» подряд
 const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
@@ -67,7 +66,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps} intro={0.3}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a}<span className="sr-only"> — </span> <em>{h1b}</em>
@@ -75,7 +74,7 @@ export default function Home() {
           <div className="mt-8 grid gap-y-6 md:grid-cols-12 md:items-end md:gap-x-gutter">
             <p className="t-lead text-on-photo/90 md:col-span-6">От {formatRub(from)} за м². {home.lead}</p>
             <div className="flex flex-wrap gap-4 md:col-span-6 md:justify-end">
-              <a href={site.cta.href} className="text-small inline-flex min-h-[52px] items-center gap-6 rounded-pill bg-on-photo px-7 font-medium text-on-photo-foreground hover:bg-brand hover:text-on-brand">{site.cta.label}<span aria-hidden="true">→</span></a>
+              {/* Кнопка заявки — только в шапке (решение Ника 12.11.2026) */}
               <a href="#map" data-goal="map" className="text-small max-md:hidden inline-flex min-h-[52px] items-center gap-2 rounded-pill border border-on-photo/60 px-7 font-medium text-on-photo hover:bg-on-photo hover:text-on-photo-foreground">Найдите свой ЖК <span aria-hidden="true">↓</span></a>
             </div>
           </div>
