@@ -32,11 +32,19 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
     if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const v = vid.current;
     let raf = 0, target = 0, blobUrl = "";
+    let prime = () => {};
     // Ролик грузим целиком в Blob: так перемотка не ждёт сеть и не зависит от поддержки Range у хостинга.
     // На узком экране — лёгкая версия 720p с ключевым кадром каждые 4 кадра.
     if (v && video) {
       const src = innerWidth < 768 && video.small ? video.small : video.src;
-      fetch(src).then((r) => r.blob()).then((b) => { blobUrl = URL.createObjectURL(b); v.src = blobUrl; }).catch(() => { v.src = src; });
+      fetch(src).then((r) => r.blob()).then((b) => { blobUrl = URL.createObjectURL(b); v.src = blobUrl; v.load(); }).catch(() => { v.src = src; v.load(); });
+      // iOS Safari не рисует кадры при перемотке, пока ролик ни разу не играл: короткий play/pause без звука «будит» декодер.
+      // Если браузер запретил автозапуск, будим на первом касании или прокрутке.
+      let primed = false;
+      prime = () => { if (primed || !v.readyState) return; primed = true; v.play().then(() => { v.pause(); seek(); }).catch(() => { primed = false; }); };
+      v.addEventListener("loadeddata", prime);
+      addEventListener("touchstart", prime, { passive: true, once: true });
+      addEventListener("scroll", prime, { passive: true });
     }
     // Ролик перематываем только по готовности кадра: новая цель во время перемотки ставится после события seeked.
     // Последний кадр — чуть раньше конца: на самом конце часть браузеров показывает пустой кадр.
@@ -60,11 +68,11 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
     update();
     addEventListener("scroll", on, { passive: true });
     addEventListener("resize", on);
-    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); if (blobUrl) URL.revokeObjectURL(blobUrl); };
+    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); removeEventListener("touchstart", prime); removeEventListener("scroll", prime); if (blobUrl) URL.revokeObjectURL(blobUrl); };
   }, [steps.length, video, intro]);
 
   return (
-    <section ref={sec} aria-label="Первый экран" className="hero-build relative -mt-[64px] h-[300svh] md:-mt-[72px] md:h-[400svh]">
+    <section ref={sec} aria-label="Первый экран" className="hero-build relative -mt-[64px] h-[400svh] md:-mt-[72px] md:h-[500svh]">
       <div className="sticky top-0 h-svh overflow-hidden bg-secondary">
         {video ? (
           <>
