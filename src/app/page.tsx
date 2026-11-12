@@ -51,6 +51,7 @@ const assembly = {
 const buildSteps = [
   { n: "01", title: "Сначала — основа", text: "Стены, свет, пол." },
   { n: "02", title: "Потом — уют", text: "Кухня, детали, ключи — ваши." },
+  { n: "03", title: "А вечером — дома", text: "Тёплый свет и ваше место." },
 ];
 // Лента объектов: разные дома подряд, а не три «Гаринских» подряд
 const railOrder = ["trinity-14", "obraztsovo", "radishcheva-31", "zapovednik", "garinsky", "clover-park", "garinsky-21", "cosmotheca", "garinsky-20", "boycut"];
@@ -67,7 +68,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
-        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps} intro={0.3}>
+        <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps} intro={0.25}>
           <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
           <h1 className="t-title mt-6 max-w-[16ch]">
             {h1a} <em>{h1b}</em>
