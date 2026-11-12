@@ -3,7 +3,7 @@ title: "Сколько стоит ремонт квартиры под ключ 
 description: "Сколько стоит ремонт квартиры под ключ в Екатеринбурге в 2026 году: цены за м² для новостройки и вторички, пример сметы двушки, как не переплатить."
 seoTitle: "Ремонт квартиры под ключ в Екатеринбурге: цены 2026 за м²"
 date: 2026-09-28
-updated: 2026-10-28
+updated: 2026-11-12
 legacy: /articles/skolko-stoit-remont-kvartiry-ekaterinburg-2026
 cover: /images/objects/garinsky/01.webp
 ---
