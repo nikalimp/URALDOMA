@@ -122,6 +122,10 @@
   "kids-room-renovation": {
    "tg": "https://t.me/uraldomaekb/39",
    "max": "off"
+  },
+  "new-build-handover-inspection": {
+   "tg": "https://t.me/uraldomaekb/40",
+   "max": "off"
   }
  },
  "edit_failed": {},
@@ -156,6 +160,7 @@
   "36": "f93a0941db3a",
   "37": "58b845ebde80",
   "38": "742b566061fa",
-  "39": "6aa0b639c6d9"
+  "39": "6aa0b639c6d9",
+  "40": "1c64f5249c01"
  }
 }
