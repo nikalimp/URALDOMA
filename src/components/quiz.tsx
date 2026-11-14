@@ -9,8 +9,23 @@ import { LeadForm } from "./lead-form";
 // Цели Метрики: quiz_start — первый ответ (промежуточная цель для обучения стратегии Директа),
 // quiz_done — дошли до телефона, lead — заявка отправлена (ставит LeadForm).
 type Q = { id: string; q: string; options: string[] };
+export type Estimate = { questionId: string; tariffs: { name: string; rate: number }[]; ranges: [number, number][] };
 
-export function Quiz({ questions, source, title = "Рассчитаем стоимость ремонта вашей квартиры" }: { questions: Q[]; source: string; title?: string }) {
+const mln = (rub: number) => `${(rub / 1_000_000).toLocaleString("ru-RU", { maximumFractionDigits: 1 })} млн ₽`;
+
+// Ориентир по работам для выбранной площади: границы площади × ставка каждого тарифа.
+function estimateRows(e: Estimate, options: string[], answer?: string) {
+  const range = answer ? e.ranges[options.indexOf(answer)] : undefined;
+  if (!range) return null;
+  const [lo, hi] = range;
+  return e.tariffs.map((t) => ({
+    name: t.name,
+    rate: t.rate,
+    sum: !lo ? `до ${mln(hi * t.rate)}` : !hi ? `от ${mln(lo * t.rate)}` : `${mln(lo * t.rate)} – ${mln(hi * t.rate)}`,
+  }));
+}
+
+export function Quiz({ questions, source, estimate, title = "Рассчитаем стоимость ремонта вашей квартиры" }: { questions: Q[]; source: string; estimate?: Estimate; title?: string }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const total = questions.length;
@@ -24,6 +39,8 @@ export function Quiz({ questions, source, title = "Рассчитаем стои
     setStep(next);
   }
 
+  const areaQ = estimate && questions.find((q) => q.id === estimate.questionId);
+  const rows = estimate && areaQ ? estimateRows(estimate, areaQ.options, answers[estimate.questionId]) : null;
   const extra = questions.map((q) => `${q.q}: ${answers[q.id] ?? "—"}`).join("; ");
 
   return (
@@ -63,8 +80,24 @@ export function Quiz({ questions, source, title = "Рассчитаем стои
         </fieldset>
       ) : (
         <div className="mt-8">
+          {rows && estimate && (
+            <div className="mb-8 border-b border-panel-line pb-8">
+              <p className="caps text-panel-muted">Ориентир по работам · {answers[estimate.questionId]}</p>
+              <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {rows.map((r) => (
+                  <div key={r.name} className="border-t border-panel-line pt-3">
+                    <dt className="text-small text-panel-muted">
+                      {r.name} · {r.rate.toLocaleString("ru-RU")} ₽/м²
+                    </dt>
+                    <dd className="t-lead mt-1">{r.sum}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="text-small mt-4 text-panel-muted">Это только работы: материалы и мебель считаются отдельно. Точную смету фиксируем в договоре после бесплатного замера.</p>
+            </div>
+          )}
           <p className="t-lead">Куда прислать расчёт?</p>
-          <p className="text-small mt-2 mb-6 text-panel-muted">Перезвоним в рабочее время, уточним детали и назовём ориентир по стоимости. Замер и смета — бесплатно.</p>
+          <p className="text-small mt-2 mb-6 text-panel-muted">Перезвоним в рабочее время, уточним детали и договоримся о замере. Замер и смета — бесплатно.</p>
           <LeadForm tone="dark" source={source} extra={`Квиз: ${extra}`} withName button="Получить расчёт" label="Отправить ответы квиза" />
         </div>
       )}

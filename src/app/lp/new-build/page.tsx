@@ -60,7 +60,7 @@ export default function NewBuildLanding() {
                 <p className="caps mt-10 text-on-photo/70">Работы — от 20 000 ₽/м² · дизайн-проект — от 3 000 ₽/м²</p>
               </div>
               <div id="quiz" className="scroll-mt-24 md:col-span-6">
-                <Quiz questions={lp.quiz} source="lp:new-build:quiz" />
+                <Quiz questions={lp.quiz} estimate={lp.estimate} source="lp:new-build:quiz" />
               </div>
             </Grid>
           </Container>
