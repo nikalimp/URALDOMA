@@ -1,0 +1,8075 @@
+{
+ "site": "sc-domain:uraldoma.ru",
+ "generated": "2026-11-14T05:40:34.581Z",
+ "period": {
+  "current": [
+   "2026-10-15",
+   "2026-11-11"
+  ],
+  "previous": [
+   "2026-09-17",
+   "2026-10-14"
+  ]
+ },
+ "totals": {
+  "current": {
+   "clicks": 166,
+   "impressions": 1636,
+   "ctr": 10.15,
+   "position": 24.1
+  },
+  "previous": null
+ },
+ "daily": [
+  {
+   "date": "2026-11-01",
+   "clicks": 7,
+   "impressions": 113,
+   "ctr": 6.19,
+   "position": 18
+  },
+  {
+   "date": "2026-11-02",
+   "clicks": 39,
+   "impressions": 195,
+   "ctr": 20,
+   "position": 25
+  },
+  {
+   "date": "2026-11-03",
+   "clicks": 17,
+   "impressions": 151,
+   "ctr": 11.26,
+   "position": 23.3
+  },
+  {
+   "date": "2026-11-04",
+   "clicks": 58,
+   "impressions": 317,
+   "ctr": 18.3,
+   "position": 33
+  },
+  {
+   "date": "2026-11-05",
+   "clicks": 30,
+   "impressions": 164,
+   "ctr": 18.29,
+   "position": 23.5
+  },
+  {
+   "date": "2026-11-06",
+   "clicks": 1,
+   "impressions": 157,
+   "ctr": 0.64,
+   "position": 31.2
+  },
+  {
+   "date": "2026-11-07",
+   "clicks": 4,
+   "impressions": 110,
+   "ctr": 3.64,
+   "position": 16.5
+  },
+  {
+   "date": "2026-11-08",
+   "clicks": 1,
+   "impressions": 110,
+   "ctr": 0.91,
+   "position": 14.7
+  },
+  {
+   "date": "2026-11-09",
+   "clicks": 5,
+   "impressions": 143,
+   "ctr": 3.5,
+   "position": 17.7
+  },
+  {
+   "date": "2026-11-10",
+   "clicks": 4,
+   "impressions": 176,
+   "ctr": 2.27,
+   "position": 22.3
+  }
+ ],
+ "pages": [
+  {
+   "key": "https://uraldoma.ru/articles/renovation-estimate/",
+   "clicks": 42,
+   "impressions": 164,
+   "ctr": 25.61,
+   "position": 29.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "clicks": 11,
+   "impressions": 65,
+   "ctr": 16.92,
+   "position": 30,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "clicks": 10,
+   "impressions": 28,
+   "ctr": 35.71,
+   "position": 40.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "clicks": 6,
+   "impressions": 40,
+   "ctr": 15,
+   "position": 27.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "clicks": 5,
+   "impressions": 115,
+   "ctr": 4.35,
+   "position": 11,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "clicks": 5,
+   "impressions": 256,
+   "ctr": 1.95,
+   "position": 27.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/baltiysky/",
+   "clicks": 5,
+   "impressions": 23,
+   "ctr": 21.74,
+   "position": 31.2,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/millenium/",
+   "clicks": 5,
+   "impressions": 17,
+   "ctr": 29.41,
+   "position": 29.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "clicks": 4,
+   "impressions": 156,
+   "ctr": 2.56,
+   "position": 8.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "clicks": 4,
+   "impressions": 31,
+   "ctr": 12.9,
+   "position": 10.8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "clicks": 4,
+   "impressions": 39,
+   "ctr": 10.26,
+   "position": 7.2,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "clicks": 4,
+   "impressions": 9,
+   "ctr": 44.44,
+   "position": 26.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "clicks": 4,
+   "impressions": 21,
+   "ctr": 19.05,
+   "position": 7.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/bely-parus/",
+   "clicks": 4,
+   "impressions": 19,
+   "ctr": 21.05,
+   "position": 33.8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/forum-city/",
+   "clicks": 4,
+   "impressions": 28,
+   "ctr": 14.29,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/malakhit/",
+   "clicks": 4,
+   "impressions": 28,
+   "ctr": 14.29,
+   "position": 44.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/new-build-renovation/",
+   "clicks": 4,
+   "impressions": 17,
+   "ctr": 23.53,
+   "position": 66.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/",
+   "clicks": 3,
+   "impressions": 11,
+   "ctr": 27.27,
+   "position": 16.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "clicks": 3,
+   "impressions": 14,
+   "ctr": 21.43,
+   "position": 17.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/underfloor-heating/",
+   "clicks": 3,
+   "impressions": 19,
+   "ctr": 15.79,
+   "position": 52.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "clicks": 3,
+   "impressions": 11,
+   "ctr": 27.27,
+   "position": 41.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/svoboda-village/",
+   "clicks": 3,
+   "impressions": 21,
+   "ctr": 14.29,
+   "position": 8.2,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/prices/",
+   "clicks": 3,
+   "impressions": 39,
+   "ctr": 7.69,
+   "position": 10.6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 13.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/h2o/",
+   "clicks": 2,
+   "impressions": 14,
+   "ctr": 14.29,
+   "position": 24.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/iset-village/",
+   "clicks": 2,
+   "impressions": 9,
+   "ctr": 22.22,
+   "position": 13.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "clicks": 1,
+   "impressions": 32,
+   "ctr": 3.13,
+   "position": 7.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/winter-renovation/",
+   "clicks": 1,
+   "impressions": 14,
+   "ctr": 7.14,
+   "position": 11.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/akademichesky/",
+   "clicks": 1,
+   "impressions": 9,
+   "ctr": 11.11,
+   "position": 4.2,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/aleksandrovsky-sad/",
+   "clicks": 1,
+   "impressions": 20,
+   "ctr": 5,
+   "position": 33.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/alye-parusa/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 46.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/amundsen/",
+   "clicks": 1,
+   "impressions": 8,
+   "ctr": 12.5,
+   "position": 41.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/depo/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 42.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/garinsky/",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 56,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/iset-park/",
+   "clicks": 1,
+   "impressions": 14,
+   "ctr": 7.14,
+   "position": 34.8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/izumrudny-bor/",
+   "clicks": 1,
+   "impressions": 10,
+   "ctr": 10,
+   "position": 47.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/nova-park/",
+   "clicks": 1,
+   "impressions": 16,
+   "ctr": 6.25,
+   "position": 39.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "clicks": 1,
+   "impressions": 12,
+   "ctr": 8.33,
+   "position": 44.6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/strana-entuziastov/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 21.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/utyos/",
+   "clicks": 1,
+   "impressions": 12,
+   "ctr": 8.33,
+   "position": 32.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/bathroom-renovation/",
+   "clicks": 1,
+   "impressions": 15,
+   "ctr": 6.67,
+   "position": 32.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/interior-design/",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 39.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/kitchen-renovation/",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 16,
+   "prev": null
+  },
+  {
+   "key": "http://uraldoma.ru/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 3.6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/about/",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 4.8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "clicks": 0,
+   "impressions": 30,
+   "ctr": 0,
+   "position": 11.8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/common-renovation-mistakes/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/do-you-need-interior-design-project/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/kitchen-renovation-guide/",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 5.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/new-build-renovation-guide/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 11.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/renovation-for-rental/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/rough-finishing-what-is-included/",
+   "clicks": 0,
+   "impressions": 16,
+   "ctr": 0,
+   "position": 9.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/articles/wiring-and-plumbing-renovation/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 2.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/careers/",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 7.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 1.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/4you/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 45.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/adagio/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 22.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/chistye-rosy/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 39.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/ekaterininsky-park/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/lenina-8/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 99,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/makarovsky/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 41.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/murzinka/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/na-nekrasova/",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 39.2,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/nagorny/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/nikolin-klyuch/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 38.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 45.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/palniks/",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 34.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/park-stolits/",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "clicks": 0,
+   "impressions": 14,
+   "ctr": 0,
+   "position": 18.6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/radishcheva/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/reka/",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 28.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/repin-towers/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 35.3,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/severny-himmash/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 29.9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/severny-kvartal/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/shishkino/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 20.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 28.6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/tsvetnoy-bulvar/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 44.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/yuzhnye-kvartaly/",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 26.5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/complexes/zolotaya-gorka/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/contacts/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 3.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/furniture/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 12.1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/furniture/custom-kitchens/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/how-we-work/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/mebel",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/old",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 8,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/page8409051.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/partners/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/portfolio/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 5,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/room",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/designer-renovation/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 23.4,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/furnishing/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/major-renovation/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 46.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/services/turnkey-renovation/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 56.7,
+   "prev": null
+  },
+  {
+   "key": "https://uraldoma.ru/warranty/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10,
+   "prev": null
+  }
+ ],
+ "pages90": [
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "clicks": 42,
+   "impressions": 164,
+   "ctr": 25.61,
+   "position": 29.1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "clicks": 11,
+   "impressions": 65,
+   "ctr": 16.92,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "clicks": 10,
+   "impressions": 28,
+   "ctr": 35.71,
+   "position": 40.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "clicks": 6,
+   "impressions": 40,
+   "ctr": 15,
+   "position": 27.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "clicks": 5,
+   "impressions": 115,
+   "ctr": 4.35,
+   "position": 11
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "clicks": 5,
+   "impressions": 256,
+   "ctr": 1.95,
+   "position": 27.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "clicks": 5,
+   "impressions": 23,
+   "ctr": 21.74,
+   "position": 31.2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/millenium/",
+   "clicks": 5,
+   "impressions": 17,
+   "ctr": 29.41,
+   "position": 29.9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "clicks": 4,
+   "impressions": 156,
+   "ctr": 2.56,
+   "position": 8.4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "clicks": 4,
+   "impressions": 31,
+   "ctr": 12.9,
+   "position": 10.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "clicks": 4,
+   "impressions": 39,
+   "ctr": 10.26,
+   "position": 7.2
+  },
+  {
+   "page": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "clicks": 4,
+   "impressions": 9,
+   "ctr": 44.44,
+   "position": 26.9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "clicks": 4,
+   "impressions": 21,
+   "ctr": 19.05,
+   "position": 7.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "clicks": 4,
+   "impressions": 19,
+   "ctr": 21.05,
+   "position": 33.8
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "clicks": 4,
+   "impressions": 28,
+   "ctr": 14.29,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "clicks": 4,
+   "impressions": 28,
+   "ctr": 14.29,
+   "position": 44.3
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "clicks": 4,
+   "impressions": 17,
+   "ctr": 23.53,
+   "position": 66.1
+  },
+  {
+   "page": "https://uraldoma.ru/",
+   "clicks": 3,
+   "impressions": 11,
+   "ctr": 27.27,
+   "position": 16.9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "clicks": 3,
+   "impressions": 14,
+   "ctr": 21.43,
+   "position": 17.1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "clicks": 3,
+   "impressions": 19,
+   "ctr": 15.79,
+   "position": 52.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "clicks": 3,
+   "impressions": 11,
+   "ctr": 27.27,
+   "position": 41.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-village/",
+   "clicks": 3,
+   "impressions": 21,
+   "ctr": 14.29,
+   "position": 8.2
+  },
+  {
+   "page": "https://uraldoma.ru/prices/",
+   "clicks": 3,
+   "impressions": 39,
+   "ctr": 7.69,
+   "position": 10.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 13.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "clicks": 2,
+   "impressions": 14,
+   "ctr": 14.29,
+   "position": 24.1
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-village/",
+   "clicks": 2,
+   "impressions": 9,
+   "ctr": 22.22,
+   "position": 13.4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "clicks": 1,
+   "impressions": 32,
+   "ctr": 3.13,
+   "position": 7.9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/winter-renovation/",
+   "clicks": 1,
+   "impressions": 14,
+   "ctr": 7.14,
+   "position": 11.4
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/akademichesky/",
+   "clicks": 1,
+   "impressions": 9,
+   "ctr": 11.11,
+   "position": 4.2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/aleksandrovsky-sad/",
+   "clicks": 1,
+   "impressions": 20,
+   "ctr": 5,
+   "position": 33.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/alye-parusa/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 46.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "clicks": 1,
+   "impressions": 8,
+   "ctr": 12.5,
+   "position": 41.4
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 42.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/garinsky/",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 56
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "clicks": 1,
+   "impressions": 14,
+   "ctr": 7.14,
+   "position": 34.8
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/izumrudny-bor/",
+   "clicks": 1,
+   "impressions": 10,
+   "ctr": 10,
+   "position": 47.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "clicks": 1,
+   "impressions": 16,
+   "ctr": 6.25,
+   "position": 39.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "clicks": 1,
+   "impressions": 12,
+   "ctr": 8.33,
+   "position": 44.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/strana-entuziastov/",
+   "clicks": 1,
+   "impressions": 7,
+   "ctr": 14.29,
+   "position": 21.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "clicks": 1,
+   "impressions": 12,
+   "ctr": 8.33,
+   "position": 32.9
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "clicks": 1,
+   "impressions": 15,
+   "ctr": 6.67,
+   "position": 32.9
+  },
+  {
+   "page": "https://uraldoma.ru/services/interior-design/",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 39.7
+  },
+  {
+   "page": "https://uraldoma.ru/services/kitchen-renovation/",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 16
+  },
+  {
+   "page": "http://uraldoma.ru/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 3.6
+  },
+  {
+   "page": "https://uraldoma.ru/about/",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 4.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "clicks": 0,
+   "impressions": 30,
+   "ctr": 0,
+   "position": 11.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/common-renovation-mistakes/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/do-you-need-interior-design-project/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/kitchen-renovation-guide/",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 5.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/new-build-renovation-guide/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 11.1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-for-rental/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/articles/rough-finishing-what-is-included/",
+   "clicks": 0,
+   "impressions": 16,
+   "ctr": 0,
+   "position": 9.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wiring-and-plumbing-renovation/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 2.3
+  },
+  {
+   "page": "https://uraldoma.ru/careers/",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 7.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 1.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/4you/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 45.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/adagio/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 22.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/chistye-rosy/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 39.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/ekaterininsky-park/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/lenina-8/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 99
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/makarovsky/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 41.1
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/murzinka/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/na-nekrasova/",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 39.2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nagorny/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nikolin-klyuch/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 38.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "clicks": 0,
+   "impressions": 9,
+   "ctr": 0,
+   "position": 45.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 34.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "clicks": 0,
+   "impressions": 12,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "clicks": 0,
+   "impressions": 14,
+   "ctr": 0,
+   "position": 18.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/radishcheva/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "clicks": 0,
+   "impressions": 15,
+   "ctr": 0,
+   "position": 28.4
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 35.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-himmash/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 29.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-kvartal/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishkino/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 20.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 28.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/tsvetnoy-bulvar/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 44.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/yuzhnye-kvartaly/",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 26.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/zolotaya-gorka/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/contacts/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 3.7
+  },
+  {
+   "page": "https://uraldoma.ru/furniture/",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 12.1
+  },
+  {
+   "page": "https://uraldoma.ru/furniture/custom-kitchens/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "page": "https://uraldoma.ru/how-we-work/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/mebel",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "page": "https://uraldoma.ru/old",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "page": "https://uraldoma.ru/page8409051.html",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "page": "https://uraldoma.ru/partners/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5
+  },
+  {
+   "page": "https://uraldoma.ru/portfolio/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 5
+  },
+  {
+   "page": "https://uraldoma.ru/room",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/services/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 4
+  },
+  {
+   "page": "https://uraldoma.ru/services/designer-renovation/",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 23.4
+  },
+  {
+   "page": "https://uraldoma.ru/services/furnishing/",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/services/major-renovation/",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 46.7
+  },
+  {
+   "page": "https://uraldoma.ru/services/turnkey-renovation/",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 56.7
+  },
+  {
+   "page": "https://uraldoma.ru/warranty/",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  }
+ ],
+ "pagesLost": [],
+ "queries": [
+  {
+   "key": "ремонт стен расценка в смете",
+   "clicks": 5,
+   "impressions": 8,
+   "ctr": 62.5,
+   "position": 66.3,
+   "prev": null
+  },
+  {
+   "key": "смета на ремонт квартиры",
+   "clicks": 4,
+   "impressions": 30,
+   "ctr": 13.33,
+   "position": 18,
+   "prev": null
+  },
+  {
+   "key": "смета ремонта жилого дома",
+   "clicks": 4,
+   "impressions": 4,
+   "ctr": 100,
+   "position": 27.8,
+   "prev": null
+  },
+  {
+   "key": "жк белый парус",
+   "clicks": 3,
+   "impressions": 9,
+   "ctr": 33.33,
+   "position": 36.1,
+   "prev": null
+  },
+  {
+   "key": "как покрасить стены в квартире на обои",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 34.8,
+   "prev": null
+  },
+  {
+   "key": "отделка стен под покраску",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 46.3,
+   "prev": null
+  },
+  {
+   "key": "подробная смета на ремонт квартиры",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 70.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт однокомнатной квартиры в екатеринбурге под ключ",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 24.8,
+   "prev": null
+  },
+  {
+   "key": "ремонт однокомнатной новостройки",
+   "clicks": 3,
+   "impressions": 4,
+   "ctr": 75,
+   "position": 90.5,
+   "prev": null
+  },
+  {
+   "key": "смета на косметический ремонт помещения",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 76.5,
+   "prev": null
+  },
+  {
+   "key": "смета на ремонт кухни",
+   "clicks": 3,
+   "impressions": 3,
+   "ctr": 100,
+   "position": 23.3,
+   "prev": null
+  },
+  {
+   "key": "смета работ по ремонту квартиры",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 62.8,
+   "prev": null
+  },
+  {
+   "key": "смета ремонта квартиры",
+   "clicks": 3,
+   "impressions": 18,
+   "ctr": 16.67,
+   "position": 23.7,
+   "prev": null
+  },
+  {
+   "key": "сметы на ремонт квартиры",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 39.8,
+   "prev": null
+  },
+  {
+   "key": "финишная отделка стен",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 34.2,
+   "prev": null
+  },
+  {
+   "key": "добрый город екатеринбург коттеджный поселок",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 13.5,
+   "prev": null
+  },
+  {
+   "key": "жк малахит",
+   "clicks": 2,
+   "impressions": 15,
+   "ctr": 13.33,
+   "position": 45.7,
+   "prev": null
+  },
+  {
+   "key": "жк малахит отзывы",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 41,
+   "prev": null
+  },
+  {
+   "key": "жк миллениум екатеринбург",
+   "clicks": 2,
+   "impressions": 6,
+   "ctr": 33.33,
+   "position": 39.2,
+   "prev": null
+  },
+  {
+   "key": "жк ольховский парк",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 58.6,
+   "prev": null
+  },
+  {
+   "key": "жк ольховский парк екатеринбург официальный сайт",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 30,
+   "prev": null
+  },
+  {
+   "key": "жк ольховский парк отзывы",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 40.3,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт в квартире",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "кп исеть вилладж",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 15,
+   "prev": null
+  },
+  {
+   "key": "сделать смету на ремонт дома",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 60.8,
+   "prev": null
+  },
+  {
+   "key": "сделать смету на ремонт квартиры",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 28.7,
+   "prev": null
+  },
+  {
+   "key": "сколько стоит отделка дома внутри в среднем",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 104,
+   "prev": null
+  },
+  {
+   "key": "составить смету на ремонт квартиры",
+   "clicks": 2,
+   "impressions": 4,
+   "ctr": 50,
+   "position": 34.5,
+   "prev": null
+  },
+  {
+   "key": "срок ремонта квартиры под ключ",
+   "clicks": 2,
+   "impressions": 6,
+   "ctr": 33.33,
+   "position": 14.3,
+   "prev": null
+  },
+  {
+   "key": "стоимость ремонта 2 комнатной квартиры",
+   "clicks": 2,
+   "impressions": 4,
+   "ctr": 50,
+   "position": 7.8,
+   "prev": null
+  },
+  {
+   "key": "чем покрасить стены в квартире",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 43.3,
+   "prev": null
+  },
+  {
+   "key": "балтийский жк екатеринбург",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 33.5,
+   "prev": null
+  },
+  {
+   "key": "гарантия на отделочные работы",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 55,
+   "prev": null
+  },
+  {
+   "key": "гаринский 3",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 56,
+   "prev": null
+  },
+  {
+   "key": "гидроизоляция ванной комнаты в екатеринбурге",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 22.5,
+   "prev": null
+  },
+  {
+   "key": "дизайн проект дома екатеринбург",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 61,
+   "prev": null
+  },
+  {
+   "key": "жилой комплекс h2o",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 51,
+   "prev": null
+  },
+  {
+   "key": "жилой комплекс белый парус",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 47.5,
+   "prev": null
+  },
+  {
+   "key": "жилой комплекс шишимская горка",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 48,
+   "prev": null
+  },
+  {
+   "key": "жк h2o",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 46.5,
+   "prev": null
+  },
+  {
+   "key": "жк амундсен",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 57,
+   "prev": null
+  },
+  {
+   "key": "жк балтийский екатеринбург",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 38.7,
+   "prev": null
+  },
+  {
+   "key": "жк изумрудный бор",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 62.3,
+   "prev": null
+  },
+  {
+   "key": "жк исеть парк",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 42,
+   "prev": null
+  },
+  {
+   "key": "жк квартал депо",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 51,
+   "prev": null
+  },
+  {
+   "key": "жк миллениум",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 38,
+   "prev": null
+  },
+  {
+   "key": "жк ольховский парк екатеринбург",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 45,
+   "prev": null
+  },
+  {
+   "key": "жк северное сияние екатеринбург официальный сайт",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 39.5,
+   "prev": null
+  },
+  {
+   "key": "жк шишимская горка",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 40.3,
+   "prev": null
+  },
+  {
+   "key": "замена старого фартука на кухне в екатеринбурге",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 16,
+   "prev": null
+  },
+  {
+   "key": "как выбрать строительную компанию для ремонта квартиры",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 17,
+   "prev": null
+  },
+  {
+   "key": "монолитный дом yandex realty",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 19,
+   "prev": null
+  },
+  {
+   "key": "нова парк екатеринбург",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "ольховский парк",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 57.5,
+   "prev": null
+  },
+  {
+   "key": "отопление в полу в квартире",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 96,
+   "prev": null
+  },
+  {
+   "key": "расценки на строительные работы екб",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 11,
+   "prev": null
+  },
+  {
+   "key": "ремонт в жк алые паруса",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 51.6,
+   "prev": null
+  },
+  {
+   "key": "ремонт домов под ключ в екатеринбурге",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры в новостройке под ключ в екатеринбурге",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 18,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры новостройка",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 61,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры с нуля с чего начать",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры с чего начать и последовательность",
+   "clicks": 1,
+   "impressions": 10,
+   "ctr": 10,
+   "position": 20.7,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры смета",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 20,
+   "prev": null
+  },
+  {
+   "key": "сделать косметический ремонт в квартире",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 12,
+   "prev": null
+  },
+  {
+   "key": "сколько стоит ремонт 1 комнатной квартиры",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 11,
+   "prev": null
+  },
+  {
+   "key": "смета для ремонта квартиры",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 47.6,
+   "prev": null
+  },
+  {
+   "key": "смета на отделку квартиры",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 17,
+   "prev": null
+  },
+  {
+   "key": "смета по ремонту квартир",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 92,
+   "prev": null
+  },
+  {
+   "key": "смета по ремонту квартиры",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 40.2,
+   "prev": null
+  },
+  {
+   "key": "смета ремонта",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 20.3,
+   "prev": null
+  },
+  {
+   "key": "смета ремонтных работ",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 22,
+   "prev": null
+  },
+  {
+   "key": "сметы на ремонт квартир",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 21,
+   "prev": null
+  },
+  {
+   "key": "стоимость ремонта в новостройке",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 8.6,
+   "prev": null
+  },
+  {
+   "key": "стоимость ремонта двухкомнатной квартир",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 8.4,
+   "prev": null
+  },
+  {
+   "key": "стоимость ремонта квартиры за 1 кв м",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "стоит ли делать ремонт зимой",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 20,
+   "prev": null
+  },
+  {
+   "key": "теплые полы в квартире",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 95,
+   "prev": null
+  },
+  {
+   "key": "теплый пол в квартире",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 66.4,
+   "prev": null
+  },
+  {
+   "key": "уборка александровский сад",
+   "clicks": 1,
+   "impressions": 18,
+   "ctr": 5.56,
+   "position": 32.9,
+   "prev": null
+  },
+  {
+   "key": "форум сити",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "форум сити екатеринбург",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 46,
+   "prev": null
+  },
+  {
+   "key": "4you жк",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 54.5,
+   "prev": null
+  },
+  {
+   "key": "4you жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "contractor near me",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9,
+   "prev": null
+  },
+  {
+   "key": "forum city",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "h2o жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "nova park екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 34,
+   "prev": null
+  },
+  {
+   "key": "repin towers екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5,
+   "prev": null
+  },
+  {
+   "key": "александровский сад екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "алые паруса екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 64,
+   "prev": null
+  },
+  {
+   "key": "амундсен жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45,
+   "prev": null
+  },
+  {
+   "key": "амундсен жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "астра белый парус екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "атом нова парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47,
+   "prev": null
+  },
+  {
+   "key": "атом нова парк 4 очередь",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "атом северное сияние",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 42.5,
+   "prev": null
+  },
+  {
+   "key": "балтийский атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48,
+   "prev": null
+  },
+  {
+   "key": "балтийский жк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "белый парус жк",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5,
+   "prev": null
+  },
+  {
+   "key": "белый парус жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "в екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6,
+   "prev": null
+  },
+  {
+   "key": "в какой последовательности делается ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28.5,
+   "prev": null
+  },
+  {
+   "key": "в какой последовательности делать ремонт",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39.5,
+   "prev": null
+  },
+  {
+   "key": "в какой последовательности делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18,
+   "prev": null
+  },
+  {
+   "key": "в какой последовательности делать ремонт в комнате",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22,
+   "prev": null
+  },
+  {
+   "key": "в какой последовательности делают ремонт в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "в каком порядке делать ремонт",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 14.3,
+   "prev": null
+  },
+  {
+   "key": "в каком порядке делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "водяной пол в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 53,
+   "prev": null
+  },
+  {
+   "key": "водяной теплый пол в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 107,
+   "prev": null
+  },
+  {
+   "key": "гарантия на ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "депо брусника екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41,
+   "prev": null
+  },
+  {
+   "key": "дизайнерский ремонт екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 23,
+   "prev": null
+  },
+  {
+   "key": "дом",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2,
+   "prev": null
+  },
+  {
+   "key": "дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32,
+   "prev": null
+  },
+  {
+   "key": "дом на некрасова",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 42.6,
+   "prev": null
+  },
+  {
+   "key": "дом у реки атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 30.5,
+   "prev": null
+  },
+  {
+   "key": "екатеринбург проспект мира компаунд цена новостройки сегодня",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "екатеринбург ул татищева белый парус",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "емкости из полипропилена купить",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1,
+   "prev": null
+  },
+  {
+   "key": "жилой комплекс ольховский парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 53,
+   "prev": null
+  },
+  {
+   "key": "жилой комплекс северное сияние екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52,
+   "prev": null
+  },
+  {
+   "key": "жк 4 you",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "жк h2o екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "жк nova park екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "жк александровский сад",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42,
+   "prev": null
+  },
+  {
+   "key": "жк амундсена",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45,
+   "prev": null
+  },
+  {
+   "key": "жк амундсена екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41,
+   "prev": null
+  },
+  {
+   "key": "жк балтийский екатеринбург отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "жк депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "жк исеть",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "жк исеть парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38,
+   "prev": null
+  },
+  {
+   "key": "жк макаровский екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 48.5,
+   "prev": null
+  },
+  {
+   "key": "жк малахит екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 52.3,
+   "prev": null
+  },
+  {
+   "key": "жк малахит екатеринбург отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "жк н2о екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "жк на репина екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "жк некрасова екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40,
+   "prev": null
+  },
+  {
+   "key": "жк нова парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 31,
+   "prev": null
+  },
+  {
+   "key": "жк новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47,
+   "prev": null
+  },
+  {
+   "key": "жк парк столиц",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 49.5,
+   "prev": null
+  },
+  {
+   "key": "жк парк столиц екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23,
+   "prev": null
+  },
+  {
+   "key": "жк река дом на набережной",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "жк река дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32,
+   "prev": null
+  },
+  {
+   "key": "жк река екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 45.5,
+   "prev": null
+  },
+  {
+   "key": "жк река екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "жк свобода резиденс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "жк северное сияние екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 45,
+   "prev": null
+  },
+  {
+   "key": "жк северное сияние отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "жк северный химмаш",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "жк северный химмаш екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "жк северный химмаш отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36,
+   "prev": null
+  },
+  {
+   "key": "жк утес",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "жк утес екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 29.5,
+   "prev": null
+  },
+  {
+   "key": "жк утес екб",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 32.5,
+   "prev": null
+  },
+  {
+   "key": "жк утёс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "жк форум сити",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 22.3,
+   "prev": null
+  },
+  {
+   "key": "жк форум сити екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51,
+   "prev": null
+  },
+  {
+   "key": "жк цветной бульвар екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 65.5,
+   "prev": null
+  },
+  {
+   "key": "жк шишимская горка екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32,
+   "prev": null
+  },
+  {
+   "key": "жк энтузиастов екатеринбург эльмаш",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47,
+   "prev": null
+  },
+  {
+   "key": "и то, и другое",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5,
+   "prev": null
+  },
+  {
+   "key": "из чего делать стены в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23,
+   "prev": null
+  },
+  {
+   "key": "изумрудный бор",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 61,
+   "prev": null
+  },
+  {
+   "key": "изумрудный бор екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 64.5,
+   "prev": null
+  },
+  {
+   "key": "исеть парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "исеть парк жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41,
+   "prev": null
+  },
+  {
+   "key": "исеть парк жк екатеринбург официальный сайт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "исеть парк пик",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "как выбрать подрядчика для ремонта квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "как делается ремонт в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13,
+   "prev": null
+  },
+  {
+   "key": "как делать косметический ремонт в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 14,
+   "prev": null
+  },
+  {
+   "key": "как делать ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46,
+   "prev": null
+  },
+  {
+   "key": "как делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30,
+   "prev": null
+  },
+  {
+   "key": "как отделать стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "как правильно сделать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 62,
+   "prev": null
+  },
+  {
+   "key": "как правильно сделать ремонт в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16,
+   "prev": null
+  },
+  {
+   "key": "как сделать косметический ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25.5,
+   "prev": null
+  },
+  {
+   "key": "как спланировать ремонт квартиры",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "какая последовательность ремонта",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 26,
+   "prev": null
+  },
+  {
+   "key": "какие этапы ремонта квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры в екатеринбурге",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 46.7,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры последовательность",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры пошагово",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры поэтапно",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 38.7,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48,
+   "prev": null
+  },
+  {
+   "key": "капитальный ремонт квартиры этапы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48,
+   "prev": null
+  },
+  {
+   "key": "квартал депо",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48,
+   "prev": null
+  },
+  {
+   "key": "квартал депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "квартал на некрасова екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38,
+   "prev": null
+  },
+  {
+   "key": "квартал энтузиастов екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "квартиры под ключ екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9.5,
+   "prev": null
+  },
+  {
+   "key": "кирпичные",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2,
+   "prev": null
+  },
+  {
+   "key": "компаунд жилье",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 21,
+   "prev": null
+  },
+  {
+   "key": "компаунд проспект мира",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42,
+   "prev": null
+  },
+  {
+   "key": "косметическая отделка",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт в комнате",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт вторичного жилья",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт квартир это как",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 21.5,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт квартиры сроки",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт это",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13,
+   "prev": null
+  },
+  {
+   "key": "косметический ремонт это какой",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 42.5,
+   "prev": null
+  },
+  {
+   "key": "коттеджный поселок николин ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39,
+   "prev": null
+  },
+  {
+   "key": "коттеджный поселок чистые росы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37,
+   "prev": null
+  },
+  {
+   "key": "коттеджный поселок чистые росы 2",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "кп палникс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30,
+   "prev": null
+  },
+  {
+   "key": "кп чистые росы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38,
+   "prev": null
+  },
+  {
+   "key": "кухни на заказ екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96,
+   "prev": null
+  },
+  {
+   "key": "кухня ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "ленина 8 екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 99,
+   "prev": null
+  },
+  {
+   "key": "лср малахит екатеринбург жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "макаровский жк",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 57,
+   "prev": null
+  },
+  {
+   "key": "макаровский квартал",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15,
+   "prev": null
+  },
+  {
+   "key": "малахит екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 58.7,
+   "prev": null
+  },
+  {
+   "key": "можно ли в квартире сделать теплый пол",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 49.5,
+   "prev": null
+  },
+  {
+   "key": "можно ли делать ремонт зимой",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9,
+   "prev": null
+  },
+  {
+   "key": "н2о жк екатеринбург монтерская",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32,
+   "prev": null
+  },
+  {
+   "key": "н2о жк екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 27.5,
+   "prev": null
+  },
+  {
+   "key": "николин ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36,
+   "prev": null
+  },
+  {
+   "key": "нова парк 4 очередь екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32,
+   "prev": null
+  },
+  {
+   "key": "нова парк атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "нова парк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 38.5,
+   "prev": null
+  },
+  {
+   "key": "новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40,
+   "prev": null
+  },
+  {
+   "key": "новокольцовский жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 90,
+   "prev": null
+  },
+  {
+   "key": "новокольцовский жк екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "новокольцовский жк екатеринбург синара",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49,
+   "prev": null
+  },
+  {
+   "key": "новопарк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34,
+   "prev": null
+  },
+  {
+   "key": "новостройки ремонт",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 95,
+   "prev": null
+  },
+  {
+   "key": "ольховский парк екатеринбург купить квартиру",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47,
+   "prev": null
+  },
+  {
+   "key": "отделка стен краской",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23,
+   "prev": null
+  },
+  {
+   "key": "отделочник квартир вакансии",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22,
+   "prev": null
+  },
+  {
+   "key": "очередность в ремонте",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "очередность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "палникс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42,
+   "prev": null
+  },
+  {
+   "key": "палникс екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34.5,
+   "prev": null
+  },
+  {
+   "key": "палникс коттеджный поселок",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40,
+   "prev": null
+  },
+  {
+   "key": "палникс коттеджный поселок екатеринбург",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 40,
+   "prev": null
+  },
+  {
+   "key": "парк столиц екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 31.5,
+   "prev": null
+  },
+  {
+   "key": "парк столиц екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43,
+   "prev": null
+  },
+  {
+   "key": "парк столиц екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39,
+   "prev": null
+  },
+  {
+   "key": "парк столиц жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52,
+   "prev": null
+  },
+  {
+   "key": "перепланировка лоджии согласование",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 80,
+   "prev": null
+  },
+  {
+   "key": "пик исеть парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40,
+   "prev": null
+  },
+  {
+   "key": "пик утес екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45,
+   "prev": null
+  },
+  {
+   "key": "план ремонта квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50,
+   "prev": null
+  },
+  {
+   "key": "покрытие для стен",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 29.8,
+   "prev": null
+  },
+  {
+   "key": "покрытие стен",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 28.7,
+   "prev": null
+  },
+  {
+   "key": "покрытия для стен",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "порядок выполнения ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "порядок действий ремонта в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16,
+   "prev": null
+  },
+  {
+   "key": "порядок ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21,
+   "prev": null
+  },
+  {
+   "key": "порядок ремонта в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 16.8,
+   "prev": null
+  },
+  {
+   "key": "порядок ремонта в квартире что за чем",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16.3,
+   "prev": null
+  },
+  {
+   "key": "последовательность работ при ремонте",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "последовательность работ при ремонте квартиры",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 22.9,
+   "prev": null
+  },
+  {
+   "key": "последовательность ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "последовательность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 22,
+   "prev": null
+  },
+  {
+   "key": "последовательность ремонта квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 20,
+   "prev": null
+  },
+  {
+   "key": "последовательность ремонтных работ в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 60,
+   "prev": null
+  },
+  {
+   "key": "последовательность этапов ремонта в квартире",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 25.7,
+   "prev": null
+  },
+  {
+   "key": "поэтапность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "поэтапный ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22,
+   "prev": null
+  },
+  {
+   "key": "прайс на строительные работы 2026 год",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10,
+   "prev": null
+  },
+  {
+   "key": "при ремонте квартиры что делают первым делом",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "проспект мира жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 58,
+   "prev": null
+  },
+  {
+   "key": "рабочий дом урал екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37,
+   "prev": null
+  },
+  {
+   "key": "расценки на строительные работы в екатеринбурге",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "река дом на набережной",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 30.5,
+   "prev": null
+  },
+  {
+   "key": "река дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33,
+   "prev": null
+  },
+  {
+   "key": "река дом на набережной екатеринбург атомстройкомплекс жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35,
+   "prev": null
+  },
+  {
+   "key": "ремонт в квартире с нуля пошаговая инструкция",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 37.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт в квартире с чего начать",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 37.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт ванной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8,
+   "prev": null
+  },
+  {
+   "key": "ремонт ванной и туалета екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 75,
+   "prev": null
+  },
+  {
+   "key": "ремонт ванной комнаты екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6,
+   "prev": null
+  },
+  {
+   "key": "ремонт ванной комнаты и туалета екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28,
+   "prev": null
+  },
+  {
+   "key": "ремонт ванной комнаты под ключ",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 10.1,
+   "prev": null
+  },
+  {
+   "key": "ремонт двухкомнатной квартиры под ключ в екатеринбурге",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12,
+   "prev": null
+  },
+  {
+   "key": "ремонт за проживание в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42,
+   "prev": null
+  },
+  {
+   "key": "ремонт зимой",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир в екатеринбурге недорого качественно цены на услуги",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир в екатеринбурге под ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир в жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир в новостройке в екатеринбурге",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 27,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир в новостройке екатеринбург",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 19.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир екатеринбург цены",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир под ключ в екатеринбурге",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир под ключ сроки",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир под ключ цена",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир под ключ цена за м2",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир поэтапно",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 24,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартир этапы ремонта отделки",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 21.5,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры порядок выполнения работ",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 19.8,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры пошагово с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры с нуля",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 75.4,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 54,
+   "prev": null
+  },
+  {
+   "key": "ремонт квартиры этапы порядок работ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16,
+   "prev": null
+  },
+  {
+   "key": "ремонт новостройки",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 61.8,
+   "prev": null
+  },
+  {
+   "key": "ремонт новостройки цена за метр",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8,
+   "prev": null
+  }
+ ],
+ "pageQueries": [
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "ремонт стен расценка в смете",
+   "clicks": 5,
+   "impressions": 8,
+   "ctr": 62.5,
+   "position": 66.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт квартиры",
+   "clicks": 4,
+   "impressions": 30,
+   "ctr": 13.33,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонта жилого дома",
+   "clicks": 4,
+   "impressions": 4,
+   "ctr": 100,
+   "position": 27.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "смета на косметический ремонт помещения",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 76.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "ремонт однокомнатной квартиры в екатеринбурге под ключ",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 24.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "подробная смета на ремонт квартиры",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 70.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт кухни",
+   "clicks": 3,
+   "impressions": 3,
+   "ctr": 100,
+   "position": 23.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета работ по ремонту квартиры",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 62.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонта квартиры",
+   "clicks": 3,
+   "impressions": 18,
+   "ctr": 16.67,
+   "position": 23.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "сметы на ремонт квартиры",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 39.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "как покрасить стены в квартире на обои",
+   "clicks": 3,
+   "impressions": 5,
+   "ctr": 60,
+   "position": 34.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "отделка стен под покраску",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 46.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "финишная отделка стен",
+   "clicks": 3,
+   "impressions": 6,
+   "ctr": 50,
+   "position": 34.2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "жк белый парус",
+   "clicks": 3,
+   "impressions": 9,
+   "ctr": 33.33,
+   "position": 36.1
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "ремонт однокомнатной новостройки",
+   "clicks": 3,
+   "impressions": 4,
+   "ctr": 75,
+   "position": 90.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт в квартире",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "query": "срок ремонта квартиры под ключ",
+   "clicks": 2,
+   "impressions": 6,
+   "ctr": 33.33,
+   "position": 14.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "сделать смету на ремонт дома",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 60.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "сделать смету на ремонт квартиры",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 28.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "составить смету на ремонт квартиры",
+   "clicks": 2,
+   "impressions": 4,
+   "ctr": 50,
+   "position": 34.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "query": "сколько стоит отделка дома внутри в среднем",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 104
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "стоимость ремонта 2 комнатной квартиры",
+   "clicks": 2,
+   "impressions": 4,
+   "ctr": 50,
+   "position": 7.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем покрасить стены в квартире",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 43.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "query": "добрый город екатеринбург коттеджный поселок",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 13.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-village/",
+   "query": "кп исеть вилладж",
+   "clicks": 2,
+   "impressions": 2,
+   "ctr": 100,
+   "position": 15
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "жк малахит",
+   "clicks": 2,
+   "impressions": 15,
+   "ctr": 13.33,
+   "position": 45.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "жк малахит отзывы",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/millenium/",
+   "query": "жк миллениум екатеринбург",
+   "clicks": 2,
+   "impressions": 6,
+   "ctr": 33.33,
+   "position": 39.2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "жк ольховский парк",
+   "clicks": 2,
+   "impressions": 5,
+   "ctr": 40,
+   "position": 58.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "жк ольховский парк екатеринбург официальный сайт",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "жк ольховский парк отзывы",
+   "clicks": 2,
+   "impressions": 3,
+   "ctr": 66.67,
+   "position": 40.3
+  },
+  {
+   "page": "https://uraldoma.ru/",
+   "query": "ремонт домов под ключ в екатеринбурге",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "расценки на строительные работы екб",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 11
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартиры в новостройке под ключ в екатеринбурге",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "стоимость ремонта в новостройке",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 8.6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "сделать косметический ремонт в квартире",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 12
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "query": "как выбрать строительную компанию для ремонта квартиры",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 17
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "сколько стоит ремонт 1 комнатной квартиры",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 11
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "ремонт квартиры смета",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета для ремонта квартиры",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 47.6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на отделку квартиры",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 17
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета по ремонту квартир",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 92
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета по ремонту квартиры",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 40.2
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонта",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 20.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонтных работ",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "сметы на ремонт квартир",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 21
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры с нуля с чего начать",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры с чего начать и последовательность",
+   "clicks": 1,
+   "impressions": 10,
+   "ctr": 10,
+   "position": 20.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "query": "гарантия на отделочные работы",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 55
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "стоимость ремонта двухкомнатной квартир",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 8.4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "отопление в полу в квартире",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 96
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "теплые полы в квартире",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 95
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "теплый пол в квартире",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 66.4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/winter-renovation/",
+   "query": "стоит ли делать ремонт зимой",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/aleksandrovsky-sad/",
+   "query": "уборка александровский сад",
+   "clicks": 1,
+   "impressions": 18,
+   "ctr": 5.56,
+   "position": 32.9
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/alye-parusa/",
+   "query": "ремонт в жк алые паруса",
+   "clicks": 1,
+   "impressions": 5,
+   "ctr": 20,
+   "position": 51.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "query": "жк амундсен",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 57
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "балтийский жк екатеринбург",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 33.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "жк балтийский екатеринбург",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 38.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "монолитный дом yandex realty",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 19
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "жилой комплекс белый парус",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 47.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "жк квартал депо",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 51
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "query": "форум сити",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "query": "форум сити екатеринбург",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 46
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/garinsky/",
+   "query": "гаринский 3",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 56
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "жилой комплекс h2o",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 51
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "жк h2o",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 46.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "жк исеть парк",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 42
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/izumrudny-bor/",
+   "query": "жк изумрудный бор",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 62.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/millenium/",
+   "query": "жк миллениум",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 38
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "нова парк екатеринбург",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "жк ольховский парк екатеринбург",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "ольховский парк",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 57.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "жк северное сияние екатеринбург официальный сайт",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 39.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "query": "жилой комплекс шишимская горка",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "query": "жк шишимская горка",
+   "clicks": 1,
+   "impressions": 3,
+   "ctr": 33.33,
+   "position": 40.3
+  },
+  {
+   "page": "https://uraldoma.ru/prices/",
+   "query": "стоимость ремонта квартиры за 1 кв м",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "гидроизоляция ванной комнаты в екатеринбурге",
+   "clicks": 1,
+   "impressions": 6,
+   "ctr": 16.67,
+   "position": 22.5
+  },
+  {
+   "page": "https://uraldoma.ru/services/interior-design/",
+   "query": "дизайн проект дома екатеринбург",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 61
+  },
+  {
+   "page": "https://uraldoma.ru/services/kitchen-renovation/",
+   "query": "замена старого фартука на кухне в екатеринбурге",
+   "clicks": 1,
+   "impressions": 1,
+   "ctr": 100,
+   "position": 16
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "ремонт квартиры новостройка",
+   "clicks": 1,
+   "impressions": 2,
+   "ctr": 50,
+   "position": 61
+  },
+  {
+   "page": "http://uraldoma.ru/",
+   "query": "емкости из полипропилена купить",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "page": "https://uraldoma.ru/",
+   "query": "contractor near me",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "page": "https://uraldoma.ru/",
+   "query": "рабочий дом урал екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "page": "https://uraldoma.ru/",
+   "query": "ура ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "квартиры под ключ екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 9.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "прайс на строительные работы 2026 год",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "расценки на строительные работы в екатеринбурге",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир в екатеринбурге недорого качественно цены на услуги",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир в екатеринбурге под ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир в новостройке в екатеринбурге",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 43.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир в новостройке екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 18.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир екатеринбург цены",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир под ключ в екатеринбурге",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир под ключ цена",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт квартир под ключ цена за м2",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт новостройки цена за метр",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "ремонт под ключ екатеринбург цена",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры в екатеринбурге",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры в екатеринбурге за м2 под ключ",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры во вторичке",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры под ключ за квадратный метр",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 11
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "сколько стоит ремонт квартиры с предчистовой отделкой",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "средняя стоимость ремонта за квадратный метр",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "стоимость ремонта квартиры екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 21.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "стоимость ремонта квартиры за квадратный метр екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "query": "строительные работы под ключ цена в екатеринбурге",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "page": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "query": "ремонт ванной комнаты под ключ",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 10.1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "query": "ремонт туалета в квартире под ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 17
+  },
+  {
+   "page": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "query": "сколько длится ремонт в ванной и туалете под ключ",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/bathroom-renovation-guide/",
+   "query": "что входит в ремонт санузла под ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "как делать косметический ремонт в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "как сделать косметический ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметическая отделка",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт в комнате",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт вторичного жилья",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт квартир это как",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 21.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт квартиры сроки",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт это",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "косметический ремонт это какой",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 42.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "query": "что такое косметический ремонт квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "query": "ремонт квартир под ключ сроки",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "query": "сколько делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "query": "сколько длится капитальный ремонт квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "query": "как выбрать подрядчика для ремонта квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/kitchen-renovation-guide/",
+   "query": "кухня ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/new-build-renovation-guide/",
+   "query": "ремонт квартир в новостройке в екатеринбурге",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 10.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/new-build-renovation-guide/",
+   "query": "ремонт квартир в новостройке екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "в екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "ремонт однокомнатной квартиры",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 22.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "сколько стоит ремонт однокомнатной квартиры во вторичке",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "page": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "query": "сколько стоит сделать ремонт в новостройке с нуля однокомнатная квартира",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "query": "дом",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2
+  },
+  {
+   "page": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "query": "перепланировка лоджии согласование",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 80
+  },
+  {
+   "page": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "query": "согласование перепланировки екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 13.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/redevelopment-approval-yekaterinburg/",
+   "query": "согласование перепланировок",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 42.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт дома",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт квартир",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета на ремонт помещения",
+   "clicks": 0,
+   "impressions": 5,
+   "ctr": 0,
+   "position": 21.6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета расходов на ремонт квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонт квартир",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-estimate/",
+   "query": "смета ремонт квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-for-rental/",
+   "query": "ремонт за проживание в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в какой последовательности делается ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в какой последовательности делать ремонт",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 39.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в какой последовательности делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в какой последовательности делать ремонт в комнате",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в какой последовательности делают ремонт в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в каком порядке делать ремонт",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 14.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "в каком порядке делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как делается ремонт в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 13
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как делать ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как правильно сделать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 62
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как правильно сделать ремонт в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "как спланировать ремонт квартиры",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "какая последовательность ремонта",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "какие этапы ремонта квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "капитальный ремонт квартиры последовательность",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "капитальный ремонт квартиры пошагово",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "капитальный ремонт квартиры поэтапно",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 38.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "капитальный ремонт квартиры с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "капитальный ремонт квартиры этапы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "очередность в ремонте",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "очередность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "план ремонта квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "порядок выполнения ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "порядок действий ремонта в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "порядок ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "порядок ремонта в квартире",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 16.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "порядок ремонта в квартире что за чем",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 16.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность работ при ремонте",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность работ при ремонте квартиры",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 22.9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность ремонта квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность ремонтных работ в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 60
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "последовательность этапов ремонта в квартире",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 25.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "поэтапность ремонта в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "поэтапный ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "при ремонте квартиры что делают первым делом",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт в квартире с нуля пошаговая инструкция",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 37.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт в квартире с чего начать",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 37.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартир поэтапно",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартир этапы ремонта отделки",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 21.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры порядок выполнения работ",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 19.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры пошагово с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры с нуля",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 75.4
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 54
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт квартиры этапы порядок работ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 16
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "ремонт с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 74
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать делать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 7,
+   "ctr": 0,
+   "position": 23.6
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 68
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт в квартире вторичка",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 69
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт в комнате с пола или потолка или стен",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт квартиры",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт квартиры с нуля",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начать ремонт квартиры этапы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 18
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинается ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 58
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинается ремонт в квартире",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 23.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинается ремонт в квартире пошагово",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинать ремонт в квартире поэтапно",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 19.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинать ремонт в комнате поэтапно",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 24
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинают ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 63
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего начинают ремонт в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "с чего нужно начинать ремонт в квартире",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "стадии ремонта квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы в ремонте квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы работ по ремонту квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта в квартире",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 15.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта в квартире вторичка с чего начать",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта квартиры",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 21.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта квартиры пошагово",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта квартиры с начала",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы ремонта квартиры с нуля пошагово",
+   "clicks": 0,
+   "impressions": 10,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "query": "этапы строительства квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "query": "гарантия на ремонт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/rough-finishing-what-is-included/",
+   "query": "черновой ремонт это",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 19.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/rough-finishing-what-is-included/",
+   "query": "черновые работы это",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "ремонт двухкомнатной квартиры под ключ в екатеринбурге",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 12
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "сколько стоит бюджетный ремонт двухкомнатной квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "сколько стоит полный ремонт двухкомнатной квартиры",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "query": "сколько стоит сделать ремонт в двухкомнатной квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "водяной пол в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 53
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "водяной теплый пол в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 107
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "можно ли в квартире сделать теплый пол",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 49.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/underfloor-heating/",
+   "query": "теплый пол в квартиру",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 98
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "из чего делать стены в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "как отделать стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "отделка стен краской",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "покрытие для стен",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 29.8
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "покрытие стен",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 28.7
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "покрытия для стен",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "финишное покрытие стен",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 16.5
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем красить стены в квартире",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем можно покрасить стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем можно покрасить стены в комнате",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем отделать стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем покрасить стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 56
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем покрывают стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 20
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем покрыть стены",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "query": "чем штукатурить стены в квартире",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 25.3
+  },
+  {
+   "page": "https://uraldoma.ru/articles/winter-renovation/",
+   "query": "можно ли делать ремонт зимой",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 9
+  },
+  {
+   "page": "https://uraldoma.ru/articles/winter-renovation/",
+   "query": "ремонт зимой",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/careers/",
+   "query": "отделочник квартир вакансии",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 22
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/4you/",
+   "query": "4you жк",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 54.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/4you/",
+   "query": "4you жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/4you/",
+   "query": "жк 4 you",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/aleksandrovsky-sad/",
+   "query": "александровский сад екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/aleksandrovsky-sad/",
+   "query": "жк александровский сад",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/alye-parusa/",
+   "query": "алые паруса екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 64
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "query": "амундсен жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "query": "амундсен жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "query": "жк амундсена",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/amundsen/",
+   "query": "жк амундсена екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "балтийский атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "балтийский жк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/baltiysky/",
+   "query": "жк балтийский екатеринбург отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "астра белый парус екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "белый парус жк",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "белый парус жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/bely-parus/",
+   "query": "екатеринбург ул татищева белый парус",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 27
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/chistye-rosy/",
+   "query": "коттеджный поселок чистые росы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/chistye-rosy/",
+   "query": "коттеджный поселок чистые росы 2",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/chistye-rosy/",
+   "query": "кп чистые росы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "депо брусника екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "жк депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "квартал депо",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 48
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/depo/",
+   "query": "квартал депо екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/ekaterininsky-park/",
+   "query": "кирпичные",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 2
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "query": "forum city",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "query": "жк форум сити",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 22.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/forum-city/",
+   "query": "жк форум сити екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 51
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "h2o жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "жк h2o екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "жк н2о екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "н2о жк екатеринбург монтерская",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/h2o/",
+   "query": "н2о жк екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 27.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "жк исеть",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "жк исеть парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "исеть парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "исеть парк жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "исеть парк жк екатеринбург официальный сайт",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "исеть парк пик",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "пик исеть парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/iset-park/",
+   "query": "свердловская область екатеринбург микрорайон автовокзал жилой комплекс исеть парк к2 исеть парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/izumrudny-bor/",
+   "query": "изумрудный бор",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 61
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/izumrudny-bor/",
+   "query": "изумрудный бор екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 64.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/lenina-8/",
+   "query": "ленина 8 екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 99
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/makarovsky/",
+   "query": "жк макаровский екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 48.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/makarovsky/",
+   "query": "макаровский жк",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 57
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/makarovsky/",
+   "query": "макаровский квартал",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 15
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "жк малахит екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 52.3
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "жк малахит екатеринбург отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "лср малахит екатеринбург жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/malakhit/",
+   "query": "малахит екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 58.7
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/na-nekrasova/",
+   "query": "дом на некрасова",
+   "clicks": 0,
+   "impressions": 11,
+   "ctr": 0,
+   "position": 42.6
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/na-nekrasova/",
+   "query": "жк некрасова екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/na-nekrasova/",
+   "query": "квартал на некрасова екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 38
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nikolin-klyuch/",
+   "query": "коттеджный поселок николин ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nikolin-klyuch/",
+   "query": "николин ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "nova park екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "атом нова парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "атом нова парк 4 очередь",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "жк nova park екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "жк нова парк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 31
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "нова парк 4 очередь екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "нова парк атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "нова парк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 38.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/nova-park/",
+   "query": "новопарк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "жк новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "новокольцовский жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 90
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "новокольцовский жк екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "новокольцовский жк екатеринбург синара",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "синара девелопмент новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "синара новокольцовский",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/novokoltsovsky/",
+   "query": "синара новокольцовский екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "жилой комплекс ольховский парк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 53
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "query": "ольховский парк екатеринбург купить квартиру",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "query": "кп палникс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 30
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "query": "палникс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "query": "палникс екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 34.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "query": "палникс коттеджный поселок",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/palniks/",
+   "query": "палникс коттеджный поселок екатеринбург",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "жк парк столиц",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 49.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "жк парк столиц екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "парк столиц екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 31.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "парк столиц екатеринбург официальный",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "парк столиц екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 39
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/park-stolits/",
+   "query": "парк столиц жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "query": "екатеринбург проспект мира компаунд цена новостройки сегодня",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "query": "компаунд жилье",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 21
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "query": "компаунд проспект мира",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 42
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/prospekt-mira/",
+   "query": "проспект мира жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 58
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "дом у реки атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 30.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "жк река дом на набережной",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "жк река дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "жк река екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 45.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "жк река екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "река дом на набережной",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 30.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "река дом на набережной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/reka/",
+   "query": "река дом на набережной екатеринбург атомстройкомплекс жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "query": "repin towers екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 40.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "query": "жк на репина екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "query": "репин тауэрс",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 18.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "query": "репин тауэрс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/repin-towers/",
+   "query": "репин товерс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "атом северное сияние",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 42.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "жилой комплекс северное сияние екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 52
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "жк северное сияние екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "жк северное сияние отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "северное сияние атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 40
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severnoe-siyanie/",
+   "query": "северное сияние жк екатеринбург атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 50
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-himmash/",
+   "query": "жк северный химмаш",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-himmash/",
+   "query": "жк северный химмаш екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 33
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-himmash/",
+   "query": "жк северный химмаш отзывы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 36
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/severny-himmash/",
+   "query": "северный химмаш атомстройкомплекс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "query": "жк шишимская горка екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "query": "шишимская горка екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 49.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "query": "шишимская горка квартиры",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/strana-entuziastov/",
+   "query": "жк энтузиастов екатеринбург эльмаш",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 47
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/strana-entuziastov/",
+   "query": "квартал энтузиастов екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 44
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/strana-entuziastov/",
+   "query": "страна энтузиастов екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 43
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "query": "жк свобода резиденс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "query": "свобода residence",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 32
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "query": "свобода residence екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "query": "свобода резиденс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 25
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/svoboda-residence/",
+   "query": "свобода резиденс екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/tsvetnoy-bulvar/",
+   "query": "жк цветной бульвар екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 65.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/tsvetnoy-bulvar/",
+   "query": "цветной бульвар екатеринбург",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 36.8
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/tsvetnoy-bulvar/",
+   "query": "цветной бульвар екб",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "жк утес",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "жк утес екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 29.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "жк утес екб",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 32.5
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "жк утёс",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 35
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "пик утес екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "утес екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 31
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "утес жк екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 45
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/utyos/",
+   "query": "утес пик",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/complexes/yuzhnye-kvartaly/",
+   "query": "южные кварталы",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 41
+  },
+  {
+   "page": "https://uraldoma.ru/furniture/",
+   "query": "урал мебель",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 26
+  },
+  {
+   "page": "https://uraldoma.ru/furniture/custom-kitchens/",
+   "query": "кухни на заказ екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 96
+  },
+  {
+   "page": "https://uraldoma.ru/prices/",
+   "query": "расценки на строительные работы в екатеринбурге",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "и то, и другое",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 5
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "ремонт ванной екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "ремонт ванной и туалета екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 75
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "ремонт ванной комнаты екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 6
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "ремонт ванной комнаты и туалета екатеринбург",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 28
+  },
+  {
+   "page": "https://uraldoma.ru/services/bathroom-renovation/",
+   "query": "санузел под ключ",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 71
+  },
+  {
+   "page": "https://uraldoma.ru/services/designer-renovation/",
+   "query": "дизайнерский ремонт екатеринбург",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 23
+  },
+  {
+   "page": "https://uraldoma.ru/services/major-renovation/",
+   "query": "капитальный ремонт квартиры в екатеринбурге",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 46.7
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "новостройки ремонт",
+   "clicks": 0,
+   "impressions": 3,
+   "ctr": 0,
+   "position": 95
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "ремонт квартир в жк",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 46
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "ремонт квартир в новостройке екатеринбург",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 29
+  },
+  {
+   "page": "https://uraldoma.ru/services/new-build-renovation/",
+   "query": "ремонт новостройки",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 61.8
+  },
+  {
+   "page": "https://uraldoma.ru/services/turnkey-renovation/",
+   "query": "удалённый ремонт квартиры",
+   "clicks": 0,
+   "impressions": 6,
+   "ctr": 0,
+   "position": 64.3
+  }
+ ],
+ "devices": [
+  {
+   "device": "MOBILE",
+   "clicks": 104,
+   "impressions": 844,
+   "ctr": 12.32,
+   "position": 22.9
+  },
+  {
+   "device": "DESKTOP",
+   "clicks": 62,
+   "impressions": 735,
+   "ctr": 8.44,
+   "position": 24.9
+  },
+  {
+   "device": "TABLET",
+   "clicks": 0,
+   "impressions": 57,
+   "ctr": 0,
+   "position": 31.4
+  }
+ ],
+ "countries": [
+  {
+   "country": "rus",
+   "clicks": 166,
+   "impressions": 1561,
+   "ctr": 10.63,
+   "position": 24.3
+  },
+  {
+   "country": "arg",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 8
+  },
+  {
+   "country": "arm",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 10
+  },
+  {
+   "country": "bel",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 14
+  },
+  {
+   "country": "bgd",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 43.3
+  },
+  {
+   "country": "bgr",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 19.5
+  },
+  {
+   "country": "bra",
+   "clicks": 0,
+   "impressions": 8,
+   "ctr": 0,
+   "position": 40.5
+  },
+  {
+   "country": "cyp",
+   "clicks": 0,
+   "impressions": 13,
+   "ctr": 0,
+   "position": 10.1
+  },
+  {
+   "country": "deu",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "country": "est",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 1
+  },
+  {
+   "country": "grc",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 37
+  },
+  {
+   "country": "hkg",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 7
+  },
+  {
+   "country": "idn",
+   "clicks": 0,
+   "impressions": 4,
+   "ctr": 0,
+   "position": 38.5
+  },
+  {
+   "country": "ind",
+   "clicks": 0,
+   "impressions": 1,
+   "ctr": 0,
+   "position": 49
+  },
+  {
+   "country": "ita",
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 25.5
+  }
+ ],
+ "searchAppearance": [],
+ "sitemaps": [],
+ "sitemapUrls": 106,
+ "pagesWithImpressions": 96,
+ "bySection": {
+  "/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 3,
+   "impressions": 16
+  },
+  "/services/": {
+   "urls": 10,
+   "withImpressions": 9,
+   "clicks": 7,
+   "impressions": 56
+  },
+  "/prices/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 3,
+   "impressions": 39
+  },
+  "/how-we-work/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 1
+  },
+  "/warranty/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 1
+  },
+  "/portfolio/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 3
+  },
+  "/complexes/": {
+   "urls": 56,
+   "withImpressions": 48,
+   "clicks": 56,
+   "impressions": 465
+  },
+  "/about/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 4
+  },
+  "/contacts/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 3
+  },
+  "/careers/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 9
+  },
+  "/partners/": {
+   "urls": 1,
+   "withImpressions": 1,
+   "clicks": 0,
+   "impressions": 1
+  },
+  "/articles/": {
+   "urls": 31,
+   "withImpressions": 23,
+   "clicks": 97,
+   "impressions": 1052
+  },
+  "/furniture/": {
+   "urls": 0,
+   "withImpressions": 0,
+   "clicks": 0,
+   "impressions": 9
+  },
+  "/mebel/": {
+   "urls": 0,
+   "withImpressions": 0,
+   "clicks": 0,
+   "impressions": 1
+  },
+  "/old/": {
+   "urls": 0,
+   "withImpressions": 0,
+   "clicks": 0,
+   "impressions": 2
+  },
+  "/page8409051.html/": {
+   "urls": 0,
+   "withImpressions": 0,
+   "clicks": 0,
+   "impressions": 1
+  },
+  "/room/": {
+   "urls": 0,
+   "withImpressions": 0,
+   "clicks": 0,
+   "impressions": 1
+  }
+ },
+ "coverage": {
+  "Страница отправлена и проиндексирована": 37,
+  "URL неизвестен Google": 4
+ },
+ "inspections": [
+  {
+   "url": "https://uraldoma.ru/articles/renovation-estimate/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T03:27:19Z",
+   "googleCanonical": "https://uraldoma.ru/articles/renovation-estimate/",
+   "userCanonical": "https://uraldoma.ru/articles/renovation-estimate/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T03:31:36Z",
+   "googleCanonical": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "userCanonical": "https://uraldoma.ru/articles/wall-finishing-options/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T03:12:05Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "userCanonical": "https://uraldoma.ru/complexes/olkhovsky-park/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T02:13:12Z",
+   "googleCanonical": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "userCanonical": "https://uraldoma.ru/articles/cosmetic-renovation-resale-apartment/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T02:18:30Z",
+   "googleCanonical": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "userCanonical": "https://uraldoma.ru/articles/apartment-renovation-cost-yekaterinburg/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T02:07:56Z",
+   "googleCanonical": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "userCanonical": "https://uraldoma.ru/articles/renovation-steps-where-to-start/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/baltiysky/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:16:01Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/baltiysky/",
+   "userCanonical": "https://uraldoma.ru/complexes/baltiysky/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/millenium/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-24T23:44:58Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/millenium/",
+   "userCanonical": "https://uraldoma.ru/complexes/millenium/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T03:42:07Z",
+   "googleCanonical": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "userCanonical": "https://uraldoma.ru/articles/how-long-renovation-takes/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T03:45:55Z",
+   "googleCanonical": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "userCanonical": "https://uraldoma.ru/articles/one-room-apartment-renovation-cost/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T02:00:51Z",
+   "googleCanonical": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "userCanonical": "https://uraldoma.ru/articles/renovation-warranty-guide/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-27T04:33:05Z",
+   "googleCanonical": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "userCanonical": "https://uraldoma.ru/articles/turnkey-renovation-tariffs/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-10T13:05:41Z",
+   "googleCanonical": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "userCanonical": "https://uraldoma.ru/articles/two-room-apartment-renovation-cost/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/bely-parus/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:26:25Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/bely-parus/",
+   "userCanonical": "https://uraldoma.ru/complexes/bely-parus/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/forum-city/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:27:43Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/forum-city/",
+   "userCanonical": "https://uraldoma.ru/complexes/forum-city/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/malakhit/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T01:59:07Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/malakhit/",
+   "userCanonical": "https://uraldoma.ru/complexes/malakhit/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/services/new-build-renovation/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-17T22:38:40Z",
+   "googleCanonical": "https://uraldoma.ru/services/new-build-renovation/",
+   "userCanonical": "https://uraldoma.ru/services/new-build-renovation/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-12T20:38:29Z",
+   "googleCanonical": "https://uraldoma.ru/",
+   "userCanonical": "https://uraldoma.ru/",
+   "crawledAs": "MOBILE",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T02:11:26Z",
+   "googleCanonical": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "userCanonical": "https://uraldoma.ru/articles/how-to-choose-renovation-company/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/underfloor-heating/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-03T16:19:06Z",
+   "googleCanonical": "https://uraldoma.ru/articles/underfloor-heating/",
+   "userCanonical": "https://uraldoma.ru/articles/underfloor-heating/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T06:09:02Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "userCanonical": "https://uraldoma.ru/complexes/shishimskaya-gorka/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/svoboda-village/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T06:07:55Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/svoboda-village/",
+   "userCanonical": "https://uraldoma.ru/complexes/svoboda-village/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/prices/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-02T11:15:32Z",
+   "googleCanonical": "https://uraldoma.ru/prices/",
+   "userCanonical": "https://uraldoma.ru/prices/",
+   "crawledAs": "MOBILE",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "hasImpressions": true,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:32:56Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "userCanonical": "https://uraldoma.ru/complexes/dobry-gorod/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/services/redevelopment/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-04T04:54:01Z",
+   "googleCanonical": "https://uraldoma.ru/services/redevelopment/",
+   "userCanonical": "https://uraldoma.ru/services/redevelopment/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/trinity/",
+   "hasImpressions": false,
+   "verdict": "NEUTRAL",
+   "coverageState": "URL неизвестен Google",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/articles/new-build-handover-inspection/",
+   "hasImpressions": false,
+   "verdict": "NEUTRAL",
+   "coverageState": "URL неизвестен Google",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/clover-park/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T01:28:54Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/clover-park/",
+   "userCanonical": "https://uraldoma.ru/complexes/clover-park/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/apartment-soundproofing/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-11T13:37:55Z",
+   "googleCanonical": "https://uraldoma.ru/articles/apartment-soundproofing/",
+   "userCanonical": "https://uraldoma.ru/articles/apartment-soundproofing/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/obraztsovo/",
+   "hasImpressions": false,
+   "verdict": "NEUTRAL",
+   "coverageState": "URL неизвестен Google",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/articles/kids-room-renovation/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-11T13:24:45Z",
+   "googleCanonical": "https://uraldoma.ru/articles/kids-room-renovation/",
+   "userCanonical": "https://uraldoma.ru/articles/kids-room-renovation/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/zapovednik/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-18T01:21:09Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/zapovednik/",
+   "userCanonical": "https://uraldoma.ru/complexes/zapovednik/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/hidden-interior-doors/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-10T14:51:15Z",
+   "googleCanonical": "https://uraldoma.ru/articles/hidden-interior-doors/",
+   "userCanonical": "https://uraldoma.ru/articles/hidden-interior-doors/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/solnechny/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:23:50Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/solnechny/",
+   "userCanonical": "https://uraldoma.ru/complexes/solnechny/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/apartment-lighting/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-10T14:53:41Z",
+   "googleCanonical": "https://uraldoma.ru/articles/apartment-lighting/",
+   "userCanonical": "https://uraldoma.ru/articles/apartment-lighting/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/discovery-residence/",
+   "hasImpressions": false,
+   "verdict": "NEUTRAL",
+   "coverageState": "URL неизвестен Google",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "richResults": []
+  },
+  {
+   "url": "https://uraldoma.ru/articles/hallway-renovation/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-10T15:03:24Z",
+   "googleCanonical": "https://uraldoma.ru/articles/hallway-renovation/",
+   "userCanonical": "https://uraldoma.ru/articles/hallway-renovation/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/usadby-zhavoronki/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T06:10:22Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/usadby-zhavoronki/",
+   "userCanonical": "https://uraldoma.ru/complexes/usadby-zhavoronki/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/flooring-options/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-03T08:07:56Z",
+   "googleCanonical": "https://uraldoma.ru/articles/flooring-options/",
+   "userCanonical": "https://uraldoma.ru/articles/flooring-options/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/complexes/zavidovo/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-10-25T02:13:24Z",
+   "googleCanonical": "https://uraldoma.ru/complexes/zavidovo/",
+   "userCanonical": "https://uraldoma.ru/complexes/zavidovo/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  },
+  {
+   "url": "https://uraldoma.ru/articles/bedroom-renovation/",
+   "hasImpressions": false,
+   "verdict": "PASS",
+   "coverageState": "Страница отправлена и проиндексирована",
+   "indexingState": "INDEXING_ALLOWED",
+   "robotsTxtState": "ALLOWED",
+   "pageFetchState": "SUCCESSFUL",
+   "lastCrawlTime": "2026-11-03T08:08:12Z",
+   "googleCanonical": "https://uraldoma.ru/articles/bedroom-renovation/",
+   "userCanonical": "https://uraldoma.ru/articles/bedroom-renovation/",
+   "crawledAs": "MOBILE",
+   "richResults": [
+    "Строки навигации"
+   ],
+   "richVerdict": "PASS"
+  }
+ ]
+}
