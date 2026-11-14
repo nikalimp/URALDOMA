@@ -1,6 +1,6 @@
 {
  "site": "sc-domain:uraldoma.ru",
- "generated": "2026-11-14T07:05:49.739Z",
+ "generated": "2026-11-14T11:19:35.254Z",
  "period": {
   "current": [
    "2026-10-15",
@@ -7787,7 +7787,7 @@
    "indexingState": "INDEXING_ALLOWED",
    "robotsTxtState": "ALLOWED",
    "pageFetchState": "SUCCESSFUL",
-   "lastCrawlTime": "2026-11-02T11:15:32Z",
+   "lastCrawlTime": "2026-11-09T02:29:49Z",
    "googleCanonical": "https://uraldoma.ru/prices/",
    "userCanonical": "https://uraldoma.ru/prices/",
    "crawledAs": "MOBILE",

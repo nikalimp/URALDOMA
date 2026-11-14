@@ -1,6 +1,6 @@
 {
  "host": "uraldoma.ru",
- "generated": "2026-11-14T07:05:53.348Z",
+ "generated": "2026-11-14T11:19:38.515Z",
  "period": [
   "2026-10-17",
   "2026-11-13"
@@ -308,37 +308,22 @@
   },
   "diagnostics": {
    "problems": {
-    "NO_REGIONS": {
+    "INSIGNIFICANT_CGI_PARAMETER": {
      "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
-    "NOT_IN_SPRAV": {
+    "URL_ALERT_4XX": {
      "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
-    "DISALLOWED_IN_ROBOTS": {
-     "severity": "FATAL",
+    "FAVICON_ERROR": {
+     "severity": "POSSIBLE_PROBLEM",
      "state": "ABSENT",
      "last_state_update": null
     },
     "DUPLICATE_CONTENT_ATTRS": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "NO_ROBOTS_TXT": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
-    "NO_METRIKA_COUNTER_BINDING": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "PRESENT",
-     "last_state_update": "2026-11-09T08:01:14.167+03:00"
-    },
-    "VIDEOHOST_OFFER_FAILED": {
      "severity": "POSSIBLE_PROBLEM",
      "state": "ABSENT",
      "last_state_update": null
@@ -348,23 +333,8 @@
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
-    "NOT_MOBILE_FRIENDLY": {
-     "severity": "RECOMMENDATION",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
-    "NO_SITEMAP_MODIFICATIONS": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
     "URL_ALERT_5XX": {
      "severity": "CRITICAL",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
-    "DOCUMENTS_MISSING_DESCRIPTION": {
-     "severity": "POSSIBLE_PROBLEM",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
@@ -373,23 +343,8 @@
      "state": "ABSENT",
      "last_state_update": null
     },
-    "DOCUMENTS_MISSING_TITLE": {
+    "MAIN_PAGE_REDIRECTS": {
      "severity": "POSSIBLE_PROBLEM",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
-    "ERROR_IN_ROBOTS_TXT": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
-    "TOO_MANY_DOMAINS_ON_SEARCH": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "INSIGNIFICANT_CGI_PARAMETER": {
-     "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
@@ -403,32 +358,12 @@
      "state": "ABSENT",
      "last_state_update": null
     },
-    "CONNECT_FAILED": {
-     "severity": "FATAL",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "NO_SITEMAPS": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "NOT_APPLICABLE",
-     "last_state_update": null
-    },
     "BIG_FAVICON_ABSENT": {
      "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": "2026-10-08T20:26:16.014+03:00"
     },
-    "THREATS": {
-     "severity": "FATAL",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "DUPLICATE_PAGES": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "MAIN_PAGE_ERROR": {
+    "DISALLOWED_IN_ROBOTS": {
      "severity": "FATAL",
      "state": "ABSENT",
      "last_state_update": null
@@ -438,23 +373,23 @@
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
-    "URL_ALERT_4XX": {
+    "DOCUMENTS_MISSING_DESCRIPTION": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "NO_REGIONS": {
      "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
-    "DNS_ERROR": {
+    "THREATS": {
      "severity": "FATAL",
      "state": "ABSENT",
      "last_state_update": null
     },
-    "FAVICON_ERROR": {
-     "severity": "POSSIBLE_PROBLEM",
-     "state": "ABSENT",
-     "last_state_update": null
-    },
-    "MAIN_PAGE_REDIRECTS": {
-     "severity": "POSSIBLE_PROBLEM",
+    "NOT_IN_SPRAV": {
+     "severity": "RECOMMENDATION",
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
@@ -463,9 +398,74 @@
      "state": "NOT_APPLICABLE",
      "last_state_update": null
     },
+    "NOT_MOBILE_FRIENDLY": {
+     "severity": "RECOMMENDATION",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "NO_METRIKA_COUNTER_BINDING": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "PRESENT",
+     "last_state_update": "2026-11-09T08:01:14.167+03:00"
+    },
     "SOFT_404": {
      "severity": "POSSIBLE_PROBLEM",
      "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "NO_SITEMAP_MODIFICATIONS": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "TOO_MANY_DOMAINS_ON_SEARCH": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "ABSENT",
+     "last_state_update": null
+    },
+    "DNS_ERROR": {
+     "severity": "FATAL",
+     "state": "ABSENT",
+     "last_state_update": null
+    },
+    "ERROR_IN_ROBOTS_TXT": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "DOCUMENTS_MISSING_TITLE": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "MAIN_PAGE_ERROR": {
+     "severity": "FATAL",
+     "state": "ABSENT",
+     "last_state_update": null
+    },
+    "NO_ROBOTS_TXT": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "NO_SITEMAPS": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "NOT_APPLICABLE",
+     "last_state_update": null
+    },
+    "DUPLICATE_PAGES": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "ABSENT",
+     "last_state_update": null
+    },
+    "CONNECT_FAILED": {
+     "severity": "FATAL",
+     "state": "ABSENT",
+     "last_state_update": null
+    },
+    "VIDEOHOST_OFFER_FAILED": {
+     "severity": "POSSIBLE_PROBLEM",
+     "state": "ABSENT",
      "last_state_update": null
     }
    }
