@@ -1,12 +1,13 @@
 {
  "host": "uraldoma.ru",
- "generated": "2026-11-14T05:40:44.232Z",
+ "generated": "2026-11-14T07:05:53.348Z",
  "period": [
   "2026-10-17",
   "2026-11-13"
  ],
  "webmaster": {
   "host": "http://uraldoma.ru/",
+  "sitemapAdded": null,
   "verified": true,
   "candidates": [
    "https://uraldoma.ru/ verified=true",
