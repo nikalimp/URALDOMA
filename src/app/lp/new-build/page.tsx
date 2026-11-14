@@ -1,7 +1,8 @@
 import { site } from "@/content/site";
 import { lp, lpFaq } from "@/content/landing-new-build";
 import { caseBySlug, type Case } from "@/content/cases";
-import { home } from "@/content/home";
+import { home, team } from "@/content/home";
+import { reviews, reviewsSource } from "@/content/reviews";
 import { pic } from "@/content/photos";
 import { tariffCommon } from "@/content/tariffs";
 import { Container, Grid, Section, SectionHead, H2, btnPrimary } from "@/components/container";
@@ -87,6 +88,40 @@ export default function NewBuildLanding() {
             <div className="grid grid-cols-1 gap-x-gutter gap-y-12 md:grid-cols-2">
               {cases.map((c, i) => <CaseCard key={c.slug} c={c} index={`(0${i + 1})`} className={i % 2 === 1 ? "md:mt-16" : ""} />)}
             </div>
+          </Container>
+        </Section>
+
+        {/* Отзывы */}
+        <Section>
+          <Container>
+            <SectionHead label="Отзывы" title={<>Что говорят <em>наши клиенты</em></>} aside={`Отзывы с ${reviewsSource.name} — после сделки по ремонту.`} />
+            <ul className="grid grid-cols-1 gap-x-gutter md:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((r) => (
+                <li key={r.name + r.date} className="border-t border-border pt-5 pb-10">
+                  <blockquote className="text-body">«{r.text}»</blockquote>
+                  <p className="text-small mt-4 font-medium">{r.name}{r.object ? `, ${r.object}` : ""}</p>
+                  <p className="text-small text-muted-foreground">{reviewsSource.name}, {r.date}</p>
+                </li>
+              ))}
+            </ul>
+            <a href={reviewsSource.url} target="_blank" rel="noopener" className="text-small underline underline-offset-4">Все отзывы на {reviewsSource.name} <span aria-hidden="true">↗</span></a>
+          </Container>
+        </Section>
+
+        {/* Команда */}
+        <Section>
+          <Container>
+            <SectionHead label="Команда" title={<>Люди, которые <em>ведут ваш ремонт</em></>} />
+            <ul className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4">
+              {team.filter((t) => lp.team.includes(t.photo)).map((t) => (
+                <li key={t.photo}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/team/${t.photo}.webp`} alt={`${t.name}, ${t.role.toLowerCase()} URALDOMA`} width={600} height={900} loading="lazy" decoding="async" className="aspect-[3/4] w-full bg-secondary object-cover grayscale" />
+                  <p className="text-body mt-3 border-t border-border pt-3 font-medium">{t.name}</p>
+                  <p className="text-small text-muted-foreground">{t.role}</p>
+                </li>
+              ))}
+            </ul>
           </Container>
         </Section>
 

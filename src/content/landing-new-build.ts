@@ -50,6 +50,9 @@ export const lp = {
     { title: "Комплектация и сдача", text: "Монтаж кухни и мебели по проекту, клининг и акт." },
   ],
 
+  // Команда на лендинге — фото из src/content/home.ts (team), по полю photo.
+  team: ["nikolay", "andrey", "ksenia", "emil"],
+
   cases: ["garinsky", "trinity-14", "clover-park", "radishcheva-31"],
 };
 
