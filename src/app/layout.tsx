@@ -40,6 +40,9 @@ const metrikaScript = (id: number) =>
 // Цели Метрики без правки компонентов: клики по телефону, почте и Telegram
 const goalsScript = `document.addEventListener('click',function(e){if(!window.ym||!e.target.closest)return;var q=e.target.closest('[data-goal]');if(q)ym(${site.metrikaId},'reachGoal',q.getAttribute('data-goal'));var a=e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';var g=h.indexOf('tel:')===0?'phone':h.indexOf('mailto:')===0?'email':h.indexOf('t.me')>-1?'telegram':'';if(g)ym(${site.metrikaId},'reachGoal',g)});`;
 
+// Метки рекламы первого входа (utm_*, yclid) — в sessionStorage, чтобы заявка с любой страницы визита знала кампанию и фразу
+const attributionScript = `(function(){try{if(sessionStorage.getItem('ud_attr'))return;var p=new URLSearchParams(location.search),o=[];p.forEach(function(v,k){if(/^utm_|^yclid$/.test(k))o.push(k+'='+v.slice(0,120))});if(o.length)sessionStorage.setItem('ud_attr',o.join('&'))}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const metrika = site.metrikaId > 0 && !noindex;
   return (
@@ -48,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content={themeColors.light} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script dangerouslySetInnerHTML={{ __html: preloaderScript }} />
+        <script dangerouslySetInnerHTML={{ __html: attributionScript }} />
         {metrika && <script dangerouslySetInnerHTML={{ __html: metrikaScript(site.metrikaId) + goalsScript }} />}
         <JsonLd data={graph(websiteSchema, orgSchema, personSchema)} />
       </head>

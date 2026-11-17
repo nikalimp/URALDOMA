@@ -28,6 +28,7 @@ function estimateRows(e: Estimate, options: string[], answer?: string) {
 export function Quiz({ questions, source, estimate, title = "Рассчитаем стоимость ремонта вашей квартиры" }: { questions: Q[]; source: string; estimate?: Estimate; title?: string }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [sent, setSent] = useState(false);
   const total = questions.length;
   const done = step >= total;
 
@@ -46,8 +47,8 @@ export function Quiz({ questions, source, estimate, title = "Рассчитае�
   return (
     <div className="bg-panel p-6 text-panel-foreground md:p-10">
       <div className="flex items-baseline justify-between gap-6">
-        <p className="caps text-panel-muted">{done ? "Последний шаг" : `Вопрос ${step + 1} из ${total}`}</p>
-        {step > 0 && (
+        <p className="caps text-panel-muted">{sent ? "Готово" : done ? "Последний шаг" : `Вопрос ${step + 1} из ${total}`}</p>
+        {step > 0 && !sent && (
           <button type="button" onClick={() => setStep((s) => s - 1)} className="text-small text-panel-muted underline underline-offset-4 hover:text-panel-foreground">
             Назад
           </button>
@@ -80,25 +81,55 @@ export function Quiz({ questions, source, estimate, title = "Рассчитае�
         </fieldset>
       ) : (
         <div className="mt-8">
-          {rows && estimate && (
+          {!sent && rows && estimate && (
             <div className="mb-8 border-b border-panel-line pb-8">
               <p className="caps text-panel-muted">Ориентир по работам · {answers[estimate.questionId]}</p>
-              <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {rows.map((r) => (
-                  <div key={r.name} className="border-t border-panel-line pt-3">
-                    <dt className="text-small text-panel-muted">
-                      {r.name} · {r.rate.toLocaleString("ru-RU")} ₽/м²
-                    </dt>
-                    <dd className="t-lead mt-1">{r.sum}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="text-small mt-4 text-panel-muted">Это только работы: материалы и мебель считаются отдельно. Точную смету фиксируем в договоре после бесплатного замера.</p>
+              <p className="t-lead mt-4">
+                {rows[0].name} · {rows[0].sum}
+              </p>
+              <p className="text-small mt-2 text-panel-muted">Расчёт по тарифам «{rows.slice(1).map((r) => r.name).join("» и «")}» покажем сразу после отправки. Точную смету — после бесплатного замера.</p>
             </div>
           )}
-          <p className="t-lead">Куда прислать расчёт?</p>
-          <p className="text-small mt-2 mb-6 text-panel-muted">Перезвоним в рабочее время, уточним детали и договоримся о замере. Замер и смета — бесплатно.</p>
-          <LeadForm tone="dark" source={source} extra={`Квиз: ${extra}`} withName button="Получить расчёт" label="Отправить ответы квиза" />
+          {!sent && (
+            <>
+              <p className="t-lead">Куда прислать расчёт?</p>
+              <p className="text-small mt-2 mb-6 text-panel-muted">Перезвоним в рабочее время, уточним детали и договоримся о замере. Замер и смета — бесплатно.</p>
+            </>
+          )}
+          <LeadForm
+            tone="dark"
+            source={source}
+            extra={`Квиз: ${extra}`}
+            withName
+            button="Получить расчёт"
+            label="Отправить ответы квиза"
+            onSent={() => setSent(true)}
+            sent={
+              <div role="status">
+                <p className="t-lead">Заявка отправлена</p>
+                <p className="text-small mt-2 text-panel-muted">Перезвоним в рабочее время и договоримся о бесплатном замере.</p>
+                {rows && estimate && (
+                  <>
+                    <p className="caps mt-8 text-panel-muted">Ориентир по работам · {answers[estimate.questionId]}</p>
+                    <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      {rows.map((r) => (
+                        <div key={r.name} className="border-t border-panel-line pt-3">
+                          <dt className="text-small text-panel-muted">
+                            {r.name} · {r.rate.toLocaleString("ru-RU")} ₽/м²
+                          </dt>
+                          <dd className="t-lead mt-1">{r.sum}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <p className="text-small mt-4 text-panel-muted">Это только работы: материалы и мебель считаются отдельно. Точную смету фиксируем в договоре после замера.</p>
+                  </>
+                )}
+              </div>
+            }
+          />
+          <p className="text-small mt-6 text-panel-muted">
+            Не хотите звонка? <a href={site.contacts.telegram} target="_blank" rel="noopener" className="underline underline-offset-4 hover:text-panel-foreground">Напишите в Telegram</a> — пришлём расчёт в переписке.
+          </p>
         </div>
       )}
     </div>
