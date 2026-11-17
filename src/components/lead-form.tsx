@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -10,10 +10,33 @@ declare global {
   interface Window { ym?: (id: number, action: string, goal: string, params?: Record<string, unknown>) => void }
 }
 
-// variant="line" — для финальной заявки: телефон крупно ступенью title на сетке 9 колонок (col 4–12 секции), согласие и кнопка — по направляющим.
-type Props = { tone?: "light" | "dark"; variant?: "stack" | "line"; source: string; extra?: string; withName?: boolean; button?: string; label?: string; className?: string };
+// Метки рекламы первого входа (utm_*, yclid) — сохраняет скрипт в layout.tsx. Нужны, чтобы связать заявку с кампанией и фразой Директа.
+function readAttribution(): string {
+  try {
+    return sessionStorage.getItem("ud_attr") ?? "";
+  } catch {
+    return "";
+  }
+}
 
-export function LeadForm({ tone = "light", variant = "stack", source, extra, withName = false, button = "Получить консультацию", label = "Заявка на консультацию", className }: Props) {
+// ClientID Метрики — для загрузки офлайн-конверсий (звонок → договор) обратно в Метрику и Директ. Ждём не дольше 300 мс.
+function metrikaClientId(): Promise<string> {
+  return new Promise((resolve) => {
+    const ym = window.ym as unknown as ((id: number, action: string, cb: (id: string) => void) => void) | undefined;
+    if (!ym) return resolve("");
+    const timer = setTimeout(() => resolve(""), 300);
+    ym(site.metrikaId, "getClientID", (id) => {
+      clearTimeout(timer);
+      resolve(String(id ?? ""));
+    });
+  });
+}
+
+// sent — свой экран после отправки (квиз показывает на нём полный расчёт).
+// variant="line" — для финальной заявки: телефон крупно ступенью title на сетке 9 колонок (col 4–12 секции), согласие и кнопка — по направляющим.
+type Props = { tone?: "light" | "dark"; variant?: "stack" | "line"; source: string; extra?: string; withName?: boolean; button?: string; label?: string; className?: string; sent?: ReactNode; onSent?: () => void };
+
+export function LeadForm({ tone = "light", variant = "stack", source, extra, withName = false, button = "Получить консультацию", label = "Заявка на консультацию", className, sent, onSent }: Props) {
   const [state, setState] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const dark = tone !== "light";
 
@@ -24,12 +47,15 @@ export function LeadForm({ tone = "light", variant = "stack", source, extra, wit
     data.set("source", source);
     data.set("page", typeof location !== "undefined" ? location.pathname : "");
     if (extra) data.set("extra", extra);
+    data.set("attr", readAttribution());
+    data.set("ym_uid", await metrikaClientId());
     setState("sending");
     try {
       const res = await fetch("/api/lead.php", { method: "POST", body: data });
       if (!res.ok) throw new Error(String(res.status));
       setState("ok");
       form.reset();
+      onSent?.();
       window.ym?.(site.metrikaId, "reachGoal", "lead", { source });
     } catch {
       setState("error");
@@ -40,6 +66,7 @@ export function LeadForm({ tone = "light", variant = "stack", source, extra, wit
   const hint = dark ? "text-panel-muted" : "text-muted-foreground";
 
   const line = variant === "line";
+  if (state === "ok" && sent) return <>{sent}</>;
   if (state === "ok") {
     return (
       <div role="status" className={cn("border-t pt-6", dark ? "border-panel-line text-panel-foreground" : "border-foreground", className)}>

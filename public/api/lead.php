@@ -32,6 +32,9 @@ $lead = [
   'page'   => $clean('page', 200),
   'extra'  => $clean('extra', 500),
   'ip'     => $_SERVER['REMOTE_ADDR'] ?? '',
+  // Новые колонки — в конце строки CSV, старые файлы не ломаются
+  'attr'   => $clean('attr', 400),
+  'ym_uid' => preg_replace('/\D+/', '', $clean('ym_uid', 40)),
 ];
 
 // Простое ограничение частоты: не больше 5 заявок с одного IP за 10 минут
@@ -55,7 +58,8 @@ $text = (!empty($cfg['staging']) ? "ТЕСТ · " : '') . "Заявка с са�
   . ($lead['name'] ? "Имя: {$lead['name']}\n" : '')
   . "Телефон: {$lead['phone']}\n"
   . "Форма: {$lead['source']}\nСтраница: {$lead['page']}\n"
-  . ($lead['extra'] ? "{$lead['extra']}\n" : '');
+  . ($lead['extra'] ? "{$lead['extra']}\n" : '')
+  . ($lead['attr'] ? "Реклама: {$lead['attr']}\n" : '');
 
 $sent = false;
 $log = [];
