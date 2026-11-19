@@ -138,6 +138,10 @@
   "kitchen-living-room-zoning": {
    "tg": "https://t.me/uraldomaekb/43",
    "max": "off"
+  },
+  "ceiling-options": {
+   "tg": "https://t.me/uraldomaekb/44",
+   "max": "off"
   }
  },
  "edit_failed": {},
@@ -176,6 +180,7 @@
   "40": "1c64f5249c01",
   "41": "2ea860f66770",
   "42": "3332c98a5b0d",
-  "43": "6f5a69a5f610"
+  "43": "6f5a69a5f610",
+  "44": "4537935bc4b9"
  }
 }
