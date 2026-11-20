@@ -142,6 +142,10 @@
   "ceiling-options": {
    "tg": "https://t.me/uraldomaekb/44",
    "max": "off"
+  },
+  "renovation-acceptance-checklist": {
+   "tg": "https://t.me/uraldomaekb/45",
+   "max": "off"
   }
  },
  "edit_failed": {},
@@ -181,6 +185,7 @@
   "41": "2ea860f66770",
   "42": "3332c98a5b0d",
   "43": "6f5a69a5f610",
-  "44": "4537935bc4b9"
+  "44": "4537935bc4b9",
+  "45": "19a9df3f750d"
  }
 }
