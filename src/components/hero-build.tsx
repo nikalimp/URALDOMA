@@ -40,9 +40,12 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
       fetch(src).then((r) => r.blob()).then((b) => { blobUrl = URL.createObjectURL(b); v.src = blobUrl; v.load(); }).catch(() => { v.src = src; v.load(); });
       // iOS Safari не рисует кадры при перемотке, пока ролик ни разу не играл: короткий play/pause без звука «будит» декодер.
       // Если браузер запретил автозапуск, будим на первом касании или прокрутке.
-      let primed = false;
-      prime = () => { if (primed || !v.readyState) return; primed = true; v.play().then(() => { v.pause(); seek(); }).catch(() => { primed = false; }); };
+      let primed = false, signaled = false;
+      const signalReady = () => { if (signaled) return; signaled = true; dispatchEvent(new Event("hero-video-ready")); };
+      prime = () => { if (primed || !v.readyState) return; primed = true; signalReady(); v.play().then(() => { v.pause(); seek(); }).catch(() => { primed = false; }); };
       v.addEventListener("loadeddata", prime);
+      v.addEventListener("canplay", signalReady, { once: true });
+      v.addEventListener("error", signalReady, { once: true });
       addEventListener("touchstart", prime, { passive: true, once: true });
       addEventListener("scroll", prime, { passive: true });
     }

@@ -136,12 +136,12 @@ h1 em, h2 em, h3 em, .display em { font-family: var(--font-serif); font-style: i
 @keyframes parallax { from { transform: translateY(-5%) scale(1.1); } to { transform: translateY(5%) scale(1.1); } }
 @keyframes kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }
 
-/* Прелоадер (03-design §11): виден только при html[data-preload] */
+/* Прелоадер (03-design §11): виден только при html[data-preload]; ждёт загрузку hero-видео (до 4.8 с) */
 .preloader { display: none; }
-html[data-preload] .preloader { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: var(--background); color: var(--foreground); animation: preloader-out .45s cubic-bezier(.65,0,.35,1) 1.15s forwards; }
-html[data-preload] .preloader-fill { clip-path: inset(0 100% 0 0); animation: preloader-fill .95s cubic-bezier(.65,0,.35,1) .1s forwards; }
+html[data-preload] .preloader { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: var(--background); color: var(--foreground); opacity: 1; visibility: visible; transition: opacity .5s cubic-bezier(.65,0,.35,1), visibility .5s cubic-bezier(.65,0,.35,1); }
+html[data-preload="out"] .preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+html[data-preload] .preloader-fill { clip-path: inset(0 100% 0 0); animation: preloader-fill 2.2s cubic-bezier(.65,0,.35,1) .15s forwards; }
 @keyframes preloader-fill { to { clip-path: inset(0 0 0 0); } }
-@keyframes preloader-out { to { opacity: 0; visibility: hidden; } }
 
 /* Заливка текста по скроллу: слова, до которых не дошла прокрутка, полупрозрачные */
 .fill-word { transition: opacity .3s ease; }
