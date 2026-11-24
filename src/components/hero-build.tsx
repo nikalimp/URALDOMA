@@ -49,12 +49,24 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
       addEventListener("touchstart", prime, { passive: true, once: true });
       addEventListener("scroll", prime, { passive: true });
     }
-    // Ролик перематываем только по готовности кадра: новая цель во время перемотки ставится после события seeked.
-    // Последний кадр — чуть раньше конца: на самом конце часть браузеров показывает пустой кадр.
-    const at = () => (v ? Math.min(target * v.duration, v.duration - 0.05) : 0);
-    const seek = () => { if (v && v.duration && !v.seeking) v.currentTime = at(); };
-    v?.addEventListener("seeked", () => { if (Math.abs(v.currentTime - at()) > 0.04) seek(); });
-    v?.addEventListener("loadedmetadata", seek);
+    // Плавное ведение ролика по скроллу через lerp в одном rAF-цикле: колёсико мыши не дёргает кадры,
+    // а декодер получает не больше одного seek на кадр (в самом видео отключены B-кадры, -bf 0 -g 2).
+    let cur = 0, loop = 0;
+    const at = (p: number) => (v ? Math.min(p * v.duration, v.duration - 0.05) : 0);
+    const stepVideo = () => {
+      loop = 0;
+      if (!v || !v.duration) return;
+      const diff = target - cur;
+      cur = Math.abs(diff) < 0.0015 ? target : cur + diff * 0.18;
+      const want = at(cur);
+      if (!v.seeking && Math.abs(v.currentTime - want) > 0.025) v.currentTime = want;
+      if (Math.abs(target - cur) >= 0.0015 || Math.abs(v.currentTime - at(target)) > 0.04) {
+        loop = requestAnimationFrame(stepVideo);
+      }
+    };
+    const seek = () => { if (!loop) loop = requestAnimationFrame(stepVideo); };
+    v?.addEventListener("seeked", () => { if (Math.abs(v.currentTime - at(target)) > 0.04) seek(); });
+    v?.addEventListener("loadedmetadata", () => { cur = target; if (v) v.currentTime = at(cur); });
     const update = () => {
       const travel = el.offsetHeight - innerHeight;
       const p = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel));
@@ -71,7 +83,7 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
     update();
     addEventListener("scroll", on, { passive: true });
     addEventListener("resize", on);
-    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); removeEventListener("touchstart", prime); removeEventListener("scroll", prime); if (blobUrl) URL.revokeObjectURL(blobUrl); };
+    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); cancelAnimationFrame(raf); cancelAnimationFrame(loop); removeEventListener("touchstart", prime); removeEventListener("scroll", prime); if (blobUrl) URL.revokeObjectURL(blobUrl); };
   }, [steps.length, video, intro]);
 
   return (
