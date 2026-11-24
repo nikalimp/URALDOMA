@@ -69,12 +69,12 @@ export default function Home() {
       <main id="main" className="flex-1">
         {/* 1. Обложка: стройка по скроллу — кадр на весь экран, ролик от бетона до готовой кухни, поверх H1 и шаги (03-design §13) */}
         <HeroBuild photo={hero} video={site.heroVideo.src ? { ...site.heroVideo, alt: "Светлая гостиная с кухней после ремонта под ключ — визуализация" } : undefined} assembly={assembly} steps={buildSteps} intro={0.25}>
-          <p className="caps text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
-          <h1 className="t-title mt-6 max-w-[16ch]">
+          <p className="caps text-muted-foreground md:text-on-photo/80">Ремонт квартир · Екатеринбург · с 2016 года</p>
+          <h1 className="t-title mt-4 max-w-[16ch] md:mt-6">
             {h1a} <em>{h1b}</em>
           </h1>
-          <div className="mt-8 grid gap-y-6 md:grid-cols-12 md:items-end md:gap-x-gutter">
-            <p className="t-lead text-on-photo/90 md:col-span-6">От {formatRub(from)} за м². {home.lead}</p>
+          <div className="mt-5 grid gap-y-6 md:mt-8 md:grid-cols-12 md:items-end md:gap-x-gutter">
+            <p className="t-lead text-foreground/80 md:col-span-6 md:text-on-photo/90">От {formatRub(from)} за м². {home.lead}</p>
             
           </div>
         </HeroBuild>

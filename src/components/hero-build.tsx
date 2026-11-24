@@ -68,8 +68,9 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
     v?.addEventListener("seeked", () => { if (Math.abs(v.currentTime - at(target)) > 0.04) seek(); });
     v?.addEventListener("loadedmetadata", () => { cur = target; if (v) v.currentTime = at(cur); });
     const update = () => {
-      const travel = el.offsetHeight - innerHeight;
-      const p = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel));
+      const topOffset = innerWidth < 768 ? 64 : 0;
+      const travel = Math.max(1, el.offsetHeight - (innerHeight - topOffset));
+      const p = Math.min(1, Math.max(0, (topOffset - el.getBoundingClientRect().top) / travel));
       el.style.setProperty("--p", p.toFixed(3));
       el.style.setProperty("--q", Math.min(1, Math.max(0, (p - 0.12) / 0.8)).toFixed(3));
       target = p;
@@ -87,64 +88,68 @@ export function HeroBuild({ photo, video, frames, assembly, steps, intro = 0.12,
   }, [steps.length, video, intro]);
 
   return (
-    <section ref={sec} aria-label="Первый экран" className="hero-build relative -mt-[64px] h-[400svh] md:-mt-[72px] md:h-[500svh]">
-      <div className="sticky top-0 h-svh overflow-hidden bg-secondary">
-        {video ? (
-          <>
-            {/* Ролик без src в HTML: его подставляет скрипт из Blob. Без JS и при «уменьшить движение» — финальный кадр картинкой */}
-            <video ref={vid} className="hero-video absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={video.end} alt={video.alt} width={1920} height={1080} loading="lazy" decoding="async" className="hero-video-end absolute inset-0 size-full object-cover" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <noscript><img src={video.end} alt="" aria-hidden="true" width={1920} height={1080} className="absolute inset-0 size-full object-cover" /></noscript>
-          </>
-        ) : assembly ? (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={assembly.base.src} srcSet={`${assembly.base.small} 960w, ${assembly.base.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="build-frame absolute inset-0 size-full object-cover" />
-            {assembly.parts.map((part, k) => (
+    <section ref={sec} aria-label="Первый экран" className="hero-build relative h-[380svh] md:-mt-[72px] md:h-[500svh]">
+      <div className="sticky top-[64px] flex h-[calc(100svh-64px)] flex-col overflow-hidden bg-background pb-16 md:top-0 md:block md:h-svh md:bg-secondary md:pb-0">
+        {/* На телефоне — горизонтальный 16:9 кадр с отступами сверху экрана; на десктопе — во весь экран */}
+        <div className="relative mx-[var(--page-pad-mobile)] mt-4 aspect-video shrink-0 overflow-hidden bg-secondary md:static md:mx-0 md:mt-0 md:aspect-auto md:size-full">
+          {video ? (
+            <>
+              {/* Ролик без src в HTML: его подставляет скрипт из Blob. Без JS и при «уменьшить движение» — финальный кадр картинкой */}
+              <video ref={vid} className="hero-video absolute inset-0 size-full object-cover" muted playsInline preload="auto" poster={video.poster} aria-hidden="true" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={video.end} alt={video.alt} width={1920} height={1080} loading="lazy" decoding="async" className="hero-video-end absolute inset-0 size-full object-cover" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <noscript><img src={video.end} alt="" aria-hidden="true" width={1920} height={1080} className="absolute inset-0 size-full object-cover" /></noscript>
+            </>
+          ) : assembly ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={assembly.base.src} srcSet={`${assembly.base.small} 960w, ${assembly.base.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="build-frame absolute inset-0 size-full object-cover" />
+              {assembly.parts.map((part, k) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={k} src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" decoding="async"
+                  className="build-frame build-part absolute inset-0 size-full object-cover"
+                  style={{ "--t": `clamp(0, calc((var(--q) - ${part.from}) / ${(part.to - part.from).toFixed(3)}), 1)`, "--dy": `${part.dy}%`, maskImage: maskUrl(part.points), WebkitMaskImage: maskUrl(part.points) } as React.CSSProperties} />
+              ))}
+              {/* В конце — финальное фото целиком: свет, тени и стыки масок сходятся в настоящий кадр */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt={assembly.final.alt} width={1920} height={1080} loading="eager" decoding="async"
+                className="build-frame absolute inset-0 size-full object-cover" style={{ opacity: "clamp(0, calc((var(--q) - .9) / .1), 1)" } as React.CSSProperties} />
+            </>
+          ) : frames && frames.length > 1 ? (
+            // Кадр k проявляется поверх предыдущего в первые 40 % своего шага и держится до следующего; --q — доля после обложки (0…1)
+            frames.map((f, k) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={k} src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt="" aria-hidden="true" width={1920} height={1080} loading="eager" decoding="async"
-                className="build-frame build-part absolute inset-0 size-full object-cover"
-                style={{ "--t": `clamp(0, calc((var(--q) - ${part.from}) / ${(part.to - part.from).toFixed(3)}), 1)`, "--dy": `${part.dy}%`, maskImage: maskUrl(part.points), WebkitMaskImage: maskUrl(part.points) } as React.CSSProperties} />
-            ))}
-            {/* В конце — финальное фото целиком: свет, тени и стыки масок сходятся в настоящий кадр */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={assembly.final.src} srcSet={`${assembly.final.small} 960w, ${assembly.final.src} 1920w`} sizes="100vw" alt={assembly.final.alt} width={1920} height={1080} loading="eager" decoding="async"
-              className="build-frame absolute inset-0 size-full object-cover" style={{ opacity: "clamp(0, calc((var(--q) - .9) / .1), 1)" } as React.CSSProperties} />
-          </>
-        ) : frames && frames.length > 1 ? (
-          // Кадр k проявляется поверх предыдущего в первые 40 % своего шага и держится до следующего; --q — доля после обложки (0…1)
-          frames.map((f, k) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={f.src} src={f.src} srcSet={`${f.small} 960w, ${f.src} 1920w`} sizes="100vw" alt={k === frames.length - 1 ? f.alt : ""} aria-hidden={k === frames.length - 1 ? undefined : true}
-              width={1920} height={1080} loading={k < 2 ? "eager" : "lazy"} decoding="async"
-              className="build-frame absolute inset-0 size-full object-cover"
-              style={k === 0 ? undefined : { opacity: `clamp(0, calc((var(--q) * ${frames.length - 1} - ${k - 1}) * 2.5), 1)` } as React.CSSProperties} />
-          ))
-        ) : (
-          <div className="hero-build-photo absolute inset-0"><Img p={photo} eager wide sizes="100vw" /></div>
-        )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-scrim/70 via-scrim/10 to-scrim/0" aria-hidden="true" />
+              <img key={f.src} src={f.src} srcSet={`${f.small} 960w, ${f.src} 1920w`} sizes="100vw" alt={k === frames.length - 1 ? f.alt : ""} aria-hidden={k === frames.length - 1 ? undefined : true}
+                width={1920} height={1080} loading={k < 2 ? "eager" : "lazy"} decoding="async"
+                className="build-frame absolute inset-0 size-full object-cover"
+                style={k === 0 ? undefined : { opacity: `clamp(0, calc((var(--q) * ${frames.length - 1} - ${k - 1}) * 2.5), 1)` } as React.CSSProperties} />
+            ))
+          ) : (
+            <div className="hero-build-photo absolute inset-0"><Img p={photo} eager wide sizes="100vw" /></div>
+          )}
+          <div className="pointer-events-none hidden absolute inset-0 bg-gradient-to-t from-scrim/70 via-scrim/10 to-scrim/0 md:block" aria-hidden="true" />
+        </div>
 
-        <Container className="absolute inset-x-0 bottom-0 pb-20 text-on-photo md:pb-14">
-          <div className="relative min-h-[46svh] md:min-h-[52svh]">
+        {/* Шкала прогресса: четыре деления — обложка и три шага */}
+        <ol aria-hidden="true" className="mx-[var(--page-pad-mobile)] mt-4 flex gap-2 md:absolute md:top-[104px] md:right-[var(--page-pad)] md:mx-0 md:mt-0">
+          {[0, ...steps.map((_, i) => i + 1)].map((k) => (
+            <li key={k} className={`h-[2px] flex-1 transition-colors duration-500 md:w-12 md:flex-none ${k <= step ? "bg-foreground md:bg-on-photo" : "bg-foreground/20 md:bg-on-photo/30"}`} />
+          ))}
+        </ol>
+
+        <Container className="relative flex flex-1 flex-col justify-end pb-4 text-foreground md:absolute md:inset-x-0 md:bottom-0 md:block md:pb-14 md:text-on-photo">
+          <div className="relative h-full min-h-[240px] md:h-auto md:min-h-[52svh]">
             <div className={`build-layer ${step === 0 ? "is-on" : ""}`}>{children}</div>
             {steps.map((s, i) => (
               <div key={s.n} className={`build-layer ${step === i + 1 ? "is-on" : ""}`}>
-                <p className="caps text-on-photo/80">{s.n} / {String(steps.length).padStart(2, "0")}</p>
-                <h2 className="t-title mt-6 max-w-[14ch]">{s.title}</h2>
-                <p className="t-lead mt-6 max-w-[36ch] text-on-photo/90">{s.text}</p>
+                <p className="caps text-muted-foreground md:text-on-photo/80">{s.n} / {String(steps.length).padStart(2, "0")}</p>
+                <h2 className="t-title mt-4 max-w-[14ch] md:mt-6">{s.title}</h2>
+                <p className="t-lead mt-4 max-w-[36ch] text-foreground/80 md:mt-6 md:text-on-photo/90">{s.text}</p>
               </div>
             ))}
           </div>
         </Container>
-        {/* Шкала прогресса: четыре деления — обложка и три шага */}
-        <ol aria-hidden="true" className="absolute top-[88px] right-[var(--page-pad-mobile)] flex gap-2 md:top-[104px] md:right-[var(--page-pad)]">
-          {[0, ...steps.map((_, i) => i + 1)].map((k) => (
-            <li key={k} className={`h-[2px] w-8 transition-colors duration-500 md:w-12 ${k <= step ? "bg-on-photo" : "bg-on-photo/30"}`} />
-          ))}
-        </ol>
       </div>
     </section>
   );
