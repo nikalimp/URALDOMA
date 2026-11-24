@@ -28,6 +28,7 @@ function estimateRows(e: Estimate, options: string[], answer?: string) {
 export function Quiz({ questions, source, estimate, title = "Рассчитаем стоимость ремонта вашей квартиры" }: { questions: Q[]; source: string; estimate?: Estimate; title?: string }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [channel, setChannel] = useState<"Telegram" | "WhatsApp" | "Позвонить">("Telegram");
   const [sent, setSent] = useState(false);
   const total = questions.length;
   const done = step >= total;
@@ -81,33 +82,48 @@ export function Quiz({ questions, source, estimate, title = "Рассчитае�
         </fieldset>
       ) : (
         <div className="mt-8">
-          {!sent && rows && estimate && (
-            <div className="mb-8 border-b border-panel-line pb-8">
-              <p className="caps text-panel-muted">Ориентир по работам · {answers[estimate.questionId]}</p>
-              <p className="t-lead mt-4">
-                {rows[0].name} · {rows[0].sum}
-              </p>
-              <p className="text-small mt-2 text-panel-muted">Расчёт по тарифам «{rows.slice(1).map((r) => r.name).join("» и «")}» покажем сразу после отправки. Точную смету — после бесплатного замера.</p>
-            </div>
-          )}
           {!sent && (
             <>
-              <p className="t-lead">Куда прислать расчёт?</p>
-              <p className="text-small mt-2 mb-6 text-panel-muted">Перезвоним в рабочее время, уточним детали и договоримся о замере. Замер и смета — бесплатно.</p>
+              <p className="t-lead">Расчёт по 3 тарифам готов</p>
+              <p className="text-small mt-2 text-panel-muted">Покажем ориентир по вашей площади сразу на экране и пришлём подробную смету удобным способом. Без навязчивых звонков.</p>
+              <div className="mt-6 mb-6">
+                <p className="caps text-panel-muted">Куда прислать смету?</p>
+                <div className="mt-3 grid grid-cols-3 gap-2">
+                  {(["Telegram", "WhatsApp", "Позвонить"] as const).map((ch) => (
+                    <button
+                      key={ch}
+                      type="button"
+                      onClick={() => setChannel(ch)}
+                      aria-pressed={channel === ch}
+                      className={cn(
+                        "text-small min-h-[44px] border px-3 py-2 font-medium transition-colors",
+                        channel === ch
+                          ? "border-panel-foreground bg-panel-foreground text-panel"
+                          : "border-panel-line text-panel-muted hover:border-panel-foreground hover:text-panel-foreground",
+                      )}
+                    >
+                      {ch}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </>
           )}
           <LeadForm
             tone="dark"
             source={source}
-            extra={`Квиз: ${extra}`}
-            withName
-            button="Получить расчёт"
+            extra={`Способ связи: ${channel}; Квиз: ${extra}`}
+            button="Показать расчёт по 3 тарифам"
             label="Отправить ответы квиза"
             onSent={() => setSent(true)}
             sent={
               <div role="status">
                 <p className="t-lead">Заявка отправлена</p>
-                <p className="text-small mt-2 text-panel-muted">Перезвоним в рабочее время и договоримся о бесплатном замере.</p>
+                <p className="text-small mt-2 text-panel-muted">
+                  {channel === "Позвонить"
+                    ? "Перезвоним в рабочее время и договоримся о бесплатном замере."
+                    : `Пришлём подробную смету и примеры похожих квартир в ${channel} в рабочее время.`}
+                </p>
                 {rows && estimate && (
                   <>
                     <p className="caps mt-8 text-panel-muted">Ориентир по работам · {answers[estimate.questionId]}</p>
@@ -127,9 +143,11 @@ export function Quiz({ questions, source, estimate, title = "Рассчитае�
               </div>
             }
           />
-          <p className="text-small mt-6 text-panel-muted">
-            Не хотите звонка? <a href={site.contacts.telegram} target="_blank" rel="noopener" className="underline underline-offset-4 hover:text-panel-foreground">Напишите в Telegram</a> — пришлём расчёт в переписке.
-          </p>
+          {!sent && (
+            <p className="text-small mt-6 text-panel-muted">
+              Или напишите сразу в <a href={site.contacts.telegram} target="_blank" rel="noopener" className="underline underline-offset-4 hover:text-panel-foreground">Telegram</a> — ответим в переписке.
+            </p>
+          )}
         </div>
       )}
     </div>
