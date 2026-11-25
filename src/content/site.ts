@@ -72,8 +72,16 @@ export const nav = [
   { href: "/services/", label: "Услуги" },
   { href: "/prices/", label: "Цены" },
   { href: "/portfolio/", label: "Портфолио" },
+  { href: "/knowledge/", label: "База знаний" },
   { href: "/about/", label: "О компании" },
-  { href: "/articles/", label: "Статьи" },
+];
+
+export const knowledgeNav = [
+  { href: "/materials/", label: "Материалы", desc: "Справочник покрытий, брендов и цен" },
+  { href: "/tools/", label: "Инструменты", desc: "Калькуляторы, чеклист и конструктор ТЗ" },
+  { href: "/glossary/", label: "Глоссарий", desc: "Термины ремонта простыми словами" },
+  { href: "/compare/", label: "Сравнения", desc: "Разбор альтернатив «X или Y»" },
+  { href: "/articles/", label: "Статьи", desc: "Подробные руководства и кейсы" },
 ];
 
 export const footerNav = [
@@ -81,6 +89,11 @@ export const footerNav = [
   { href: "/how-we-work/", label: "Как мы работаем" },
   { href: "/warranty/", label: "Гарантия и договор" },
   { href: "/complexes/", label: "Ремонт в ЖК" },
+  { href: "/knowledge/", label: "База знаний" },
+  { href: "/materials/", label: "Материалы" },
+  { href: "/tools/", label: "Калькуляторы и инструменты" },
+  { href: "/glossary/", label: "Глоссарий" },
+  { href: "/compare/", label: "Сравнения решений" },
   { href: "/careers/", label: "Вакансии" },
   { href: "/partners/", label: "Партнёрская программа" },
   { href: "/contacts/", label: "Контакты" },

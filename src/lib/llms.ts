@@ -4,6 +4,10 @@ import { services } from "@/content/services";
 import { about, home } from "@/content/home";
 import { tariffs, formatRub, paymentTerms } from "@/content/tariffs";
 import { complexes } from "@/content/complexes";
+import { materials } from "@/content/materials";
+import { tools } from "@/content/tools";
+import { glossary } from "@/content/glossary";
+import { comparisons } from "@/content/compare";
 import { stages } from "@/content/process";
 import { getPosts } from "./posts";
 
@@ -43,6 +47,16 @@ ${tariffs.map((t) => `- Тариф «${t.name}»: ${formatRub(t.rate)} за м²
 - [Карта ЖК и посёлков](${site.url}/complexes/)
 ${complexes.filter((c) => c.cases.length > 0).map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/) — наши объекты`).join("\n")}
 ${complexes.filter((c) => c.cases.length === 0).map((c) => `- [${c.h1}](${site.url}/complexes/${c.slug}/)`).join("\n")}
+
+## База знаний: материалы, инструменты, глоссарий, сравнения
+- [База знаний](${site.url}/knowledge/)
+- [Справочник материалов (${materials.length})](${site.url}/materials/)
+${materials.map((m) => `  - [${m.name}](${site.url}/materials/${m.slug}/): ${m.priceRange}.`).join("\n")}
+- [Бесплатные калькуляторы и инструменты (${tools.length})](${site.url}/tools/)
+${tools.map((t) => `  - [${t.name}](${site.url}/tools/${t.slug}/): ${t.short}`).join("\n")}
+- [Глоссарий терминов (${glossary.length})](${site.url}/glossary/)
+- [Сравнения решений «X или Y» (${comparisons.length})](${site.url}/compare/)
+${comparisons.map((c) => `  - [${c.h1}](${site.url}/compare/${c.slug}/)`).join("\n")}
 
 ## О компании
 - [О компании](${site.url}/about/): ${site.tagline}

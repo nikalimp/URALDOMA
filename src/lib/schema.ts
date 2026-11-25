@@ -133,3 +133,56 @@ export function itemList(name: string, items: { name: string; path: string }[]) 
     itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: `${site.url}${it.path}` })),
   };
 }
+
+export function techArticleSchema(p: { path: string; title: string; description: string }) {
+  return {
+    "@type": "TechArticle",
+    headline: p.title,
+    description: p.description,
+    url: `${site.url}${p.path}`,
+    inLanguage: "ru-RU",
+    author: site.person ? { "@id": personId } : { "@id": orgId },
+    publisher: { "@id": orgId },
+    mainEntityOfPage: `${site.url}${p.path}`,
+  };
+}
+
+export function softwareAppSchema(p: { path: string; name: string; description: string }) {
+  return {
+    "@type": "SoftwareApplication",
+    name: p.name,
+    description: p.description,
+    url: `${site.url}${p.path}`,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Web",
+    inLanguage: "ru-RU",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "RUB" },
+    publisher: { "@id": orgId },
+  };
+}
+
+export function definedTermSetSchema(items: { slug: string; term: string; definition: string }[]) {
+  return {
+    "@type": "DefinedTermSet",
+    "@id": `${site.url}/glossary/#set`,
+    name: "Глоссарий ремонта и дизайна квартир — URALDOMA",
+    url: `${site.url}/glossary/`,
+    inLanguage: "ru-RU",
+    hasDefinedTerm: items.map((it) => ({
+      "@type": "DefinedTerm",
+      name: it.term,
+      description: it.definition,
+      url: `${site.url}/glossary/${it.slug}/`,
+    })),
+  };
+}
+
+export function definedTermSchema(it: { slug: string; term: string; definition: string }) {
+  return {
+    "@type": "DefinedTerm",
+    name: it.term,
+    description: it.definition,
+    url: `${site.url}/glossary/${it.slug}/`,
+    inDefinedTermSet: `${site.url}/glossary/#set`,
+  };
+}

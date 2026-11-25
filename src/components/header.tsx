@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav, site } from "@/content/site";
+import { knowledgeNav, nav, site } from "@/content/site";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "./logo";
 import { NavLink } from "./nav-link";
@@ -17,6 +17,15 @@ function MobileMenu() {
           {nav.map((n) => (
             <li key={n.href} className="border-b border-border">
               <NavLink href={n.href} prefix className="t-lead block py-4" active="text-brand">{n.label}</NavLink>
+              {n.href === "/knowledge/" && (
+                <ul className="mb-4 grid grid-cols-2 gap-x-4 gap-y-2 pl-3">
+                  {knowledgeNav.map((k) => (
+                    <li key={k.href}>
+                      <NavLink href={k.href} prefix className="text-small block py-1 text-muted-foreground hover:text-foreground" active="text-brand">{k.label}</NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
@@ -32,10 +41,30 @@ export function Header() {
     <header className="glass sticky top-0 z-40 border-b border-border">
       <div className="grid h-[64px] grid-cols-[auto_1fr_auto] items-center gap-x-5 px-5 md:h-[72px] md:grid-cols-12 md:px-10">
         <Link href="/" aria-label="URALDOMA — на главную" className="shrink-0"><Logo /></Link>
-        <nav aria-label="Основное меню" className="caps hidden gap-6 xl:col-span-5 xl:col-start-4 xl:flex">
-          {nav.map((n) => (
-            <NavLink key={n.href} href={n.href} prefix className="relative py-2 text-muted-foreground transition-colors hover:text-foreground" active="text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-foreground">{n.label}</NavLink>
-          ))}
+        <nav aria-label="Основное меню" className="caps hidden items-center gap-6 xl:col-span-5 xl:col-start-4 xl:flex">
+          {nav.map((n) =>
+            n.href === "/knowledge/" ? (
+              <div key={n.href} className="group/k relative py-2">
+                <NavLink href={n.href} prefix className="relative inline-flex items-center gap-1 py-2 text-muted-foreground transition-colors hover:text-foreground" active="text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-foreground">
+                  {n.label}
+                </NavLink>
+                <div className="pointer-events-none invisible absolute left-0 top-full z-50 w-72 border border-border bg-background p-2 opacity-0 shadow-sm transition-all group-focus-within/k:pointer-events-auto group-focus-within/k:visible group-focus-within/k:opacity-100 group-hover/k:pointer-events-auto group-hover/k:visible group-hover/k:opacity-100">
+                  <ul className="normal-case tracking-normal">
+                    {knowledgeNav.map((k) => (
+                      <li key={k.href}>
+                        <Link href={k.href} className="block px-3 py-2.5 transition-colors hover:bg-secondary">
+                          <span className="text-small block font-medium text-foreground">{k.label}</span>
+                          <span className="mt-0.5 block text-[12px] text-muted-foreground">{k.desc}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <NavLink key={n.href} href={n.href} prefix className="relative py-2 text-muted-foreground transition-colors hover:text-foreground" active="text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-foreground">{n.label}</NavLink>
+            ),
+          )}
         </nav>
         <div className="col-start-3 flex items-center justify-end gap-2 whitespace-nowrap md:col-span-4 md:col-start-9 md:gap-3">
           <a href={`tel:${site.contacts.phone}`} className="hidden text-small xl:block">{site.contacts.phoneDisplay}</a>

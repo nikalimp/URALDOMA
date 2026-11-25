@@ -3,6 +3,10 @@ import { site } from "@/content/site";
 import { services } from "@/content/services";
 import { cases, caseReady } from "@/content/cases";
 import { complexes } from "@/content/complexes";
+import { materials } from "@/content/materials";
+import { tools } from "@/content/tools";
+import { glossary } from "@/content/glossary";
+import { comparisons } from "@/content/compare";
 import { getPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
@@ -24,6 +28,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cases.filter(caseReady).map((c) => u(`/portfolio/${c.slug}/`, 0.6)),
     u("/complexes/", 0.7),
     ...complexes.map((c) => u(`/complexes/${c.slug}/`, 0.7)),
+    u("/knowledge/", 0.8),
+    u("/materials/", 0.8),
+    ...materials.map((m) => u(`/materials/${m.slug}/`, 0.7)),
+    u("/tools/", 0.8),
+    ...tools.map((t) => u(`/tools/${t.slug}/`, 0.7)),
+    u("/glossary/", 0.7),
+    ...glossary.map((g) => u(`/glossary/${g.slug}/`, 0.6)),
+    u("/compare/", 0.8),
+    ...comparisons.map((c) => u(`/compare/${c.slug}/`, 0.7)),
     u("/about/", 0.6),
     u("/contacts/", 0.6),
     u("/careers/", 0.4),
