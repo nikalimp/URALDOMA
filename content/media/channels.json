@@ -158,6 +158,10 @@
   "beauty-salon-renovation": {
    "tg": "https://t.me/uraldomaekb/48",
    "max": "off"
+  },
+  "retail-store-renovation": {
+   "tg": "https://t.me/uraldomaekb/49",
+   "max": "off"
   }
  },
  "edit_failed": {},
@@ -201,6 +205,7 @@
   "45": "19a9df3f750d",
   "46": "036e9ba9d8b8",
   "47": "d87fc5d86785",
-  "48": "9c2a2a17e26a"
+  "48": "9c2a2a17e26a",
+  "49": "fc49d7db8ad4"
  }
 }
