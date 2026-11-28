@@ -1,6 +1,6 @@
 {
  "host": "uraldoma.ru",
- "generated": "2026-11-28T08:16:53.046Z",
+ "generated": "2026-11-28T12:51:44.490Z",
  "period": [
   "2026-10-31",
   "2026-11-27"
@@ -26,7 +26,7 @@
    "count": 0,
    "queries": [],
    "date_from": "2026-10-31",
-   "date_to": "2026-11-24"
+   "date_to": "2026-11-25"
   },
   "history": {
    "indicators": {
